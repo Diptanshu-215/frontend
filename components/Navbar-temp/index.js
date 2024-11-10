@@ -175,6 +175,17 @@ function Navigation() {
                                 Fest Pass
                             </Link>
                         </li> */}
+                         <li
+                            style={
+                                router.pathname === '/events'
+                                    ? { borderBottom: '3px solid white' }
+                                    : null
+                            }
+                        >
+                            <Link className={styles.linknav} href="/events">
+                                Events
+                            </Link>
+                        </li>
                         <li
                             style={
                                 router.pathname === '/contact'
@@ -237,7 +248,7 @@ function Navigation() {
                                 About Us
                             </Link>
                         </li>
-                        <li
+                        {/* <li
                             style={
                                 router.pathname === '/metaverse'
                                     ? { borderBottom: '3px solid white' }
@@ -247,7 +258,7 @@ function Navigation() {
                             <Link className={styles.linknav} href="/metaverse">
                                 Metaverse
                             </Link>
-                        </li>
+                        </li> */}
                         {/* <li>
                             {userData.isAuth ? (
                                 <div className={styles.user_container}>
@@ -284,6 +295,9 @@ function Navigation() {
                         </li> */}
                     </ul>
                 </div>
+                <div id='getCardsButton'>
+                    <button className={styles.getcardsbutton}> Get Cards</button>
+                </div>
             </div>
 
             <div id="drawer" className={styles.nav_drawer}>
@@ -310,6 +324,11 @@ function Navigation() {
                         </Link>
                     </li> */}
                     <li>
+                        <Link href="/events" onClick={() => toggleDrawer()}>
+                            Events
+                        </Link>
+                    </li>
+                    <li>
                         <Link href="/gallery" onClick={() => toggleDrawer()}>
                             Gallery
                         </Link>
@@ -319,6 +338,7 @@ function Navigation() {
                             Contact Us
                         </Link>
                     </li>
+
                     <li>
                         <Link href="/ourteam" onClick={() => toggleDrawer()}>
                             Team
