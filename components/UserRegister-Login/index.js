@@ -105,7 +105,7 @@ const UserRegisterForm = () => {
             )
             return
         }
-        let isproff = ""
+        let isproff = ''
         for (let i = 0; i < details.length; i++) {
             if (details[i].webmail === email) {
                 // setUserType('faculty')
@@ -142,19 +142,16 @@ const UserRegisterForm = () => {
             if (response.status === 201 || response.status === 200) {
                 const data = await response.json()
                 setLoading(false)
-                toast.success(
-                    'Registered Successfully',
-                    {
-                        position: 'top-right',
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'light',
-                    }
-                )
+                toast.success('Registered Successfully', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                })
                 router.push('/userLogin')
             } else if (response.status === 409) {
                 const data = await response.json()
@@ -198,8 +195,7 @@ const UserRegisterForm = () => {
     }
 
     return (
-        <div
-        >
+        <div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -212,7 +208,7 @@ const UserRegisterForm = () => {
                 pauseOnHover
                 theme="light"
             />
-            <div className={styles.form} >
+            <div className={styles.form}>
                 <motion.form
                     className={styles.mainForm}
                     style={{ top: 75 }}
@@ -220,38 +216,46 @@ const UserRegisterForm = () => {
                     whileInView={{ opacity: 1, x: '0%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>REGISTER</h2>
+                    <div
+                        style={{
+                            letterSpacing: 1,
+                            fontSize: 30,
+                            marginRight: 'auto',
+                        }}
+                    >
+                        Create Your Account
+                    </div>
                     <div className={styles.field}>
-                        <label htmlFor="full_name">Full Name</label>
+                        <label htmlFor="full_name"> Name</label>
                         <br />
                         <input
                             type="text"
                             name="Full_Name"
-                            placeholder="Eg: Vineet Kumar Singh"
+                            placeholder="Enter your name"
                             onChange={(e) => setName(e.target.value)}
                             required
                         />
                         <br />
                     </div>
-                    {/* <div className={styles.field}>
+                    <div className={styles.field}>
                         <label htmlFor="email_id">Email ID</label>
                         <br />
                         <input
                             type="email"
                             name="Email_Id"
-                            placeholder="Eg: vineet@gmail.com"
+                            placeholder="Enter your email address"
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                         <br />
-                    </div> */}
+                    </div>
                     <div className={styles.field}>
                         <label htmlFor="Phone_number">Phone Number</label>
                         <br />
                         <input
                             type="text"
                             name="Phone_Number"
-                            placeholder="Eg: 9835486875"
+                            placeholder="Enter your phone number"
                             required
                             maxLength="10"
                             onChange={(e) => setPhone(e.target.value)}
@@ -259,7 +263,7 @@ const UserRegisterForm = () => {
                         <br />
                     </div>
                     <br />
-                    <div
+                    {/* <div
                         style={{
                             display: 'flex',
                             flexDirection: 'row',
@@ -286,7 +290,6 @@ const UserRegisterForm = () => {
                             }}
                         />{' '}
                         I am from IIT Patna
-
                     </div>
                     <br />
                     {(() => {
@@ -304,7 +307,7 @@ const UserRegisterForm = () => {
                                             onChange={(e) =>
                                                 setEmail(
                                                     e.target.value.toLowerCase() +
-                                                    '@iitp.ac.in'
+                                                        '@iitp.ac.in'
                                                 )
                                             }
                                             required
@@ -372,32 +375,34 @@ const UserRegisterForm = () => {
                                 required
                             />
                         </div>
-                    ) : null}
-                    <div className={styles.field}>
-                        <label htmlFor="password">Password</label>
-                        <br />
-                        <input
-                            type={passwordShown ? 'text' : 'password'}
-                            name="Password"
-                            // placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                        <br />
+                    ) : null} */}
+                    <div className={styles.passwd_box}>
+                        <div className={styles.field}>
+                            <label htmlFor="password">Password</label>
+                            <br />
+                            <input
+                                type={passwordShown ? 'text' : 'password'}
+                                name="Password"
+                                placeholder="Create a password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            <br />
+                        </div>
+                        <div className={styles.field}>
+                            <label htmlFor="password">Confirm Password</label>
+                            <br />
+                            <input
+                                type={passwordShown ? 'text' : 'password'}
+                                name="Password"
+                                placeholder="Confirm your Password"
+                                onChange={(e) => setCnfPassword(e.target.value)}
+                                required
+                            />
+                            <br />
+                        </div>
                     </div>
-                    <div className={styles.field}>
-                        <label htmlFor="password">Confirm Password</label>
-                        <br />
-                        <input
-                            type={passwordShown ? 'text' : 'password'}
-                            name="Password"
-                            // placeholder="Confirm Password"
-                            onChange={(e) => setCnfPassword(e.target.value)}
-                            required
-                        />
-                        <br />
-                    </div>
-                    <div
+                    {/* <div
                         style={{
                             display: 'flex',
                             flexDirection: 'row',
@@ -438,7 +443,8 @@ const UserRegisterForm = () => {
                                 onChange={() => {
                                     setNewsletter((prev) => !prev)
                                 }}
-                            />&nbsp;
+                            />
+                            &nbsp;
                             <span>
                                 Subscribe to the&nbsp;{' '}
                                 <strong>Anwesha Dispatch</strong>{' '}
@@ -464,15 +470,23 @@ const UserRegisterForm = () => {
                                 onChange={() => {
                                     setTerms((prev) => !prev)
                                 }}
-                            />&nbsp;
+                            />
+                            &nbsp;
                             <span>
                                 I accept the&nbsp;{' '}
-                                <a href="/terms" target="_blank" style={{ color: '#ffffff', fontWeight: 600 }}>
+                                <a
+                                    href="/terms"
+                                    target="_blank"
+                                    style={{
+                                        color: '#ffffff',
+                                        fontWeight: 600,
+                                    }}
+                                >
                                     Terms and Conditions
                                 </a>{' '}
                             </span>
                         </div>
-                    </div>
+                    </div> */}
 
                     <motion.div
                         className={styles.buttonWrapper}
@@ -502,8 +516,9 @@ const UserRegisterForm = () => {
                         </button>
                     </motion.div>
                     <br />
-                    <p style={{ textAlign: "center", fontWeight: "400" }}>
-                        <strong>FOR IITP STUDS-- </strong>verify you college email in Slick app to be able to&nbsp;
+                    {/* <p style={{ textAlign: 'center', fontWeight: '400' }}>
+                        <strong>FOR IITP STUDS-- </strong>verify you college
+                        email in Slick app to be able to&nbsp;
                         <Link
                             href="/userLogin"
                             style={{ color: '#ffffff', fontWeight: 600 }}
@@ -512,9 +527,9 @@ const UserRegisterForm = () => {
                         </Link>
                         &nbsp; ; check spam/junk folder for slick otp
                     </p>
-                    <br />
+                    <br /> */}
                     <p>
-                        Already have an account? &nbsp;
+                        Already registered? &nbsp;
                         <Link
                             href="/userLogin"
                             style={{ color: '#ffffff', fontWeight: 600 }}
@@ -523,7 +538,7 @@ const UserRegisterForm = () => {
                         </Link>
                     </p>
                     <br />
-                    <p>
+                    {/* <p>
                         Trouble logging in? &nbsp;
                         <Link
                             href="https://forms.gle/67XktxG9iTFgfT9n9"
@@ -531,7 +546,7 @@ const UserRegisterForm = () => {
                         >
                             Reach out to us here.
                         </Link>
-                    </p>
+                    </p> */}
                 </motion.form>
             </div>
         </div>

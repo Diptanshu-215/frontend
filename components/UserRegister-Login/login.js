@@ -14,41 +14,38 @@ const UserLoginForm = () => {
     const [password, setPassword] = React.useState('')
     const [passwordShown, setPasswordShown] = React.useState(false)
 
-
-
     useEffect(() => {
-        const frame = document.createElement("iframe");
-        frame.id = "3pc";
-        frame.src = "https://chamithrepo.github.io/create-third-party-cookie/"; //Add your hosted domain url here
-        frame.style.display = "none";
-        frame.style.position = "fixed";
-        document.body.appendChild(frame);
+        const frame = document.createElement('iframe')
+        frame.id = '3pc'
+        frame.src = 'https://chamithrepo.github.io/create-third-party-cookie/' //Add your hosted domain url here
+        frame.style.display = 'none'
+        frame.style.position = 'fixed'
+        document.body.appendChild(frame)
 
         window.addEventListener(
-            "message",
+            'message',
             function listen(event) {
-                if (event.data === "3pcUnsupported") {
-                    document.body.removeChild(frame);
-                    window.removeEventListener("message", listen);
-                    toast.error('Please Enable third party cookies to be able to Login (go to browser settings)', {
-                        position: 'top-right',
-                        autoClose: 10000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'light',
-                    });
+                if (event.data === '3pcUnsupported') {
+                    document.body.removeChild(frame)
+                    window.removeEventListener('message', listen)
+                    toast.error(
+                        'Please Enable third party cookies to be able to Login (go to browser settings)',
+                        {
+                            position: 'top-right',
+                            autoClose: 10000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: 'light',
+                        }
+                    )
                 }
-
-
             },
             false
-        );
-    }, []);
-
-
+        )
+    }, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -145,10 +142,8 @@ const UserLoginForm = () => {
         }
     }
 
-
     return (
-        <div
-        >
+        <div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -162,24 +157,23 @@ const UserLoginForm = () => {
                 theme="light"
             />
 
-
-
             <div className={styles.form}>
-
                 <motion.form
                     className={styles.mainForm}
                     initial={{ opacity: 0, x: '-20%' }}
                     whileInView={{ opacity: 1, x: '0%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h1 style={{ letterSpacing: 1 }}>LOGIN</h1>
+                    <h1 style={{ letterSpacing: 1, marginRight: 'auto' }}>
+                        Welcome Back
+                    </h1>
                     <div className={styles.field}>
                         <label htmlFor="email_id">Email ID</label>
                         <br />
                         <input
                             type="email"
                             name="Email_Id"
-                            placeholder="Eg: vineet@gmail.com"
+                            placeholder="Enter your email address"
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
@@ -193,7 +187,7 @@ const UserLoginForm = () => {
                             type={passwordShown ? 'text' : 'password'}
                             id="pwd"
                             name="Password"
-                            placeholder="Password"
+                            placeholder="Enter your password"
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
@@ -201,9 +195,7 @@ const UserLoginForm = () => {
 
                         <br />
                     </div>
-                    <div
-                        className={styles.passwd_box}
-                    >
+                    <div className={styles.passwd_box}>
                         <span
                             style={{
                                 display: 'flex',
@@ -226,10 +218,12 @@ const UserLoginForm = () => {
                             />
                             Show Password
                         </span>
-                        &nbsp;&nbsp;<Link
+                        &nbsp;&nbsp;
+                        <Link
                             href="/password-reset"
                             style={{
-                                color: '#ffffff', fontWeight: 600,
+                                color: '#ffffff',
+                                fontWeight: 600,
                                 marginTop: -15,
                             }}
                         >
@@ -241,10 +235,12 @@ const UserLoginForm = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                     >
-                        <button type="submit" onClick={(e) => handleSubmit(e)}>SUBMIT</button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)}>
+                            Submit
+                        </button>
                     </motion.div>
                     <br />
-                    <p style={{ textAlign: "center", fontWeight: "400" }}>
+                    {/* <p style={{ textAlign: "center", fontWeight: "400" }}>
                         <strong>FOR IITP STUDS-- </strong>verify you college email in Slick app to be able to&nbsp;
                         <Link
                             href="/userLogin"
@@ -253,22 +249,24 @@ const UserLoginForm = () => {
                             Login
                         </Link>
                         &nbsp; ; check spam/junk folder for slick otp
-                    </p>
-                    <p style={{ marginTop: 18, textAlign: "center" }}>
+                    </p> */}
+                    <p style={{ marginTop: 18, textAlign: 'center' }}>
                         Don't have an account? &nbsp;
-                        <Link href="/userRegister" style={{ color: '#ffffff', fontWeight: 600 }}>
+                        <Link
+                            href="/userRegister"
+                            style={{ color: '#ffffff', fontWeight: 600 }}
+                        >
                             Register here.
                         </Link>
                     </p>
-                    <p style={{ marginTop: 18, textAlign: "center" }}>
+                    {/* <p style={{ marginTop: 18, textAlign: "center" }}>
                         Trouble logging in? &nbsp;
                         <Link href="https://forms.gle/67XktxG9iTFgfT9n9" style={{ color: '#ffffff', fontWeight: 600 }}>
                             Reach out to us here.
                         </Link>
-                    </p>
+                    </p> */}
                 </motion.form>
             </div>
-
         </div>
     )
 }
