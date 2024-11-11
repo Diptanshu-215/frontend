@@ -30,7 +30,9 @@ function MyApp({ Component, pageProps }) {
     //     showHeader = false
     // }
     return (
-        <main className={poppins.className} style={{ background: 'linear-gradient(169deg, #81D9FF -5.25%, #D4F2FF 111.03%)' }}>
+
+        <main className={poppins.className} style={{background:'black'}} >
+            {/* style={{ background: 'linear-gradient(169deg, #81D9FF -5.25%, #D4F2FF 111.03%)' }} */}
             <Script
                 strategy="lazyOnload"
                 src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
