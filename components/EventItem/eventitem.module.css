@@ -1,16 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 .card {
-	background-color: white;
+	background-color: black;
 	width: fit-content;
 	height: fit-content;
 	border-radius: 15px;
 	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.15);
+	
 }
 
 .imageWrap {
 	position: relative;
-	width: 320px;
+	width: 293px;
 	max-width: 90vw;
-	height: 320px;
+	height: 239px;
 	max-height: 90vw;
 	overflow: hidden;
 	border-radius: 15px;
@@ -42,15 +44,28 @@
 	border-radius: 15px;
 }
 
-.imageWrap:hover .img__description {
+/* .imageWrap:hover .img__description {
 	visibility: visible;
 	opacity: 1;
-}
+} */
 
 .eventName {
-	font-size: 20px;
-	margin: 10px 18px;
-	color: #102B71;
-	font-weight: 600;
+	font-size: 22px;
+	margin-top: 8px;
+	color: white;
+
     width: 284px;
+	font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.smalldescription {
+	color: #9D9D9D;
+	font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+	font-size: 14px;
 }
