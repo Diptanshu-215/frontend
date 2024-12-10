@@ -161,7 +161,7 @@ const UserLoginForm = () => {
                 <motion.form
                     className={styles.mainForm}
                     initial={{ opacity: 0, x: '-20%' }}
-                    whileInView={{ opacity: 1, x: '0%' }}
+                    whileInView={{ opacity: 1, x: '-5%' }}
                     transition={{ duration: 1 }}
                 >
                     <h1 style={{ letterSpacing: 1, marginRight: 'auto' }}>
@@ -194,42 +194,43 @@ const UserLoginForm = () => {
                         <br />
 
                         <br />
-                    </div>
-                    <div className={styles.passwd_box}>
-                        <span
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                marginTop: -15,
-                            }}
-                        >
-                            <input
-                                type="checkbox"
-                                id="showPassword"
+                        <div className={styles.passwd_box}>
+                            <span
                                 style={{
-                                    width: '20px',
-                                    height: '20px',
-                                    marginRight: '7px',
-                                    marginTop: '3px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    marginTop: -15,
                                 }}
-                                onChange={() => {
-                                    setPasswordShown((prev) => !prev)
+                            >
+                                <input
+                                    type="checkbox"
+                                    id="showPassword"
+                                    style={{
+                                        width: '20px',
+                                        height: '20px',
+                                        marginRight: '7px',
+                                        marginTop: '3px',
+                                    }}
+                                    onChange={() => {
+                                        setPasswordShown((prev) => !prev)
+                                    }}
+                                />
+                                Show Password
+                            </span>
+                            &nbsp;&nbsp;
+                            <Link
+                                href="/password-reset"
+                                style={{
+                                    color: '#ffffff',
+                                    fontWeight: 600,
+                                    marginTop: -15,
                                 }}
-                            />
-                            Show Password
-                        </span>
-                        &nbsp;&nbsp;
-                        <Link
-                            href="/password-reset"
-                            style={{
-                                color: '#ffffff',
-                                fontWeight: 600,
-                                marginTop: -15,
-                            }}
-                        >
-                            Forgot password?
-                        </Link>
+                            >
+                                Forgot password?
+                            </Link>
+                        </div>
                     </div>
+
                     <motion.div
                         className={styles.buttonWrapper}
                         whileHover={{ scale: 1.1 }}
