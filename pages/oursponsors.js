@@ -306,7 +306,7 @@ const oursponsors = () => {
                         <div className={styles.dropdownContent}>
                             <a onClick={() => setYear('spons23')}>2023-2024</a>
                             <a onClick={() => setYear('spons24')}>2024-2025</a>
-                            <a onClick={() => setYear('spons25')}>2025-2026</a>
+                            {/* <a onClick={() => setYear('spons25')}>2025-2026</a> */}
                         </div>
                     </div>
 
