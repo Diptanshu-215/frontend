@@ -16,17 +16,25 @@ function loadScript(src) {
         document.body.appendChild(script)
     })
 }
-function openPay(data){
-        const options = {
-          "atomTokenId": data.atomTokenId,
-          "merchId": data.merchId,
-          "custEmail": data.custEmail,
-          "custMobile": data.custMobile,
-          "returnUrl": data.returnUrl,
-        }
-        let atom = new AtomPaynetz(options,'uat');
+function openPay(data) {
+    const options = {
+        atomTokenId: data.atomTokenId,
+        merchId: data.merchId,
+        custEmail: data.custEmail,
+        custMobile: data.custMobile,
+        returnUrl: data.returnUrl,
     }
-async function soloEventRegistration(eventID, amount, email, phone, anwesha_id, router, closeHandler) {
+    let atom = new AtomPaynetz(options, 'uat')
+}
+async function soloEventRegistration(
+    eventID,
+    amount,
+    email,
+    phone,
+    anwesha_id,
+    router,
+    closeHandler
+) {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
@@ -36,7 +44,7 @@ async function soloEventRegistration(eventID, amount, email, phone, anwesha_id, 
         email: email,
         phone: phone,
         anwesha_id: anwesha_id,
-        type: "solo"
+        type: 'solo',
     })
     var requestOptions = {
         method: 'POST',
@@ -51,12 +59,15 @@ async function soloEventRegistration(eventID, amount, email, phone, anwesha_id, 
         .catch((error) => {
             console.error(error)
         })
-    
-    const res = await loadScript('https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v='+data.atomTokenId)
+
+    const res = await loadScript(
+        'https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v=' +
+            data.atomTokenId
+    )
     openPay(data)
 }
 
-async function soloEventRegistrationiitp (eventID, router, closeHandler) {
+async function soloEventRegistrationiitp(eventID, router, closeHandler) {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
@@ -79,7 +90,7 @@ async function soloEventRegistrationiitp (eventID, router, closeHandler) {
         })
 
     closeHandler()
-    toast.success((data.message || data.messagge), {
+    toast.success(data.message || data.messagge, {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
@@ -90,4 +101,4 @@ async function soloEventRegistrationiitp (eventID, router, closeHandler) {
         theme: 'light',
     })
 }
-export { soloEventRegistration, soloEventRegistrationiitp };
+export { soloEventRegistration, soloEventRegistrationiitp }

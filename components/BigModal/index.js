@@ -1,7 +1,10 @@
 // simple react modal component
 import React, { useEffect, useState, useContext } from 'react'
 import { AuthContext } from '../authContext'
-import { soloEventRegistration, soloEventRegistrationiitp } from '../Event Registration/soloEventRegistration'
+import {
+    soloEventRegistration,
+    soloEventRegistrationiitp,
+} from '../Event Registration/soloEventRegistration'
 import { ToastContainer, toast } from 'react-toastify'
 import styles from './Modal.module.css'
 import { useRouter } from 'next/router'
@@ -15,28 +18,18 @@ const Modal = (props) => {
         if (userData.isAuth) {
             if (props.body.is_active) {
                 if (props.body.is_solo) {
-                    if (userData.state.user.user_type !== 'iitp_student' || props.body.id == 'EVT49870' || props.body.id == 'EVT68cb3') {
-                        if (props.body.registration_fee === "0.00")
+                    if (
+                        userData.state.user.user_type !== 'iitp_student' ||
+                        props.body.id == 'EVT49870' ||
+                        props.body.id == 'EVT68cb3'
+                    ) {
+                        if (props.body.registration_fee === '0.00')
                             soloEventRegistrationiitp(
                                 props.body.id,
                                 router,
                                 props.closeHandler
                             )
-                        else soloEventRegistration(
-                            props.body.id,
-                            props.body.registration_fee,
-                            userData.state.user.email_id,
-                            userData.state.user.phone_number,
-                            userData.state.user.anwesha_id,
-                            router,
-                            props.closeHandler
-                        )
-
-
-                    }
-
-                    else {
-                        if (props.body.tags === "5")
+                        else
                             soloEventRegistration(
                                 props.body.id,
                                 props.body.registration_fee,
@@ -46,11 +39,23 @@ const Modal = (props) => {
                                 router,
                                 props.closeHandler
                             )
-                        else soloEventRegistrationiitp(
-                            props.body.id,
-                            router,
-                            props.closeHandler
-                        )
+                    } else {
+                        if (props.body.tags === '5')
+                            soloEventRegistration(
+                                props.body.id,
+                                props.body.registration_fee,
+                                userData.state.user.email_id,
+                                userData.state.user.phone_number,
+                                userData.state.user.anwesha_id,
+                                router,
+                                props.closeHandler
+                            )
+                        else
+                            soloEventRegistrationiitp(
+                                props.body.id,
+                                router,
+                                props.closeHandler
+                            )
                     }
                 } else {
                     // router.replace(props.body.registration_link)
@@ -68,9 +73,8 @@ const Modal = (props) => {
                         },
                     })
                 }
-            }
-            else {
-                toast.info("Registration Closed !", {
+            } else {
+                toast.info('Registration Closed !', {
                     position: 'top-right',
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -85,7 +89,7 @@ const Modal = (props) => {
             router.push('/userLogin')
         }
     }
-    let description = props.body.description.replace(/\n/g, '<br>');
+    let description = props.body.description.replace(/\n/g, '<br>')
     return (
         <React.StrictMode>
             <ToastContainer
@@ -162,7 +166,7 @@ const Modal = (props) => {
                                     className={styles.btn}
                                     id={styles.rulebtn}
                                     href={props.body.video}
-                                // onClick={(e) => props.closeHandler()}
+                                    // onClick={(e) => props.closeHandler()}
                                 >
                                     Rulebook
                                 </a>
@@ -179,13 +183,15 @@ const Modal = (props) => {
                             <div className={styles.date_venue}>
                                 <span className={styles.date_text}>Date:</span>
                                 <span className={styles.date_value}>
-                                    {props.body.start_time.substring(5, 7) !== props.body.end_time.substring(5, 7) ? (
-                                        <> {new Date(
-                                            props.body.start_time
-                                        ).toLocaleString('default', {
-                                            day: 'numeric',
-                                        })}
+                                    {props.body.start_time.substring(5, 7) !==
+                                    props.body.end_time.substring(5, 7) ? (
+                                        <>
                                             {' '}
+                                            {new Date(
+                                                props.body.start_time
+                                            ).toLocaleString('default', {
+                                                day: 'numeric',
+                                            })}{' '}
                                             {new Date(
                                                 props.body.start_time
                                             ).toLocaleString('default', {
@@ -193,28 +199,35 @@ const Modal = (props) => {
                                             })}
                                             {' - '}
                                         </>
-                                    ) :
+                                    ) : (
                                         <>
-                                            {props.body.start_time.substring(8, 10) !== props.body.end_time.substring(8, 10) ?
-                                                (<>
-                                                    {
-                                                        new Date(
-                                                            props.body.start_time
-                                                        ).toLocaleString('default', {
+                                            {props.body.start_time.substring(
+                                                8,
+                                                10
+                                            ) !==
+                                            props.body.end_time.substring(
+                                                8,
+                                                10
+                                            ) ? (
+                                                <>
+                                                    {new Date(
+                                                        props.body.start_time
+                                                    ).toLocaleString(
+                                                        'default',
+                                                        {
                                                             day: 'numeric',
-                                                        })
-                                                    }
+                                                        }
+                                                    )}
                                                     {' - '}
-                                                </>) : null
-                                            }
+                                                </>
+                                            ) : null}
                                         </>
-                                    }
+                                    )}
                                     {new Date(
                                         props.body.end_time
                                     ).toLocaleString('default', {
                                         day: 'numeric',
-                                    })}
-                                    {' '}
+                                    })}{' '}
                                     {new Date(
                                         props.body.end_time
                                     ).toLocaleString('default', {
@@ -227,24 +240,31 @@ const Modal = (props) => {
                                     {props.body.venue}
                                 </span>
                             </div>
-                            <p dangerouslySetInnerHTML={{ __html: description }} className={styles.description} />
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: description,
+                                }}
+                                className={styles.description}
+                            />
                             <div className={styles.team_pay}>
                                 <div style={{ fontWeight: '600' }}>
                                     {/* <img src="/assets/team.svg" /> */}
                                     {props.body.max_team_size === 1
                                         ? 'Individual Participation'
                                         : props.body.min_team_size ===
-                                            props.body.max_team_size
-                                            ? props.body.min_team_size + ' members'
-                                            : props.body.min_team_size +
-                                            ' - ' +
-                                            props.body.max_team_size +
-                                            ' members'}
+                                          props.body.max_team_size
+                                        ? props.body.min_team_size + ' members'
+                                        : props.body.min_team_size +
+                                          ' - ' +
+                                          props.body.max_team_size +
+                                          ' members'}
                                 </div>
                                 {props.body.registration_fee ? (
                                     !userData.isAuth ||
-                                        (userData.state.user.user_type !==
-                                            'iitp_student') || props.body.id == 'EVT68cb3' || props.body.id == 'EVT49870' ? (
+                                    userData.state.user.user_type !==
+                                        'iitp_student' ||
+                                    props.body.id == 'EVT68cb3' ||
+                                    props.body.id == 'EVT49870' ? (
                                         <p>
                                             Registration Fee&nbsp;
                                             {/* <img src="/assets/payment.svg" /> */}
@@ -258,7 +278,7 @@ const Modal = (props) => {
                             {props.body.registration_deadline ? (
                                 <div
                                     className={styles.team_pay}
-                                // style={{ flexDirection: 'row' }}
+                                    // style={{ flexDirection: 'row' }}
                                 >
                                     <p>
                                         {/* <img src="/assets/alert.svg" /> */}
@@ -294,7 +314,9 @@ const Modal = (props) => {
                                         className={styles.team_pay}
                                         style={{ flexDirection: 'column' }}
                                     >
-                                        {props.body.tags == "5" ? "POC" : "Organizers"}
+                                        {props.body.tags == '5'
+                                            ? 'POC'
+                                            : 'Organizers'}
                                         {props.body.organizer.map(
                                             (e, index) => {
                                                 return (
@@ -304,9 +326,9 @@ const Modal = (props) => {
                                                             e[1]
                                                                 ? null
                                                                 : {
-                                                                    pointerEvents:
-                                                                        'none',
-                                                                }
+                                                                      pointerEvents:
+                                                                          'none',
+                                                                  }
                                                         }
                                                         target="_blank"
                                                         rel="noreferrer"

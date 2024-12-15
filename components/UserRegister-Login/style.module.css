@@ -156,8 +156,8 @@
 }
 
 .iitp_email_ext {
-	display: inline-flex;
-	align-items: center;
+    display: inline-flex;
+    align-items: center;
     background-color: #000000;
     color: #ffffff;
     height: 45px;

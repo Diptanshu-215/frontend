@@ -51,7 +51,14 @@ const index = () => {
                             style={{ overflow: 'hidden' }}
                         />
                     </div> */}
-                    <div style={{ overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div
+                        style={{
+                            overflow: 'hidden',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
                         <Image
                             src="/home/logo.png"
                             alt="logo"
@@ -60,12 +67,14 @@ const index = () => {
                             className={styles.logo}
                         />
                     </div>
-                    <div className={styles.regdiv} >
+                    <div className={styles.regdiv}>
                         {/* <RegisterButton /> */}
-                        <Link style={{width: '30%', minWidth: '300px'}} href="/userRegister" >
-                                
-                                {/* <RegisterButton /> */}
-                            </Link>
+                        <Link
+                            style={{ width: '30%', minWidth: '300px' }}
+                            href="/userRegister"
+                        >
+                            {/* <RegisterButton /> */}
+                        </Link>
                         {/* <motion.div
 
                             whileHover={{ scale: 1.1 }}
@@ -78,7 +87,6 @@ const index = () => {
                             </Link>
                         </motion.div> */}
                     </div>
-
                 </div>
 
                 {/*Blend home section with other sections*/}
@@ -249,22 +257,40 @@ const index = () => {
                     </div> */}
 
                     <div className={styles.merchContainer}>
-
                         <div className={styles.card}>
-                            <div className={styles.text1} style={josefinSans.style}>
+                            <div
+                                className={styles.text1}
+                                style={josefinSans.style}
+                            >
                                 Official Anwesha Merch
                             </div>
-                            <div className={styles.text2}>Get ready to immerse yourselves in the allure of aesthetics as we unveil the exclusive T-shirt and Hoodie collection for Anwesha'24!</div>
-                            <div className={styles.text2}>The designs are a fusion of elegance and innovation, capturing the true spirit of Anwesha. T-shirts are made of supreme quality with GSM 200 and 100% cotton, ensuring maximum comfort and durability. Hoodies are made from Premium Quality Woven Cotton with 350+ GSM cloth.</div>
                             <div className={styles.text2}>
-                                Elevate your style with our limited-edition Anwesha T-shirts and Hoodies. </div>
+                                Get ready to immerse yourselves in the allure of
+                                aesthetics as we unveil the exclusive T-shirt
+                                and Hoodie collection for Anwesha'24!
+                            </div>
+                            <div className={styles.text2}>
+                                The designs are a fusion of elegance and
+                                innovation, capturing the true spirit of
+                                Anwesha. T-shirts are made of supreme quality
+                                with GSM 200 and 100% cotton, ensuring maximum
+                                comfort and durability. Hoodies are made from
+                                Premium Quality Woven Cotton with 350+ GSM
+                                cloth.
+                            </div>
+                            <div className={styles.text2}>
+                                Elevate your style with our limited-edition
+                                Anwesha T-shirts and Hoodies.{' '}
+                            </div>
                             <div style={{ marginTop: '24px' }}></div>
                             <motion.div
-
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
                             >
-                                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSfMANDdV-NDi7P5-j3RzGEWJYDC1xlTLg-KvnLuGfd1ygG5rg/viewform" style={{ textDecoration: 'none' }}>
+                                <Link
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfMANDdV-NDi7P5-j3RzGEWJYDC1xlTLg-KvnLuGfd1ygG5rg/viewform"
+                                    style={{ textDecoration: 'none' }}
+                                >
                                     {/* <button
 
                                         className={styles.merchBookBtn}
@@ -274,7 +300,10 @@ const index = () => {
                                 </Link>
                             </motion.div>
 
-                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSfMANDdV-NDi7P5-j3RzGEWJYDC1xlTLg-KvnLuGfd1ygG5rg/viewform" className={styles.mobileBuyNow}>
+                            <Link
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSfMANDdV-NDi7P5-j3RzGEWJYDC1xlTLg-KvnLuGfd1ygG5rg/viewform"
+                                className={styles.mobileBuyNow}
+                            >
                                 {/* <button
 
 
@@ -293,10 +322,6 @@ const index = () => {
                         />
                     </div>
 
-
-
-
-
                     <div className={styles.merchContainer}>
                         <Image
                             src="/home/events2.png"
@@ -306,11 +331,31 @@ const index = () => {
                             className={styles.merchimg}
                         />
                         <div className={styles.card}>
-                            <div className={styles.text1} style={josefinSans.style}>
+                            <div
+                                className={styles.text1}
+                                style={josefinSans.style}
+                            >
                                 Events at Anwesha’24
                             </div>
-                            <div className={styles.text2}>From heart-stopping dance battles and soulful singing competitions to the dazzling glamour of the fashion show, with thought-provoking Nukkad Nataks and the lyrical echoes of poetry slams, Anwesha's events ignite every artistic spark. Come, delve into Anwesha's events, where every beat has a story to tell and every expression finds a stage!</div>
-                            <div className={styles.text2}>   what are you waiting for? Get your Anwesha ID ready, and get ready to jump into the pool of events. If you have any doubts or queries, just hit up the organizers, and they'll help you faster than a pizza delivery guy. Let's get this party started!!</div>
+                            <div className={styles.text2}>
+                                From heart-stopping dance battles and soulful
+                                singing competitions to the dazzling glamour of
+                                the fashion show, with thought-provoking Nukkad
+                                Nataks and the lyrical echoes of poetry slams,
+                                Anwesha's events ignite every artistic spark.
+                                Come, delve into Anwesha's events, where every
+                                beat has a story to tell and every expression
+                                finds a stage!
+                            </div>
+                            <div className={styles.text2}>
+                                {' '}
+                                what are you waiting for? Get your Anwesha ID
+                                ready, and get ready to jump into the pool of
+                                events. If you have any doubts or queries, just
+                                hit up the organizers, and they'll help you
+                                faster than a pizza delivery guy. Let's get this
+                                party started!!
+                            </div>
                             <div style={{ marginTop: '24px' }}></div>
                             {/* <motion.div
 
@@ -328,49 +373,50 @@ const index = () => {
                             </motion.div>*/}
 
                             <Link href="events" className={styles.mobileBuyNow}>
-                                <button
-
-
-                                    className={styles.merchBookBtn2}
-                                >
+                                <button className={styles.merchBookBtn2}>
                                     Explore Now
                                 </button>
                             </Link>
                         </div>
                     </div>
 
-
-
-
                     <div className={styles.merchContainer}>
-
                         <div className={styles.card}>
-                            <div className={styles.text1} style={josefinSans.style}>
+                            <div
+                                className={styles.text1}
+                                style={josefinSans.style}
+                            >
                                 Mirage Of Aesthete
                             </div>
-                            <div className={styles.text2}>Unveiling a symphony of beauty and illusion, this ethereal experience transcends the ordinary, inviting you to explore the captivating landscapes of creativity. Join us on this mesmerizing journey where the boundaries of imagination blur, and the soul is set free to embrace the magic of this unveiled mirage!</div>
+                            <div className={styles.text2}>
+                                Unveiling a symphony of beauty and illusion,
+                                this ethereal experience transcends the
+                                ordinary, inviting you to explore the
+                                captivating landscapes of creativity. Join us on
+                                this mesmerizing journey where the boundaries of
+                                imagination blur, and the soul is set free to
+                                embrace the magic of this unveiled mirage!
+                            </div>
                             <div style={{ marginTop: '24px' }}></div>
                             <motion.div
-
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.8 }}
                             >
-                                <Link href="/aboutus" style={{ textDecoration: 'none' }}>
-                                    <button
-
-                                        className={styles.merchBookBtn}
-                                    >
+                                <Link
+                                    href="/aboutus"
+                                    style={{ textDecoration: 'none' }}
+                                >
+                                    <button className={styles.merchBookBtn}>
                                         Explore Now
                                     </button>
                                 </Link>
                             </motion.div>
 
-                            <Link href="/aboutus" className={styles.mobileBuyNow}>
-                                <button
-
-
-                                    className={styles.merchBookBtn2}
-                                >
+                            <Link
+                                href="/aboutus"
+                                className={styles.mobileBuyNow}
+                            >
+                                <button className={styles.merchBookBtn2}>
                                     Explore Now
                                 </button>
                             </Link>
@@ -669,7 +715,6 @@ const index = () => {
                     </div>
                 </div> */}
                 {/* End team section   */}
-
             </div>
         </>
     )

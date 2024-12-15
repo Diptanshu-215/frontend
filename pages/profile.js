@@ -73,18 +73,17 @@ function profile() {
             />
             <div className={stylesForm.container}>
                 <div className={styles.idandqr}>
-
-
-
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <h1 className={styles.anwesha_id}>
                             {profDetails.anwesha_id}
                         </h1>
-                        <button className={styles.copy} onClick={() => {
-                            navigator.clipboard.writeText(profDetails.anwesha_id);
-                            toast.success(
-                                'Copied to clipboard',
-                                {
+                        <button
+                            className={styles.copy}
+                            onClick={() => {
+                                navigator.clipboard.writeText(
+                                    profDetails.anwesha_id
+                                )
+                                toast.success('Copied to clipboard', {
                                     position: 'top-right',
                                     autoClose: 3000,
                                     hideProgressBar: false,
@@ -93,12 +92,14 @@ function profile() {
                                     draggable: true,
                                     progress: undefined,
                                     theme: 'light',
-                                }
-                            )
-                        }} ><motion.div
-                            style={{ cursor: 'pointer' }}
-                            whileTap={{ scale: 0.8 }}
-                        ><Image
+                                })
+                            }}
+                        >
+                            <motion.div
+                                style={{ cursor: 'pointer' }}
+                                whileTap={{ scale: 0.8 }}
+                            >
+                                <Image
                                     src="/copy.svg"
                                     width={40}
                                     height={40}
@@ -108,12 +109,17 @@ function profile() {
                         </button>
                     </div>
 
-
-
                     <div className={styles.qrcode}>
                         <img src={qrcode} alt="" />
-                        <Link href='/anweshapass' style={{ color: 'black', fontWeight: 'bold' }}>How does AnweshaPass work?</Link>
-                        <button className={styles.qrBtn} onClick={regenrateqr}>Regenerate QR</button>
+                        <Link
+                            href="/anweshapass"
+                            style={{ color: 'black', fontWeight: 'bold' }}
+                        >
+                            How does AnweshaPass work?
+                        </Link>
+                        <button className={styles.qrBtn} onClick={regenrateqr}>
+                            Regenerate QR
+                        </button>
                     </div>
                 </div>
                 {/* <h1 className={styles.anwesha_id}>{profDetails.anwesha_id}</h1> */}
@@ -124,8 +130,18 @@ function profile() {
                         selectedIndex={tabIndex}
                         onSelect={(index) => setTabIndex(index)}
                     >
-                        <Tab className={styles.tab} selectedClassName={styles.tabActive} >DETAILS</Tab>
-                        <Tab className={styles.tab} selectedClassName={styles.tabActive}>MY EVENTS</Tab>
+                        <Tab
+                            className={styles.tab}
+                            selectedClassName={styles.tabActive}
+                        >
+                            DETAILS
+                        </Tab>
+                        <Tab
+                            className={styles.tab}
+                            selectedClassName={styles.tabActive}
+                        >
+                            MY EVENTS
+                        </Tab>
                         {/* <Tab className={styles.tab}>MY MERCHANDISE</Tab> */}
                     </TabList>
 

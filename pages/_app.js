@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { Poppins } from '@next/font/google'
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
 import { AuthProvider, PrivateRoute } from '../components/authContext'
@@ -30,7 +30,13 @@ function MyApp({ Component, pageProps }) {
     //     showHeader = false
     // }
     return (
-        <main className={poppins.className} style={{ background: 'linear-gradient(169deg, #81D9FF -5.25%, #D4F2FF 111.03%)' }}>
+        <main
+            className={poppins.className}
+            style={{
+                background:
+                    'linear-gradient(169deg, #81D9FF -5.25%, #D4F2FF 111.03%)',
+            }}
+        >
             <Script
                 strategy="lazyOnload"
                 src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -51,7 +57,7 @@ function MyApp({ Component, pageProps }) {
                 <div className={styles.main_component}>
                     <PrivateRoute>
                         <Component {...pageProps} />
-                        <Analytics/>
+                        <Analytics />
                     </PrivateRoute>
                 </div>
                 <Footer />

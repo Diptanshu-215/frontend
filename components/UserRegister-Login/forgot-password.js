@@ -117,7 +117,6 @@ const ForgotPassword = () => {
                 theme="light"
             />
 
-
             <div className={styles.form}>
                 <motion.form
                     className={styles.mainForm}
@@ -125,7 +124,9 @@ const ForgotPassword = () => {
                     whileInView={{ opacity: 1, x: '0%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>Password Reset</h2>
+                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>
+                        Password Reset
+                    </h2>
                     <div className={styles.field}>
                         <label htmlFor="email_id">Email ID</label>
                         <br />
@@ -149,7 +150,10 @@ const ForgotPassword = () => {
                     >
                         <br />
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                            <Link href="/userLogin" style={{ color: '#ffffff', fontWeight: 600 }}>
+                            <Link
+                                href="/userLogin"
+                                style={{ color: '#ffffff', fontWeight: 600 }}
+                            >
                                 Login Here
                             </Link>
                         </div>
@@ -159,7 +163,9 @@ const ForgotPassword = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                     >
-                        <button type="submit" onClick={(e) => handleSubmit(e)}>SUBMIT</button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)}>
+                            SUBMIT
+                        </button>
                     </motion.div>
                 </motion.form>
             </div>

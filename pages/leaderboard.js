@@ -29,19 +29,24 @@ function Leaderboard() {
 
     return (
         <div className={styles.anwesha_bg_img}>
-            <div className="container" >
+            <div className="container">
                 <div style={{ display: 'flex', paddingTop: 50 }}>
                     <img
                         src="/ca_page/leaf.svg"
                         className={styles.rightleaf}
-                        alt="leaf"></img>
-                    <div className={styles.heading} style={{ textAlign: 'center' }}>
+                        alt="leaf"
+                    ></img>
+                    <div
+                        className={styles.heading}
+                        style={{ textAlign: 'center' }}
+                    >
                         LEADERBOARD
                     </div>
                     <img
                         src="/ca_page/leaf.svg"
                         className={styles.leftleaf}
-                        alt="leaf"></img>
+                        alt="leaf"
+                    ></img>
                 </div>
                 <div className="container">
                     <Head>
@@ -65,16 +70,14 @@ function Leaderboard() {
                     </div>
 
                     <Table striped responsive style={{ marginBottom: '100px' }}>
-
                         <thead>
-                            <tr className={styles.heading_color} >
-                                <th >Position</th>
+                            <tr className={styles.heading_color}>
+                                <th>Position</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Points</th>
                             </tr>
                         </thead>
-
 
                         <tbody>
                             {data
@@ -107,7 +110,7 @@ function Leaderboard() {
                     </Table>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

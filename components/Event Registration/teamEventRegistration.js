@@ -18,17 +18,25 @@ function loadScript(src) {
         document.body.appendChild(script)
     })
 }
-function openPay(data){
-        const options = {
-          "atomTokenId": data.atomTokenId,
-          "merchId": data.merchId,
-          "custEmail": data.custEmail,
-          "custMobile": data.custMobile,
-          "returnUrl": data.returnUrl,
-        }
-        let atom = new AtomPaynetz(options,'uat');
+function openPay(data) {
+    const options = {
+        atomTokenId: data.atomTokenId,
+        merchId: data.merchId,
+        custEmail: data.custEmail,
+        custMobile: data.custMobile,
+        returnUrl: data.returnUrl,
     }
-async function teamEventRegistration(eventID, teamName, teamMembers, email, phone, amount, router) {
+    let atom = new AtomPaynetz(options, 'uat')
+}
+async function teamEventRegistration(
+    eventID,
+    teamName,
+    teamMembers,
+    email,
+    phone,
+    amount,
+    router
+) {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
     var raw = JSON.stringify({
@@ -37,7 +45,7 @@ async function teamEventRegistration(eventID, teamName, teamMembers, email, phon
         team_members: teamMembers,
         email: email,
         phone: phone,
-        type: "team",
+        type: 'team',
         amount: amount,
         anwesha_id: teamMembers[0],
     })
@@ -54,8 +62,11 @@ async function teamEventRegistration(eventID, teamName, teamMembers, email, phon
         .catch((error) => {
             console.error(error)
         })
-    
-    const res = await loadScript('https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v='+data.atomTokenId)
+
+    const res = await loadScript(
+        'https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v=' +
+            data.atomTokenId
+    )
     openPay(data)
     // const data = await fetch(`${host}/event/registration/team`, requestOptions)
 
@@ -105,7 +116,12 @@ async function teamEventRegistration(eventID, teamName, teamMembers, email, phon
     // }
 }
 
-async function teamEventRegistrationiitp (eventID, teamName, teamMembers, router) {
+async function teamEventRegistrationiitp(
+    eventID,
+    teamName,
+    teamMembers,
+    router
+) {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
 
@@ -129,7 +145,7 @@ async function teamEventRegistrationiitp (eventID, teamName, teamMembers, router
         if (data.payment_url) {
             router.push(response.payment_url)
         } else {
-            toast.success((response.messagge || response.message), {
+            toast.success(response.messagge || response.message, {
                 position: 'top-right',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -155,4 +171,4 @@ async function teamEventRegistrationiitp (eventID, teamName, teamMembers, router
     }
 }
 
-export {teamEventRegistration, teamEventRegistrationiitp}
+export { teamEventRegistration, teamEventRegistrationiitp }
