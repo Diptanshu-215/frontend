@@ -213,7 +213,7 @@ const UserRegisterForm = () => {
                     className={styles.mainForm}
                     style={{ top: 75 }}
                     initial={{ opacity: 0, x: '-20%' }}
-                    whileInView={{ opacity: 1, x: '0%' }}
+                    whileInView={{ opacity: 1, x: '-5%' }}
                     transition={{ duration: 1 }}
                 >
                     <div
@@ -376,31 +376,29 @@ const UserRegisterForm = () => {
                             />
                         </div>
                     ) : null} */}
-                    <div className={styles.passwd_box}>
-                        <div className={styles.field}>
-                            <label htmlFor="password">Password</label>
-                            <br />
-                            <input
-                                type={passwordShown ? 'text' : 'password'}
-                                name="Password"
-                                placeholder="Create a password"
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                            <br />
-                        </div>
-                        <div className={styles.field}>
-                            <label htmlFor="password">Confirm Password</label>
-                            <br />
-                            <input
-                                type={passwordShown ? 'text' : 'password'}
-                                name="Password"
-                                placeholder="Confirm your Password"
-                                onChange={(e) => setCnfPassword(e.target.value)}
-                                required
-                            />
-                            <br />
-                        </div>
+                    <div className={styles.field}>
+                        <label htmlFor="password">Password</label>
+                        <br />
+                        <input
+                            type={passwordShown ? 'text' : 'password'}
+                            name="Password"
+                            placeholder="Create a password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <br />
+                    </div>
+                    <div className={styles.field}>
+                        <label htmlFor="password">Confirm Password</label>
+                        <br />
+                        <input
+                            type={passwordShown ? 'text' : 'password'}
+                            name="Password"
+                            placeholder="Confirm your Password"
+                            onChange={(e) => setCnfPassword(e.target.value)}
+                            required
+                        />
+                        <br />
                     </div>
                     {/* <div
                         style={{

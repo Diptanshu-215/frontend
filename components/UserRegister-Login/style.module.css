@@ -286,27 +286,22 @@
 }
 @media only screen and (max-width: 426px) {
     .mainForm {
-        /* margin-top: -60px; */
-        margin: 0px 2.5vw 100px 2.5vw;
-        width: 95vw;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin: 10px auto; /* Center form with vertical space */
+        width: 90vw; /* Ensure the form takes up 90% of the viewport width */
+        max-width: 400px; /* Optional: Set a max width for better control */
+        padding: 10px; /* Provide consistent padding inside the form */
         background: rgba(57, 74, 114, 0.85);
-    }
-    .passwd_box {
-        width: 90vw;
+        box-sizing: border-box; /* Include padding in the total width */
     }
 
-    .field input {
-        width: 90vw;
-    }
-    .field select {
-        width: 90vw;
-    }
+    .passwd_box,
+    .field input,
+    .field select,
     .buttonWrapper button {
-        width: 90vw;
+        width: 100%; /* Make child elements fully responsive */
     }
+
     .iitp_email {
-        width: calc(90vw - 80px) !important;
+        width: calc(100% - 80px) !important; /* Adjust for internal spacing */
     }
 }
