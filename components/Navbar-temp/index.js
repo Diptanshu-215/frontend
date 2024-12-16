@@ -49,7 +49,7 @@ function Navigation() {
         if (refNav.current && !refNav.current.contains(event.target)) {
             document.getElementById('drawer').style.opacity = 0
             setTimeout(function () {
-                ; (document.getElementById('drawer').style.display = 'none'),
+                ;(document.getElementById('drawer').style.display = 'none'),
                     (document.getElementById('nav_div').style.backgroundColor =
                         '#010031')
             }, 300)
@@ -66,7 +66,7 @@ function Navigation() {
         setIsHome(['/'].includes(router.pathname))
         document.getElementById('drawer').style.opacity = 0
         setTimeout(function () {
-            ; (document.getElementById('drawer').style.display = 'none'),
+            ;(document.getElementById('drawer').style.display = 'none'),
                 (document.getElementById('nav_div').style.backgroundColor = '')
         }, 300)
         setDrawerOpen(false)
@@ -219,10 +219,7 @@ function Navigation() {
                                     : null
                             }
                         >
-                            <Link
-                                className={styles.linknav}
-                                href="/gallery"
-                            >
+                            <Link className={styles.linknav} href="/gallery">
                                 Gallery
                             </Link>
                         </li>

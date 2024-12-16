@@ -56,7 +56,6 @@ async function soloEventRegistration(userData, eventID) {
     // 	t.json()
     // )
 
-
     const options = {
         key: __DEV__
             ? process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID

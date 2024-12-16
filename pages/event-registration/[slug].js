@@ -1,6 +1,9 @@
 import { setRequestMeta } from 'next/dist/server/request-meta'
 import React, { useState, useEffect, useContext } from 'react'
-import { teamEventRegistration, teamEventRegistrationiitp } from '../../components/Event Registration/teamEventRegistration'
+import {
+    teamEventRegistration,
+    teamEventRegistrationiitp,
+} from '../../components/Event Registration/teamEventRegistration'
 import styles from '../../styles/EventRegistration.module.css'
 import { AuthContext } from '../../components/authContext'
 import { useRouter } from 'next/router'
@@ -82,7 +85,7 @@ const eventRegistration = () => {
                             </div> */}
                             <div className={styles.form_row}>
                                 <div className={styles.field}>
-                                    <label htmlFor="Teams_Name"  >
+                                    <label htmlFor="Teams_Name">
                                         Team Name
                                     </label>
                                     <br />
@@ -109,7 +112,10 @@ const eventRegistration = () => {
                             >
                                 {memberID.map((item, index) => {
                                     return (
-                                        <div key={index} className={styles.member_input}>
+                                        <div
+                                            key={index}
+                                            className={styles.member_input}
+                                        >
                                             <span>{index + 1}</span>
                                             <div>ANW</div>
                                             <input
@@ -160,13 +166,16 @@ const eventRegistration = () => {
                                 className={styles.register_btn}
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    if (userData.state.user.user_type === 'iitp_student') {
-                                        if (tags !== "5")
+                                    if (
+                                        userData.state.user.user_type ===
+                                        'iitp_student'
+                                    ) {
+                                        if (tags !== '5')
                                             teamEventRegistrationiitp(
                                                 id,
                                                 teamName,
                                                 memberID,
-                                                router,
+                                                router
                                             )
                                         else {
                                             teamEventRegistration(
@@ -174,14 +183,14 @@ const eventRegistration = () => {
                                                 teamName,
                                                 memberID,
                                                 userData.state.user.email_id,
-                                                userData.state.user.phone_number,
+                                                userData.state.user
+                                                    .phone_number,
                                                 registration_fee,
                                                 router,
                                                 toast
                                             )
                                         }
-                                    }
-                                    else {
+                                    } else {
                                         // if (registration_fee !== "0.00")
                                         teamEventRegistration(
                                             id,

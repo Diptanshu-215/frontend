@@ -2,39 +2,63 @@ import React from 'react'
 import styles from '../styles/aboutUs.module.css'
 const aboutus = () => {
     return (
-
         <div className={styles.parentcontainer}>
             <h2 className={styles.head}>
                 <strong>Anwesha'24</strong>
                 <hr className={styles.hr}></hr>
             </h2>
             <div className={styles.sec}>
-            <br/>
+                <br />
                 <p className={styles.para}>
-                Anwesha is the Annual Techno-Cultural-Mangement Extravaganza of Indian Institute of Technology Patna. The name Anwesha symbolizes, the quest for grandeur, opulence, creativity and perfection. Since its inception in 2010, it has turned out to be one of east India's biggest and most anticipated youth festivals, witnessing participation from all over the country. Anwesha puts forth an unparalleled multitude of events, meticulously fashioned to suit the interests of the computer geeks, gaming freaks, music and dance maniacs. The cultural delight of the fest, pro-nites, share the glamour of iconic rock bands, serenity of classical art forms and amusement of comedy shows.
+                    Anwesha is the Annual Techno-Cultural-Mangement Extravaganza
+                    of Indian Institute of Technology Patna. The name Anwesha
+                    symbolizes, the quest for grandeur, opulence, creativity and
+                    perfection. Since its inception in 2010, it has turned out
+                    to be one of east India's biggest and most anticipated youth
+                    festivals, witnessing participation from all over the
+                    country. Anwesha puts forth an unparalleled multitude of
+                    events, meticulously fashioned to suit the interests of the
+                    computer geeks, gaming freaks, music and dance maniacs. The
+                    cultural delight of the fest, pro-nites, share the glamour
+                    of iconic rock bands, serenity of classical art forms and
+                    amusement of comedy shows.
                 </p>
-                <br/>
+                <br />
                 <p className={styles.para}>
-                Anwesha 2024 is envisioned to be an innovative and cultural uplifting festival of togetherness in not just the state or region, but the whole nation. We have reimagined the lens through which we understand culture and celebration, deriving the cornerstones for this year's edition that shall drive forward our festival.
+                    Anwesha 2024 is envisioned to be an innovative and cultural
+                    uplifting festival of togetherness in not just the state or
+                    region, but the whole nation. We have reimagined the lens
+                    through which we understand culture and celebration,
+                    deriving the cornerstones for this year's edition that shall
+                    drive forward our festival.
                 </p>
             </div>
             <div className={styles.sec}>
                 <h3 className={styles.subheading}>
                     <strong>Initiatives</strong>
                 </h3>
-                <br/>
+                <br />
                 <h4 className={styles.title}>
-                    <strong>EXPANDING THE CULTURAL LANDSCAPE & NURTURING INDEPENDENT SET</strong>
+                    <strong>
+                        EXPANDING THE CULTURAL LANDSCAPE & NURTURING INDEPENDENT
+                        SET
+                    </strong>
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        With the expanding music palette of Indian audiences after the internet arrived, Anwesha 2024 is at the converging point to introduce independent music and art at college festivals.
+                            With the expanding music palette of Indian audiences
+                            after the internet arrived, Anwesha 2024 is at the
+                            converging point to introduce independent music and
+                            art at college festivals.
                         </p>
                     </li>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        We strive to expand the entire cultural landscape by introducing unconventional or less-explored forms of art and culture, such as graffiti & mural art, indie cinema, spoken word, calligraphy and much more.
+                            We strive to expand the entire cultural landscape by
+                            introducing unconventional or less-explored forms of
+                            art and culture, such as graffiti & mural art, indie
+                            cinema, spoken word, calligraphy and much more.
                         </p>
                     </li>
                 </ul>
@@ -45,12 +69,17 @@ const aboutus = () => {
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        As a major festival with massive footfall, we are aware of the enormous resource consumption and consequent waste generated throughout this festival. Anwesha'24 shall focus on bringing a sustainable lifestyle & culture to the mainstream.
+                            As a major festival with massive footfall, we are
+                            aware of the enormous resource consumption and
+                            consequent waste generated throughout this festival.
+                            Anwesha'24 shall focus on bringing a sustainable
+                            lifestyle & culture to the mainstream.
                         </p>
                     </li>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        This is a major concern for us, and thus we will be adopting a zero-waste model for our festival.
+                            This is a major concern for us, and thus we will be
+                            adopting a zero-waste model for our festival.
                         </p>
                     </li>
                 </ul>
@@ -61,36 +90,46 @@ const aboutus = () => {
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        Anwesha values the role our local artisans, craftsmen and others play in our community. Our vision at Anwesha is a fest for everybody - one that embraces the lesser privileged gems of society.
+                            Anwesha values the role our local artisans,
+                            craftsmen and others play in our community. Our
+                            vision at Anwesha is a fest for everybody - one that
+                            embraces the lesser privileged gems of society.
                         </p>
                     </li>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        The folk culture in Bihar is immense - from Madhubani to Yampuri, Jat-Jatin to bamboo & pottery craft; we would be delighted to accommodate it all in Anwesha 2k24.
+                            The folk culture in Bihar is immense - from
+                            Madhubani to Yampuri, Jat-Jatin to bamboo & pottery
+                            craft; we would be delighted to accommodate it all
+                            in Anwesha 2k24.
                         </p>
                     </li>
                 </ul>
                 <br />
                 <h4 className={styles.title}>
-                    <strong>ENTERING UNEXPLORED DOMAINS: TECH & INNOVATION</strong>
+                    <strong>
+                        ENTERING UNEXPLORED DOMAINS: TECH & INNOVATION
+                    </strong>
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        Being a premier technological institute of the nation, technology and innovation run in our blood. Thus we are on a constant quest for cutting edge technology to be integrated into our fest.
+                            Being a premier technological institute of the
+                            nation, technology and innovation run in our blood.
+                            Thus we are on a constant quest for cutting edge
+                            technology to be integrated into our fest.
                         </p>
                     </li>
                     <li className={styles.listitem}>
                         <p className={styles.para}>
-                        We are embarking on a journey to bring you the future through exciting concepts like the Metaverse, NFTs, and a festival passport.
+                            We are embarking on a journey to bring you the
+                            future through exciting concepts like the Metaverse,
+                            NFTs, and a festival passport.
                         </p>
                     </li>
                 </ul>
                 <br />
-
             </div>
-            
-
         </div>
     )
 }

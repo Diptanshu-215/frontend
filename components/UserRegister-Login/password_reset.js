@@ -139,7 +139,9 @@ const ChangePassword = () => {
                     whileInView={{ opacity: 1, x: '0%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>Password Reset</h2>
+                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>
+                        Password Reset
+                    </h2>
                     <hr />
                     <div className={styles.form_row}>
                         <div className={styles.field}>
@@ -198,7 +200,10 @@ const ChangePassword = () => {
                         }}
                     >
                         <br />
-                        <Link href="/userLogin" style={{ color: '#ffffff', fontWeight: 300 }}>
+                        <Link
+                            href="/userLogin"
+                            style={{ color: '#ffffff', fontWeight: 300 }}
+                        >
                             Login here
                         </Link>
                     </div>
@@ -207,7 +212,9 @@ const ChangePassword = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                     >
-                        <button type="submit" onClick={(e) => handleSubmit(e)}>SUBMIT</button>
+                        <button type="submit" onClick={(e) => handleSubmit(e)}>
+                            SUBMIT
+                        </button>
                     </motion.div>
                 </motion.form>
             </div>

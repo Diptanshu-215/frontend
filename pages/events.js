@@ -21,7 +21,33 @@ const josefinSans = Josefin_Sans({
 const Events = () => {
     const [events, setEvents] = useState([])
     // add event ids which won't be shown on website
-    let exceludedEvents = ['EVTcf525', 'EVTcac95', 'EVT66e40', 'EVT68cb3', 'EVT49870', 'EVTe96c6', 'EVT8e600', 'EVT7a8a7', 'EVT691bc', 'EVTba113', 'EVT2842f', 'EVT63763', 'EVTcb689', 'EVTa1ae2', 'EVT20570', 'EVT9dda6', 'EVTbdb92', 'EVT12910', 'EVT8d60d', 'EVT291e3', 'EVT9fcc8', 'EVTc90d3', 'EVTbdbc6', 'EVT49b71', 'EVT3264e']
+    let exceludedEvents = [
+        'EVTcf525',
+        'EVTcac95',
+        'EVT66e40',
+        'EVT68cb3',
+        'EVT49870',
+        'EVTe96c6',
+        'EVT8e600',
+        'EVT7a8a7',
+        'EVT691bc',
+        'EVTba113',
+        'EVT2842f',
+        'EVT63763',
+        'EVTcb689',
+        'EVTa1ae2',
+        'EVT20570',
+        'EVT9dda6',
+        'EVTbdb92',
+        'EVT12910',
+        'EVT8d60d',
+        'EVT291e3',
+        'EVT9fcc8',
+        'EVTc90d3',
+        'EVTbdbc6',
+        'EVT49b71',
+        'EVT3264e',
+    ]
 
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
@@ -63,7 +89,10 @@ const Events = () => {
                     <br />
                     <br />
                     <h1 className={josefinSans.className}>Events</h1>
-                    <p className={montserrat.className} style={{ fontWeight: 'bold' }}>
+                    <p
+                        className={montserrat.className}
+                        style={{ fontWeight: 'bold' }}
+                    >
                         From heart-stopping dance battles and soulful singing
                         competitions to the dazzling glamour of the fashion
                         show, with thought-provoking Nukkad Nataks and the
@@ -72,14 +101,19 @@ const Events = () => {
                         where every beat has a story to tell and every
                         expression finds a stage!
                     </p>
-                    <Link href="https://drive.google.com/file/d/1Sn8CSO_6k3gP2vQkjbguoJPbw73SC_QV/view" target='_blank' className={styles.rulebook}>
+                    <Link
+                        href="https://drive.google.com/file/d/1Sn8CSO_6k3gP2vQkjbguoJPbw73SC_QV/view"
+                        target="_blank"
+                        className={styles.rulebook}
+                    >
                         Events Brochure
                     </Link>
                     <br />
                     <br />
                     <br />
                     <h2 style={{ color: 'red', fontWeight: 'bold' }}>
-                        Wallet payments (Paytm, PhonePe etc) are not accepted !</h2>
+                        Wallet payments (Paytm, PhonePe etc) are not accepted !
+                    </h2>
                 </div>
                 <div className={styles.content}>
                     {events.map((event, index) => {

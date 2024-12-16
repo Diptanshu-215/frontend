@@ -75,7 +75,6 @@ async function teamEventRegistration(userData, eventID, teamName, teamMembers) {
     // 	t.json()
     // )
 
-
     const options = {
         key: __DEV__
             ? process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID

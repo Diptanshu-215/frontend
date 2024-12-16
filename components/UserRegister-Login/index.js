@@ -105,7 +105,7 @@ const UserRegisterForm = () => {
             )
             return
         }
-        let isproff = ""
+        let isproff = ''
         for (let i = 0; i < details.length; i++) {
             if (details[i].webmail === email) {
                 // setUserType('faculty')
@@ -142,19 +142,16 @@ const UserRegisterForm = () => {
             if (response.status === 201 || response.status === 200) {
                 const data = await response.json()
                 setLoading(false)
-                toast.success(
-                    'Registered Successfully',
-                    {
-                        position: 'top-right',
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'light',
-                    }
-                )
+                toast.success('Registered Successfully', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                })
                 router.push('/userLogin')
             } else if (response.status === 409) {
                 const data = await response.json()
@@ -198,8 +195,7 @@ const UserRegisterForm = () => {
     }
 
     return (
-        <div
-        >
+        <div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -212,7 +208,7 @@ const UserRegisterForm = () => {
                 pauseOnHover
                 theme="light"
             />
-            <div className={styles.form} >
+            <div className={styles.form}>
                 <motion.form
                     className={styles.mainForm}
                     style={{ top: 75 }}
@@ -286,7 +282,6 @@ const UserRegisterForm = () => {
                             }}
                         />{' '}
                         I am from IIT Patna
-
                     </div>
                     <br />
                     {(() => {
@@ -304,7 +299,7 @@ const UserRegisterForm = () => {
                                             onChange={(e) =>
                                                 setEmail(
                                                     e.target.value.toLowerCase() +
-                                                    '@iitp.ac.in'
+                                                        '@iitp.ac.in'
                                                 )
                                             }
                                             required
@@ -438,7 +433,8 @@ const UserRegisterForm = () => {
                                 onChange={() => {
                                     setNewsletter((prev) => !prev)
                                 }}
-                            />&nbsp;
+                            />
+                            &nbsp;
                             <span>
                                 Subscribe to the&nbsp;{' '}
                                 <strong>Anwesha Dispatch</strong>{' '}
@@ -464,10 +460,18 @@ const UserRegisterForm = () => {
                                 onChange={() => {
                                     setTerms((prev) => !prev)
                                 }}
-                            />&nbsp;
+                            />
+                            &nbsp;
                             <span>
                                 I accept the&nbsp;{' '}
-                                <a href="/terms" target="_blank" style={{ color: '#ffffff', fontWeight: 600 }}>
+                                <a
+                                    href="/terms"
+                                    target="_blank"
+                                    style={{
+                                        color: '#ffffff',
+                                        fontWeight: 600,
+                                    }}
+                                >
                                     Terms and Conditions
                                 </a>{' '}
                             </span>
@@ -502,8 +506,9 @@ const UserRegisterForm = () => {
                         </button>
                     </motion.div>
                     <br />
-                    <p style={{ textAlign: "center", fontWeight: "400" }}>
-                        <strong>FOR IITP STUDS-- </strong>verify you college email in Slick app to be able to&nbsp;
+                    <p style={{ textAlign: 'center', fontWeight: '400' }}>
+                        <strong>FOR IITP STUDS-- </strong>verify you college
+                        email in Slick app to be able to&nbsp;
                         <Link
                             href="/userLogin"
                             style={{ color: '#ffffff', fontWeight: 600 }}
