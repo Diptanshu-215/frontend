@@ -20,16 +20,17 @@ const Multicity = () => {
             city: 'Kolkata',
             date: '08/10/23',
             venue: 'ISI Kolkata',
-			poster: "/multicity/MulticityPosterKolkata.webp",
+            poster: '/multicity/MulticityPosterKolkata.webp',
             registration_deadline: '06/10/23',
             registration_fee: 'Free',
             timings: '09:00 AM - 06:00 PM',
             contact: [
-				{ name: 'Akhilesh', phone: '9404549742' },
-				{ name: 'Raaj Harsh', phone: '7050277123' },
-			],
-			completed: false,
-            register_link: 'https://docs.google.com/forms/d/e/1FAIpQLScD75l8wtrTlitkQz6OVeYRlOQVIEc80Hzk2wXRAKxyFD-iPQ/viewform',
+                { name: 'Akhilesh', phone: '9404549742' },
+                { name: 'Raaj Harsh', phone: '7050277123' },
+            ],
+            completed: false,
+            register_link:
+                'https://docs.google.com/forms/d/e/1FAIpQLScD75l8wtrTlitkQz6OVeYRlOQVIEc80Hzk2wXRAKxyFD-iPQ/viewform',
             rulebook_link: 'https://bit.ly/AnweshaMulticity',
         },
         {
@@ -37,7 +38,7 @@ const Multicity = () => {
             city: 'Lucknow',
             date: '10/09/23',
             venue: 'BBD NIIT',
-			poster: "/multicity/MulticityPosterLucknow.webp",
+            poster: '/multicity/MulticityPosterLucknow.webp',
             registration_deadline: '08/09/23',
             registration_fee: 'Free',
             timings: '09:00 AM - 06:00 PM',
@@ -45,8 +46,9 @@ const Multicity = () => {
                 { name: 'Yash Raj Singh', phone: '8789866763' },
                 { name: 'Divyam Walia', phone: '9105889422' },
             ],
-			completed: true,
-            register_link: 'https://docs.google.com/forms/d/e/1FAIpQLSfdKPCSrc0gj4R8jcq6-C0E9zc-lMp1phBzJxwlOQeZuZhi9A/viewform?usp=sf_link',
+            completed: true,
+            register_link:
+                'https://docs.google.com/forms/d/e/1FAIpQLSfdKPCSrc0gj4R8jcq6-C0E9zc-lMp1phBzJxwlOQeZuZhi9A/viewform?usp=sf_link',
             rulebook_link: 'https://bit.ly/AnweshaMulticity',
         },
     ]
@@ -58,7 +60,7 @@ const Multicity = () => {
                 <meta name="description" content="Multicity-Anwesha 2024" />
                 <link rel="icon" href="./logo_no_bg.svg" />
             </Head>
-			<div className={styles.topmargin} />
+            <div className={styles.topmargin} />
             <img
                 loading="lazy"
                 src={'/multicity/MulticityHeroImage.webp'}

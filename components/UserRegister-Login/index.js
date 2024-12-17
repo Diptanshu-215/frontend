@@ -514,7 +514,9 @@ const UserRegisterForm = () => {
                         </button>
                     </motion.div>
                     <br />
+
                     {/* <p style={{ textAlign: 'center', fontWeight: '400' }}>
+
                         <strong>FOR IITP STUDS-- </strong>verify you college
                         email in Slick app to be able to&nbsp;
                         <Link

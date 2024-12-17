@@ -4,16 +4,13 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const index = ({ type }) => {
-
     const close = () => {
         setModal(false)
     }
 
     return (
         <>
-            <div
-                className={styles.card}
-            >
+            <div className={styles.card}>
                 {/* {event.is_active ? null : (
                     <img
                         src="/assets/coming-soon.png"
@@ -29,9 +26,7 @@ const index = ({ type }) => {
                 )} */}
                 <div className={styles.imageWrap}>
                     <img
-                        src={
-                            '/events/poster.png'
-                        }
+                        src={'/events/poster.png'}
                         className={styles.item}
                         alt="Fest Image"
                         objectfit={'contain'}
@@ -47,7 +42,9 @@ const index = ({ type }) => {
                         </span>{' '}
                     </p>
                 </div>
-                <div className={styles.eventName}>Anwesha Fest Pass - {type}</div>
+                <div className={styles.eventName}>
+                    Anwesha Fest Pass - {type}
+                </div>
             </div>
         </>
     )

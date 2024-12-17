@@ -194,6 +194,7 @@ const UserLoginForm = () => {
                         <br />
 
                         <br />
+
                         <div className={styles.passwd_box}>
                             <span
                                 style={{
@@ -229,6 +230,7 @@ const UserLoginForm = () => {
                                 Forgot password?
                             </Link>
                         </div>
+
                     </div>
 
                     <motion.div
@@ -243,6 +245,7 @@ const UserLoginForm = () => {
                     <br />
                     {/* <p style={{ textAlign: "center", fontWeight: "400" }}>
                         <strong>FOR IITP STUDS-- </strong>verify you college email in Slick app to be able to&nbsp;
+
                         <Link
                             href="/userLogin"
                             style={{ color: '#ffffff', fontWeight: 600 }}
@@ -251,6 +254,7 @@ const UserLoginForm = () => {
                         </Link>
                         &nbsp; ; check spam/junk folder for slick otp
                     </p> */}
+
                     <p style={{ marginTop: 18, textAlign: 'center' }}>
                         Don't have an account? &nbsp;
                         <Link
@@ -261,8 +265,12 @@ const UserLoginForm = () => {
                         </Link>
                     </p>
                     {/* <p style={{ marginTop: 18, textAlign: "center" }}>
+
                         Trouble logging in? &nbsp;
-                        <Link href="https://forms.gle/67XktxG9iTFgfT9n9" style={{ color: '#ffffff', fontWeight: 600 }}>
+                        <Link
+                            href="https://forms.gle/67XktxG9iTFgfT9n9"
+                            style={{ color: '#ffffff', fontWeight: 600 }}
+                        >
                             Reach out to us here.
                         </Link>
                     </p> */}

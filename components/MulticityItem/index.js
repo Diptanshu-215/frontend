@@ -6,7 +6,7 @@ const index = ({ event }) => {
             <div className={styles.eventImageWrapper}>
                 <div className={styles.eventImageWrapper_dot} />
                 <img
-					loading='lazy'
+                    loading="lazy"
                     src={event.poster}
                     className={styles.eventImageWrapper_box}
                 />
@@ -50,7 +50,11 @@ const index = ({ event }) => {
                 </div>
                 <div className={styles.eventLinks}>
                     <a
-                        className={event.completed ? styles.rulebookLink : styles.registerLink}
+                        className={
+                            event.completed
+                                ? styles.rulebookLink
+                                : styles.registerLink
+                        }
                         href={event.completed ? '#' : event.register_link}
                     >
                         <p>{event.completed ? 'Conducted' : 'Register'}</p>

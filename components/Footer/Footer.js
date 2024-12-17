@@ -79,7 +79,11 @@ const Footer = () => {
                                     Home
                                 </div>
                             </Link>
-                            <Link className={styles.footerLink} href="https://forms.gle/67XktxG9iTFgfT9n9" target='_blank'>
+                            <Link
+                                className={styles.footerLink}
+                                href="https://forms.gle/67XktxG9iTFgfT9n9"
+                                target="_blank"
+                            >
                                 <div className={styles.footerTableCell}>
                                     Report a Problem
                                 </div>

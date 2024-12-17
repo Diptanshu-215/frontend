@@ -133,6 +133,7 @@ const Events = () => {
                         event={eventsinfo}
                     />
                 ))}
+
             </div>
             {isModalOpen && (
                 <Modal

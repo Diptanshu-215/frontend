@@ -13,11 +13,13 @@ const index = ({ event,onClick }) => {
 
     return (
         <>
+
             <div
 				className={styles.card}
                 onClick={onClick}
 
             >
+
                 {/* {event.is_active ? null : (
                     <img
                         src="/assets/coming-soon.png"
@@ -32,16 +34,12 @@ const index = ({ event,onClick }) => {
                     />
                 )} */}
                 <div className={styles.imageWrap}>
-					<img
-						src={
-							event.poster
-							? event.poster
-							: '/events/poster.png'
-						}
-						className={styles.item}
-						alt="Fest Image"
-						objectfit={'contain'}
-					/>
+                    <img
+                        src={event.poster ? event.poster : '/events/poster.png'}
+                        className={styles.item}
+                        alt="Fest Image"
+                        objectfit={'contain'}
+                    />
                     <p className={styles.img__description}>
                         <span style={{ marginBottom: '10px' }}>
                             <Image

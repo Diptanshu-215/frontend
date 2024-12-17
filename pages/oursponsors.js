@@ -289,6 +289,7 @@ const oursponsors = () => {
             },
         ],
         spons25: [],
+
     }
     return (
         <div className={styles.parentContainer}>
@@ -310,6 +311,7 @@ const oursponsors = () => {
                         </div>
                     </div>
 
+
                     <div style={{ height: '10vw' }}></div>
                     <h3
                         className={styles.teamSubHeading}
@@ -320,6 +322,7 @@ const oursponsors = () => {
                         <div className={styles.picContainer}>
                             {/* {[...Array(n)].map((e, i) =>  */}
                             {data[year]?.map((item, index) => (
+
                                 <a
                                     key={index}
                                     href={item.link}

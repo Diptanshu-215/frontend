@@ -30,8 +30,8 @@ function MyEvents() {
     return (
         <div>
             {events.solo.length === 0 &&
-                events.team.length === 0 &&
-                passes.length === 0 ? (
+            events.team.length === 0 &&
+            passes.length === 0 ? (
                 <div>No events registered</div>
             ) : null}
             {passes.map((e, key) => {
@@ -286,34 +286,36 @@ function MyEvents() {
                                                 <strong>{e.team_lead}</strong>
                                             </h4>
                                             <div className={styles.members}>
-                                                {e.team_members.map((mem, key) => {
-                                                    return <div key={key}>{mem}</div>
-                                                })}
+                                                {e.team_members.map(
+                                                    (mem, key) => {
+                                                        return (
+                                                            <div key={key}>
+                                                                {mem}
+                                                            </div>
+                                                        )
+                                                    }
+                                                )}
                                             </div>
                                         </div>
-                                        {
-                                            e.payment_done ? (
-                                                <div
-                                                    className={styles.verified_img}
-                                                >
-                                                    <img src="assets/tick-green.svg" />
-                                                    Registration Complete
-                                                </div>
-                                            ) : (
-                                                <a
-                                                    className={styles.payment_btn}
-                                                    href={e.payment_url}
-                                                >
-                                                    Continue to payment{' '}
-                                                    <img src="/assets/right-arrow.svg" />
-                                                </a>
-                                            )
-                                        }
+                                        {e.payment_done ? (
+                                            <div
+                                                className={styles.verified_img}
+                                            >
+                                                <img src="assets/tick-green.svg" />
+                                                Registration Complete
+                                            </div>
+                                        ) : (
+                                            <a
+                                                className={styles.payment_btn}
+                                                href={e.payment_url}
+                                            >
+                                                Continue to payment{' '}
+                                                <img src="/assets/right-arrow.svg" />
+                                            </a>
+                                        )}
                                         {e.payment_url ? (
                                             <a
-                                                className={
-                                                    styles.verified_img
-                                                }
+                                                className={styles.verified_img}
                                                 href={e.payment_url}
                                                 target="_blank"
                                                 rel="noreferrer"
@@ -328,9 +330,8 @@ function MyEvents() {
                         </div>
                     </div>
                 ) : null
-            ) : null
-            }
-        </div >
+            ) : null}
+        </div>
     )
 }
 
