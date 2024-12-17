@@ -13,11 +13,12 @@
         #609fca,
         #7bb5c1
     ); */
-    background-image: url('/login_register/portal.svg'),
-        url('/login_register/bg.svg');
+    /* background-image: url('/login_register/portal.svg'),
+        url('/login_register/bg.svg'); */
+
     background-size: 100%;
     background-position: bottom right, top left;
-    background-color: #ccf0ff;
+    background-color: black;
     /* background-position: center; */
     background-repeat: no-repeat;
     /* height: 100vh; */

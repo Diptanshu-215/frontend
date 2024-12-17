@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import styles from './eventitem.module.css'
 import { motion } from 'framer-motion'
-import Modal from '../BigModal'
+// import Modal from '../BigModal'
 import { useState } from 'react'
 
-const index = ({ event }) => {
+const index = ({ event,onClick }) => {
     const [modal, setModal] = useState(false)
 
     const close = () => {
@@ -13,7 +13,13 @@ const index = ({ event }) => {
 
     return (
         <>
-            <div className={styles.card} onClick={() => setModal(true)}>
+
+            <div
+				className={styles.card}
+                onClick={onClick}
+
+            >
+
                 {/* {event.is_active ? null : (
                     <img
                         src="/assets/coming-soon.png"
@@ -46,8 +52,9 @@ const index = ({ event }) => {
                     </p>
                 </div>
                 <div className={styles.eventName}>{event.name}</div>
+                <div className={styles.smalldescription}>{event.smalldescription}</div>
             </div>
-            {modal && (
+            {/* {modal && (
                 <>
                     <Modal
                         title={event.name}
@@ -55,7 +62,7 @@ const index = ({ event }) => {
                         closeHandler={close}
                     />
                 </>
-            )}
+            )} */}
         </>
     )
 }

@@ -1,0 +1,167 @@
+/* components/Modal.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: black;
+    padding: 20px;
+    border-radius: 8px;
+    width: 700px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .item {
+	height: 183px;
+	width: 224px;
+    border-radius: 15px;
+
+}
+.title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "Inter", sans-serif;
+  font-weight: 200;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.innerContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
+    
+}
+  .closeButton {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .closeicon{
+    color: #6000C5;
+  }
+  .content {
+    padding: 10px 0;
+  }
+  .leftBLock{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .registerButton{
+    width: 100%;
+    background-color: #6000C5;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+    font-size: 15px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+
+  .verticalline {
+    border-left: 2px dotted white; /* Dotted line color and width */
+    height: auto;
+    margin: 0 20px; /* Add space around the line */
+    align-self: stretch;
+}
+
+
+
+.rightBlock{
+    color: white;
+    width: auto;
+    max-width: 400px;
+    overflow-y: auto; /* Adds a scroll bar if content exceeds height */
+    word-wrap: break-word; /* Wraps long words */
+    word-break: break-word; 
+    height: 100%;
+    font-size: 15px;
+  font-weight: 200;
+  font-family: "Inter", sans-serif;
+
+}
+  .ruleBookButton{
+    width: 100%;
+    
+    border-color: #6000C5;
+    border: 2px solid #6000C5;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-family: 'Outfit', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    
+  }
+
+  @media screen and (max-width: 768px) {
+      .innerContainer{
+        flex-direction: column;
+      }
+
+      .verticalline {
+        border-left: none; /* Remove the vertical line */
+        border-top: 2px dashed white; /* Horizontal dashed line */
+        width: 100%; /* Adjust width to full width */
+        margin: 20px 0; /* Adjust margin for horizontal line */
+        align-self: center;
+    }
+
+    .modal {
+      width: 90%; /* Adjust width for mobile/tablet screens */
+      padding: 15px;
+      border-radius: 6px;
+      max-height: 80vh; /* Limit height to 80% of viewport height */
+      overflow-y: auto; /* Add vertical scrolling */
+      border-radius: 6px; /* Slightly smaller border-radius */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+      width: 90%; /* Further reduce width for smaller screens */
+      padding: 10px;
+      /* padding-bottom: 12px; */
+      border-radius: 5px;
+      max-height: 80vh; /* Limit height to 80% of viewport height */
+      overflow-y: auto; /* Enable vertical scrolling */
+  }
+  .innerContainer{
+    margin-bottom: 10px;
+
+  }
+}

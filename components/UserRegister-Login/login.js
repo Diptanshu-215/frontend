@@ -161,17 +161,19 @@ const UserLoginForm = () => {
                 <motion.form
                     className={styles.mainForm}
                     initial={{ opacity: 0, x: '-20%' }}
-                    whileInView={{ opacity: 1, x: '0%' }}
+                    whileInView={{ opacity: 1, x: '-5%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h1 style={{ letterSpacing: 1 }}>LOGIN</h1>
+                    <h1 style={{ letterSpacing: 1, marginRight: 'auto' }}>
+                        Welcome Back
+                    </h1>
                     <div className={styles.field}>
                         <label htmlFor="email_id">Email ID</label>
                         <br />
                         <input
                             type="email"
                             name="Email_Id"
-                            placeholder="Eg: vineet@gmail.com"
+                            placeholder="Enter your email address"
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
@@ -185,62 +187,65 @@ const UserLoginForm = () => {
                             type={passwordShown ? 'text' : 'password'}
                             id="pwd"
                             name="Password"
-                            placeholder="Password"
+                            placeholder="Enter your password"
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                         <br />
 
                         <br />
-                    </div>
-                    <div className={styles.passwd_box}>
-                        <span
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                marginTop: -15,
-                            }}
-                        >
-                            <input
-                                type="checkbox"
-                                id="showPassword"
+
+                        <div className={styles.passwd_box}>
+                            <span
                                 style={{
-                                    width: '20px',
-                                    height: '20px',
-                                    marginRight: '7px',
-                                    marginTop: '3px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    marginTop: -15,
                                 }}
-                                onChange={() => {
-                                    setPasswordShown((prev) => !prev)
+                            >
+                                <input
+                                    type="checkbox"
+                                    id="showPassword"
+                                    style={{
+                                        width: '20px',
+                                        height: '20px',
+                                        marginRight: '7px',
+                                        marginTop: '3px',
+                                    }}
+                                    onChange={() => {
+                                        setPasswordShown((prev) => !prev)
+                                    }}
+                                />
+                                Show Password
+                            </span>
+                            &nbsp;&nbsp;
+                            <Link
+                                href="/password-reset"
+                                style={{
+                                    color: '#ffffff',
+                                    fontWeight: 600,
+                                    marginTop: -15,
                                 }}
-                            />
-                            Show Password
-                        </span>
-                        &nbsp;&nbsp;
-                        <Link
-                            href="/password-reset"
-                            style={{
-                                color: '#ffffff',
-                                fontWeight: 600,
-                                marginTop: -15,
-                            }}
-                        >
-                            Forgot password?
-                        </Link>
+                            >
+                                Forgot password?
+                            </Link>
+                        </div>
+
                     </div>
+
                     <motion.div
                         className={styles.buttonWrapper}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                     >
                         <button type="submit" onClick={(e) => handleSubmit(e)}>
-                            SUBMIT
+                            Submit
                         </button>
                     </motion.div>
                     <br />
-                    <p style={{ textAlign: 'center', fontWeight: '400' }}>
-                        <strong>FOR IITP STUDS-- </strong>verify you college
-                        email in Slick app to be able to&nbsp;
+                    {/* <p style={{ textAlign: "center", fontWeight: "400" }}>
+                        <strong>FOR IITP STUDS-- </strong>verify you college email in Slick app to be able to&nbsp;
+
                         <Link
                             href="/userLogin"
                             style={{ color: '#ffffff', fontWeight: 600 }}
@@ -248,7 +253,8 @@ const UserLoginForm = () => {
                             Login
                         </Link>
                         &nbsp; ; check spam/junk folder for slick otp
-                    </p>
+                    </p> */}
+
                     <p style={{ marginTop: 18, textAlign: 'center' }}>
                         Don't have an account? &nbsp;
                         <Link
@@ -258,7 +264,8 @@ const UserLoginForm = () => {
                             Register here.
                         </Link>
                     </p>
-                    <p style={{ marginTop: 18, textAlign: 'center' }}>
+                    {/* <p style={{ marginTop: 18, textAlign: "center" }}>
+
                         Trouble logging in? &nbsp;
                         <Link
                             href="https://forms.gle/67XktxG9iTFgfT9n9"
@@ -266,7 +273,7 @@ const UserLoginForm = () => {
                         >
                             Reach out to us here.
                         </Link>
-                    </p>
+                    </p> */}
                 </motion.form>
             </div>
         </div>

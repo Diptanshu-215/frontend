@@ -39,6 +39,7 @@ const Modal = (props) => {
                                 router,
                                 props.closeHandler
                             )
+
                     } else {
                         if (props.body.tags === '5')
                             soloEventRegistration(
@@ -89,7 +90,9 @@ const Modal = (props) => {
             router.push('/userLogin')
         }
     }
-    let description = props.body.description.replace(/\n/g, '<br>')
+
+
+    let description = (props.body.description || '').replace(/\n/g, '<br />');
     return (
         <React.StrictMode>
             <ToastContainer

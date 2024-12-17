@@ -9,6 +9,7 @@ const josefinSans = Josefin_Sans({
 })
 
 const oursponsors = () => {
+    const [year, setYear] = React.useState('spons24')
     // const n = 4;
     const data = {
         spons23: [
@@ -165,11 +166,130 @@ const oursponsors = () => {
         ],
         spons24: [
             {
-                name: 'Innovians Technologies',
-                image: '/sponsors/2024/innovians.jpg',
-                link: 'https://innovianstechnologies.com/',
+                //https://drive.google.com/uc?export=view&id=1RCXj3Es2w-E4ZeMGsB82Jr8z75DL-1tA
+                name: 'Allen Cooper',
+                image: 'https://drive.google.com/uc?export=view&id=1t6AzkA6TaizniJi3kEgi4DZAH7-TnbA4',
+                link: 'https://www.allencooperindia.com/',
+            },
+            {
+                name: 'Bihar Council on Science and Technology',
+                image: 'https://drive.google.com/uc?export=view&id=1qtwIx1Uo6bNUaweYYJB9FjnQzt15cVdf',
+                link: 'https://bcstnsdnmd.co.in/home/',
+            },
+            {
+                name: 'Beltron',
+                image: 'https://drive.google.com/uc?export=view&id=1RCXj3Es2w-E4ZeMGsB82Jr8z75DL-1tA',
+                link: 'https://bsedc.bihar.gov.in/',
+            },
+            {
+                name: 'Bihar Tourism',
+                image: 'https://drive.google.com/uc?export=view&id=1uH0eSOGGofm5LWclaEF3N5h1fRLssfeo',
+                link: 'tourism.bihar.gov.in',
+            },
+
+            {
+                name: 'Biryani',
+                image: 'https://drive.google.com/uc?export=view&id=188g69RL2rUK2IUNlbcLK30AMzao3ocPO',
+                link: 'biryanibykilo.com',
+            },
+            {
+                name: 'Boult',
+                image: 'https://drive.google.com/uc?export=view&id=1IRMRVUNLlUKyghOX1s0i6FLZUVJA0_us',
+                link: 'https://www.boultaudio.com/',
+            },
+            {
+                name: 'Brpnnl',
+                image: 'https://drive.google.com/uc?export=view&id=1ik9_1UGJG_2hJyVw6jHNPiY7cGeJl0gk',
+                link: 'brpnnl.bihar.gov.in',
+            },
+            {
+                name: 'Bsacs',
+                image: 'https://drive.google.com/uc?export=view&id=1xIMMZal3ciSkjYNiFM2NpwwUKcjmEkfN',
+                link: ' http://122.252.249.61/BSACS/(S(wcqp3b22llkmyral43koyee0))/home.aspx',
+            },
+            {
+                name: 'Dit Red',
+                image: 'https://drive.google.com/uc?export=view&id=1VBG2d2mNg0wvKvCU4_HoonoccFcsBlBV',
+                link: 'https://state.bihar.gov.in/dit/CitizenHome.html',
+            },
+            {
+                name: 'Doi',
+                image: 'https://drive.google.com/uc?export=view&id=1CRoCiAxn7M6E-ewcd6AQihXZb8-HLSrd',
+                link: '',
+            },
+            {
+                name: 'Dominos',
+                image: 'https://drive.google.com/uc?export=view&id=1M6O_sYkgfZo6BlGqgG1CnrWdIGRHf2ME',
+                link: ' https://www.dominos.co.in/',
+            },
+            {
+                name: 'Fueling',
+                image: 'https://drive.google.com/uc?export=view&id=1470M3YFcLqFmMdpb5QCEXW08wJTSRFrg',
+                link: '',
+            },
+            {
+                name: 'Hydration',
+                image: 'https://drive.google.com/uc?export=view&id=1yjcPo-kOc8MNnv32QKyf05IatfBpN5_Q',
+                link: ' ',
+            },
+            {
+                name: 'Kala Akchar',
+                image: 'https://drive.google.com/uc?export=view&id=1CFvfIPVPPxTz3Vnk6ts5DGreLBXKZDHf',
+                link: ' ',
+            },
+            {
+                name: 'Nhai',
+                image: 'https://drive.google.com/uc?export=view&id=1axsLht1WrclK8juwRsamb63xdz1cZula',
+                link: ' https://nhai.gov.in/',
+            },
+            {
+                name: 'Ntpc',
+                image: 'https://drive.google.com/uc?export=view&id=1SNqmi2HMflM03c1P6_MQD4TYQ__mjTqI',
+                link: ' https://www.ntpc.co.in/',
+            },
+            {
+                name: 'Red Fm',
+                image: 'https://drive.google.com/uc?export=view&id=1IKEBu8nlxBsWmiZb__LK1vEWzUq7Y5Bj',
+                link: 'redfmindia.in ',
+            },
+            {
+                name: 'Road Chef',
+                image: 'https://drive.google.com/uc?export=view&id=1YF31cuY4AEiLxj5ngwZyqjfacgKY_KcD',
+                link: ' ',
+            },
+            {
+                name: 'Sbi',
+                image: 'https://drive.google.com/uc?export=view&id=1SrNjeCQxM6gkeILaXsv9tev0rQx7xuxR',
+                link: ' https://www.sbi.co.in/',
+            },
+            {
+                name: 'Startup Bihar',
+                image: 'https://drive.google.com/uc?export=view&id=1uEW1bECxlTZbslxTC6vI1MqilveD-1gB',
+                link: '',
+            },
+            {
+                name: 'The Community Events',
+                image: 'https://drive.google.com/uc?export=view&id=1Q7-zIM7VRklMACJdk-U7TIT5YuAMUALE',
+                link: ' ',
+            },
+            {
+                name: 'Toi',
+                image: 'https://drive.google.com/uc?export=view&id=1OTyj7NAyalCpfbcgXoMiLL5mz8jTwJK9',
+                link: '  https://timesofindia.indiatimes.com/',
+            },
+            {
+                name: 'Waffcha',
+                image: 'https://drive.google.com/uc?export=view&id=1H8OVZD1Swzy0r8r25stki1q9GZ_YTbAm',
+                link: ' https://www.waffcha.com/',
+            },
+            {
+                name: 'Wat A Burger',
+                image: 'https://drive.google.com/uc?export=view&id=1JJNTNKuZ_SwlUqLsJNFEGXfmspz3HcL2',
+                link: ' https://www.wataburger.in/',
             },
         ],
+        spons25: [],
+
     }
     return (
         <div className={styles.parentContainer}>
@@ -177,8 +297,21 @@ const oursponsors = () => {
                 <div className={styles.container}>
                     <h2 className={styles.teamHeader} style={josefinSans.style}>
                         {' '}
-                        Our Sponsors
+                        OUR SPONSORS
                     </h2>
+                    <div className={styles.dropdownContainer}>
+                        <button className={styles.dropdownButton}>
+                            Previous Years Sponsors
+                            <span className={styles.arrow}>▼</span>
+                        </button>
+                        <div className={styles.dropdownContent}>
+                            <a onClick={() => setYear('spons23')}>2023-2024</a>
+                            <a onClick={() => setYear('spons24')}>2024-2025</a>
+                            {/* <a onClick={() => setYear('spons25')}>2025-2026</a> */}
+                        </div>
+                    </div>
+
+
                     <div style={{ height: '10vw' }}></div>
                     <h3
                         className={styles.teamSubHeading}
@@ -188,7 +321,8 @@ const oursponsors = () => {
                     <div className={styles.coordinators}>
                         <div className={styles.picContainer}>
                             {/* {[...Array(n)].map((e, i) =>  */}
-                            {data.spons24.map((item, index) => (
+                            {data[year]?.map((item, index) => (
+
                                 <a
                                     key={index}
                                     href={item.link}

@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-
+import Card from '../components/EventItem/index.js'
+import Modal from '../components/EventItem/Modal.js'
 import EventItem from '../components/EventItem'
 
 const montserrat = Montserrat({
@@ -13,13 +14,19 @@ const montserrat = Montserrat({
     subsets: ['latin'],
 })
 
+const cardarr=[1,2,3,4,5,6,7,8]
+
+const eventsinfo={name: "Event Name",poster:'',smalldescription:'Solo - Classical Dance Competition',organizers:[{name:"Aryan",contact:" 7247305110"},{name:"Abhilasha",contact:"9262293394"}]}
+
 const josefinSans = Josefin_Sans({
     weight: ['700'],
     subsets: ['latin'],
 })
 
 const Events = () => {
+
     const [events, setEvents] = useState([])
+ 
     // add event ids which won't be shown on website
     let exceludedEvents = [
         'EVTcf525',
@@ -75,53 +82,68 @@ const Events = () => {
         callAPI()
     }, [])
 
+  
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const openModal = (event) => {
+        console.log("Modal opened for event:", event);
+        setSelectedEvent(event);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedEvent(null);
+    };
     return (
-        <div className={styles.mainContainer}>
-            <Head>
-                <title>Events - Anwesha 2024</title>
-                <meta name="description" content="Events-Anwesha 2024" />
-                <link rel="icon" href="./logo_no_bg.svg" />
-            </Head>
-            <div style={{ height: 100 }}></div>
-            <div className={styles.container}>
-                <div className={styles.titleBox}>
-                    <br />
-                    <br />
-                    <br />
-                    <h1 className={josefinSans.className}>Events</h1>
-                    <p
-                        className={montserrat.className}
-                        style={{ fontWeight: 'bold' }}
-                    >
-                        From heart-stopping dance battles and soulful singing
-                        competitions to the dazzling glamour of the fashion
-                        show, with thought-provoking Nukkad Nataks and the
-                        lyrical echoes of poetry slams, Anwesha's events ignite
-                        every artistic spark. Come, delve into Anwesha's events,
-                        where every beat has a story to tell and every
-                        expression finds a stage!
-                    </p>
-                    <Link
-                        href="https://drive.google.com/file/d/1Sn8CSO_6k3gP2vQkjbguoJPbw73SC_QV/view"
-                        target="_blank"
-                        className={styles.rulebook}
-                    >
-                        Events Brochure
-                    </Link>
-                    <br />
-                    <br />
-                    <br />
-                    <h2 style={{ color: 'red', fontWeight: 'bold' }}>
-                        Wallet payments (Paytm, PhonePe etc) are not accepted !
-                    </h2>
-                </div>
-                <div className={styles.content}>
-                    {events.map((event, index) => {
-                        return <EventItem event={event} key={index} />
-                    })}
-                </div>
+        <div className={styles.mainContainer} >
+        <Head>
+            <title>Events - Anwesha 2024</title>
+            <meta name="description" content="Events-Anwesha 2024" />
+            <link rel="icon" href="./logo_no_bg.svg" />
+        </Head>
+        <div className={styles.container}>
+            <div className={styles.searchcontainer}>
+                <input
+                    className={styles.searchbar}
+                    type="text"
+                    placeholder="Search Events"
+                />
+                <svg className={styles.searchicon}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    id="search"
+                >
+                    <g>
+                        <path d="m20.71 19.29-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z"></path>
+                    </g>
+                </svg>
             </div>
+            <div>
+            <h3 className={styles.titletext}>
+                    All Competitions
+                </h3>
+            </div>
+            <div className={styles.cardContainer}>
+                {cardarr.map((item, idx) => (
+                    <Card
+                        onClick={() => openModal(eventsinfo)}
+                        key={idx}
+                        event={eventsinfo}
+                    />
+                ))}
+
+            </div>
+            {isModalOpen && (
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    event={selectedEvent}
+                />
+            )}
         </div>
-    )
+    </div>
+);
 }
 export default Events

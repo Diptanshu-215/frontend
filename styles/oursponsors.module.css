@@ -1,38 +1,40 @@
-.parentContainer{
-    background: linear-gradient(169deg, #81D9FF -6.11%, #D4F2FF 107.75%);
-    background-image:url(/home/cloud.svg);
+.parentContainer {
+    /* background: linear-gradient(169deg, #81d9ff -6.11%, #d4f2ff 107.75%); */
+    /* background-image: url(/home/cloud.svg); */
     background-attachment: fixed;
     background-repeat: repeat;
     background-size: 100%;
+    background-color: black;
 }
-.wave{
-     background-image:url(/sponsors/waves.png);
+.wave {
+    background-image: url(/sponsors/waves.png);
     background-repeat: repeat;
     background-size: 100%;
-
 }
 
-.container{
+.container {
     margin-inline: 30px;
     padding-block: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.teamHeader{
-color: #010031;
-text-align: center;
-text-shadow: 4px 4px 96px rgba(0, 0, 0, 0.25);
-font-size: 100px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: capitalize;
-@media screen and (max-width: 750px)
-{
-    font-size: 14.5vw;
-}
+.teamHeader {
+    color: white;
+    text-align: center;
+    text-shadow: 4px 4px 96px rgba(0, 0, 0, 0.25);
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    @media screen and (max-width: 750px) {
+        font-size: 10vw;
+    }
 }
 
-.teamHeadingBar{
+.teamHeadingBar {
     width: 260px;
     height: 5px;
     background-color: #ffffff;
@@ -41,36 +43,35 @@ text-transform: capitalize;
     border: none;
 }
 
-.coordinators{
+.coordinators {
     display: flex;
     flex-direction: column;
     /* TODO : Complete the styling */
 }
 
-.teamSubHeading{
-   color: #010031;
-text-shadow: 4px 4px 100px rgba(0, 0, 0, 0.25);
-font-size: 72px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-text-transform: capitalize;
-margin-left: 1.5vw;
-@media screen and (max-width: 950px)
-{
-    font-size: 9.5vw;
-}
+.teamSubHeading {
+    color: #010031;
+    text-shadow: 4px 4px 100px rgba(0, 0, 0, 0.25);
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-left: 1.5vw;
+    @media screen and (max-width: 950px) {
+        font-size: 9.5vw;
+    }
 }
 
-.teamSubHeadingBar{
+.teamSubHeadingBar {
     width: 230px;
     height: 5px;
-    background-color: #403E9E;
+    background-color: #403e9e;
     margin-bottom: 50px;
     border: none;
 }
 
-.picContainer{
+.picContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -78,19 +79,19 @@ margin-left: 1.5vw;
     gap: 25px;
 }
 
-.teamCard{
-   display: flex;
-padding: 15px 40px;
-flex-direction: column;
-align-items: flex-start;
-gap: 5px;
-border-radius: 20px;
-background: #FFF;
-box-shadow: 4px 4px 100px 0px rgba(0, 0, 0, 0.04);
-width: min-content;
+.teamCard {
+    display: flex;
+    padding: 15px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    border-radius: 20px;
+    background: black;
+    box-shadow: 4px 4px 100px 0px rgba(0, 0, 0, 0.04);
+    width: min-content;
 }
 
-.memberImage{
+.memberImage {
     /* background-color: #56a5fe; */
     border-radius: 12px;
     /* border: green 2px solid; */
@@ -98,25 +99,122 @@ width: min-content;
     object-fit: contain;
 }
 
-.teamMemberDetails{
+.teamMemberDetails {
     width: 100%;
 }
 
-.memberName{
-    color: #102B71;
-text-align: center;
-font-family: Poppins;
-font-size: 22px;
-font-style: normal;
-line-height: normal;
-text-transform: capitalize;
-font-weight: 500;
+.memberName {
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    line-height: normal;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
-.memberCommitte{
+.memberCommitte {
     font-size: 16px;
     font-weight: 400;
     line-height: 18.5px;
     overflow: hidden;
     margin-block: 5px;
+}
+
+/* Container for the dropdown */
+.dropdownContainer {
+    position: absolute;
+    top: 90px; /* Adjust for navbar height */
+    right: 40px; /* Align to the right */
+    z-index: 10; /* Ensure it is above other content */
+    background-color: rgb(20, 20, 20);
+}
+
+/* Dropdown button */
+.dropdownButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dropdownButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgb(20, 20, 20); /* Dark background color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 100%;
+    z-index: 10;
+    overflow: hidden; /* Prevents overflow for rounded edges */
+}
+
+/* Dropdown links */
+.dropdownContent a {
+    color: white; /* Contrast text on dark background */
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdownContent a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Show dropdown content when button is hovered */
+.dropdownContainer:hover .dropdownContent {
+    display: block;
+}
+
+.arrow {
+    font-size: 12px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+/* For screens 768px or less */
+@media (max-width: 768px) {
+    .dropdownContainer {
+        position: static;
+        margin-top: 10px; /* Adjust for smaller screens */
+        text-align: center; /* Center align the container */
+        font-size: 3vw;
+    }
+
+    .dropdownButton {
+        padding: 8px 16px;
+        font-size: 3vw;
+    }
+
+    .dropdownContent {
+        position: static; /* Stack dropdown below the button */
+    }
+
+    .dropdownContent a {
+        padding: 8px;
+        font-size: 3vw;
+    }
+
+    /* Adjust the arrow size and position for mobile */
+    .arrow {
+        font-size: 2vw;
+        margin-left: 4px;
+    }
 }
