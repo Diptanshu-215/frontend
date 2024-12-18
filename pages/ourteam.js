@@ -65,7 +65,7 @@ export default function ourteam() {
     const data = {
         festcoord: [
             { name: 'Abhilasha', image: '/team/abhilasha.png' },
-            { name: 'Yashveer', image: '/team/yashveer.png' }
+            { name: 'Yashveer', image: '/team/yashveer.png' },
         ],
         webnapp: [
             { name: 'Anurag Deo', image: '/team/anurag.png' },
@@ -123,7 +123,7 @@ export default function ourteam() {
         ],
         mprAdvisory: [
             { name: 'Gaurav Garg', image: '/team/gauravAdvisor_mpr.png' },
-            { name: 'Robin', image: '/team/robinAdvisor_mpr.png' }
+            { name: 'Robin', image: '/team/robinAdvisor_mpr.png' },
         ],
         eventsAdvisory: [
             { name: 'Athul', image: '/team/athulAdvisor_events.png' },
@@ -132,19 +132,19 @@ export default function ourteam() {
         ],
         rspAdvisory: [
             { name: 'Jayant Yadav', image: '/team/jayantAdvisor_rsp.png' },
-            { name: 'Udit', image: '/team/uditAdvisor_rsp.png' }
+            { name: 'Udit', image: '/team/uditAdvisor_rsp.png' },
         ],
         hospiAdvisory: [
             { name: 'Chirag Bhardwaj', image: '/team/chiragAdvisor_hospi.png' },
-            { name: 'Rohit Nayak', image: '/team/rohitAdvisor_hospi.png' }
+            { name: 'Rohit Nayak', image: '/team/rohitAdvisor_hospi.png' },
         ],
         TVAdvisory: [
             { name: 'Tanya', image: '/team/tanyaAdvisor_TV.png' },
-            { name: 'Roshan Kishore', image: '/team/roshanAdvisor_TV.png' }
+            { name: 'Roshan Kishore', image: '/team/roshanAdvisor_TV.png' },
         ],
         webnappAdvisory: [
             { name: 'Rupak', image: '/team/rupakAdvisor_web.png' },
-            { name: 'Adil', image: '/team/adilAdvisor_web.png' }
+            { name: 'Adil', image: '/team/adilAdvisor_web.png' },
         ],
         sponsAdvisory: [
             { name: 'Prateek', image: '/team/prateekAdvisor_spons.png' },
