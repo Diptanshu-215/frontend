@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/ourteam.module.css'
+
+
 
 function CoordCard({ data, title }) {
     return (
@@ -11,6 +13,8 @@ function CoordCard({ data, title }) {
             <div className={styles.picContainer}>
                 {data.map((item, index) => (
                     <div key={index} className={styles.teamCard}>
+                        <div className={styles.flipInner}>
+                        <div className={styles.flipFront}>
                         <Image
                             className={styles.memberImage}
                             height={220}
@@ -20,8 +24,14 @@ function CoordCard({ data, title }) {
                         />
                         <div className={styles.teamMemberDetails}>
                             <div className={styles.memberName}>
-                                <strong>{item.name}</strong>
+                                <p>{item.name}</p>
                             </div>
+                        </div>
+                        </div>
+                        <div className={styles.flipBack}>
+                        <p>More details about {item.name}</p>
+                        {/* Add more content if needed */}
+                        </div>
                             {/* <div className={styles.memberCommitte}>
                                 {item.committee}
                             </div> */}
@@ -29,11 +39,28 @@ function CoordCard({ data, title }) {
                     </div>
                 ))}
             </div>
-        </>
-    )
+        </>)
 }
 
 export default function ourteam() {
+
+    const [fade, setFade] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Trigger fade effect when scrolled down 100px
+            if (window.scrollY > 50) {
+                setFade(true);
+            } else {
+                setFade(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll); // Cleanup listener
+    }, []);
+
+
     // const n = 4;
     const data = {
         festcoord: [
@@ -50,29 +77,34 @@ export default function ourteam() {
             { name: 'Suryansh Bansal', image: '/team/suryansh_spons.jpg' },
             { name: 'Aviral Shrivastava', image: '/team/aviral_spons.jpg' },
             { name: 'Ritvik', image: '/team/ritvik_spons.png' },
+
         ],
         TV: [
             { name: 'Arkadeep Acharya', image: '/team/akradeep_tv.jpg' },
             { name: 'Diptadip Malik', image: '/team/diptadip_tv.jpg' },
             { name: 'Surya Prakash', image: '/team/surya_tv.jpg' },
             { name: 'Ankit Kumar', image: '/team/ankit_tv.jpg' },
+
         ],
         events: [
             { name: 'Divyanshee', image: '/team/divyanshee_events.png' },
             { name: 'Shivendra', image: '/team/shivendra_events.jpg' },
             { name: 'Yash', image: '/team/yash_events.jpg' },
             { name: 'Nikita', image: '/team/nikita_events.jpg' },
+
         ],
         rsp: [
             { name: 'Khushi Pathak', image: '/team/khushi_rsp.jpeg' },
             { name: 'Harsh Chandra', image: '/team/harsh_rsp.jpeg' },
             { name: 'Swabnam', image: '/team/swabnam_rsp.jpeg' },
+
         ],
         hospi: [
             { name: 'Aditya Pandey', image: '/team/aditya_hospi.jpeg' },
             { name: 'Aditi Kumari', image: '/team/aditi_hospi.jpg' },
             { name: 'Aruj Gautam', image: '/team/aruj_hospi.jpeg' },
             { name: 'Devendra Singh', image: '/team/devendra_hospi.jpeg' },
+
         ],
         mpr: [
             { name: 'Kumari Ankita', image: '/team/ankita_mpr.jpg' },
@@ -86,17 +118,16 @@ export default function ourteam() {
             { name: 'Dhrutisundar', image: '/team/dhrutisundar_cnd.jpg' },
             { name: 'Vikramaditya', image: '/team/vikramaditya_cnd.jpg' },
         ],
-        convenor: [{ name: 'Ashfaq Ahmed', image: '/team/ashfaq.png' }],
+        convenor: [
+            { name: 'Ashfaq Ahmed', image: '/team/ashfaq.png' },
+        ],
         mprAdvisory: [
             { name: 'Gaurav Garg', image: '/team/gauravAdvisor_mpr.png' },
             { name: 'Robin', image: '/team/robinAdvisor_mpr.png' },
         ],
         eventsAdvisory: [
             { name: 'Athul', image: '/team/athulAdvisor_events.png' },
-            {
-                name: 'Abhishek Verma',
-                image: '/team/abhishekAdvisor_events.png',
-            },
+            { name: 'Abhishek Verma', image: '/team/abhishekAdvisor_events.png' },
             { name: 'Yash Malik', image: '/team/yashAdvisor_events.png' },
         ],
         rspAdvisory: [
@@ -119,35 +150,46 @@ export default function ourteam() {
             { name: 'Prateek', image: '/team/prateekAdvisor_spons.png' },
             { name: 'Hardik', image: '/team/hardikAdvisor_spons.png' },
             { name: 'Sai Vardhan', image: '/team/saivardhanAdvisor_spons.png' },
+
         ],
+
+
     }
     return (
         <div className={styles.parentContainer}>
+            
             <Head>
                 <title>Team - Anwesha 2024</title>
                 <meta name="description" content="Team-Anwesha 2024" />
                 <link rel="icon" href="./logo_no_bg.svg" />
             </Head>
+
+            
+            <div
+                className={`${styles.fullPageTitle} ${
+                    fade ? styles.fadeUp : ''
+                }`}
+            >
+                <div className={styles.titleOverlay}>
+                    <p className={styles.subTitle}>Anwesha'25</p>
+                    <br />
+                    <p className={styles.mainTitle}>Core Team</p>
+                </div>
+            </div>
+
+
             <div className={styles.container}>
-                <h2 className={styles.teamHeader}>Team Anwesha 2024</h2>
                 <hr className={styles.teamHeadingBar} />
                 <div className={styles.coordinators}>
                     {/* {[...Array(n)].map((e, i) =>  */}
-                    <CoordCard
-                        data={data.festcoord}
-                        title="Fest Coordinators"
-                    />
-                    <h2 className={styles.teamHeader}>Core Team</h2>
+                    <CoordCard data={data.festcoord} title="Fest Coordinators" />
                     <hr className={styles.teamHeadingBar} />
                     <CoordCard data={data.spons} title="Spons Committee" />
                     <CoordCard data={data.mpr} title="MPR Committee" />
                     <CoordCard data={data.webnapp} title="Web & App" />
                     <CoordCard data={data.events} title="Events Committee" />
                     <CoordCard data={data.rsp} title="RSP  Committee" />
-                    <CoordCard
-                        data={data.hospi}
-                        title="Hospitality  Committee"
-                    />
+                    <CoordCard data={data.hospi} title="Hospitality  Committee" />
                     <CoordCard data={data.TV} title="Anwesha TV" />
                     <CoordCard data={data.cnd} title="Cnd Committee" />
 
@@ -156,23 +198,16 @@ export default function ourteam() {
                     <CoordCard data={data.convenor} title="" />
                     <h2 className={styles.teamHeader}>Advisory</h2>
                     <hr className={styles.teamHeadingBar} />
-
-                    <CoordCard
-                        data={data.sponsAdvisory}
-                        title="Spons Committee"
-                    />
+                    
+                    <CoordCard data={data.sponsAdvisory} title="Spons Committee" />
                     <CoordCard data={data.mprAdvisory} title="MPR Committee" />
                     <CoordCard data={data.webnappAdvisory} title="Web & App" />
-                    <CoordCard
-                        data={data.eventsAdvisory}
-                        title="Events Committee"
-                    />
+                    <CoordCard data={data.eventsAdvisory} title="Events Committee" />
                     <CoordCard data={data.rspAdvisory} title="RSP  Committee" />
-                    <CoordCard
-                        data={data.hospiAdvisory}
-                        title="Hospitality  Committee"
-                    />
+                    <CoordCard data={data.hospiAdvisory} title="Hospitality  Committee" />
                     <CoordCard data={data.TVAdvisory} title="Anwesha TV" />
+                    
+                    
                 </div>
             </div>
         </div>
