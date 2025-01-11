@@ -321,7 +321,6 @@ const UserRegisterForm = () => {
                                 <span>REGISTER</span>
                                 <Image
                                     src={require('../../public/assets/Subtract.svg')}
-                                    className={styles.memberImage}
                                     height={220}
                                     width={220}
                                     alt="register"
