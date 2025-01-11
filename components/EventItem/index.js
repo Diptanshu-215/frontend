@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 // import Modal from '../BigModal'
 import { useState } from 'react'
 
+
 const index = ({ event,onClick }) => {
     const [modal, setModal] = useState(false)
 

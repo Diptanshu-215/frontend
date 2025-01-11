@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'SF Ironsides'; /* Name for the font */
-    src: url('./fonts/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
+    src: url('/font/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
     font-weight: normal; /* Define the weight */
     font-style: normal;  /* Define the style */
 }
@@ -22,7 +22,7 @@
             rgba(0, 0, 0, 1) 70%, /* Darker towards the edges */
             rgba(0, 0, 0, 1) 100% /* Fully black at the edges */
         ),
-    url("../public/events/bgImg.png"); /* Add your image */
+    url("/events/bgImg.png"); /* Add your image */
 
     background-position: center 120px; /* Center the images horizontally */
     background-repeat: repeat-y; /* Repeat images in the Y-direction */
@@ -178,22 +178,15 @@ flex-shrink: 0;
     letter-spacing: -1.2px;
 }
 
-.titleBox p {
-    text-align: justify;
-    max-width: 700px;
-    width: 90vw;
-    margin-bottom: 25px;
-    color: #010031;
-    font-size: min(20px, 5vw);
-    letter-spacing: 2px;
-    line-height: 150%;
-}
+
 .workshopContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 100px;
+    width: 90vw;
+    align-items: center;
 }
 
 .workshoptitletext{
@@ -215,6 +208,8 @@ flex-shrink: 0;
 
     /* Optional blur for a soft effect */
     backdrop-filter: blur(15px);
+
+    
 
     
 }
