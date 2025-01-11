@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
 @font-face {
     font-family: 'AnavioSmallCapitalsW01-Bold'; /* Name for the font */
-    src: url('../../styles/fonts/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
+    src: url('/font/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
     font-weight: normal; /* Define the weight */
     font-style: normal;  /* Define the style */
 }

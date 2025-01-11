@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&family=Laila:wght@300;400;500;600;700&display=swap');
 @font-face {
     font-family: 'SF Ironsides'; /* Name for the font */
-    src: url('./fonts/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
+    src: url('/font/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
     font-weight: normal; /* Define the weight */
     font-style: normal;  /* Define the style */
 }
 @font-face {
     font-family: 'AnavioSmallCapitalsW01-Bold'; /* Name for the font */
-    src: url('./fonts/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
+    src: url('/font/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
     font-weight: normal; /* Define the weight */
     font-style: normal;  /* Define the style */
 }
