@@ -175,7 +175,7 @@ function Navigation() {
                                 Fest Pass
                             </Link>
                         </li> */}
-                         <li
+                        <li
                             style={
                                 router.pathname === '/events'
                                     ? { borderBottom: '3px solid white' }
@@ -292,8 +292,11 @@ function Navigation() {
                         </li> */}
                     </ul>
                 </div>
-                <div id='getCardsButton'>
-                    <button className={styles.getcardsbutton}> Get Cards</button>
+                <div id="getCardsButton">
+                    <button className={styles.getcardsbutton}>
+                        {' '}
+                        Get Cards
+                    </button>
                 </div>
             </div>
 

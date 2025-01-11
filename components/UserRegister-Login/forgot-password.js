@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import styles from './style.module.css'
 import { motion } from 'framer-motion'
@@ -124,7 +125,14 @@ const ForgotPassword = () => {
                     whileInView={{ opacity: 1, x: '0%' }}
                     transition={{ duration: 1 }}
                 >
-                    <h2 style={{ letterSpacing: 1, fontSize: 30 }}>
+                    <h2
+                        style={{
+                            fontSize: '2rem',
+                            fontFamily: 'Anavio Small Capitals W01 Bold',
+                            margin: ' -1rem 0 2rem 0',
+                            textAlign: 'center',
+                        }}
+                    >
                         Password Reset
                     </h2>
                     <div className={styles.field}>
@@ -159,12 +167,18 @@ const ForgotPassword = () => {
                         </div>
                     </div>
                     <motion.div
-                        className={styles.buttonWrapper}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                     >
-                        <button type="submit" onClick={(e) => handleSubmit(e)}>
-                            SUBMIT
+                        <button className={styles.fancyButton}>
+                            <span>SUBMIT</span>
+                            <Image
+                                src={require('../../public/assets/Subtract.svg')}
+                                className={styles.memberImage}
+                                height={220}
+                                width={220}
+                                alt="register"
+                            />
                         </button>
                     </motion.div>
                 </motion.form>
