@@ -101,6 +101,14 @@
     font-weight: 700;
     line-height: normal;
 }
+@media only screen and (max-width: 768px){
+    .sexy_title > h2{
+        font-size: 48px;
+    }
+    .sexy_title > h3{
+        font-size: 18px;
+    }
+}
 /* =================================== HERO =================================== */
 .hero{
     align-self: stretch;
@@ -184,6 +192,16 @@
     }
 }
 @media only screen and (max-width: 768px){
+    .hero{
+        padding: 52px 48px;
+    }
+    .hero_text > h2{
+        margin-top: -116px;
+        max-width: 565px;
+        font-size: 64px;
+    }
+}
+@media only screen and (max-width: 550px){
     /* TODO */
 }
 /* =================================== EVENTS =================================== */
@@ -332,8 +350,32 @@
 }
 @media only screen and (max-width: 768px){
     /* TODO */
+    .events_title > svg{
+        position: absolute;
+    }
+    .events_title > svg:first-child{
+        left: 0;
+    }
+    .events_title > svg:last-child{
+        right: 0;
+    }
+    .events_title > div{
+        position: relative;
+        z-index: 1;
+    }
+    .events_title > div > h2{
+        text-align: center;
+    }
+    .events_title > div > h3{
+        text-align: center;
+    }
+    .events_images_parent{
+        overflow-x: hidden;
+    }
 }
-
+@media only screen and (max-width: 550px){
+    /* TODO */
+}
 /* =================================== MERCH =================================== */
 .merch{
     display: flex;
@@ -506,9 +548,65 @@
     }
 }
 @media only screen and (max-width: 768px){
+    .merch{
+        padding-top: 16px;
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    .merch_body{
+        gap: 22px;
+    }
+    .merch_body > div{
+        gap: 2px !important;
+    }
+    .merch_body > div > h2{
+        font-size: 48px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .merch_body > div > h3{
+        font-size: 22px;
+    }
+    .merch_body > p{
+        font-size: 16px;
+    }
+    .merch_hero{
+        margin-top: -30px;
+    }
+    .merch_hero_fix{
+        margin-top: 0;
+        height: 100%;
+        padding-top: 130px;
+        width: 75vw;
+        max-width: 515px;
+    }
+    .merch_tshirts{
+        height: 100%;
+    }
+    .tshirt_blue{
+        width: calc(271.126px / 1.25);
+        height: calc(358.956px / 1.25);
+    }
+    .tshirt_black{
+        width: calc(430.793px / 1.25);
+        height: calc(526.036px / 1.25);
+    }
+    .tshirt_white{
+        width: calc(271.126px / 1.25);
+        height: calc(358.956px / 1.25);
+    }
+    .merch_button{
+        bottom: 120px;
+    }
+    .merch_button > button{
+        padding: 1.4rem 2.8rem;
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 550px){
     /* TODO */
 }
-
 /* =================================== Anwesha Through the Lens =================================== */
 .moments{
     height: 831px;
@@ -613,6 +711,11 @@
     }
 }
 @media only screen and (max-width: 768px){
+    .moments{
+        margin-bottom: 0;
+    }   
+}
+@media only screen and (max-width: 550px){
     /* TODO */
 }
 /* =================================== aftermovie =================================== */
@@ -641,7 +744,7 @@
     height: auto;
     aspect-ratio: 1226 / 607;
 }
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 550px){
     /* TODO */
 }
 /* =================================== CTA =================================== */
@@ -728,6 +831,7 @@
         padding-bottom: 44px;
         padding-left: 27px;
         padding-right: 27px;
+        overflow-y: hidden;
     }
     .cta_body_right{
         padding-top: 0;
@@ -740,11 +844,22 @@
         max-width: 768px;
         text-align-last: center;
     }
+    .cta_body_left{
+        margin-top: -50px;
+    }
 }
 @media only screen and (max-width: 768px){
+    .cta_body{
+        overflow-x: hidden;
+    }
+    .cta_body_right > p{
+        font-size: 16px;
+        max-width: 600px;
+    }
+}
+@media only screen and (max-width: 550px){
     /* TODO */
 }
-
 /* =================================== Sponsors =================================== */
 .sponsors{
     height: 330px;
@@ -828,8 +943,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-left: 0;
+        padding-right: 0;
    }
 }
 @media only screen and (max-width: 768px){
+    .sponsors_title > h2{
+        font-size: 48px;
+    }
+    .sponsors_title > h3{
+        font-size: 18px;
+    }
+}
+@media only screen and (max-width: 550px){
     /* TODO */
 }
