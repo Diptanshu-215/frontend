@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    min-width: 280px; /* SCROLL BAR ON 300px WHICH IS FINE */
 }
 .bat_scroll_button{
     all: unset;
@@ -109,6 +110,15 @@
         font-size: 18px;
     }
 }
+@media only screen and (max-width: 550px){
+    .sexy_title > h2{
+        font-size: 36px;
+    }
+    .sexy_title > h3{
+        font-size: 18px;
+    }
+}
+
 /* =================================== HERO =================================== */
 .hero{
     align-self: stretch;
@@ -125,6 +135,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100dvh;
 }
 /* background-image: url("/pics/hero_image-export.svg"); */
 .hero_main{
@@ -203,6 +214,23 @@
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .hero{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .hero_text > img{
+        width: calc(1047px / 1.2);
+        height: calc(589px / 1.2);
+        margin-top: 12px;
+    }
+    .hero_text > h2{
+        padding-top: 20px;
+    }
+}
+@media only screen and (max-width: 400px){
+    .hero_text > h2{
+        font-size: 46px;
+    }
 }
 /* =================================== EVENTS =================================== */
 .events{
@@ -349,7 +377,6 @@
     }
 }
 @media only screen and (max-width: 768px){
-    /* TODO */
     .events_title > svg{
         position: absolute;
     }
@@ -372,9 +399,54 @@
     .events_images_parent{
         overflow-x: hidden;
     }
+    .events_button {
+        margin-top: -16px;
+    }
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .events{
+        height: unset;
+    }
+    .events_title{
+        position: relative;
+        padding-top: 24px;
+    }
+    .events_title > svg{
+        width: calc(155px / 1.2);
+        height: calc(55px / 1.2);
+    }
+    .events_images_parent{
+        gap: 0;
+    }
+    .events_image:not(.events_image_active){
+        display: none;
+    }
+    .events_image_active{
+        width: 100% !important;
+    }
+    .events_images_parent > .bat_scroll_button > svg{
+        width: calc(65px / 1.75);
+        height: calc(85px / 1.75);
+    }
+    .events_button {
+        margin-top: -32px;
+        margin-bottom: 32px;
+    }
+    .events_title{
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .events_image > div{
+        gap: 0;
+    }
+    .events_title > div > h2{
+        font-size: 48px;
+    }
+    .events_title > div > h3{
+        font-size: 18px;
+    }
 }
 /* =================================== MERCH =================================== */
 .merch{
@@ -520,6 +592,7 @@
     width: 100%;
     position: absolute;
     display: flex;
+    padding-right: 8px;
 }
 .merch_button > button{
     z-index: 10;
@@ -550,8 +623,8 @@
 @media only screen and (max-width: 768px){
     .merch{
         padding-top: 16px;
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
     .merch_body{
         gap: 22px;
@@ -606,14 +679,66 @@
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .merch{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .merch_body{
+        min-width: unset;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .merch_body > div > h2{
+        font-size: 36px;
+        max-width: 300px;
+    }
+    .merch_body > div > h3{
+        font-size: 17px;
+    }
+    .merch_body > p{
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .merch_hero_fix{
+        width: 90vw;
+        max-width: 400px;
+        min-width: 280px;
+    }
+    .tshirt_blue{
+        width: calc(271.126px / 1.5);
+        height: calc(358.956px / 1.5);
+    }
+    .tshirt_black_parent{
+        padding-top: 26px;
+    }
+    .tshirt_black{
+        width: calc(430.793px / 1.55);
+        height: calc(526.036px / 1.55);
+    }
+    .tshirt_white{
+        width: calc(271.126px / 1.5);
+        height: calc(358.956px / 1.5);
+    }
+    .merch_button{
+        bottom: 180px;
+    }
+    .merch_button > button{
+        padding: 1.2rem 2.4rem;
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 400px){
+    .merch_body > div > h3{
+        font-size: 14px;
+    }
 }
 /* =================================== Anwesha Through the Lens =================================== */
 .moments{
-    height: 831px;
     align-self: stretch;
     background: #000300;
     padding-top: 44px;
     margin-bottom: 44px;
+    padding-bottom: 44px;
 }
 .moments_images_parent{
     overflow: hidden;
@@ -714,9 +839,30 @@
     .moments{
         margin-bottom: 0;
     }   
+    .moments_images_curve{
+        width: 130%;
+        margin-left: -15%;
+        height: 40px;
+    }
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .moments_button {
+        gap: 12px;
+    }
+    .moments_images_curve{
+        width: 140%;
+        margin-left: -20%;
+    }
+}
+@media only screen and (max-width: 400px){
+    .moments > .sexy_title > h3{
+        font-size: 14px;
+    }
+    .moments_button > .sexy_button_small{
+        padding-left: 1.8rem;
+        padding-right: 1.8rem;
+    }
 }
 /* =================================== aftermovie =================================== */
 .aftermovie{
@@ -744,8 +890,32 @@
     height: auto;
     aspect-ratio: 1226 / 607;
 }
+@media only screen and (max-width: 1250px){
+    .aftermovie{
+        gap: 24px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .aftermovie_video{
+        padding: 13px 16px;
+    }
+    .aftermovie{
+        gap: 16px;
+    }
+}
 @media only screen and (max-width: 550px){
     /* TODO */
+    .aftermovie_video{
+        padding: 13px 4px;
+    }
+    .aftermovie{
+        gap: 8px;
+    }
+}
+@media only screen and (max-width: 350px){
+    .aftermovie > .sexy_title > h3{
+        font-size: 16px;
+    }
 }
 /* =================================== CTA =================================== */
 .cta{
@@ -849,27 +1019,56 @@
     }
 }
 @media only screen and (max-width: 768px){
+    .cta{
+        padding-top: 48px;
+    }
     .cta_body{
         overflow-x: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 32px;
     }
     .cta_body_right > p{
         font-size: 16px;
         max-width: 600px;
     }
+    .cta_body_left > svg{
+        width: 550px;
+        height: 550px;
+    }
+    
+    .cta_image{
+        padding-top: 125px;
+        padding-left: 65px;
+    }
+    .cta_image > img{
+        width: 400px;
+        height: 400px;
+    }
+    
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .cta{
+        padding-top: 32px;
+    }
+    .cta_body{
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 24px;
+    }
 }
 /* =================================== Sponsors =================================== */
 .sponsors{
-    height: 330px;
     background: #000300;
     display: flex;
     width: 100%;
+    padding-bottom: 48px;
 }
 .sponsors_title{
     display: inline-flex;
     padding: 32px 24px;
+    padding-top: 20px;
     padding-left: 64px;
     flex-direction: column;
     justify-content: center;
@@ -930,8 +1129,8 @@
 @media only screen and (max-width: 1250px) {
    .sponsors{
         flex-direction: column;
-        height: 450px;
         padding: 0 64px;
+        padding-bottom: 72px;
    }
    .sponsors_title{
         margin-left: auto;
@@ -946,8 +1145,16 @@
         padding-left: 0;
         padding-right: 0;
    }
+   .sponsors{
+        padding-left: 48px;
+        padding-right: 48px;
+    }
 }
 @media only screen and (max-width: 768px){
+    .sponsors{
+        padding: 0 16px;
+        padding-bottom: 64px;
+    }
     .sponsors_title > h2{
         font-size: 48px;
     }
@@ -957,4 +1164,8 @@
 }
 @media only screen and (max-width: 550px){
     /* TODO */
+    .sponsors{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
