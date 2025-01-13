@@ -96,9 +96,13 @@
 }
 .footer_nav > .four_fingure > a {
     all: unset;
+    cursor: pointer;
     /* font-style: ; */
 }
-
+.footer_nav > .four_fingure > a:hover{
+    text-decoration: underline;
+    text-decoration-color: #fff;
+}
 .footer_nav > .four_fingure > a > h3 {
     color: #fff;
 
@@ -155,7 +159,11 @@
     }
 }
 @media screen and (max-width: 800px) {
+    .footer_upper > div:first-child > img{
+        width: 100%;
+    }
     .social_logo {
+        flex-wrap: wrap;
         flex-direction: row;
         gap: 15px;
     }
@@ -190,6 +198,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .footer_upper > div:first-child{
+        z-index: 1;
+    }
     .right_helobean {
         /* position: absolute; */
         top: -63px;

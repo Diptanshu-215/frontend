@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './Footer.module.css'
+import Link from 'next/link'
 
 // TO USE More Classes => {cn(className1, className2, className3)}
 const cn = (...classes) => {
@@ -69,30 +70,30 @@ const Footer = () => {
                 </div>
                 <div className={styles.footer_middle}>
                     <div className={styles.footer_nav}>
-                       <div className={styles.four_fingure}> <a href="">
+                       <div className={styles.four_fingure}> <Link href="">
                             <h3>Events</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Merch</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Gellerty</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Teams</h3>
-                        </a></div>
-                       <div  className={styles.four_fingure}> <a href="">
+                        </Link> </div>
+                       <div  className={styles.four_fingure}> <Link href="">
                             <h3>Sponsors</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Contat Us</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Profile</h3>
-                        </a>
-                        <a href="">
+                        </Link> 
+                        <Link href="">
                             <h3>Get Passes</h3>
-                        </a></div>
+                        </Link> </div>
                     </div>
                 </div>
                 <div className={styles.line_section}>
