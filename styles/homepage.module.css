@@ -135,7 +135,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    height: 100%;
+    min-height: 100dvh;
 }
 /* background-image: url("/pics/hero_image-export.svg"); */
 .hero_main{
