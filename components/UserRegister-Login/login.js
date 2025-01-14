@@ -163,7 +163,7 @@ const UserLoginForm = () => {
                 whileInView={{ opacity: 1, x: '0%' }}
                 transition={{ duration: 1 }}
             >
-                <div className={styles.container}>
+                <div className={styles.container_login}>
                     <div className={styles.form}>
                         <h1
                             style={{
