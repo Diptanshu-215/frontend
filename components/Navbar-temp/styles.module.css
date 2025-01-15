@@ -3,8 +3,9 @@
 
 @font-face {
     font-family: 'SF Ironside';
-    src: url('../../fonts/SF_Ironsides.ttf');
+    src: url('/font/SF_Ironsides.ttf') format('truetype');
 }
+
 .mainNav {
     background: #000000;
     color: #000;
@@ -51,7 +52,7 @@
     display: inline-block;
     border: none;
     background: none;
-    padding: 0;
+    padding: 5px;
     cursor: pointer;
 }
 

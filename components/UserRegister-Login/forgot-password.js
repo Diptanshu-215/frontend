@@ -181,7 +181,7 @@ const ForgotPassword = () => {
                             <button className={styles.fancyButton}>
                                 <span>SUBMIT</span>
                                 <Image
-                                    src={require('../../public/assets/Subtract.svg')}
+                                    src={'/assets/Subtract.svg'}
                                     className={styles.memberImage}
                                     height={220}
                                     width={220}

@@ -3,12 +3,12 @@
 
 @font-face {
     font-family: 'BroadwayShadow';
-    src: url('../../styles/fonts/BroadwayShadow.ttf');
+    src: url('/font/BroadwayShadow.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'SF Ironside';
-    src: url('../../fonts/SF_Ironsides.ttf');
+    src: url('/font/SF_Ironsides.ttf') format('truetype');
 }
 
 .container {
