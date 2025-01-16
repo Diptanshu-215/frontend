@@ -122,22 +122,11 @@
 
 /* =================================== HERO =================================== */
 .hero{
-    /* align-self: stretch;
-    padding: 52px 64px;
-    justify-content: center;
-    align-items: center; */
     background-image: url("/pics/image398.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-clip: border-box;
     background-position: center; /* right */
-    /* width: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 100dvh; */
 }
 .hero_text{
     margin-top: -650px;
@@ -482,8 +471,8 @@
     text-align: justify;
     
     /* La/La - 20 Reg */
-    font-family: Laila;
-    font-size: 20px;
+    font-family: AnavioSmallCapitalsW01-Bold;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 30px */
@@ -494,12 +483,20 @@
     height: 676px;
     border-radius: 19.347px;
     background: #000;
-    background-image: radial-gradient(52.44% 42.58% at 50% 50%, rgba(0, 0, 0, 0.00) 35.4%, #000 100%), url("/pics/circle_full.png");
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+}
+.merch_background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(min(350px, 40vw) min(350px, 40vw) at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    animation: rotateAnimation 15s linear infinite;
     mix-blend-mode: screen; 
-    overflow-y: hidden;
 }
 .merch_hero_fix{
     position: relative;
@@ -590,7 +587,6 @@
     }
     .merch_body > p{
         text-align-last: center;
-        font-family: AnavioSmallCapitalsW01-Bold;
     }
     .merch_body > div > h2{
         text-align: center;
@@ -604,6 +600,9 @@
         padding-top: 16px;
         padding-left: 32px;
         padding-right: 32px;
+    }
+    .merch_background{
+        background-image: radial-gradient(45vw 45vw at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
     }
     .merch_body{
         gap: 22px;
@@ -657,6 +656,9 @@
     .merch{
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .merch_background{
+        background-image: radial-gradient(50vw 50vw at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
     }
     .merch_body{
         min-width: unset;

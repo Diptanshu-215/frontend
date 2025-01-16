@@ -268,6 +268,7 @@ const index = () => {
                     </p>
                 </div>
                 <div className={styles.merch_hero}>
+                    <div className={styles.merch_background} />
                     <div className={styles.merch_hero_fix}>
                         <div className={styles.merch_tshirts}>
                             <div className={styles.tshirt_white}/> 
