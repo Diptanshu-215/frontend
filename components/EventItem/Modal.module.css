@@ -1,5 +1,18 @@
 /* components/Modal.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: 'AnavioSmallCapitalsW01-Bold'; /* Name for the font */
+  src: url('/font/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
+  font-weight: normal; /* Define the weight */
+  font-style: normal;  /* Define the style */
+}
+@font-face {
+  font-family: 'SF Ironsides'; /* Name for the font */
+  src: url('/font/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
+  font-weight: normal; /* Define the weight */
+  font-style: normal;  /* Define the style */
+}
 .overlay {
     position: fixed;
     top: 0;
@@ -28,14 +41,39 @@
     border-radius: 15px;
 
 }
+
+.titleBox{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+gap: 10px;
+}
 .title {
     display: flex;
     justify-content: center;
     color: white;
-    font-family: "Inter", sans-serif;
+    font-family: "AnavioSmallCapitalsW01-Bold";
   font-weight: 200;
   font-optical-sizing: auto;
   font-style: normal;
+  text-align: center;
+}
+.leftgroup{
+  width: 183.728px;
+  height: 53.209px;
+  flex-shrink: 0;
+}
+
+.rightgroup{
+  width: 183.728px;
+  height: 53.209px;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 768px){
+  .leftgroup,
+  .rightgroup {
+    display: none;
+  }
 }
 .innerContainer {
   display: flex;
@@ -58,7 +96,7 @@
     cursor: pointer;
   }
   .closeicon{
-    color: #6000C5;
+    color: #50FF00;
   }
   .content {
     padding: 10px 0;
@@ -71,20 +109,49 @@
     align-items: center;
   }
 
+  .registerButtonBox{
+
+    width: 191.432px;
+    height: 63.11px;
+    background-image: url('/button_bg.svg');
+    fill: #000;
+    filter: drop-shadow(0px -2.996px 2.996px #55A826);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .registerButton{
-    width: 100%;
-    background-color: #6000C5;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    color: var(--Color-Primary500, #50FF00);
+    font-family: "SF Ironsides";
+    font-size: 29.964px;
     font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #000;
     border: none;
-    font-size: 15px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+  }
+
+  .RuleButtonBox{
+
+    background-image: url('/button_bg.svg');
+    fill: #000;
+    filter: drop-shadow(0px -2.996px 2.996px #55A826);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ruleBookButton{
+    color: var(--Color-Primary500, #50FF00);
+    font-family: "SF Ironsides";
+    font-size: 29.964px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #000;
+    border: none;
   }
 
   .verticalline {
@@ -104,21 +171,22 @@
     word-wrap: break-word; /* Wraps long words */
     word-break: break-word; 
     height: 100%;
+    font-family: "Laila";
     font-size: 15px;
   font-weight: 200;
-  font-family: "Inter", sans-serif;
+  
 
 }
   .ruleBookButton{
     width: 100%;
     
-    border-color: #6000C5;
-    border: 2px solid #6000C5;
+    border-color: #50FF00;
+    border: 2px solid #50FF00;
     padding: 10px;
     border-radius: 10px;
     color: white;
     background-color: black;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Laila";
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;

@@ -2,7 +2,17 @@
 import React from 'react'
 import styles from './Modal.module.css'
 import { IoMdCloseCircleOutline } from "react-icons/io";
+
+
 const Modal = ({ isOpen, onClose, event }) => {
+    function handleRuleBookClick(url) {
+        if (url) {
+            window.open(url, '_blank');
+        } else {
+            console.error('No URL provided for the rule book.');
+        }
+    }
+
     if (!isOpen) return null
 
     return (
@@ -11,7 +21,17 @@ const Modal = ({ isOpen, onClose, event }) => {
                 <button className={styles.closeButton} onClick={onClose}>
                 <IoMdCloseCircleOutline className={styles.closeicon} />
                 </button>
-                <div className={styles.title}><h2>{event.name}</h2></div>
+                <div className={styles.titleBox}>
+                    <div className={styles.leftgroup}>
+                        <img src="/events/left_material.svg" alt="" />
+                    </div>
+                    <div className={styles.title}>
+                        <h2>{event["Event Name"]}</h2>
+                    </div>
+                    <div className={styles.rightgroup}>
+                        <img src="/events/right_material.svg" alt="" />
+                    </div>
+                    </div>
                 <hr style={{height:0.5,margin:14}} />
                 
                 
@@ -28,28 +48,21 @@ const Modal = ({ isOpen, onClose, event }) => {
                             alt="Fest Image"
                             objectfit={'contain'}
                         />
-                        <button className={styles.registerButton}>Register</button>
-                        <button className={styles.ruleBookButton}>Rule Book</button>
+                        <div className={styles.registerButtonBox}><p className={styles.registerButton}>Coming Soon</p></div>
+                        <div   className={styles.RuleButtonBox}><p className={styles.ruleBookButton}>Rule Book will be published Soon</p></div>  {/*onClick={() => handleRuleBookClick(event["Rulebook"])}*/ }
                     </div>
                     <div className={styles.verticalline}></div>
                     <div className={styles.rightBlock}>
-                        <p>Date: <span style={{fontWeight:'bold'}}>{event.date? event.date:"17-18 March"}</span></p>
-                        <p>Venue: <span style={{fontWeight:'bold'}}>{event.venue? event.venue:"IIT Patna"}</span></p>
-                        <p>{event.description? event.description:"A title event of Anwesha consisting of group discussion, personal interviews, and a fashion show. A fashion show to show your ramp walk and moves and to flaunt your fashion sense"}</p>
+                        <p>Date: <span style={{fontWeight:'bold'}}>{event["Date"]? event["Date"]:"To Be Announced"}</span></p>
+                        <p>Venue: <span style={{fontWeight:'bold'}}>{event["Venue"]? event["Venue"]:"To Be Announced"}</span></p>
+                        <p>{event["Description"]? event["Description"]:"TO BE RELEASE SOON"}</p>
                         <br />
                         <p>Individual Participation:</p>
-                        <p>Registration Fee ₹ <span style={{fontWeight:'bold'}}>{event.registerationFee? event.registerationFee:99}</span></p>
-                        <p>Registration closes on <span style={{fontWeight:'bold'}}>{event.registerationclosingdate? event.registerationclosingdate:"Thu March 16 2023"}</span></p>
-                        <p>Prizes Worth: <span style={{fontWeight:'bold'}} >₹ {event.priceworth?event.priceworth:30000}</span></p>
-                        <p>Organizers:</p><br />
-                        {event.organizers.map((item, idx) => (
-                            <>
-                                <span key={idx} style={{ fontWeight: 'bold' }}>
-                                    {item.name} : {item.contact}
-                                </span>
-                                <br />
-                            </>
-                        ))}
+                        <p>Registration Fee ₹ <span style={{fontWeight:'bold'}}>{event.registerationFee? event.registerationFee:"To Be Announced"}</span></p>
+                        <p>Registration closes on <span style={{fontWeight:'bold'}}>{event.registerationclosingdate? event.registerationclosingdate:"To Be Announced"}</span></p>
+                        <p>Prizes Worth: <span style={{fontWeight:'bold'}} > {event.priceworth?event.priceworth:"To Be Announced"}</span></p>
+                        <p>Organizers: <span style={{fontWeight:'bold'}}>{event["Subcoords involved"]}</span></p><br />
+                        
                     </div>
                 </div>
             </div>
