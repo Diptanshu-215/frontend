@@ -17,56 +17,114 @@ const Modal = ({ isOpen, onClose, event }) => {
 
     return (
         <div className={styles.overlay} onClick={onClose}>
-            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-                <button className={styles.closeButton} onClick={onClose}>
-                <IoMdCloseCircleOutline className={styles.closeicon} />
-                </button>
-                <div className={styles.titleBox}>
-                    <div className={styles.leftgroup}>
-                        <img src="/events/left_material.svg" alt="" />
-                    </div>
-                    <div className={styles.title}>
-                        <h2>{event["Event Name"]}</h2>
-                    </div>
-                    <div className={styles.rightgroup}>
-                        <img src="/events/right_material.svg" alt="" />
-                    </div>
-                    </div>
-                <hr style={{height:0.5,margin:14}} />
-                
-                
-                <div className={styles.innerContainer}>
-                    <div className={styles.leftBLock}>
-                        
-                        <img
-                            src={
-                                event.poster
-                                    ? event.poster
-                                    : '/events/poster.png'
-                            }
-                            className={styles.item}
-                            alt="Fest Image"
-                            objectfit={'contain'}
-                        />
-                        <div className={styles.registerButtonBox}><p className={styles.registerButton}>Coming Soon</p></div>
-                        <div   className={styles.RuleButtonBox}><p className={styles.ruleBookButton}>Rule Book will be published Soon</p></div>  {/*onClick={() => handleRuleBookClick(event["Rulebook"])}*/ }
-                    </div>
-                    <div className={styles.verticalline}></div>
-                    <div className={styles.rightBlock}>
-                        <p>Date: <span style={{fontWeight:'bold'}}>{event["Date"]? event["Date"]:"To Be Announced"}</span></p>
-                        <p>Venue: <span style={{fontWeight:'bold'}}>{event["Venue"]? event["Venue"]:"To Be Announced"}</span></p>
-                        <p>{event["Description"]? event["Description"]:"TO BE RELEASE SOON"}</p>
-                        <br />
-                        <p>Individual Participation:</p>
-                        <p>Registration Fee ₹ <span style={{fontWeight:'bold'}}>{event.registerationFee? event.registerationFee:"To Be Announced"}</span></p>
-                        <p>Registration closes on <span style={{fontWeight:'bold'}}>{event.registerationclosingdate? event.registerationclosingdate:"To Be Announced"}</span></p>
-                        <p>Prizes Worth: <span style={{fontWeight:'bold'}} > {event.priceworth?event.priceworth:"To Be Announced"}</span></p>
-                        <p>Organizers: <span style={{fontWeight:'bold'}}>{event["Subcoords involved"]}</span></p><br />
-                        
-                    </div>
-                </div>
-            </div>
+  <div
+    className={styles.modal}
+    onClick={(e) => e.stopPropagation()}
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div className={styles.titleBox}>
+      <h2 className={styles.title} id="modal-title">
+        {event["Event Name"]}
+      </h2>
+      <button
+        className={styles.closeButton}
+        onClick={onClose}
+        aria-label="Close Modal"
+      >
+        <IoMdCloseCircleOutline size={30} className={styles.closeicon} />
+      </button>
+    </div>
+
+    <hr
+      style={{
+        height: "1px",
+        margin: "14px 0",
+        backgroundColor: "black",
+        border: "none",
+      }}
+    />
+
+    <div className={styles.innerContainer}>
+      <div className={styles.leftBLock}>
+        <img
+          src={
+            event.poster
+              ? event.poster
+              : "/events/modalimg.png"
+          }
+          className={styles.item}
+          alt={`${event["Event Name"]} Poster`}
+          objectFit="contain"
+        />
+        <div>
+          <div className={styles.registerButtonBox}>
+            <p className={styles.registerButton}>Coming Soon</p>
+          </div>
+          <div className={styles.RuleButtonBox}>
+            <p className={styles.ruleBookButton}>Rule Book Soon</p>
+          </div>
         </div>
+      </div>
+
+      <div className={styles.verticalline}></div>
+
+      <div className={styles.rightBlock}>
+        <p>
+          Date:{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event["Date"] ? event["Date"] : "To Be Announced"}
+          </span>
+        </p>
+        <p>
+          Venue:{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event["Venue"] ? event["Venue"] : "To Be Announced"}
+          </span>
+        </p>
+        <p>
+          {event["Description"]
+            ? event["Description"]
+            : "TO BE RELEASED SOON"}
+        </p>
+        <br />
+        <p style={{ fontWeight: "bold" }}>Participation:</p>
+        <p>
+          Registration Fee ₹{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event.registerationFee
+              ? event.registerationFee
+              : "To Be Announced"}
+          </span>
+        </p>
+        <p>
+          Registration closes on{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event.registerationclosingdate
+              ? event.registerationclosingdate
+              : "To Be Announced"}
+          </span>
+        </p>
+        <p>
+          Prizes Worth:{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event.priceworth ? event.priceworth : "To Be Announced"}
+          </span>
+        </p>
+        <br />
+        <p>
+          Organizers:{" "}
+          <span style={{ fontWeight: "bold" }}>
+            {event["Subcoords involved"]}
+          </span>
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
     )
 }
 
