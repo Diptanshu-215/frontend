@@ -28,7 +28,6 @@
     justify-content: space-between;
     width: 87%;
     padding-top: 52px;
-    margin-bottom: 106px;
     gap: 40px;
 }
 
@@ -147,11 +146,9 @@
     }
 }
 @media screen and (max-width: 950px) {
-    .footer_upper {
-        margin-bottom: 50px;
-    }
     .footer_address {
         text-align: center;
+        z-index: 1;
     }
     .four_fingure {
         flex-direction: column;
