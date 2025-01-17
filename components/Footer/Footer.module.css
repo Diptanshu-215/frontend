@@ -68,10 +68,10 @@
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 34.638px */
+    z-index: 1;
     /* width: 395px;
   height: 140px; */
 }
-
 .footer_middle {
     width: 100%;
     display: flex;
@@ -148,7 +148,6 @@
 @media screen and (max-width: 950px) {
     .footer_address {
         text-align: center;
-        z-index: 1;
     }
     .four_fingure {
         flex-direction: column;

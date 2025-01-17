@@ -83,15 +83,68 @@ const GreenCircle = ({width=626, height=626}) => {
     );
 };
 
-const ImageWithText = ({url, title, body, active, onClick}) => {
+const ImageWithText = ({url, title, body, active, onClick, style}) => {
     // active
-    return <div style={{width: active?370:319.61, height: active?414:358.481, backgroundImage: `url(${url})`, cursor: active?undefined:"pointer"}} 
+    return <div style={{
+                        width: active?370:319.61, 
+                        height: active?414:358.481, 
+                        backgroundImage: `url(${url})`, 
+                        cursor: active?undefined:"pointer",
+                        ...(style || {})
+                    }} 
                 className={cn(styles.events_image, active?styles.events_image_active:"")}
                 onClick={onClick}>
         <div>
             <h2>{title}</h2>
             <h3>{body}</h3>
         </div>
+    </div>
+}
+
+const EventSlider = ({images, currIndex}) => {
+    // onClick={previouseEventImage}
+    // onClick={nextEventImage}
+    const offset = 370 + 20;
+
+    return <div className={styles.events_images} style={{
+        minHeight: 414,
+        position: "relative"
+    }}>
+        <ImageWithText url={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].url} 
+            title={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].title} 
+            body={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].body}
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: `translateY(calc(-50%)) translateX(calc(-50% - ${offset}px))`,
+              transition: "transform 0.35s ease-in-out", // Smooth transition
+            }}
+            />
+
+        <ImageWithText url={images[currIndex].url} 
+            title={images[currIndex].title} 
+            body={images[currIndex].body}
+            style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: `translateY(calc(-50%)) translateX(calc(-50%))`,
+                transition: "transform 0.35s ease-in-out", // Smooth transition
+            }} 
+            active={true}/>
+
+        <ImageWithText url={images[(currIndex === images.length - 1)?0:(currIndex+1)].url} 
+            title={images[(currIndex === images.length - 1)?0:(currIndex+1)].title} 
+            body={images[(currIndex === images.length - 1)?0:(currIndex+1)].body}
+            style={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: `translateY(calc(-50%)) translateX(calc(-50% + ${offset}px))`,
+                transition: "transform 0.35s ease-in-out", // Smooth transition
+            }}
+            />
     </div>
 }
 
@@ -206,6 +259,11 @@ const ImagesSlider = ({images, currIndex, nextMomentImage, previouseMomentImage}
         <div className={styles.moments_images} onDragStart={dragStart} onDragEnd={dragEnd}
             onTouchStart={dragStart}
             onTouchEnd={dragEnd}
+            style={{
+                maxWidth: `${864 * 3}px`,
+                marginRight: "auto",
+                marginLeft: "auto",
+            }}
         >
         {
             images.map((image, index) => <img
@@ -228,7 +286,7 @@ const ImagesSlider = ({images, currIndex, nextMomentImage, previouseMomentImage}
 
 const index = () => {
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1); // if we want to add animation then we have to handle it manually...
-    const pseudoEventImage = [
+    const pseudoEventImage = [ // do not change it min max 3
         {
             url: "/pics/events/verve.png",
             title: "Verve",
@@ -317,7 +375,6 @@ const index = () => {
         <div className={styles.bg}>
             {/* HERO */}
             <HeroSection className={styles.hero}>
-                <div className={styles.hero_main} />
                 <div className={styles.hero_text}>
                     <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
                     <h2>Welcome To Your Nightmare</h2>
@@ -339,32 +396,7 @@ const index = () => {
                 </div>
                 <div className={styles.events_images_parent}>
                     <button className={styles.bat_scroll_button} onClick={previouseEventImage}><BatLeft/></button>
-                    <div className={styles.events_images}>
-                        {/* TODO in small screens use empty div and show one image only */}
-                        {/* {
-                            eventActiveImageIndex === 0 && <div/>  if we want to make edge case 
-                        } */}
-                        <ImageWithText url={pseudoEventImage[(eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1)].url} 
-                            title={pseudoEventImage[(eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1)].title} 
-                            body={pseudoEventImage[(eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1)].body}
-                            onClick={previouseEventImage}
-                            />
-                    
-                        <ImageWithText url={pseudoEventImage[eventActiveImageIndex].url} 
-                            title={pseudoEventImage[eventActiveImageIndex].title} 
-                            body={pseudoEventImage[eventActiveImageIndex].body} 
-                            active={true}/>
-
-                        <ImageWithText url={pseudoEventImage[(eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1)].url} 
-                            title={pseudoEventImage[(eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1)].title} 
-                            body={pseudoEventImage[(eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1)].body}
-                            onClick={nextEventImage}
-                            />
-                        
-                        {/* {
-                            eventActiveImageIndex === pseudoEventImage.length - 1 && <div/>  if we want to make edge case 
-                        } */}
-                    </div>
+                    <EventSlider images={pseudoEventImage} currIndex={eventActiveImageIndex}/>
                     <button className={styles.bat_scroll_button} onClick={nextEventImage}><BatRight/></button>
                 </div>
                 <div className={styles.events_button}>
