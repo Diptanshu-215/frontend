@@ -254,10 +254,10 @@
 }
 .events_images{
     width: 100%;
-    display: flex;
-    gap: 28.14px;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* gap: 28.14px; */
+    /* justify-content: center; */
+    /* align-items: center; */
     margin-top: 52px;
     margin-bottom: 52px;
 }
@@ -715,7 +715,6 @@
     align-self: stretch;
     background: #000300;
     padding-top: 44px;
-    margin-bottom: 44px;
     padding-bottom: 44px;
 }
 .moments_images_parent{
@@ -749,6 +748,14 @@
     height: 546px;
     overflow: hidden;
     user-select: none;
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%, 
+        #000 3%, 
+        #000 97%, 
+        transparent 100%
+    );
 }
 
 
