@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/laila');
+
 @font-face {
     font-family: 'AnavioSmallCapitalsW01-Bold'; /* Name for the font */
     src: url('/font/Anavio_Small_Capitals_W01_Bold.ttf') format('truetype'); /* Path to the font */
@@ -106,7 +107,7 @@ position: relative; /* Ensures innerShadow is properly positioned */
 .smalldescription {
 	color: #FFF; /* White text */
 	text-align: center;
-	font-family: "Laila";
+	font-family: laila;
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
