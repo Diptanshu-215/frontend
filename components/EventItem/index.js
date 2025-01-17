@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 // import Modal from '../BigModal'
 import { useState } from 'react'
 
+
 const index = ({ event,onClick }) => {
     const [modal, setModal] = useState(false)
 
@@ -33,26 +34,19 @@ const index = ({ event,onClick }) => {
                         alt="Coming Soon"
                     />
                 )} */}
-                <div className={styles.imageWrap}>
-                    <img
-                        src={event.poster ? event.poster : '/events/poster.png'}
-                        className={styles.item}
-                        alt="Fest Image"
-                        objectfit={'contain'}
-                    />
-                    <p className={styles.img__description}>
-                        <span style={{ marginBottom: '10px' }}>
-                            <Image
-                                src="/events/Vector.png"
-                                width={70}
-                                height={70}
-                                alt="Fest Image overlay"
-                            />
-                        </span>{' '}
-                    </p>
+               <div className={`${styles.imageWrap}`} style={{
+                            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${event.poster
+                                ? event.poster
+                                : '/events/poster1.png'}') lightgray 0px -10.182px / 100% 133.782% no-repeat `
+                        }}>
+                                <div className={styles.innerShadow}> {/* Add shadow layer */}
+                                <div className={styles.eventDescription}>
+                                    <div className={styles.eventName}>{event["Event Name"]}</div>
+                                    <div className={styles.smalldescription}>{event["Event"]}</div>
+                                </div>
+                                </div>
                 </div>
-                <div className={styles.eventName}>{event.name}</div>
-                <div className={styles.smalldescription}>{event.smalldescription}</div>
+               
             </div>
             {/* {modal && (
                 <>
