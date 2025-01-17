@@ -9,14 +9,18 @@ import Card from '../components/EventItem/index.js'
 import { useNavigate } from 'react-router-dom';
 import Modal from '../components/EventItem/Modal.js'
 import EventItem from '../components/EventItem'
+import eventsDetails from '../public/events/events_data.json' assert { type: 'json' };
+
 
 const montserrat = Montserrat({
     weight: ['400'],
     subsets: ['latin'],
 })
 
+
+
 const cardarr = [1, 2, 3, 4, 5, 6, 7, 8]
-const workshopcardarr=[1];
+
 
 const eventsinfo = {
     name: 'Event Name',
@@ -28,16 +32,47 @@ const eventsinfo = {
     ],
 }
 
-const workshopinfo={
-    name:"techgyan x Anwesha",
-    poster:'/events/workshopPoster.jpeg',
-    smalldescription:"2 days of workshop",
-}
+const workshopcardarr=[{
+    "Event Name":"techgyan x Anwesha",
+    "poster":'/events/workshopPoster.jpeg',
+    "Event":"2 days of workshop",
+}]
 
 const josefinSans = Josefin_Sans({
     weight: ['700'],
     subsets: ['latin'],
 })
+
+const SponsorsSlider = ({images, animation_duration=-1}) => {
+    const width = 127.381; // IF YOU CHANGE THIS THEN CHANGE IT INSIDE autoScrollSponseAnimation ALSO
+    const heigth = 127.381;
+    const duration = animation_duration<=0?Math.floor(10*(images.length / 7)):animation_duration;
+
+    const gap = 16;
+    return <div style={{
+        position: "relative",
+        backgroundColor: "inherit",
+        // minWidth: width * (images.length + 1),
+        minWidth: (width + gap) * images.length,
+        height: heigth
+    }}>
+        {
+            images.map((src, index) => 
+                <div key={index} className={styles.autoScrollSponseAnimation} style={{
+                    width: "100%",
+                    position: "absolute",
+                    left: "100%",
+                    // zIndex: 8,
+                    animationDelay: `${(duration/images.length)*index}s`,
+                    animationDuration: `${duration}s`,
+                    '--width': width
+                }}>
+                    <Image src={src} width={width} height={heigth}/>
+                </div>
+            )
+        }
+    </div>
+}
 
 const Events = () => {
     const [fadeOut, setFadeOut] = useState(false)
@@ -88,6 +123,27 @@ const Events = () => {
         'EVT3264e',
     ]
 
+    const pseudoSponsorImage = [
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png",
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png",
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png",
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png",
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png",
+        "/pics/sponsor/pizza_hut.jpg",
+        "/pics/sponsor/sbi.jpg",
+        "/pics/sponsor/zomato.png"
+    ];
+
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
 
@@ -122,6 +178,7 @@ const Events = () => {
         setIsModalOpen(true)
     }
 
+    
     const closeModal = () => {
         setIsModalOpen(false)
         setSelectedEvent(null)
@@ -140,7 +197,7 @@ const Events = () => {
                         <Card
                             onClick={handleWorkshopNavigation}
                             key={idx}
-                            event={workshopinfo}
+                            event={item}
                         />
                     ))}
                 </div>
@@ -172,24 +229,33 @@ const Events = () => {
                 </div>
 
                 <div className={styles.cardContainer}>
-                    {cardarr.map((item, idx) => (
+                    {eventsDetails.map((item, idx) => (
                         <Card
-                            // onClick={() => openModal(eventsinfo)}
+                            onClick={() => openModal(item)}
                             key={idx}
-                            event={eventsinfo}
+                            event={item}
                         />
                     ))}
                 </div>
-                {/* {isModalOpen && (
+                {isModalOpen && (
                 <Modal
                     isOpen={isModalOpen}
                     onClose={closeModal}
                     event={selectedEvent}
                 />
-            )} */}
+            )}
            
             </div>
-            
+            {/* Sponsors */}
+            <section className={styles.sponsors}>
+                <div className={styles.sponsors_title}>
+                    <h2>Our Proud Sponsors</h2>
+                    <h3>Strengthening the Vision Together</h3>
+                </div>
+                <div className={styles.sponsors_images_slider}>
+                    <SponsorsSlider images={pseudoSponsorImage}/>
+                </div>
+            </section>
         </div>
     )
 }

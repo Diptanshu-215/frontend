@@ -41,8 +41,8 @@ const index = ({ event,onClick }) => {
                         }}>
                                 <div className={styles.innerShadow}> {/* Add shadow layer */}
                                 <div className={styles.eventDescription}>
-                                    <div className={styles.eventName}>{event.name}</div>
-                                    <div className={styles.smalldescription}>{event.smalldescription}</div>
+                                    <div className={styles.eventName}>{event["Event Name"]}</div>
+                                    <div className={styles.smalldescription}>{event["Event"]}</div>
                                 </div>
                                 </div>
                 </div>

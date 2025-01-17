@@ -234,7 +234,7 @@ width: 50%;
     margin-top: 42px;
     width: 191.432px;
 height: 63.11px;
-    background-image: url('../public/button_bg.svg');
+    background-image: url('/button_bg.svg');
     fill: #000;
 filter: drop-shadow(0px -2.996px 2.996px #55A826);
 display: flex;
