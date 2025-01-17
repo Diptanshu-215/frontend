@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 // import Link from 'next/link'
@@ -20,7 +20,7 @@ import styles from '../styles/homepage.module.css'
 // import AwesomeSlider from 'react-awesome-slider'
 // import 'react-awesome-slider/dist/styles.css'
 // import { motion } from 'framer-motion'
-
+import HeroSection from '../components/Hero/Hero'
 
 const cn = (...classes) => {
     return classes.filter(Boolean).join(' ');
@@ -126,9 +126,108 @@ const SponsorsSlider = ({images, animation_duration=-1}) => {
     </div>
 }
 
+const ImagesSlider = ({images, currIndex, nextMomentImage, previouseMomentImage}) => {
+    const offset = 864 + 20; // Width of the image + gap (20px)
+
+    // Refs for images to track current position
+    const imageRefs = images.map(() => useRef(null));
+
+    // State to track the animation trigger
+    const [oldIndex, setOldIndex] = useState(currIndex);
+    const [dragStartX, setDragStartX] = useState(null);
+
+    function all(iterable) {
+        for (var index = 0; index < iterable.length; index++) {
+            if (!iterable[index]) return false;
+        }
+        return true;
+    }
+    // Set up transition for images when currIndex changes
+    useEffect(() => {
+        if(!all(imageRefs)) return;
+        if(currIndex === oldIndex) return;
+        const prev = currIndex === 0 ? images.length - 1: currIndex - 1;
+        const next = (currIndex + 1 === images.length) ? 0:currIndex + 1;
+        const prevprev = prev === 0 ? images.length - 1: prev - 1;
+        const nextnext = (next + 1 === images.length) ? 0:next + 1;
+        const prevprevprev = prevprev === 0 ? images.length - 1: prevprev - 1;
+        const nextnextnext = (nextnext + 1 === images.length) ? 0:nextnext + 1;
+        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
+            // Toward left
+            imageRefs[prevprevprev].current.style.zIndex = '-1'
+            imageRefs[prevprevprev].current.style.transform = `translateX(calc(-50% + ${3*offset}px))`;
+            imageRefs[prevprev].current.style.zIndex = '4'
+            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2*offset}px))`;
+            imageRefs[prev].current.style.zIndex = '3'
+            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`;
+            imageRefs[currIndex].current.style.zIndex = '5'
+            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '2'
+            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`;
+            imageRefs[nextnext].current.style.zIndex = '1'
+            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2*offset}px))`;
+        }
+        else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            // Toward Right
+            imageRefs[prevprev].current.style.zIndex = '1'
+            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2*offset}px))`;
+            imageRefs[prev].current.style.zIndex = '2'
+            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`;
+            imageRefs[currIndex].current.style.zIndex = '5'
+            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '3'
+            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`;
+            imageRefs[nextnext].current.style.zIndex = '4'
+            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2*offset}px))`;
+            imageRefs[nextnextnext].current.style.zIndex = '-1'
+            imageRefs[nextnextnext].current.style.transform = `translateX(calc(-50% - ${3*offset}px))`;
+        }
+        setOldIndex(currIndex);
+    }, [currIndex]);
+
+    
+    const dragStart = (e) => {
+        const startX = e.touches ? e.touches[0].screenX : e.screenX;
+        setDragStartX(startX);
+    }
+    const dragEnd = (e) => {
+        if(!dragStartX) return;
+        const endX = e.changedTouches ? e.changedTouches[0].screenX : e.screenX;
+        const distance = endX - dragStartX;
+        if(distance > 10){
+            previouseMomentImage()
+        }else if(distance < 10){
+            nextMomentImage();
+        }
+        setDragStartX(null);
+    }
+    // Return the JSX structure with the images
+    return (
+        <div className={styles.moments_images} onDragStart={dragStart} onDragEnd={dragEnd}
+            onTouchStart={dragStart}
+            onTouchEnd={dragEnd}
+        >
+        {
+            images.map((image, index) => <img
+            src={image}
+            key={index}
+            width={864}
+            height={546}
+            ref={imageRefs[index]}
+            style={{
+              position: "absolute",
+              left: "50%",
+              transform: `translateX(calc(-50% ${currIndex > index?'-': '+'} ${(currIndex > index?currIndex - index:index - currIndex) * offset}px))`,
+              transition: "transform 0.35s ease-in-out", // Smooth transition
+            }}
+          />)
+        }
+      </div>
+    );
+}
+
 const index = () => {
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1); // if we want to add animation then we have to handle it manually...
-    const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(1);
     const pseudoEventImage = [
         {
             url: "/pics/events/verve.png",
@@ -146,44 +245,69 @@ const index = () => {
             body: "Solo - Classical Music Competition"
         }
     ];
-    const pseudoSponsorImage = [
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png",
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png",
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png",
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png",
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png",
-        "/pics/sponsor/pizza_hut.jpg",
-        "/pics/sponsor/sbi.jpg",
-        "/pics/sponsor/zomato.png"
+    const sponsorImages = [
+        'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
+        'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk', // 'Bihar Tourism'
+        'https://drive.google.com/uc?export=view&id=1NzTZh6D-THmqConUzrZ2tvC3PaJU3Ets', // 'Biryani'
+        'https://drive.google.com/uc?export=view&id=10JmGTjBV_wliW6EoE4ozwnErEHNWZlGe', // 'Boult'
+        'https://drive.google.com/uc?export=view&id=1sD17yO4Zwm449d9ilTh9cPRoTeUd4tpy', // 'Bihar Rajya Pul Nirman Nigam'
+        'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-', // 'Bihar State Aids Control Society'
+        'https://drive.google.com/uc?export=view&id=1QZLHYPSJsMLQUKssih7HPqU5DwMGkcnc', // 'Bihar State Electronics Development Corporation'
+        'https://drive.google.com/uc?export=view&id=1UBiVYAM7HGv-tjMiyTofA7_ZCWS959MG', // 'Bihar Council on Science and Technology'
+        'https://drive.google.com/uc?export=view&id=1gg9J_on8QTdBs64u7TVwpwkc45ydw4Eq', // 'Department of Information Technology'
+        'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN', // 'Department of Industries'
+        'https://drive.google.com/uc?export=view&id=1EKapSE6Q9xbDmycY0XecwCEHKjxUqZzO', // 'Dominos'
+        'https://drive.google.com/uc?export=view&id=1_LI78ee0KbgufhKeFSNQJSK7DzqG6T6q', // 'Fueling'
+        'https://drive.google.com/uc?export=view&id=1NXlcqgtvPwuaGzr0KxNWWaIGvNgUWDax', // 'Hydration'
+        'https://drive.google.com/uc?export=view&id=1Ge6eJMxha0lNxzF8AXW-aT8fP11FXJHA', // 'Kala Akchar'
+        'https://drive.google.com/uc?export=view&id=1lvnREbJ84WauvAhwBCrtO7P11HO-HUz9', // 'NHAI'
+        'https://drive.google.com/uc?export=view&id=13oaVnvbhSXcAZTTajdcwXVJ-4YjGtRBu', // 'NTPC'
+        'https://drive.google.com/uc?export=view&id=12n_N2f4FyomvBlLOELPnGhLjgPdzCfkb', // 'Red FM'
+        'https://drive.google.com/uc?export=view&id=13M6yySVuABxMP7pus6Hy2HVbianRpSnA', // 'Road Chef'
+        'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-', // 'State Bank of India'
+        'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up', // 'Startup Bihar'
+        'https://drive.google.com/uc?export=view&id=1AA3qGrGqqTbmfo2DAWmkAWXs8KWTDC07', // 'The Community Events'
+        'https://drive.google.com/uc?export=view&id=1Ub5Ntbu30Kp-1dpYSeB0M_QtbjGsiVpI', // 'Times of India'
+        'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM', // 'Waffcha'
+        'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI', // 'Wat A Burger'
     ];
-    const pseudoMomentImage = [
+
+    const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(2);
+    const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] = useState(true);
+    const pseudoMomentImage = [ // don't change it... min 5
         "/pics/moments/dj.png",
         "/pics/moments/band.png",
-        "/pics/moments/song.jpg"
+        "/pics/moments/song.jpg",
+        "/pics/moments/dj.png",
+        "/pics/moments/band.png",
+        "/pics/moments/song.jpg",
     ]
+    useEffect(() => setMomentsActiveImageIndex(3), [])
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if(momentsActiveImageIndexPrevDir)
+                setMomentsActiveImageIndex((momentsActiveImageIndex === 0)?(pseudoMomentImage.length - 1):(momentsActiveImageIndex-1))
+            else
+                setMomentsActiveImageIndex((momentsActiveImageIndex === pseudoMomentImage.length - 1)?0:(momentsActiveImageIndex+1));
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [momentsActiveImageIndex])
 
     const nextEventImage = () => {
-        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1))
-    }
-    const previouseEventImage = () => {
         setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
     }
+    const previouseEventImage = () => {
+        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1))
+    }
     const nextMomentImage = () => {
+        setMomentsActiveImageIndexPrevDir(false);
         setMomentsActiveImageIndex((momentsActiveImageIndex === pseudoMomentImage.length - 1)?0:(momentsActiveImageIndex+1))
     }
     const previouseMomentImage = () => {
+        setMomentsActiveImageIndexPrevDir(true);
         setMomentsActiveImageIndex((momentsActiveImageIndex === 0)?(pseudoMomentImage.length - 1):(momentsActiveImageIndex-1))
-    }
+    } 
+    
     return (<>
         <Head>
             <title>Anwesha 2024</title>
@@ -192,7 +316,7 @@ const index = () => {
         </Head>
         <div className={styles.bg}>
             {/* HERO */}
-            <section className={styles.hero}>
+            <HeroSection className={styles.hero}>
                 <div className={styles.hero_main} />
                 <div className={styles.hero_text}>
                     <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
@@ -201,7 +325,7 @@ const index = () => {
                 <div className={styles.hero_button}>
                     <button className={cn(styles.sexy_button, styles.sexy_button_small)}>REGISTER</button>
                 </div>  
-            </section>
+            </HeroSection>
 
             {/* Events */}
             <section className={styles.events}>
@@ -262,6 +386,7 @@ const index = () => {
                     </p>
                 </div>
                 <div className={styles.merch_hero}>
+                    <div className={styles.merch_background} />
                     <div className={styles.merch_hero_fix}>
                         <div className={styles.merch_tshirts}>
                             <div className={styles.tshirt_white}/> 
@@ -285,22 +410,8 @@ const index = () => {
                 </div>
                 <div className={styles.moments_images_parent}>
                     <div className={cn(styles.moments_images_top_curve, styles.moments_images_curve)}/>
-                    <div className={styles.moments_images}>
-                        <div>
-                            <Image src={pseudoMomentImage[(momentsActiveImageIndex === 0)?(pseudoMomentImage.length - 1):(momentsActiveImageIndex-1)]} 
-                                width={864} height={546}
-                                onClick={previouseMomentImage}/>
-                        </div>
-                        <div>
-                            <Image src={pseudoMomentImage[momentsActiveImageIndex]} 
-                                 width={864} height={546}/>
-                        </div>
-                        <div>
-                            <Image src={pseudoMomentImage[(momentsActiveImageIndex === pseudoMomentImage.length - 1)?0:(momentsActiveImageIndex+1)]} 
-                                 width={864} height={546}
-                                 onClick={nextMomentImage}/>
-                        </div>
-                    </div>
+                    <ImagesSlider images={pseudoMomentImage} currIndex={momentsActiveImageIndex}
+                            nextMomentImage={nextMomentImage} previouseMomentImage={previouseMomentImage}/>
                     <div className={cn(styles.moments_images_bottom_curve, styles.moments_images_curve)}/>
                 </div>
                 <div className={styles.moments_button}>
@@ -362,7 +473,7 @@ const index = () => {
                     <h3>Strengthening the Vision Together</h3>
                 </div>
                 <div className={styles.sponsors_images_slider}>
-                    <SponsorsSlider images={pseudoSponsorImage}/>
+                    <SponsorsSlider images={sponsorImages}/>
                 </div>
             </section> */}
         </div>
