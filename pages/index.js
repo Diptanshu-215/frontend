@@ -500,7 +500,7 @@ const index = () => {
             </section>
 
             {/* Sponsors */}
-            <section className={styles.sponsors}>
+            {/* <section className={styles.sponsors}>
                 <div className={styles.sponsors_title}>
                     <h2>Our Proud Sponsors</h2>
                     <h3>Strengthening the Vision Together</h3>
@@ -508,7 +508,7 @@ const index = () => {
                 <div className={styles.sponsors_images_slider}>
                     <SponsorsSlider images={sponsorImages}/>
                 </div>
-            </section>
+            </section> */}
         </div>
     </>)
 }

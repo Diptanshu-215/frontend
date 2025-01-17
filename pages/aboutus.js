@@ -4,8 +4,7 @@ const aboutus = () => {
     return (
         <div className={styles.parentcontainer}>
             <h2 className={styles.head}>
-                <strong>Anwesha'24</strong>
-                <hr className={styles.hr}></hr>
+                Anwesha'25
             </h2>
             <div className={styles.sec}>
                 <br />
@@ -35,14 +34,12 @@ const aboutus = () => {
             </div>
             <div className={styles.sec}>
                 <h3 className={styles.subheading}>
-                    <strong>Initiatives</strong>
+                    Initiatives
                 </h3>
                 <br />
                 <h4 className={styles.title}>
-                    <strong>
                         EXPANDING THE CULTURAL LANDSCAPE & NURTURING INDEPENDENT
-                        SET
-                    </strong>
+                        SET 
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
@@ -64,7 +61,7 @@ const aboutus = () => {
                 </ul>
                 <br />
                 <h4 className={styles.title}>
-                    <strong>CREATING A SUSTAINABLE FEST</strong>
+                    CREATING A SUSTAINABLE FEST
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
@@ -85,7 +82,7 @@ const aboutus = () => {
                 </ul>
                 <br />
                 <h4 className={styles.title}>
-                    <strong>CONNECTING BACK TO OUR ROOTS</strong>
+                    CONNECTING BACK TO OUR ROOTS
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
@@ -107,9 +104,7 @@ const aboutus = () => {
                 </ul>
                 <br />
                 <h4 className={styles.title}>
-                    <strong>
                         ENTERING UNEXPLORED DOMAINS: TECH & INNOVATION
-                    </strong>
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.listitem}>

@@ -1,28 +1,37 @@
-.parentContainer{
+@import url('https://fonts.cdnfonts.com/css/sf-ironsides');
+@import url(https://db.onlinewebfonts.com/c/c4edbff807a21e68cd990230dab176df?family=Anavio+Small+Capitals+W01+Rg);
+@import url('https://fonts.cdnfonts.com/css/laila');
+
+.parentContainer {
     background-color: #000000;
     margin: 0;
     padding: 0;
-    width: 100%; /* Ensures full width */
+    width: 100%;
     overflow-x: hidden;
 }
 
 .fullPageTitle {
     height: 100vh;
-    width: 100%;
-    background-color: #000000; /* Using your brand's purple color */
+    width: 100vw;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     color: #ffffff;
     margin-bottom: 0;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
-    opacity: 1; /* Default visible state */
-    transform: translateY(0); /* Default position */
+    background-image: url('/teamBg.png');
+    background-size: cover;
+    background-position: center;
 }   
 
-.fullPageTitle.fadeUp {
-    opacity: 0;
-    transform: translateY(-50px); /* Move up and fade out */
+.fullPageTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
 }
 
 .titleOverlay {
@@ -30,104 +39,101 @@
     padding: 20px;
 }
 
-.subTitle{
-    font-family: 'Outfit', sans-serif;
-    font-size: 60px;
+.subTitle {
+    font-family: 'Anavio Small Capitals W01 Rg';
+    font-size: 7.5vw;
     color: #ffffff;
     font-weight: 150;
-    text-align: left;
-    margin-left: 90px;
-    transform: translateY(60px);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    transform: translate(-15%, 40%);
 }
 
-@media (max-width: 768px) {
-    .subTitle {
-        margin-left: 5%; 
-        text-align: center; 
-    }
+.subTitle::first-letter {
+    font-size: 11vw;
 }
 
 .mainTitle {
-    font-family: 'Outfit', sans-serif;
-    font-size: 170px;
+    font-family: 'Anavio Small Capitals W01 Rg';
+    font-size: 9vw;
     color: #ffffff;
+    font-weight: 600;
+    transform: translateY(-20%);
+}
+
+.firstLetter {
+    font-size: 14vw;
+}
+
+.lastNumber {
+    font-size: 14vw;
 }
 
 .container {
     font-family: 'Outfit', sans-serif;
-    background-color: black;
     margin-top: 0;
-    padding-top: 50px;
+    padding-top: 100px;
+    background-image: url('/aboutusBg.png');
 }
 
-.teamHeader{
-    font-size: 46px;
-    font-weight: 700;
+.teamHeader {
+    font-family: 'SF Ironsides', sans-serif;
+    font-size: 50px;
+    font-weight: 250;
+    color: red;
     text-align: center;
-    color: #ffffff;
 }
 
-.teamHeadingBar{
-    width: 280px;
-    height: 5px;
-    background-color: #000000;
+.teamHeadingBar {
+    width: 0;
+    height: 0;
+    background-color: #FFFFFF;
     margin-inline: auto;
     margin-bottom: 50px;
     border: none;
 }
 
-.coordinators{
+.coordinators {
     display: flex;
     flex-direction: column;
-    /* TODO : Complete the styling */
 }
 
-.teamSubHeading{
-    font-size: 60px;
+.teamSubHeading {
+    font-family: 'SF Ironsides', sans-serif;
+    font-size: 50px;
     font-weight: 250;
-    color: #ffffff;
+    color: #50FF00;
     text-align: center;
     margin-bottom: 0px;
     position: relative;
+    background-image: url('/subheading.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-transform: uppercase;
 }
 
-.teamSubHeading::before {
-    content: '';
-    position: absolute;
-    top: -25px; /* Adjust to position the line above the heading */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px; /* Length of the line */
-    height: 4px; /* Thickness of the line */
-    background-color: #ffffff; /* Line color */
-}
-
-/* .teamSubHeadingBar{
-    
-    width: 230px;
-    height: 5px;
-    background-color: #ffffff;
-    margin-bottom: 50px;
-    border: none;
-} */
-
-.picContainer{
+.picContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    flex-grow: 1;
-    gap: 50px;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding-bottom: 100px;
 }
 
 .teamCard {
-    perspective: 1000px; /* Required for 3D effects */
+    perspective: 1000px;
     position: relative;
-    width: 290px;
-    height: 340px; /* Adjust to fit the card content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: calc((100% - 60px) / 3);
+    height: 460px;
+    min-width: 280px;
+    max-width: 360px;
+    flex: 0 0 calc((100% - 60px) / 3);
 }
 
 .flipInner {
@@ -145,8 +151,6 @@
 .flipFront, .flipBack {
     backface-visibility: hidden;
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -157,41 +161,145 @@
     overflow: hidden;
 }
 
-.flipFront {
-}
-
 .flipBack {
-    background-color: #000000; /* Adjust for desired color */
     transform: rotateY(180deg);
-    color: #ffffff; /* Text color for back face */
+    color: #ffffff;
 }
 
-.memberImage{
-    background-color: #ffffff;
-    border-radius: 17px;
+.memberImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
     margin-bottom: 10px;
 }
 
-.teamMemberDetails{
+.teamMemberDetails {
+    width: 100%;
+    padding: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.memberName{
-    font-size: 25px;
-    font-weight: 0;
-    line-height: 24px;
-    overflow: hidden;
+.memberName {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    padding: 0 5%;
+    margin-top: 14px;
     margin-bottom: 5px;
     color: #ffffff;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Laila', sans-serif;
 }
 
-.memberCommitte{
+.memberCommitte {
     font-size: 16px;
     font-weight: 500;
     line-height: 18.5px;
     overflow: hidden;
     margin-block: 5px;
+}
+
+.cardBackContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cardBack {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.socialLinks {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 5%;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-30px);
+}
+
+.socialIcon {
+    color: #000000;
+    transition: transform 0.2s;
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+}
+
+.linkedinIcon{
+    color: rgba(0, 0, 0, 0.0);
+    transition: transform 0.2s;
+    width: 30px;
+    height: 30px;
+    fill: #ffffff;
+}
+
+.socialIcon:hover {
+    transform: scale(1.2);
+}
+.linkedinIcon:hover {
+    transform: scale(1.2);
+}
+
+.iconDivider {
+    width: 1.5px;
+    height: 30px;
+    background-color: #ffffff;
+    margin: 0 5px;
+}
+
+@media (max-width: 1024px) {
+    .picContainer {
+        gap: 20px;
+    }
+    
+    .teamCard {
+        width: calc((100% - 20px) / 2);
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .subTitle {
+        transform: none;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .titleOverlay {
+        padding: 10px;
+    }
+    
+    .teamSubHeading {
+        font-size: 30px;
+    }
+    
+    .picContainer {
+        gap: 15px;
+    }
+    
+    .teamCard {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 360px;
+    }
+}
+/* Smooth transitions for scroll animations */
+.titleOverlay {
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.fullPageTitle {
+    transition: background-size 0.2s ease-out;
 }
