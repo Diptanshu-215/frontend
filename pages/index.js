@@ -375,7 +375,6 @@ const index = () => {
         <div className={styles.bg}>
             {/* HERO */}
             <HeroSection className={styles.hero}>
-                <div className={styles.hero_main} />
                 <div className={styles.hero_text}>
                     <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
                     <h2>Welcome To Your Nightmare</h2>
