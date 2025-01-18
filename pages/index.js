@@ -21,6 +21,7 @@ import styles from '../styles/homepage.module.css'
 // import 'react-awesome-slider/dist/styles.css'
 // import { motion } from 'framer-motion'
 import HeroSection from '../components/Hero/Hero'
+import Spline from '@splinetool/react-spline';
 
 const cn = (...classes) => {
     return classes.filter(Boolean).join(' ');
@@ -408,7 +409,12 @@ const index = () => {
             {/* HERO */}
             <HeroSection className={styles.hero}>
                 <div className={styles.hero_text}>
-                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
+                    {/* <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/> */}
+                    <div style={{height: 579, width: 579, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
+                        <div style={{height: 589, width: 589}}>
+                            <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
+                        </div>
+                    </div>
                     <h2>Welcome To Your Nightmare</h2>
                 </div>
                 <div className={styles.hero_button}>
