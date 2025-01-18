@@ -13,36 +13,12 @@ import eventsDetails from '../public/events/events_data.json' assert { type: 'js
 import Modal from '../components/BigModal/index.js'
 
 
-const montserrat = Montserrat({
-    weight: ['400'],
-    subsets: ['latin'],
-})
-
-
-
-const cardarr = [1, 2, 3, 4, 5, 6, 7, 8]
-
-
-const eventsinfo = {
-    name: 'Event Name',
-    poster: '',
-    smalldescription: 'Solo - Classical Dance Competition',
-    organizers: [
-        { name: 'Aryan', contact: ' 7247305110' },
-        { name: 'Abhilasha', contact: '9262293394' },
-    ],
-}
 
 const workshopcardarr = [{
     "Event Name": "techgyan x Anwesha",
     "poster": '/events/workshopPoster.jpeg',
     "Event": "2 days of workshop",
 }]
-
-const josefinSans = Josefin_Sans({
-    weight: ['700'],
-    subsets: ['latin'],
-})
 
 const SponsorsSlider = ({ images, animation_duration = -1 }) => {
     const width = 127.381; // IF YOU CHANGE THIS THEN CHANGE IT INSIDE autoScrollSponseAnimation ALSO
@@ -93,9 +69,7 @@ const Events = () => {
         window.location.href = "https://tech-gyan.in/workshop-iit-patna-checkout/";
     };
 
-    const [events, setEvents] = useState([])
 
-    // add event ids which won't be shown on website
     let exceludedEvents = [
     ]
 
@@ -126,6 +100,9 @@ const Events = () => {
         'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI', // 'Wat A Burger'
     ];
 
+
+    const [events, setEvents] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState([]); // Manages the filtered events
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
 
@@ -145,6 +122,7 @@ const Events = () => {
                     return true
                 })
                 setEvents(result)
+                setFilteredEvents(result)
             } catch (e) {
                 console.log('Failed to fetch')
             }
@@ -154,6 +132,18 @@ const Events = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [selectedEvent, setSelectedEvent] = useState(null)
+    const [searchQuery, setSearchQuery] = useState('');
+    const handleSearch = (e) => {
+        const query = e.target.value.toLowerCase();
+        setSearchQuery(query);
+        setFilteredEvents(
+            events.filter((event) =>
+                event.name.toLowerCase().includes(query)
+            )
+        );
+    };
+
+
     const openModal = (event) => {
         console.log('Modal opened for event:', event)
         setSelectedEvent(event)
@@ -172,18 +162,7 @@ const Events = () => {
                 <meta name="description" content="Events-Anwesha 2024" />
                 <link rel="icon" href="./logo_no_bg.svg" />
             </Head>
-            <div className={styles.workshopContainer}>
-                <div className={styles.workshoptitletext}>Workshops</div>
-                <div className={styles.cardContainer}>
-                    {workshopcardarr.map((item, idx) => (
-                        <Card
-                            onClick={handleWorkshopNavigation}
-                            key={idx}
-                            event={item}
-                        />
-                    ))}
-                </div>
-            </div>
+
             <div className={styles.container}>
                 <div className={styles.titleBox}>
                     <div className={styles.centergroup}>
@@ -191,17 +170,17 @@ const Events = () => {
                     </div>
                     <div className={styles.titletext}>EXPLORE THE EVENTS</div>
                 </div>
-                <div className={`${styles.searchContainer}`}>   {/*  ${fadeOut ? styles.fadeOut : ''}  */}
+                <div className={`${styles.searchContainer}`}>
                     <div className={styles.leftgroup}>
                         <img src="/events/left_material.svg" alt="" />
                     </div>
-                    <div
-                        className={`${styles.searchbox} `}
-                    >  {/*  ${fadeOut ? styles.fadeOut : ''}  */}
+                    <div className={`${styles.searchbox}`}>
                         <input
                             className={styles.searchbar}
                             type="text"
                             placeholder="Search Events"
+                            value={searchQuery}
+                            onChange={handleSearch}
                         />
                         <img src="/events/search_icon.svg" alt="" />
                     </div>
@@ -211,7 +190,7 @@ const Events = () => {
                 </div>
 
                 <div className={styles.cardContainer}>
-                    {events.map((item, idx) => (
+                    {filteredEvents.map((item, idx) => (
                         <Card
                             onClick={() => openModal(item)}
                             key={idx}
@@ -227,8 +206,22 @@ const Events = () => {
                         closeHandler={closeModal}
                     />
                 )}
-
             </div>
+
+            <div className={styles.workshopContainer}>
+                <div className={styles.workshoptitletext}>Workshops</div>
+                <div className={styles.cardContainer}>
+                    {workshopcardarr.map((item, idx) => (
+                        <Card
+                            onClick={handleWorkshopNavigation}
+                            key={idx}
+                            event={item}
+                        />
+                    ))}
+                </div>
+            </div>
+
+
             {/* Sponsors */}
             <section className={styles.sponsors}>
                 <div className={styles.sponsors_title}>

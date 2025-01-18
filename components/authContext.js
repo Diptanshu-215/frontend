@@ -21,6 +21,10 @@ const PrivateRoute = ({ children }) => {
         ) {
             router.push('/userLogin')
         }
+        // Redirect logged-in users away from the login page
+        if (authContext.isAuth && router.pathname === '/userLogin') {
+            router.push('/profile');
+        }
     }, [authContext.isAuth, router.pathname]) // Dependency array ensures this effect runs on changes to auth status or path
 
     return children
@@ -76,18 +80,6 @@ const AuthProvider = ({ children }) => {
 
     return (
         <>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
             <Provider
                 value={{
                     state: { user },

@@ -23,7 +23,7 @@ const UserRegisterForm = () => {
     const [college, setCollege] = React.useState('')
     const [cnfPassword, setCnfPassword] = React.useState('')
     const [passwordShown, setPasswordShown] = React.useState(false)
-    const [usertype, setUserType] = React.useState('iitp_student')
+    const [usertype, setUserType] = React.useState('student');
     const [college_name, setCollegeName] = React.useState('')
     const [newsletter, setNewsletter] = React.useState(true)
     const [terms, setTerms] = React.useState(false)
@@ -49,7 +49,21 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        } else if (password !== cnfPassword) {
+        } else if (usertype === 'iitp_student' &&
+            email.match(/\dres\d/)) {
+            toast.error('online iitp students are under type - student ', {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            })
+            return
+        }
+        else if (password !== cnfPassword) {
             toast.warning('Passwords do not match', {
                 position: 'top-right',
                 autoClose: 3000,
@@ -61,7 +75,9 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        } else if (
+        }
+
+        else if (
             email
                 .toLowerCase()
                 .match(
@@ -91,21 +107,6 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        } else if (!terms) {
-            toast.warning(
-                'Please accept the terms and conditions to continue',
-                {
-                    position: 'top-right',
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: 'light',
-                }
-            )
-            return
         }
         let isproff = ''
         for (let i = 0; i < details.length; i++) {
@@ -121,9 +122,8 @@ const UserRegisterForm = () => {
             email_id: email.toLowerCase(),
             password: password,
             user_type: isproff ? isproff : usertype,
-            college_name: isproff ? 'IIT Patna' : college_name,
+            college_name: isproff ? 'IIT Patna' : college,
         }
-        console.log(body)
         try {
             setLoading(true)
             if (newsletter) {
@@ -141,6 +141,8 @@ const UserRegisterForm = () => {
                 body: JSON.stringify(body),
             })
             //check if request is successful
+            console.log(response.status);
+            console.log(response);
             if (response.status === 201 || response.status === 200) {
                 const data = await response.json()
                 setLoading(false)
@@ -239,47 +241,67 @@ const UserRegisterForm = () => {
                             />
                             <br />
                         </div>
-                        <div className={styles.row}>
-                            <div className={styles.field}>
-                                <label htmlFor="email_id">Email ID</label>
-                                <br />
-                                <input
-                                    type="email"
-                                    name="Email_Id"
-                                    placeholder="Enter your email address"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                                <br />
-                            </div>
-                            <div className={styles.field}>
-                                <label htmlFor="Phone_number">
-                                    Phone Number
-                                </label>
-                                <br />
-                                <input
-                                    type="text"
-                                    name="Phone_Number"
-                                    placeholder="Enter your phone number"
-                                    required
-                                    maxLength="10"
-                                    onChange={(e) => setPhone(e.target.value)}
-                                />
-                                <br />
-                            </div>
-                        </div>
-                        <br />
+
+
                         <div className={styles.field}>
-                            <label htmlFor="College">College</label>
+                            <label>Select user type:</label>
+                            <br />
+                            <select
+                                name="userType"
+                                id="userType"
+                                value={usertype}
+                                onChange={(e) => {
+                                    const selectedType = e.target.value;
+                                    setUserType(selectedType);
+
+                                    // Reset the email if switching to 'iitp_student'
+                                    if (selectedType === 'iitp_student') {
+                                        setEmail('');
+                                        setCollegeName('IIT Patna');
+                                    } else {
+                                        setCollegeName('');
+                                    }
+                                }}
+                                required
+                            >
+                                <option value="iitp_student">IITP Student</option>
+                                <option value="student">Student</option>
+                                <option value="non-student">Non-Student</option>
+                                <option value="alumni">Alumni</option>
+                                <option value="faculty">Faculty</option>
+                            </select>
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="email_id">Email ID</label>
                             <br />
                             <input
-                                name="College"
-                                placeholder="Enter your College name"
-                                onChange={(e) => setCollege(e.target.value)}
+                                type="email"
+                                name="Email_Id"
+                                placeholder={
+                                    usertype === 'iitp_student'
+                                        ? 'Eg: rishiraj_2001ME85'
+                                        : 'Eg: vineet@gmail.com'
+                                }
+                                onChange={(e) => {
+                                    if (usertype === 'iitp_student') {
+                                        setEmail(e.target.value.toLowerCase() + '@iitp.ac.in');
+                                    } else {
+                                        setEmail(e.target.value);
+                                    }
+                                }}
                                 required
+                                value={
+                                    usertype === 'iitp_student' && email
+                                        ? email.replace('@iitp.ac.in', '') // Show only the prefix for IITP
+                                        : email
+                                }
                             />
-                            <br />
+                            {usertype === 'iitp_student' && (
+                                <span className={styles.iitp_email_ext}>@iitp.ac.in</span>
+                            )}
                         </div>
+
                         <div className={styles.row}>
                             <div className={styles.field}>
                                 <label htmlFor="password">Password</label>
@@ -313,11 +335,55 @@ const UserRegisterForm = () => {
                             </div>
                         </div>
                         <br />
+                        <div className={styles.row}>
+                            {/* <div className={styles.field}>
+                                <label htmlFor="email_id">Email ID</label>
+                                <br />
+                                <input
+                                    type="email"
+                                    name="Email_Id"
+                                    placeholder="Enter your email address"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                                <br />
+                            </div> */}
+
+                            <div className={styles.field}>
+                                <label htmlFor="Phone_number">
+                                    Phone Number
+                                </label>
+                                <br />
+                                <input
+                                    type="text"
+                                    name="Phone_Number"
+                                    placeholder="Enter your phone number"
+                                    required
+                                    maxLength="10"
+                                    onChange={(e) => setPhone(e.target.value)}
+                                />
+                                <br />
+                            </div>
+
+                            <div className={styles.field}>
+                                <label htmlFor="College">College</label>
+                                <br />
+                                <input
+                                    name="College"
+                                    placeholder="Enter your College name"
+                                    onChange={(e) => setCollege(e.target.value)}
+                                    required
+                                />
+                                <br />
+                            </div>
+
+                        </div>
+
                         <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
-                            <button className={styles.fancyButton}>
+                            <button className={styles.fancyButton} onClick={handleSubmit}>
                                 <span>REGISTER</span>
                                 <Image
                                     src={'/assets/Subtract.svg'}
