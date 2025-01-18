@@ -410,7 +410,7 @@ const index = () => {
             <HeroSection className={styles.hero}>
                 <div className={styles.hero_text}>
                     {/* <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/> */}
-                    <div style={{height: 579, width: 579, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
+                    <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
                         <div style={{height: 589, width: 589}}>
                             <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
                         </div>
