@@ -83,16 +83,23 @@ const GreenCircle = ({width=626, height=626}) => {
     );
 };
 
-const ImageWithText = ({url, title, body, active, onClick, style}) => {
+function all(iterable) {
+    for (var index = 0; index < iterable.length; index++) {
+        if (!iterable[index]) return false;
+    }
+    return true;
+}
+
+const ImageWithText = ({url, title, body, width, height, divRef, active, onClick, style}) => {
     // active
-    return <div style={{
-                        width: active?370:319.61, 
-                        height: active?414:358.481, 
+    return <div ref={divRef} style={{
+                        width: `min(100%, ${width || active?370:319.61}px)`, 
+                        height: height || active?414:358.481, 
                         backgroundImage: `url(${url})`, 
-                        cursor: active?undefined:"pointer",
+                        // cursor: active?undefined:"pointer",
                         ...(style || {})
                     }} 
-                className={cn(styles.events_image, active?styles.events_image_active:"")}
+                className={styles.events_image}
                 onClick={onClick}>
         <div>
             <h2>{title}</h2>
@@ -106,45 +113,63 @@ const EventSlider = ({images, currIndex}) => {
     // onClick={nextEventImage}
     const offset = 370 + 20;
 
+    const imageRefs = images.map(() => useRef(null));
+    const [oldIndex, setOldIndex] = useState(currIndex);
+
+    const prev = currIndex === 0 ? images.length - 1: currIndex - 1;
+    const next = (currIndex + 1 === images.length) ? 0:currIndex + 1;
+
+    useEffect(() => {
+        if(!all(imageRefs)) return;
+        if(currIndex === oldIndex) return;
+        
+        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
+            // Toward left
+            imageRefs[prev].current.style.zIndex = '2'
+            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs[currIndex].current.style.zIndex = '3'
+            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '1'
+            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+        }
+        else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            // Toward Right
+            imageRefs[prev].current.style.zIndex = '1'
+            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs[currIndex].current.style.zIndex = '3'
+            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '2'
+            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+        }
+        setOldIndex(currIndex);
+    }, [currIndex]);
+
+
     return <div className={styles.events_images} style={{
         minHeight: 414,
         position: "relative"
     }}>
-        <ImageWithText url={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].url} 
-            title={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].title} 
-            body={images[(currIndex === 0)?(images.length - 1):(currIndex-1)].body}
+        {images.map((image, index) => <ImageWithText 
+            key={index}
+            url={image.url} 
+            title={image.title} 
+            body={image.body}
+            divRef={imageRefs[index]}
+            active={index == currIndex}
             style={{
+              zIndex: index == currIndex?'2':'1',
               position: "absolute",
               left: "50%",
               top: "50%",
-              transform: `translateY(calc(-50%)) translateX(calc(-50% - ${offset}px))`,
-              transition: "transform 0.35s ease-in-out", // Smooth transition
+              backgroundBlendMode: index == currIndex?'normal':'luminosity',
+              transform: index == currIndex?
+                  `translateY(-50%) translateX(-50%)`
+                  :
+                  `translateY(-50%) translateX(calc(-50% ${currIndex > index?'-': '+'} min(50vw - 200px, ${(currIndex > index?currIndex - index:index - currIndex) * offset}px)))`,
+              transition: "transform .15s linear, width .15s linear, height .15s linear, height 0.15s linear", // Smooth transition
             }}
-            />
-
-        <ImageWithText url={images[currIndex].url} 
-            title={images[currIndex].title} 
-            body={images[currIndex].body}
-            style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: `translateY(calc(-50%)) translateX(calc(-50%))`,
-                transition: "transform 0.35s ease-in-out", // Smooth transition
-            }} 
-            active={true}/>
-
-        <ImageWithText url={images[(currIndex === images.length - 1)?0:(currIndex+1)].url} 
-            title={images[(currIndex === images.length - 1)?0:(currIndex+1)].title} 
-            body={images[(currIndex === images.length - 1)?0:(currIndex+1)].body}
-            style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: `translateY(calc(-50%)) translateX(calc(-50% + ${offset}px))`,
-                transition: "transform 0.35s ease-in-out", // Smooth transition
-            }}
-            />
+        />)
+        }
     </div>
 }
 
@@ -189,12 +214,6 @@ const ImagesSlider = ({images, currIndex, nextMomentImage, previouseMomentImage}
     const [oldIndex, setOldIndex] = useState(currIndex);
     const [dragStartX, setDragStartX] = useState(null);
 
-    function all(iterable) {
-        for (var index = 0; index < iterable.length; index++) {
-            if (!iterable[index]) return false;
-        }
-        return true;
-    }
     // Set up transition for images when currIndex changes
     useEffect(() => {
         if(!all(imageRefs)) return;
@@ -285,8 +304,7 @@ const ImagesSlider = ({images, currIndex, nextMomentImage, previouseMomentImage}
 }
 
 const index = () => {
-    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1); // if we want to add animation then we have to handle it manually...
-    const pseudoEventImage = [ // do not change it min max 3
+    const pseudoEventImage = [ // do not change it min = max 3
         {
             url: "/pics/events/verve.png",
             title: "Verve",
@@ -303,6 +321,18 @@ const index = () => {
             body: "Solo - Classical Music Competition"
         }
     ];
+    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1);
+    const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+          if(eventActiveImageIndexPrevDir)
+            setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1));
+          else
+            setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
+      }, 3000);
+      return () => clearTimeout(timer);
+    }, [eventActiveImageIndex])
+
     const sponsorImages = [
         'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
         'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk', // 'Bihar Tourism'
@@ -352,9 +382,11 @@ const index = () => {
     }, [momentsActiveImageIndex])
 
     const nextEventImage = () => {
+        setEventActiveImageIndexPrevDir(false);
         setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
     }
     const previouseEventImage = () => {
+        setEventActiveImageIndexPrevDir(true);
         setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1))
     }
     const nextMomentImage = () => {
@@ -499,7 +531,7 @@ const index = () => {
             </section>
 
             {/* Sponsors */}
-            {/* <section className={styles.sponsors}>
+            <section className={styles.sponsors}>
                 <div className={styles.sponsors_title}>
                     <h2>Our Proud Sponsors</h2>
                     <h3>Strengthening the Vision Together</h3>
@@ -507,7 +539,7 @@ const index = () => {
                 <div className={styles.sponsors_images_slider}>
                     <SponsorsSlider images={sponsorImages}/>
                 </div>
-            </section> */}
+            </section>
         </div>
     </>)
 }
