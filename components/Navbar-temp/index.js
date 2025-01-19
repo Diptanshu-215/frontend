@@ -191,7 +191,7 @@ function Navigation() {
                                 Events
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
                                 className={styles.linknav}
                                 style={
@@ -220,7 +220,7 @@ function Navigation() {
                             >
                                 Merch
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             <Link
@@ -335,44 +335,54 @@ function Navigation() {
                     </ul>
                 </div>
                 <div className={styles.navEnds}>
-                    <button
-                        className={styles.fancyButton}
-                        onClick={() => {
-                            router.push('/userLogin')
-                        }}
-                    >
-                        <span>{!userData.isAuth ? 'LOGIN' : 'PROFILE'}</span>
+                    {/* <button className={styles.fancyButton}>
+                        <span>PROFILE</span>
+                    <button className={styles.fancyButton} onClick={() => { router.push('/userLogin') }}>
+                        <span>{!userData.isAuth ? "LOGIN" : "PROFILE"}</span>
                         <Image
                             src={'/assets/navSubtract.svg'}
                             height={42}
                             width={120}
                             alt="register"
                         />
-                    </button>
+                    </button> */}
+                    <div className={styles.hero_button}>
+                        <button
+                            onClick={() => {
+                                router.push('/userLogin')
+                            }}
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            {!userData.isAuth ? 'LOGIN' : 'PROFILE'}
+                        </button>
+                    </div>
 
                     {userData.isAuth && (
-                        <button
-                            className={styles.fancyButton}
-                            onClick={handleLogout}
-                        >
-                            <span>LOGOUT</span>
-                            <Image
-                                src={'/assets/navSubtract.svg'}
-                                height={42}
-                                width={120}
-                                alt="logout"
-                            />
-                        </button>
+                        <div className={styles.hero_button}>
+                            <button
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                LOGOUT
+                            </button>
+                        </div>
                     )}
-                    {/* <button className={styles.fancyButton}>
-                        <span>GET PASSES</span>
-                        <Image
-                            src={'/assets/Subtract.svg'}
-                            height={42}
-                            width={120}
-                            alt="register"
-                        />
-                    </button> */}
+
+                    {/* <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            GET PASSES
+                        </button>
+                    </div> */}
                 </div>
             </div>
 
@@ -380,11 +390,6 @@ function Navigation() {
                 <ul>
                     <li>
                         <Link href="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link href="/profile" onClick={() => toggleDrawer()}>
-                            Profile
-                        </Link>
                     </li>
                     {/* <li>
                         <Link
@@ -414,22 +419,22 @@ function Navigation() {
                             Gallery
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link href="/schedule" onClick={() => toggleDrawer()}>
                             Schedule
                         </Link>
-                    </li>
+                    </li> */}
 
                     {/* <li>
                         <Link href="/getPasses" onClick={() => toggleDrawer()}>
                             Get Passes
                         </Link>
                     </li> */}
-                    <li>
+                    {/* <li>
                         <Link href="/Merch" onClick={() => toggleDrawer()}>
                             Merch
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link href="/ourteam" onClick={() => toggleDrawer()}>
                             Teams
@@ -482,7 +487,6 @@ function Navigation() {
                             </div>
                         ) : (
                             <Link
-                                className={styles.login}
                                 href="/userLogin"
                                 onClick={() => toggleDrawer()}
                             >

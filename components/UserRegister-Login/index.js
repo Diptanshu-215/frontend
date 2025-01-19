@@ -380,7 +380,7 @@ const UserRegisterForm = () => {
                                 <br />
                             </div>
                         </div>
-                        <motion.div
+                        {/* <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
@@ -397,10 +397,10 @@ const UserRegisterForm = () => {
                                 />
                             </button>
                         </motion.div>{' '}
-                        */
-                        <br />
+                        <br /> */}
                         <div className={styles.hero_button}>
                             <button
+                                onClick={handleSubmit}
                                 className={cn(
                                     styles.sexy_button,
                                     styles.sexy_button_small
