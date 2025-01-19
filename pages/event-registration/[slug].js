@@ -65,7 +65,7 @@ const eventRegistration = () => {
                             transition={{ duration: 1 }}
                         >
                             {/* <h2 className={styles.subHeading}>Team Details</h2> */}
-                            <h2>{name.split('#')[0]}</h2>
+                            <h2>{(name?.split('#')[0]) ?? 'DefaultName'}</h2>
                             <br />
                             {/* <div className={styles.form_row}>
                                 <div className={styles.field}>
