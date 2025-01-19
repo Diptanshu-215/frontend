@@ -59,15 +59,14 @@
     flex-direction: column;
     gap: 20px;
 }
-.social_logo_container > img{
+.social_logo_container> a > img{
     cursor: pointer;
 }
-.social_logo_container > img:hover{
-    filter: drop-shadow(1.5px 1.5px 1px rgb(181, 110, 86));
-}
-.social_logo_container > img:active{
+.social_logo_container > a > img:hover{
     filter: drop-shadow(2px 2px 2px #a49acb);
 }
+
+
 
 .footer_address {
     color: #fff;
