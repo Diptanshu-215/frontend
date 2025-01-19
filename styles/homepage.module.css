@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'SFIronsides';
+    font-family: 'SF Ironsides';
     src: url('/font/SF-Ironsides.ttf');
 }
 @font-face {
@@ -48,7 +48,7 @@
     text-align: center;
 
     /* SF/SF - 36 REG */
-    font-family: "SFIronsides";
+    font-family: "SF Ironsides";
     font-size: 28px;
     font-weight: 400;
     line-height: normal;
@@ -85,7 +85,7 @@
     text-align: center;
     
     /* SF/SF - 64 Reg */
-    font-family: "SFIronsides";
+    font-family: "SF Ironsides";
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -122,47 +122,12 @@
 
 /* =================================== HERO =================================== */
 .hero{
-    align-self: stretch;
-    padding: 52px 64px;
-    justify-content: center;
-    align-items: center;
     background-image: url("/pics/image398.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-clip: border-box;
     background-position: center; /* right */
-    width: 100%;
-    flex-shrink: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: 100dvh;
 }
-/* background-image: url("/pics/hero_image-export.svg"); */
-.hero_main{
-    width: 767.308px;
-    height: 675.457px;
-    flex-shrink: 0;
-    background-image: radial-gradient(52.44% 42.58% at 50% 50%, rgba(0, 0, 0, 0.00) 29.61%, #000 100%), url("/pics/circle_full.png");
-    background-position: -116.259px -0.04px;
-    background-size: 127.85% 96.835%;
-    background-repeat: no-repeat;
-    mix-blend-mode: screen;
-    /* overflow: hidden; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000,
-        transparent
-    );
-}
-/* .hero_main > img{
-    filter: brightness(110%);
-} */
 .hero_text{
     margin-top: -650px;
     display: flex;
@@ -178,7 +143,7 @@
     margin-top: -200px;
     color: #000;
     text-align: center;
-    font-family: "SFIronsides";
+    font-family: "SF Ironsides";
     font-size: 128px;
     font-style: normal;
     font-weight: 400;
@@ -261,7 +226,7 @@
     text-align: right;
 
     /* SF/SF - 64 Reg */
-    font-family: SFIronsides;
+    font-family: "SF Ironsides";
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -289,24 +254,30 @@
 }
 .events_images{
     width: 100%;
-    display: flex;
-    gap: 28.14px;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* gap: 28.14px; */
+    /* justify-content: center; */
+    /* align-items: center; */
     margin-top: 52px;
     margin-bottom: 52px;
+    overflow-x: hidden;
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .events_image{
     background-position: center;
     background-color: lightgray;
     background-size: cover;
     background-repeat: no-repeat;
-    mix-blend-mode: luminosity;
+    /* mix-blend-mode: luminosity; */
+    /* background-blend-mode: luminosity; */
     background-position-y: 0;
 }
-.events_image_active{
-    mix-blend-mode: unset !important;
-}
+/* .events_image_active{ */
+    /* mix-blend-mode: unset !important; */
+    /* background-blend-mode: normal; */
+/* } */
 .events_image > div{
     width: 100%;
     height: 100%;
@@ -353,7 +324,7 @@
     .events_title > svg{
         width: 150px;
     }
-    .events_image_active{
+    /* .events_image_active{
         z-index: 1;
         position: relative;
     }
@@ -366,7 +337,7 @@
         margin-left: 65px;
 
         transform: rotateY(15deg);
-        clip-path: polygon(0% 3%, 100% 0%, 100% 100%, 0% 97%); /* Create trapezoid */
+        clip-path: polygon(0% 3%, 100% 0%, 100% 100%, 0% 97%);
         transform-origin: center center;
     }
     .events_images .events_image:last-child{
@@ -374,9 +345,9 @@
         margin-right: 65px;
 
         transform: rotateY(-15deg);
-        clip-path: polygon(0% 0%, 100% 3%, 100% 97%, 0% 100%); /* Create trapezoid */
+        clip-path: polygon(0% 0%, 100% 3%, 100% 97%, 0% 100%);
         transform-origin: center center;
-    }
+    } */
 }
 @media only screen and (max-width: 768px){
     .events_title > svg{
@@ -398,9 +369,9 @@
     .events_title > div > h3{
         text-align: center;
     }
-    .events_images_parent{
+    /* .events_images_parent{
         overflow-x: hidden;
-    }
+    } */
     .events_button {
         margin-top: -16px;
     }
@@ -418,7 +389,7 @@
         width: calc(155px / 1.2);
         height: calc(55px / 1.2);
     }
-    .events_images_parent{
+    /* .events_images_parent{
         gap: 0;
     }
     .events_image:not(.events_image_active){
@@ -430,7 +401,7 @@
     .events_images_parent > .bat_scroll_button > svg{
         width: calc(65px / 1.75);
         height: calc(85px / 1.75);
-    }
+    } */
     .events_button {
         margin-top: -32px;
         margin-bottom: 32px;
@@ -440,9 +411,9 @@
         padding-left: 16px;
         padding-right: 16px;
     }
-    .events_image > div{
+    /* .events_image > div{
         gap: 0;
-    }
+    } */
     .events_title > div > h2{
         font-size: 48px;
     }
@@ -482,7 +453,7 @@
     color: var(--Color-Primary500, #50FF00);
 
     /* SF/SF - 64 Reg */
-    font-family: "SFIronsides";
+    font-family: "SF Ironsides";
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -506,8 +477,8 @@
     text-align: justify;
     
     /* La/La - 20 Reg */
-    font-family: Laila;
-    font-size: 20px;
+    font-family: AnavioSmallCapitalsW01-Bold;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 30px */
@@ -518,12 +489,20 @@
     height: 676px;
     border-radius: 19.347px;
     background: #000;
-    background-image: radial-gradient(52.44% 42.58% at 50% 50%, rgba(0, 0, 0, 0.00) 35.4%, #000 100%), url("/pics/circle_full.png");
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+}
+.merch_background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(min(350px, 40vw) min(350px, 40vw) at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    animation: rotateAnimation 15s linear infinite;
     mix-blend-mode: screen; 
-    overflow-y: hidden;
 }
 .merch_hero_fix{
     position: relative;
@@ -628,6 +607,9 @@
         padding-left: 32px;
         padding-right: 32px;
     }
+    .merch_background{
+        background-image: radial-gradient(45vw 45vw at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
+    }
     .merch_body{
         gap: 22px;
     }
@@ -680,6 +662,9 @@
     .merch{
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .merch_background{
+        background-image: radial-gradient(50vw 50vw at 50% 50%, rgba(0, 0, 0, 0.00) 50%, #000 100%), url("/pics/circle_full.png");
     }
     .merch_body{
         min-width: unset;
@@ -736,7 +721,6 @@
     align-self: stretch;
     background: #000300;
     padding-top: 44px;
-    margin-bottom: 44px;
     padding-bottom: 44px;
 }
 .moments_images_parent{
@@ -770,40 +754,15 @@
     height: 546px;
     overflow: hidden;
     user-select: none;
-}
-.moments_images > div{
-    width: 100%;
-}
-.moments_images > div:not(:first-child, :last-child){
-    position: absolute;
-    display: flex;
-    width: 100%;
-}
-.moments_images > div:not(:first-child, :last-child) > img{
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 9;
-    /* width: 100%; */
-}
 
-.moments_images > div:first-child, .moments_images > div:last-child {
-    position: relative;
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%, 
+        #000 3%, 
+        #000 97%, 
+        transparent 100%
+    );
 }
-.moments_images > div:first-child > img{
-    position: absolute;
-    right: -1330px; /* WIDTH = 864 */
-    z-index: 8;
-    
-    cursor: pointer;
-}
-.moments_images > div:last-child > img{
-    position: absolute;
-    left: -1330px;
-    z-index: 8;
-    
-    cursor: pointer;
-}
-
 
 
 .moments_button{
@@ -818,13 +777,6 @@
     }
 }
 @media only screen and (max-width: 900px){
-    .moments_images > div > img{
-        display: none;
-    }
-    .moments_images > div:not(:first-child, :last-child) > img{
-        width: 100%;
-        display: block;
-    }
     .moments_images_top_curve{
         border-bottom-left-radius: 50% 50%;
         border-bottom-right-radius: 50% 50%;
@@ -1085,7 +1037,7 @@
     color: var(--Color-Primary500, #50FF00);
 
     /* SF/SF - 64 Reg */
-    font-family: "SFIronsides";
+    font-family: "SF Ironsides";
     font-size: 64px;
     font-style: normal;
     font-weight: 400;

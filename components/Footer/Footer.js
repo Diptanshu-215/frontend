@@ -103,7 +103,7 @@ const Footer = () => {
                         </h4>
                     </div>
                 </div>
-                <div className={styles.footer_middle}>
+                {/* <div className={styles.footer_middle}>
                     <div className={styles.footer_nav}>
                         <div className={styles.four_fingure}>
                             {' '}
@@ -136,7 +136,7 @@ const Footer = () => {
                             </Link>{' '}
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className={styles.line_section}>
                     <Image
                         src="/pics/footer/Line.svg"
