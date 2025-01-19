@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styles from '../styles/oursponsors.module.css'
 import { Josefin_Sans } from '@next/font/google'
 
@@ -9,8 +10,28 @@ const josefinSans = Josefin_Sans({
 })
 
 const oursponsors = () => {
-    const [year, setYear] = React.useState('spons24')
+    const [year, setYear] = useState('spons24')
 
+    const [isOpen, setIsOpen] = useState(false) // State to manage visibility
+    const dropdownRef = useRef(null)
+    const toggleDropdown = () => {
+        setIsOpen((prev) => !prev) // Toggle dropdown visibility
+    }
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target)
+            ) {
+                setIsOpen(false) // Close dropdown
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
     const data = {
         spons23: [
             {
@@ -322,29 +343,38 @@ const oursponsors = () => {
                         {' '}
                         OUR SPONSORS
                     </h2>
-                    <div className={styles.dropdownContainer}>
-                        <button className={styles.dropdownButton}>
+                    <div className={styles.dropdownContainer} ref={dropdownRef}>
+                        <button
+                            onClick={toggleDropdown}
+                            className={styles.dropdownButton}
+                        >
                             Previous Years Sponsors
                             <span className={styles.arrow}>▼</span>
                         </button>
-                        <div className={styles.dropdownContent}>
-                            <a
-                                onClick={() => setYear('spons23')}
-                                className={
-                                    year === 'spons23' ? styles.disabled : ''
-                                }
-                            >
-                                2023-2024
-                            </a>
-                            <a
-                                onClick={() => setYear('spons24')}
-                                className={
-                                    year === 'spons24' ? styles.disabled : ''
-                                }
-                            >
-                                2024-2025
-                            </a>
-                        </div>
+                        {isOpen && (
+                            <div className={styles.dropdownContent}>
+                                <a
+                                    onClick={() => setYear('spons23')}
+                                    className={
+                                        year === 'spons23'
+                                            ? styles.disabled
+                                            : ''
+                                    }
+                                >
+                                    2023-2024
+                                </a>
+                                <a
+                                    onClick={() => setYear('spons24')}
+                                    className={
+                                        year === 'spons24'
+                                            ? styles.disabled
+                                            : ''
+                                    }
+                                >
+                                    2024-2025
+                                </a>
+                            </div>
+                        )}
                     </div>
                     <div className={styles.coordinators}>
                         <div className={styles.picContainer}>

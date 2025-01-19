@@ -14,6 +14,10 @@ import details from '../prof_staff_details'
 
 const host = process.env.NEXT_PUBLIC_HOST
 
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
+
 const UserRegisterForm = () => {
     const router = useRouter()
     const [phone, setPhone] = React.useState('')
@@ -313,7 +317,7 @@ const UserRegisterForm = () => {
                             </div>
                         </div>
                         <br />
-                        <motion.div
+                        {/* <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
@@ -326,10 +330,27 @@ const UserRegisterForm = () => {
                                     alt="register"
                                 />
                             </button>
-                        </motion.div>
+                        </motion.div> */}
+                        <br />
+                        <div className={styles.hero_button}>
+                            <button
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                Register
+                            </button>
+                        </div>
                         <br />
 
-                        <p>
+                        <p
+                            style={{
+                                marginTop: 18,
+                                textAlign: 'center',
+                                fontSize: '0.8rem',
+                            }}
+                        >
                             Already registered? &nbsp;
                             <Link
                                 href="/userLogin"

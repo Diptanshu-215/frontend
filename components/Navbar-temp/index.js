@@ -9,6 +9,10 @@ import { useRive, useStateMachineInput } from '@rive-app/react-canvas'
 const host = process.env.NEXT_PUBLIC_HOST
 const STATE_MACHINE_NAME = 'Basic State Machine'
 const INPUT_NAME = 'Switch'
+
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
 function Navigation() {
     const userData = useContext(AuthContext)
     const [drawerOpen, setDrawerOpen] = useState(false)
@@ -333,7 +337,7 @@ function Navigation() {
                     </ul>
                 </div>
                 <div className={styles.navEnds}>
-                    <button className={styles.fancyButton}>
+                    {/* <button className={styles.fancyButton}>
                         <span>PROFILE</span>
                         <Image
                             src={'/assets/navSubtract.svg'}
@@ -341,8 +345,18 @@ function Navigation() {
                             width={120}
                             alt="register"
                         />
-                    </button>
-                    <button className={styles.fancyButton}>
+                    </button> */}
+                     <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            PROFILE
+                        </button>
+                     </div>
+                    {/* <button className={styles.fancyButton}>
                         <span>GET PASSES</span>
                         <Image
                             src={'/assets/Subtract.svg'}
@@ -350,7 +364,17 @@ function Navigation() {
                             width={120}
                             alt="register"
                         />
-                    </button>
+                    </button> */}
+                     {/* <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            GET PASSES
+                        </button>
+                     </div> */}
                 </div>
             </div>
 
@@ -358,6 +382,11 @@ function Navigation() {
                 <ul>
                     <li>
                         <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/profile" onClick={() => toggleDrawer()}>
+                            Profile
+                        </Link>
                     </li>
                     {/* <li>
                         <Link
@@ -386,18 +415,29 @@ function Navigation() {
                         <Link href="/gallery" onClick={() => toggleDrawer()}>
                             Gallery
                         </Link>
-                    </li>
+                    </li>               
                     <li>
-                        <Link href="/contact" onClick={() => toggleDrawer()}>
-                            Contact Us
+                        <Link href="/schedule" onClick={() => toggleDrawer()}>
+                            Schedule
                         </Link>
                     </li>
-
+                    
+                     {/* <li>
+                        <Link href="/getPasses" onClick={() => toggleDrawer()}>
+                            Get Passes
+                        </Link>
+                    </li> */}
+                    <li>
+                        <Link href="/Merch" onClick={() => toggleDrawer()}>
+                            Merch
+                        </Link>
+                    </li>
                     <li>
                         <Link href="/ourteam" onClick={() => toggleDrawer()}>
                             Teams
                         </Link>
                     </li>
+                   
                     <li>
                         <Link
                             href="/oursponsors"
@@ -412,8 +452,8 @@ function Navigation() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/schedule" onClick={() => toggleDrawer()}>
-                            Schedule
+                        <Link href="/contact" onClick={() => toggleDrawer()}>
+                            Contact Us
                         </Link>
                     </li>
                     {/* <li>
