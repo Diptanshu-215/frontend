@@ -23,40 +23,75 @@ const Footer = () => {
                     </div>
                     <div className={styles.social_logo}>
                         <div className={styles.social_logo_container}>
+                        <a
+                              
+                              href="mailto:anweshaiitp@gmail.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                          >
                             <Image
                                 src="/pics/footer/email.svg"
                                 alt="Image description"
                                 width={62.173}
                                 height={49.173}
                             />
+                            </a>
+                             <a
+                              
+                              href="https://instagram.com/anwesha.iitp?igshid=YmMyMTA2M2Y="
+                              target="_blank"
+                              rel="noopener noreferrer"
+                          >
                             <Image
                                 src="/pics/footer/insta.svg"
                                 alt="Image description"
                                 width={62.173}
                                 height={49.173}
                             />
+                            </a>
                         </div>
                         <div className={styles.social_logo_container}>
+                        <a
+                              
+                              href="https://www.facebook.com/anwesha.iitpatna/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                          >
                             <Image
                                 src="/pics/footer/facebook.svg"
                                 alt="Image description"
                                 width={63.173}
                                 height={49.173}
                             />
+                            </a>
                         </div>
                         <div className={styles.social_logo_container}>
-                            <Image
-                                src="/pics/footer/twittter.svg"
-                                alt="Image description"
-                                width={63.173}
-                                height={49.173}
-                            />
+                            <a
+                              
+                                href="https://twitter.com/anweshaiitpat/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="/pics/footer/twittter.svg"
+                                    alt="Image description"
+                                    width={63.173}
+                                    height={49.173}
+                                />
+                            </a>
+                            <a
+                              
+                              href="https://www.youtube.com/@AnweshaIITP"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                          >
                             <Image
                                 src="/pics/footer/youtube.svg"
                                 alt="Image description"
                                 width={63.173}
                                 height={49.173}
                             />
+                        </a>
                         </div>
                     </div>
                     <div className={styles.footer_address}>
@@ -70,30 +105,36 @@ const Footer = () => {
                 </div>
                 <div className={styles.footer_middle}>
                     <div className={styles.footer_nav}>
-                       <div className={styles.four_fingure}> <Link href="">
-                            <h3>Events</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Merch</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Gellerty</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Teams</h3>
-                        </Link> </div>
-                       <div  className={styles.four_fingure}> <Link href="">
-                            <h3>Sponsors</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Contat Us</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Profile</h3>
-                        </Link> 
-                        <Link href="">
-                            <h3>Get Passes</h3>
-                        </Link> </div>
+                        <div className={styles.four_fingure}>
+                            {' '}
+                            <Link href="">
+                                <h3>Events</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Merch</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Gellerty</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Teams</h3>
+                            </Link>{' '}
+                        </div>
+                        <div className={styles.four_fingure}>
+                            {' '}
+                            <Link href="">
+                                <h3>Sponsors</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Contat Us</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Profile</h3>
+                            </Link>
+                            <Link href="">
+                                <h3>Get Passes</h3>
+                            </Link>{' '}
+                        </div>
                     </div>
                 </div>
                 <div className={styles.line_section}>
