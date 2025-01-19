@@ -424,7 +424,7 @@ const index = () => {
                     <h2>Welcome To Your Nightmare</h2>
                 </div>
                 <div className={styles.hero_button}>
-                    <button className={cn(styles.sexy_button, styles.sexy_button_small)}>REGISTER</button>
+                    <button className={cn(styles.sexy_button, styles.sexy_button_small)} onClick={() => { router.push('/userRegister') }}>REGISTER</button>
                 </div>
             </HeroSection>
 
