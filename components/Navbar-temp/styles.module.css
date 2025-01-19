@@ -118,6 +118,7 @@
     color: rgb(80, 255, 0);
     font-size: 1.25rem;
     font-family: 'SF Ironside';
+    letter-spacing: 0.15rem;
 }
 
 .navLinks ul {

@@ -52,8 +52,7 @@ function Navigation() {
         if (refNav.current && !refNav.current.contains(event.target)) {
             document.getElementById('drawer').style.opacity = 0
             setTimeout(function () {
-                ;(document.getElementById('drawer').style.display = 'none')
-                  
+                document.getElementById('drawer').style.display = 'none'
             }, 300)
             setDrawerOpen(false)
             if (onClickInput) {
@@ -91,8 +90,7 @@ function Navigation() {
             setTimeout(
                 () => (
                     (drawer.style.display = 'none'),
-                    (nav_div.style.backgroundColor = '#000000'),
-        
+                    (nav_div.style.backgroundColor = '#000000')
                 ),
                 300
             )
@@ -337,25 +335,35 @@ function Navigation() {
                     </ul>
                 </div>
                 <div className={styles.navEnds}>
-                    {/* <button className={styles.fancyButton}>
-                        <span>PROFILE</span>
+                    <button
+                        className={styles.fancyButton}
+                        onClick={() => {
+                            router.push('/userLogin')
+                        }}
+                    >
+                        <span>{!userData.isAuth ? 'LOGIN' : 'PROFILE'}</span>
                         <Image
                             src={'/assets/navSubtract.svg'}
                             height={42}
                             width={120}
                             alt="register"
                         />
-                    </button> */}
-                     <div className={styles.hero_button}>
+                    </button>
+
+                    {userData.isAuth && (
                         <button
-                            className={cn(
-                                styles.sexy_button,
-                                styles.sexy_button_small
-                            )}
+                            className={styles.fancyButton}
+                            onClick={handleLogout}
                         >
-                            PROFILE
+                            <span>LOGOUT</span>
+                            <Image
+                                src={'/assets/navSubtract.svg'}
+                                height={42}
+                                width={120}
+                                alt="logout"
+                            />
                         </button>
-                     </div>
+                    )}
                     {/* <button className={styles.fancyButton}>
                         <span>GET PASSES</span>
                         <Image
@@ -365,16 +373,6 @@ function Navigation() {
                             alt="register"
                         />
                     </button> */}
-                     {/* <div className={styles.hero_button}>
-                        <button
-                            className={cn(
-                                styles.sexy_button,
-                                styles.sexy_button_small
-                            )}
-                        >
-                            GET PASSES
-                        </button>
-                     </div> */}
                 </div>
             </div>
 
@@ -415,14 +413,14 @@ function Navigation() {
                         <Link href="/gallery" onClick={() => toggleDrawer()}>
                             Gallery
                         </Link>
-                    </li>               
+                    </li>
                     <li>
                         <Link href="/schedule" onClick={() => toggleDrawer()}>
                             Schedule
                         </Link>
                     </li>
-                    
-                     {/* <li>
+
+                    {/* <li>
                         <Link href="/getPasses" onClick={() => toggleDrawer()}>
                             Get Passes
                         </Link>
@@ -437,7 +435,7 @@ function Navigation() {
                             Teams
                         </Link>
                     </li>
-                   
+
                     <li>
                         <Link
                             href="/oursponsors"
@@ -456,7 +454,7 @@ function Navigation() {
                             Contact Us
                         </Link>
                     </li>
-                    {/* <li>
+                    <li>
                         {userData.isAuth ? (
                             <div className={styles.user_container}>
                                 <Link
@@ -491,7 +489,7 @@ function Navigation() {
                                 Login
                             </Link>
                         )}
-                    </li> */}
+                    </li>
                 </ul>
             </div>
         </>
