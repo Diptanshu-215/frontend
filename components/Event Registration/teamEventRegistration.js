@@ -50,6 +50,7 @@ async function teamEventRegistration(
         anwesha_id: teamMembers[0],
     })
 
+
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -57,17 +58,34 @@ async function teamEventRegistration(
         redirect: 'follow',
         credentials: 'include',
     }
+
     const data = await fetch(`${host}/atompay/`, requestOptions)
         .then((response) => response.json())
         .catch((error) => {
             console.error(error)
         })
 
+    console.log(data);
     const res = await loadScript(
         'https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v=' +
-            data.atomTokenId
+        data.atomTokenId
     )
-    openPay(data)
+    if (data.messagge) {
+        toast.error('Already Registered', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        })
+
+    }
+    else {
+        openPay(data);
+    }
     // const data = await fetch(`${host}/event/registration/team`, requestOptions)
 
     // const response = await data.json()

@@ -48,8 +48,8 @@ function Navigation() {
         if (refNav.current && !refNav.current.contains(event.target)) {
             document.getElementById('drawer').style.opacity = 0
             setTimeout(function () {
-                ;(document.getElementById('drawer').style.display = 'none')
-                  
+                ; (document.getElementById('drawer').style.display = 'none')
+
             }, 300)
             setDrawerOpen(false)
             if (onClickInput) {
@@ -64,7 +64,7 @@ function Navigation() {
         setIsHome(['/'].includes(router.pathname))
         document.getElementById('drawer').style.opacity = 0
         setTimeout(function () {
-            ;(document.getElementById('drawer').style.display = 'none'),
+            ; (document.getElementById('drawer').style.display = 'none'),
                 (document.getElementById('nav_div').style.backgroundColor = '')
         }, 300)
         setDrawerOpen(false)
@@ -87,8 +87,8 @@ function Navigation() {
             setTimeout(
                 () => (
                     (drawer.style.display = 'none'),
-                    (nav_div.style.backgroundColor = '#000000'),
-        
+                    (nav_div.style.backgroundColor = '#000000')
+
                 ),
                 300
             )
@@ -104,6 +104,7 @@ function Navigation() {
             credentials: 'include',
         }).then(() => userData.getUser())
     }
+
 
     return (
         <>
@@ -180,8 +181,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/events'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/events"
@@ -195,8 +196,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/schedule'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/schedule"
@@ -210,8 +211,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/merch'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/merch"
@@ -226,8 +227,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/gallery'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/gallery"
@@ -241,8 +242,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/ourteam'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/ourteam"
@@ -256,8 +257,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/oursponsors'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/oursponsors"
@@ -271,8 +272,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/aboutus'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/aboutus"
@@ -286,8 +287,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/contact'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/contact"
@@ -333,8 +334,8 @@ function Navigation() {
                     </ul>
                 </div>
                 <div className={styles.navEnds}>
-                    <button className={styles.fancyButton}>
-                        <span>PROFILE</span>
+                    <button className={styles.fancyButton} onClick={() => { router.push('/userLogin') }}>
+                        <span>{!userData.isAuth ? "LOGIN" : "PROFILE"}</span>
                         <Image
                             src={'/assets/navSubtract.svg'}
                             height={42}
@@ -342,7 +343,17 @@ function Navigation() {
                             alt="register"
                         />
                     </button>
-                    <button className={styles.fancyButton}>
+
+                    {userData.isAuth && <button className={styles.fancyButton} onClick={handleLogout}>
+                        <span>LOGOUT</span>
+                        <Image
+                            src={'/assets/navSubtract.svg'}
+                            height={42}
+                            width={120}
+                            alt="logout"
+                        />
+                    </button>}
+                    {/* <button className={styles.fancyButton}>
                         <span>GET PASSES</span>
                         <Image
                             src={'/assets/Subtract.svg'}
@@ -350,7 +361,7 @@ function Navigation() {
                             width={120}
                             alt="register"
                         />
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
@@ -416,7 +427,7 @@ function Navigation() {
                             Schedule
                         </Link>
                     </li>
-                    {/* <li>
+                    <li>
                         {userData.isAuth ? (
                             <div className={styles.user_container}>
                                 <Link
@@ -451,7 +462,7 @@ function Navigation() {
                                 Login
                             </Link>
                         )}
-                    </li> */}
+                    </li>
                 </ul>
             </div>
         </>

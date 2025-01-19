@@ -14,6 +14,7 @@ const UserLoginForm = () => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [passwordShown, setPasswordShown] = React.useState(false)
+    const [loaded, setloaded] = React.useState(false);
 
     useEffect(() => {
         const frame = document.createElement('iframe')
@@ -49,6 +50,7 @@ const UserLoginForm = () => {
     }, [])
 
     const handleSubmit = async (event) => {
+        setloaded(true);
         event.preventDefault()
         let body = { username: email, password: password }
         // user input validation
@@ -77,19 +79,20 @@ const UserLoginForm = () => {
 
             //check if request is successful
             // console.log(response.status)
+            setloaded(false);
             if (response.status === 200 || response.status === 201) {
                 const data = await response.json()
                 if (data.success === true) {
-                    // toast.success('You are successfully logged in', {
-                    //     position: 'top-right',
-                    //     autoClose: 3000,
-                    //     hideProgressBar: false,
-                    //     closeOnClick: true,
-                    //     pauseOnHover: true,
-                    //     draggable: true,
-                    //     progress: undefined,
-                    //     theme: 'light',
-                    // })
+                    toast.success('You are successfully logged in', {
+                        position: 'top-right',
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    })
                     context.getUser()
                 } else {
                     toast.error(data.message, {
@@ -221,8 +224,8 @@ const UserLoginForm = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
-                            <button className={styles.fancyButton}>
-                                <span>LOGIN</span>
+                            <button className={styles.fancyButton} onClick={handleSubmit}>
+                                <span>{!loaded ? "LOGIN" : "LOGGING.."}</span>
                                 <Image
                                     src={'/assets/Subtract.svg'}
                                     className={styles.memberImage}
