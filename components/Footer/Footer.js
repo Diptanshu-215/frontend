@@ -99,7 +99,8 @@ const Footer = () => {
                             Anwesha Office, <br />
                             Indian Institute of Technology Patna, <br />
                             Bihta, Patna - 801103 <br />
-                            
+                            +91 8130169059   <br/>
+                            +91 8207259900
                         </h4>
                     </div>
                 </div>
