@@ -384,7 +384,7 @@ const UserRegisterForm = () => {
                             whileTap={{ scale: 0.8 }}
                         >
                             <button className={styles.fancyButton} onClick={handleSubmit}>
-                                <span>REGISTER</span>
+                                <span>{!loading ? "REGISTER" : "REGISTERING.."}</span>
                                 <Image
                                     src={'/assets/Subtract.svg'}
                                     height={220}

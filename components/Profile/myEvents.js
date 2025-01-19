@@ -23,6 +23,8 @@ function MyEvents() {
                     }
                 })
                 setPasses([...arr])
+                console.log(result);
+                console.log(arr);
             })
             .catch((error) => console.log('error', error))
     }, [])
@@ -30,8 +32,8 @@ function MyEvents() {
     return (
         <div>
             {events.solo.length === 0 &&
-            events.team.length === 0 &&
-            passes.length === 0 ? (
+                events.team.length === 0 &&
+                passes.length === 0 ? (
                 <div>No events registered</div>
             ) : null}
             {passes.map((e, key) => {
@@ -209,6 +211,7 @@ function MyEvents() {
                         >
                             {events.team.map((e, key) => {
                                 return (
+                                    e.payment_done &&
                                     <div key={key} className={styles.event}>
                                         <h2>{e.event_name}</h2>
                                         <div className={styles.date_loc}>
@@ -325,6 +328,8 @@ function MyEvents() {
                                             </a>
                                         ) : null}
                                     </div>
+
+
                                 )
                             })}
                         </div>

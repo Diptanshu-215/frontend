@@ -34,9 +34,9 @@ const index = ({ event, onClick }) => {
                     />
                 )}
                 <div className={`${styles.imageWrap}`} style={{
-                    background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${event.poster
+                    background: `url('${event.poster
                         ? event.poster
-                        : '/events/poster1.png'}') lightgray 0px -10.182px / 100% 133.782% no-repeat `
+                        : '/events/poster1.png'}') `
                 }}>
                     <div className={styles.innerShadow}> {/* Add shadow layer */}
                         <div className={styles.eventDescription}>
