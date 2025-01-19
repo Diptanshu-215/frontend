@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import { AuthProvider, PrivateRoute } from '../components/authContext'
 import { useRouter } from 'next/router'
 import styles from '../styles/comingsoon.module.css'
+import { ToastContainer, toast } from 'react-toastify'
 // const Navbar = dynamic(() => import('../components/Navbar/Navbar'), {
 //     ssr: false,
 // })
@@ -47,6 +48,18 @@ function MyApp({ Component, pageProps }) {
           gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS});
         `}
             </Script>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <AuthProvider>
                 {showHeader && <Navbar />}
                 {/* {showHeader && <div style={{height: '30%'}}/>} */}
