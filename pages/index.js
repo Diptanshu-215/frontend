@@ -21,7 +21,7 @@ import styles from '../styles/homepage.module.css'
 // import 'react-awesome-slider/dist/styles.css'
 // import { motion } from 'framer-motion'
 import HeroSection from '../components/Hero/Hero'
-import Spline from '@splinetool/react-spline';
+// import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/router'
 
 const cn = (...classes) => {
@@ -313,9 +313,8 @@ const ImagesSlider = ({ images, currIndex, nextMomentImage, previouseMomentImage
 }
 
 const index = () => {
-    const pseudoEventImage = [ // do not change it min = max 3
     const router = useRouter();
-    
+    const pseudoEventImage = [ // do not change it min = max 3
         {
             url: "/pics/events/verve.png",
             title: "Verve",
@@ -456,12 +455,12 @@ const index = () => {
             {/* HERO */}
             <HeroSection className={styles.hero}>
                 <div className={styles.hero_text}>
-                    {/* <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/> */}
-                    <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
+                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
+                    {/* <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
                         <div style={{height: 589, width: 589}}>
                             <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
                         </div>
-                    </div>
+                    </div> */}
                     <h2>Welcome To Your Nightmare</h2>
                 </div>
                 <div className={styles.hero_button}>
