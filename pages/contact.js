@@ -39,6 +39,7 @@ const Contact = () => {
 
     return (
         <div className={styles.maincontainer}>
+        <div className={styles.effectContainer}>
             <div className={styles.container}>
                 <div className={styles.leftcontainer}>
                     <div className={styles.leftinnercontainer}>
@@ -53,7 +54,7 @@ const Contact = () => {
                         <div className={styles.email}>
                            <img src="/email_icon.svg" alt="" />
                             <div className={styles.emailtext}>
-                                Email of Anwesha
+                                Email of Anwesha here
                             </div>
                         </div>
                     </div>
@@ -135,6 +136,7 @@ const Contact = () => {
                     </div>
                     <ToastContainer />
                 </div>
+            </div>
             </div>
         </div>
     )
