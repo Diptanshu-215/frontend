@@ -62,9 +62,25 @@ async function soloEventRegistration(
 
     const res = await loadScript(
         'https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v=' +
-            data.atomTokenId
+        data.atomTokenId
     )
-    openPay(data)
+    console.log(data);
+    if (data.messagge) {
+        toast.error('Already Registered', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        })
+
+    }
+    else {
+        openPay(data);
+    }
 }
 
 async function soloEventRegistrationiitp(eventID, router, closeHandler) {
@@ -88,7 +104,20 @@ async function soloEventRegistrationiitp(eventID, router, closeHandler) {
         .catch((error) => {
             console.error(error)
         })
+    console.log(data);
+    if (data.messagge) {
+        toast.error('Already REgistered', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+        })
 
+    }
     closeHandler()
     toast.success(data.message || data.messagge, {
         position: 'top-right',

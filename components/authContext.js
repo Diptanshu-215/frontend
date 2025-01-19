@@ -22,7 +22,7 @@ const PrivateRoute = ({ children }) => {
             router.push('/userLogin')
         }
         // Redirect logged-in users away from the login page
-        if (authContext.isAuth && router.pathname === '/userLogin') {
+        if (authContext.isAuth && (router.pathname === '/userLogin' || router.pathname === '/userRegister')) {
             router.push('/profile');
         }
     }, [authContext.isAuth, router.pathname]) // Dependency array ensures this effect runs on changes to auth status or path

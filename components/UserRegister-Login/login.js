@@ -18,6 +18,7 @@ const UserLoginForm = () => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [passwordShown, setPasswordShown] = React.useState(false)
+    const [loaded, setloaded] = React.useState(false);
 
     useEffect(() => {
         const frame = document.createElement('iframe')
@@ -53,6 +54,7 @@ const UserLoginForm = () => {
     }, [])
 
     const handleSubmit = async (event) => {
+        setloaded(true);
         event.preventDefault()
         let body = { username: email, password: password }
         // user input validation
@@ -81,6 +83,7 @@ const UserLoginForm = () => {
 
             //check if request is successful
             // console.log(response.status)
+            setloaded(false);
             if (response.status === 200 || response.status === 201) {
                 const data = await response.json()
                 if (data.success === true) {
@@ -226,7 +229,7 @@ const UserLoginForm = () => {
                             whileTap={{ scale: 0.8 }}
                         >
                             <button className={styles.fancyButton} onClick={handleSubmit}>
-                                <span>LOGIN</span>
+                                <span>{!loaded ? "LOGIN" : "LOGGING.."}</span>
                                 <Image
                                     src={'/assets/Subtract.svg'}
                                     className={styles.memberImage}

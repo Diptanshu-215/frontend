@@ -279,8 +279,8 @@
     color: rgb(80, 255, 0);
     font-size: 1.5rem;
     font-family: 'SF Ironside';
-    font-weight: bold;
     text-align: center;
+    letter-spacing: 0.15rem;
 }
 
 @media only screen and (max-width: 1500px) {
