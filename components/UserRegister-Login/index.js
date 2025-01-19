@@ -384,11 +384,8 @@ const UserRegisterForm = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
-                            <button
-                                className={styles.fancyButton}
-                                onClick={handleSubmit}
-                            >
-                                <span>REGISTER</span>
+                            <button className={styles.fancyButton} onClick={handleSubmit}>
+                                <span>{!loading ? "REGISTER" : "REGISTERING.."}</span>
                                 <Image
                                     src={'/assets/Subtract.svg'}
                                     height={220}
@@ -406,7 +403,7 @@ const UserRegisterForm = () => {
                                     styles.sexy_button_small
                                 )}
                             >
-                                Register
+                                {!loading ? 'REGISTER' : 'REGISTERING..'}
                             </button>
                         </div>
                         <br />
