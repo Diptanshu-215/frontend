@@ -367,6 +367,7 @@ function Navigation() {
                                     styles.sexy_button,
                                     styles.sexy_button_small
                                 )}
+                            onClick={() => {handleLogout}}
                             >
                                 LOGOUT
                             </button>
