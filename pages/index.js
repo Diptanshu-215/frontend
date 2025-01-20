@@ -320,21 +320,7 @@ const ImagesSlider = ({ images, currIndex, nextMomentImage, previouseMomentImage
 }
 
 const index = () => {
-    const router = useRouter();
-    // const _pseudoEventImage = [
-    //     {
-    //         url: "/pics/events/verve.png",
-    //         title: "Verve",
-    //         body: "1. Fashion Walk Competition"
-    //     },
-    //     {
-    //         url: "/pics/events/dance.png",
-    //         title: "Dance",
-    //         body: "2. Solo - Hip-Hop Dance Competition"
-    //     }
-    // ];
-    
-    
+
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1);
     const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
     useEffect(() => {
@@ -347,7 +333,7 @@ const index = () => {
       return () => clearTimeout(timer);
     }, [eventActiveImageIndex])
     
-    
+
     // events thingyy
     const [events, setEvents] = useState([]);
     useEffect(() => {
@@ -387,6 +373,9 @@ const index = () => {
         })), 3);
     // const pseudoEventImage = adjustList(_pseudoEventImage, 3);
     // console.log(pseudoEventImage);
+
+
+    const router = useRouter();
 
     const sponsorImages = [
         'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
