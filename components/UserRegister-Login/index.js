@@ -247,6 +247,7 @@ const UserRegisterForm = () => {
                             <label>Select user type:</label>
                             <br />
                             <select
+                               
                                 name="userType"
                                 id="userType"
                                 value={usertype}
@@ -263,6 +264,10 @@ const UserRegisterForm = () => {
                                     }
                                 }}
                                 required
+                                style={{
+                                    color: 'white', 
+                                    padding: '8px', // Add padding for better readability
+                                }}
                             >
                                 <option value="iitp_student">IITP Student</option>
                                 <option value="student">Student</option>

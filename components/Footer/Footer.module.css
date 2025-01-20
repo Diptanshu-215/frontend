@@ -137,7 +137,11 @@
     padding-bottom: 20px;
 }
 
-.footer_lower > h4 {
+.footer_lower >h4> a{
+    all: unset;
+}
+
+.footer_lower >  h4 {
     color: #fff;
 
     font-family: 'SF Ironsides';

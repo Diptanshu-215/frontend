@@ -152,8 +152,8 @@ const Footer = () => {
                     />
                 </div>
                 <div className={styles.footer_lower}>
-                    <h4>Privacy Policy</h4>
-                    <h4>Terms and Condition</h4>
+                    <h4><a href="/privacy" target="_blank" rel="noopener noreferrer"> Privacy Policy </a></h4>
+                    <h4> <a href="/terms" target="_blank" rel="noopener noreferrer"> Terms and Condition</a></h4>
                 </div>
                 <div className={styles.left_helobean}>
                     <Image
