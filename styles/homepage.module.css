@@ -1085,8 +1085,10 @@
     animation-iteration-count: infinite;
     animation-name: autoScrollSponse;
 }
+
 @keyframes autoScrollSponse {
     from {
+
         left: -127.381px;
     }
     to {
@@ -1128,6 +1130,15 @@
     .sponsors_title > h3 {
         font-size: 18px;
     }
+    .iframe{
+        width: 100%;
+        margin: auto;
+        padding-bottom: 40px
+    }
+    .iframe iframe{
+        width: 98%;
+        margin: auto;
+    }
 }
 @media only screen and (max-width: 550px) {
     /* TODO */
@@ -1135,4 +1146,6 @@
         padding-left: 12px;
         padding-right: 12px;
     }
+
 }
+
