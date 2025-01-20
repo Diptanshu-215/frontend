@@ -14,6 +14,10 @@ import details from '../prof_staff_details'
 
 const host = process.env.NEXT_PUBLIC_HOST
 
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
+
 const UserRegisterForm = () => {
     const router = useRouter()
     const [phone, setPhone] = React.useState('')
@@ -23,7 +27,7 @@ const UserRegisterForm = () => {
     const [college, setCollege] = React.useState('')
     const [cnfPassword, setCnfPassword] = React.useState('')
     const [passwordShown, setPasswordShown] = React.useState(false)
-    const [usertype, setUserType] = React.useState('student');
+    const [usertype, setUserType] = React.useState('student')
     const [college_name, setCollegeName] = React.useState('')
     const [newsletter, setNewsletter] = React.useState(true)
     const [terms, setTerms] = React.useState(false)
@@ -49,8 +53,7 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        } else if (usertype === 'iitp_student' &&
-            email.match(/\dres\d/)) {
+        } else if (usertype === 'iitp_student' && email.match(/\dres\d/)) {
             toast.error('online iitp students are under type - student ', {
                 position: 'top-right',
                 autoClose: 3000,
@@ -62,8 +65,7 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        }
-        else if (password !== cnfPassword) {
+        } else if (password !== cnfPassword) {
             toast.warning('Passwords do not match', {
                 position: 'top-right',
                 autoClose: 3000,
@@ -75,9 +77,7 @@ const UserRegisterForm = () => {
                 theme: 'light',
             })
             return
-        }
-
-        else if (
+        } else if (
             email
                 .toLowerCase()
                 .match(
@@ -141,8 +141,8 @@ const UserRegisterForm = () => {
                 body: JSON.stringify(body),
             })
             //check if request is successful
-            console.log(response.status);
-            console.log(response);
+            console.log(response.status)
+            console.log(response)
             if (response.status === 201 || response.status === 200) {
                 const data = await response.json()
                 setLoading(false)
@@ -241,8 +241,6 @@ const UserRegisterForm = () => {
                             />
                             <br />
                         </div>
-
-
                         <div className={styles.field}>
                             <label>Select user type:</label>
                             <br />
@@ -251,27 +249,28 @@ const UserRegisterForm = () => {
                                 id="userType"
                                 value={usertype}
                                 onChange={(e) => {
-                                    const selectedType = e.target.value;
-                                    setUserType(selectedType);
+                                    const selectedType = e.target.value
+                                    setUserType(selectedType)
 
                                     // Reset the email if switching to 'iitp_student'
                                     if (selectedType === 'iitp_student') {
-                                        setEmail('');
-                                        setCollegeName('IIT Patna');
+                                        setEmail('')
+                                        setCollegeName('IIT Patna')
                                     } else {
-                                        setCollegeName('');
+                                        setCollegeName('')
                                     }
                                 }}
                                 required
                             >
-                                <option value="iitp_student">IITP Student</option>
+                                <option value="iitp_student">
+                                    IITP Student
+                                </option>
                                 <option value="student">Student</option>
                                 <option value="non-student">Non-Student</option>
                                 <option value="alumni">Alumni</option>
                                 <option value="faculty">Faculty</option>
                             </select>
                         </div>
-
                         <div className={styles.field}>
                             <label htmlFor="email_id">Email ID</label>
                             <br />
@@ -285,9 +284,12 @@ const UserRegisterForm = () => {
                                 }
                                 onChange={(e) => {
                                     if (usertype === 'iitp_student') {
-                                        setEmail(e.target.value.toLowerCase() + '@iitp.ac.in');
+                                        setEmail(
+                                            e.target.value.toLowerCase() +
+                                                '@iitp.ac.in'
+                                        )
                                     } else {
-                                        setEmail(e.target.value);
+                                        setEmail(e.target.value)
                                     }
                                 }}
                                 required
@@ -298,10 +300,11 @@ const UserRegisterForm = () => {
                                 }
                             />
                             {usertype === 'iitp_student' && (
-                                <span className={styles.iitp_email_ext}>@iitp.ac.in</span>
+                                <span className={styles.iitp_email_ext}>
+                                    @iitp.ac.in
+                                </span>
                             )}
                         </div>
-
                         <div className={styles.row}>
                             <div className={styles.field}>
                                 <label htmlFor="password">Password</label>
@@ -376,10 +379,8 @@ const UserRegisterForm = () => {
                                 />
                                 <br />
                             </div>
-
                         </div>
-
-                        <motion.div
+                        {/* <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
@@ -392,10 +393,27 @@ const UserRegisterForm = () => {
                                     alt="register"
                                 />
                             </button>
-                        </motion.div>
+                        </motion.div>{' '}
+                        <br /> */}
+                        <div className={styles.hero_button}>
+                            <button
+                                onClick={handleSubmit}
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                {!loading ? 'REGISTER' : 'REGISTERING..'}
+                            </button>
+                        </div>
                         <br />
-
-                        <p>
+                        <p
+                            style={{
+                                marginTop: 18,
+                                textAlign: 'center',
+                                fontSize: '0.8rem',
+                            }}
+                        >
                             Already registered? &nbsp;
                             <Link
                                 href="/userLogin"

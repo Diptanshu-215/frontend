@@ -9,6 +9,10 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const host = process.env.NEXT_PUBLIC_HOST
 
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
+
 const ForgotPassword = () => {
     const context = useContext(AuthContext)
     const [email, setEmail] = React.useState('')
@@ -100,11 +104,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <div
-            style={{
-                overflow: 'hidden',
-            }}
-        >
+        <div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -123,7 +123,7 @@ const ForgotPassword = () => {
                 whileInView={{ opacity: 1, x: '0%' }}
                 transition={{ duration: 1 }}
             >
-                <div className={styles.container_login}>
+                <div className={styles.container}>
                     <div className={styles.form}>
                         <h2
                             style={{
@@ -167,14 +167,16 @@ const ForgotPassword = () => {
                                     href="/userLogin"
                                     style={{
                                         color: '#ffffff',
-                                        fontWeight: 600,
+                                        fontSize: '0.8rem',
+                                        marginBottom: 15,
+                                        textAlign: 'center',
                                     }}
                                 >
                                     Login Here
                                 </Link>
                             </div>
                         </div>
-                        <motion.div
+                        {/* <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
@@ -188,7 +190,18 @@ const ForgotPassword = () => {
                                     alt="register"
                                 />
                             </button>
-                        </motion.div>
+                        </motion.div> */}
+
+                        <div className={styles.hero_button}>
+                            <button
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                SUBMIT
+                            </button>
+                        </div>
                     </div>
                 </div>
             </motion.form>

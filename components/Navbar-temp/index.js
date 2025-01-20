@@ -9,6 +9,10 @@ import { useRive, useStateMachineInput } from '@rive-app/react-canvas'
 const host = process.env.NEXT_PUBLIC_HOST
 const STATE_MACHINE_NAME = 'Basic State Machine'
 const INPUT_NAME = 'Switch'
+
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
 function Navigation() {
     const userData = useContext(AuthContext)
     const [drawerOpen, setDrawerOpen] = useState(false)
@@ -48,8 +52,7 @@ function Navigation() {
         if (refNav.current && !refNav.current.contains(event.target)) {
             document.getElementById('drawer').style.opacity = 0
             setTimeout(function () {
-                ; (document.getElementById('drawer').style.display = 'none')
-
+                document.getElementById('drawer').style.display = 'none'
             }, 300)
             setDrawerOpen(false)
             if (onClickInput) {
@@ -64,7 +67,7 @@ function Navigation() {
         setIsHome(['/'].includes(router.pathname))
         document.getElementById('drawer').style.opacity = 0
         setTimeout(function () {
-            ; (document.getElementById('drawer').style.display = 'none'),
+            ;(document.getElementById('drawer').style.display = 'none'),
                 (document.getElementById('nav_div').style.backgroundColor = '')
         }, 300)
         setDrawerOpen(false)
@@ -88,7 +91,6 @@ function Navigation() {
                 () => (
                     (drawer.style.display = 'none'),
                     (nav_div.style.backgroundColor = '#000000')
-
                 ),
                 300
             )
@@ -104,7 +106,6 @@ function Navigation() {
             credentials: 'include',
         }).then(() => userData.getUser())
     }
-
 
     return (
         <>
@@ -181,8 +182,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/events'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/events"
@@ -190,14 +191,14 @@ function Navigation() {
                                 Events
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link
                                 className={styles.linknav}
                                 style={
                                     router.pathname === '/schedule'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/schedule"
@@ -211,15 +212,15 @@ function Navigation() {
                                 style={
                                     router.pathname === '/merch'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/merch"
                             >
                                 Merch
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li>
                             <Link
@@ -227,8 +228,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/gallery'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/gallery"
@@ -242,8 +243,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/ourteam'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/ourteam"
@@ -257,8 +258,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/oursponsors'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/oursponsors"
@@ -272,8 +273,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/aboutus'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/aboutus"
@@ -287,8 +288,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/contact'
                                         ? {
-                                            color: 'rgb(80, 255, 0)',
-                                        }
+                                              color: 'rgb(80, 255, 0)',
+                                          }
                                         : null
                                 }
                                 href="/contact"
@@ -334,6 +335,8 @@ function Navigation() {
                     </ul>
                 </div>
                 <div className={styles.navEnds}>
+                    {/* <button className={styles.fancyButton}>
+                        <span>PROFILE</span>
                     <button className={styles.fancyButton} onClick={() => { router.push('/userLogin') }}>
                         <span>{!userData.isAuth ? "LOGIN" : "PROFILE"}</span>
                         <Image
@@ -342,26 +345,44 @@ function Navigation() {
                             width={120}
                             alt="register"
                         />
-                    </button>
-
-                    {userData.isAuth && <button className={styles.fancyButton} onClick={handleLogout}>
-                        <span>LOGOUT</span>
-                        <Image
-                            src={'/assets/navSubtract.svg'}
-                            height={42}
-                            width={120}
-                            alt="logout"
-                        />
-                    </button>}
-                    {/* <button className={styles.fancyButton}>
-                        <span>GET PASSES</span>
-                        <Image
-                            src={'/assets/Subtract.svg'}
-                            height={42}
-                            width={120}
-                            alt="register"
-                        />
                     </button> */}
+                    <div className={styles.hero_button}>
+                        <button
+                            onClick={() => {
+                                router.push('/userLogin')
+                            }}
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            {!userData.isAuth ? 'LOGIN' : 'PROFILE'}
+                        </button>
+                    </div>
+
+                    {userData.isAuth && (
+                        <div className={styles.hero_button}>
+                            <button
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                LOGOUT
+                            </button>
+                        </div>
+                    )}
+
+                    {/* <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                        >
+                            GET PASSES
+                        </button>
+                    </div> */}
                 </div>
             </div>
 
@@ -398,17 +419,28 @@ function Navigation() {
                             Gallery
                         </Link>
                     </li>
-                    <li>
-                        <Link href="/contact" onClick={() => toggleDrawer()}>
-                            Contact Us
+                    {/* <li>
+                        <Link href="/schedule" onClick={() => toggleDrawer()}>
+                            Schedule
                         </Link>
-                    </li>
+                    </li> */}
 
+                    {/* <li>
+                        <Link href="/getPasses" onClick={() => toggleDrawer()}>
+                            Get Passes
+                        </Link>
+                    </li> */}
+                    {/* <li>
+                        <Link href="/Merch" onClick={() => toggleDrawer()}>
+                            Merch
+                        </Link>
+                    </li> */}
                     <li>
                         <Link href="/ourteam" onClick={() => toggleDrawer()}>
                             Teams
                         </Link>
                     </li>
+
                     <li>
                         <Link
                             href="/oursponsors"
@@ -423,8 +455,8 @@ function Navigation() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/schedule" onClick={() => toggleDrawer()}>
-                            Schedule
+                        <Link href="/contact" onClick={() => toggleDrawer()}>
+                            Contact Us
                         </Link>
                     </li>
                     <li>
@@ -455,7 +487,6 @@ function Navigation() {
                             </div>
                         ) : (
                             <Link
-                                className={styles.login}
                                 href="/userLogin"
                                 onClick={() => toggleDrawer()}
                             >
