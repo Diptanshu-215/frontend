@@ -77,6 +77,25 @@ function CoordCard({ data, title }) {
 
 export default function ourteam() {
 
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const titleStyle = {
+        opacity: Math.max(0, 1 - scrollY / 300),
+        transform: `translateY(${Math.min(50, scrollY / 3)}px)`,
+    };
+
+    const bgStyle = {
+        backgroundSize: `${100 + scrollY / 10}%`,
+    };
+
 
     // const n = 4;
     const data = {
@@ -126,12 +145,6 @@ export default function ourteam() {
                 instagram: 'https://www.instagram.com/_manas.gupta_?igsh=MXB5cWxyaDE5cGNsZQ==',
                 linkedin: 'https://www.linkedin.com/in/manas-gupta21?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
                 email: '2201ph16_manas@iitp.ac.in'
-            },
-            {
-                name: 'Shah Mohammad', image: '/team/shah.jpg',
-                instagram: 'https://instagram.com/username',
-                linkedin: 'https://linkedin.com/in/username',
-                email: 'user@example.com'
             }
         ],
         TV: [
@@ -235,7 +248,7 @@ export default function ourteam() {
                 email: '2201ee28_harsh@iitp.ac.in'
             },
             {
-                name: 'Raunak', image: '/team/Profile.png',
+                name: 'Raunak', image: '/team/raunak.jpg',
                 instagram: 'https://www.instagram.com/raunak_04_?igsh=OGQ5ZDc2ODk2ZA==',
                 linkedin: 'https://www.linkedin.com/in/raunak-bansod-718b30259',
                 email: '2201mm39_raunak@iitp.ac.in'
@@ -259,7 +272,7 @@ export default function ourteam() {
                 email: '2201ee98_vihaan@iitp.ac.in  '
             },
             {
-                name: 'Sujal Pachori', image: '/team/Profile.png',
+                name: 'Sujal Pachori', image: '/team/sujal.jpg',
                 instagram: 'https://www.instagram.com/sujalxpachori/profilecard/?igsh=MWU1NHRiZ2YyOWUweA==',
                 linkedin: 'https://www.linkedin.com/in/sujal-pachori-a15b96261/',
                 email: '2201ee70_sujal@iitp.ac.in'
@@ -279,7 +292,7 @@ export default function ourteam() {
                 email: '2201ai16_himani@iitp.ac.in'
             },
             {
-                name: 'Pradhuman Nayak', image: '/team/pradhuman.jpg',
+                name: 'Pradhuman Nayak', image: '/team/pradhuman1.jpg',
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
                 email: 'user@example.com'
@@ -319,10 +332,16 @@ export default function ourteam() {
                 email: 'ankita_2101cb33@iitp.ac.in'
             },
             {
-                name: 'Gaurang Bansal', image: '/team/Profile.png',
+                name: 'Gaurang Bansal', image: '/team/gaurang.jpg',
                 instagram: 'https://www.instagram.com/gaurangbansal2612?igsh=aG1qY3FvN2sycThy',
                 linkedin: 'https://www.linkedin.com/in/gaurang-bansal-921577230',
                 email: 'gaurang_2101ee29@iitp.ac.in'
+            },
+            {
+                name: 'Kanishk Singh Solanki', image: '/team/kanishk.jpg',
+                instagram: 'https://www.instagram.com/username',
+                linkedin: 'https://www.linkedin.com',
+                email: 'kanishka_2101ph17@iitp.ac.in'
             }
         ],
         eventsAdvisory: [
@@ -342,6 +361,12 @@ export default function ourteam() {
                 name: 'Yash Verma', image: '/team/yash.jpg',
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
+                email: '2201ce16_divyam@iitp.ac.in'
+            },
+            {
+                name: 'Shivendra Pratap Singh', image: '/team/shivendra.jpg',
+                instagram: 'https://www.instagram.com/x_ulansis?igsh=YWsybjVmaW9zbmVi',
+                linkedin: 'https://www.linkedin.com/in/shivendra-pratap-singh-9a392',
                 email: '2201ce16_divyam@iitp.ac.in'
             }
         ],
@@ -365,6 +390,12 @@ export default function ourteam() {
                 instagram: 'https://www.instagram.com/devendrapratap137/',
                 linkedin: 'https://www.linkedin.com/in/devendra1307/',
                 email: 'devendra_2101ai13@iitp.ac.in'
+            },
+            {
+                name: 'Aruj Gautam', image: '/team/aruj.jpg',
+                instagram: 'https://www.instagram.com/usernmame',
+                linkedin: 'https://www.linkedin.com/in/arujgautam/',
+                email: 'aruj_2101ee15@iitp.ac.in'
             }
         ],
         TVAdvisory: [
@@ -387,6 +418,12 @@ export default function ourteam() {
                 instagram: 'https://www.instagram.com/anurag_deo_03/',
                 linkedin: 'https://www.linkedin.com/in/anurag-deo-8b30b422b',
                 email: 'anurag_2101ai04@iitp.ac.in'
+            },
+            {
+                name: 'Arvind Meena', image: '/team/arvind.jpg',
+                instagram: 'https://www.instagram.com/arvind_meena2005/',
+                linkedin: 'https://www.linkedin.com/in/arvindri2005',
+                email: 'arvind_2101ee16@iitp.ac.in'
             }
         ],
         sponsAdvisory: [
@@ -396,20 +433,44 @@ export default function ourteam() {
                 linkedin: 'https://www.linkedin.com/in/aviral-srivastava23?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
                 email: 'aviral_2101ee88@iitp.ac.in'
             },
+            {
+                name: 'Ritvik Kadiri', image: '/team/ritvik.jpg',
+                instagram: 'https://www.instagram.com/username',
+                linkedin: 'https://www.linkedin.com/in/venkata-sai-ritvik-kadiri-178a5022a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+                email: 'kadiri_2101mc24@iitp.ac.in'
+            }
         ],
         PnDAdvisory: [
             {
-                name: 'Dhrutisundar Sahoo', image: '/team/aviral.jpg',
+                name: 'Dhrutisundar Sahoo', image: '/team/dhrutisundar.jpg',
                 instagram: 'https://www.instagram.com/__infinite.d.__/',
                 linkedin: 'https://linkedin.com/in/dhrutisundar-sahoo/',
                 email: 'dhrutisundar_2101ee26@iitp.ac.in'
             },
             {
                 name: 'Diptadip Malik', image: '/team/diptadip_tv.jpg',
-                instagram: 'https://instagram.com/username',
-                linkedin: 'https://linkedin.com/in/username',
+                instagram: 'https://www.instagram.com/_._d1pt0_._?igsh=MW9kNXYxZnAycmIwNQ==',
+                linkedin: 'https://www.linkedin.com/in/dipto21',
                 email: 'user@example.com'
             },
+            {
+                name: 'Varesh', image: '/team/varesh.jpg',
+                instagram: 'javascript:void(0)',
+                linkedin: 'https://linkedin.com/in/vareshmukhekar',
+                email: ' varesh_2101mm37@iitp.ac.in'
+            },
+            {
+                name: 'Arkadeep Acharya', image: '/team/arkadeep.jpg',
+                instagram: 'https://www.instagram.com/arkadeep.acharya_03?igsh=b3p6c3UxYXlrOTJi',
+                linkedin: 'https://www.linkedin.com/in/arkadeep-acharya-404b41226/',
+                email: ' arkadeep_2101ai41@iitp.ac.in'
+            },
+            {
+                name: 'Vikramaditya', image: '/team/vikramaditya.jpeg',
+                instagram: 'https://www.instagram.com/lord_raven_73?igsh=ZHh0MXJweWFhdGlr&utm_source=qr',
+                linkedin: 'https://www.linkedin.com/in/vikramaditya-k-76a93a247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+                email: ' kondepudi_2101cb31@iitp.ac.in'
+            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         ],
     }
 
@@ -424,8 +485,8 @@ export default function ourteam() {
             </Head>
 
 
-            <div className={styles.fullPageTitle}>
-                <div className={styles.titleOverlay}>
+            <div className={styles.fullPageTitle} style={bgStyle}>
+                <div className={styles.titleOverlay} style={titleStyle}>
                     <p className={styles.subTitle} >
                         TEAM
                     </p>

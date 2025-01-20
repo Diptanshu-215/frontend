@@ -20,8 +20,9 @@
     color: #ffffff;
     margin-bottom: 0;
     background-image: url('/teamBg.png');
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
+    transition: background-size 0.3s ease-out;
 }   
 
 .fullPageTitle::after {
@@ -30,13 +31,15 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    pointerEvents: none;
 }
 
 .titleOverlay {
     text-align: center;
     padding: 20px;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .subTitle {
@@ -75,6 +78,19 @@
     margin-top: 0;
     padding-top: 100px;
     background-image: url('/aboutusBg.png');
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+    pointer-events: none;
 }
 
 .teamHeader {
@@ -119,7 +135,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-    padding: 20px;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -133,7 +148,7 @@
     height: 460px;
     min-width: 280px;
     max-width: 360px;
-    flex: 0 0 calc((100% - 60px) / 3);
+    
 }
 
 .flipInner {
@@ -167,11 +182,12 @@
 }
 
 .memberImage {
-    width: 100%;
+    width: 75%;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
     margin-bottom: 10px;
+    border-radius: 2%;
 }
 
 .teamMemberDetails {
@@ -209,12 +225,12 @@
 }
 
 .cardBack {
-    width: 100%;
+    width: 75%;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
     margin-bottom: 10px;
-}
+    }
 
 .socialLinks {
     position: absolute;
@@ -231,8 +247,8 @@
 .socialIcon {
     color: #000000;
     transition: transform 0.2s;
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: auto;
     fill: #ffffff;
 }
 
