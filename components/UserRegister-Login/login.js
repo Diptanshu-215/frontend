@@ -9,6 +9,10 @@ import Image from 'next/image'
 
 const host = process.env.NEXT_PUBLIC_HOST
 
+const cn = (...classes) => {
+    return classes.filter(Boolean).join(' ')
+}
+
 const UserLoginForm = () => {
     const context = useContext(AuthContext)
     const [email, setEmail] = React.useState('')
@@ -166,13 +170,13 @@ const UserLoginForm = () => {
                 whileInView={{ opacity: 1, x: '0%' }}
                 transition={{ duration: 1 }}
             >
-                <div className={styles.container_login}>
+                <div className={styles.container}>
                     <div className={styles.form}>
                         <h1
                             style={{
                                 fontSize: '2rem',
                                 fontFamily: 'Anavio Small Capitals W01 Bold',
-                                margin: ' -1rem 0 2rem 0',
+                                margin: ' 0 0 2.5rem 0',
                                 textAlign: 'center',
                             }}
                         >
@@ -220,7 +224,7 @@ const UserLoginForm = () => {
                         </div>
 
                         <br />
-                        <motion.div
+                        {/* <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.8 }}
                         >
@@ -234,8 +238,25 @@ const UserLoginForm = () => {
                                     alt="register"
                                 />
                             </button>
-                        </motion.div>
-                        <p style={{ marginTop: 18, textAlign: 'center' }}>
+                        </motion.div> */}
+                        <div className={styles.hero_button}>
+                            <button 
+                                onClick={handleSubmit}
+                                className={cn(
+                                    styles.sexy_button,
+                                    styles.sexy_button_small
+                                )}
+                            >
+                                LOGIN
+                            </button>
+                        </div>
+                        <p
+                            style={{
+                                fontSize: '0.8rem',
+                                marginTop: 18,
+                                textAlign: 'center',
+                            }}
+                        >
                             Don't have an account? &nbsp;
                             <Link
                                 href="/userRegister"
