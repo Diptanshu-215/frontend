@@ -41,6 +41,11 @@ const eventRegistration = () => {
 
     const [teamName, setTeamName] = useState('')
     const [memberID, setMemberID] = useState([])
+
+    const cn = (...classes) => {
+        return classes.filter(Boolean).join(' ');
+    }
+
     return (
         <div>
             <ToastContainer
@@ -56,6 +61,7 @@ const eventRegistration = () => {
                 theme="light"
             />
             <div className={styles.container}>
+                <div className={styles.effectcontainer}> 
                 <div className={styles.content}>
                     {/* <h1 className={styles.mainHeading}>Registration</h1> */}
                     <form className={styles.mainForm}>
@@ -162,8 +168,9 @@ const eventRegistration = () => {
                                 </button>
                             ) : null}
                             <br />
+                            <div className={styles.register_btn_box}>
                             <button
-                                className={styles.register_btn}
+                                className={cn(styles.register_button, styles.register_button_small)}
                                 onClick={(e) => {
                                     e.preventDefault()
                                     if (
@@ -214,10 +221,13 @@ const eventRegistration = () => {
                             >
                                 REGISTER
                             </button>
+                            </div>
                         </motion.div>
                     </form>
                 </div>
+                </div>
             </div>
+           
         </div>
     )
 }
