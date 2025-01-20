@@ -59,6 +59,15 @@
     flex-direction: column;
     gap: 20px;
 }
+.social_logo_container > img{
+    cursor: pointer;
+}
+.social_logo_container > img:hover{
+    filter: drop-shadow(1.5px 1.5px 1px rgb(181, 110, 86));
+}
+.social_logo_container > img:active{
+    filter: drop-shadow(2px 2px 2px #a49acb);
+}
 
 .footer_address {
     color: #fff;
@@ -137,8 +146,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
+    text-underline-offset: 4px;
 }
-
+.footer_lower > h4:hover{
+    text-decoration: underline;
+}
 @media screen and (max-width: 1200px) {
     .footer_upper {
         justify-content: space-around;

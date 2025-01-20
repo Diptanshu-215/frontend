@@ -260,18 +260,24 @@
     /* align-items: center; */
     margin-top: 52px;
     margin-bottom: 52px;
+    overflow-x: hidden;
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .events_image{
     background-position: center;
     background-color: lightgray;
     background-size: cover;
     background-repeat: no-repeat;
-    mix-blend-mode: luminosity;
+    /* mix-blend-mode: luminosity; */
+    /* background-blend-mode: luminosity; */
     background-position-y: 0;
 }
-.events_image_active{
-    mix-blend-mode: unset !important;
-}
+/* .events_image_active{ */
+    /* mix-blend-mode: unset !important; */
+    /* background-blend-mode: normal; */
+/* } */
 .events_image > div{
     width: 100%;
     height: 100%;
@@ -318,7 +324,7 @@
     .events_title > svg{
         width: 150px;
     }
-    .events_image_active{
+    /* .events_image_active{
         z-index: 1;
         position: relative;
     }
@@ -331,7 +337,7 @@
         margin-left: 65px;
 
         transform: rotateY(15deg);
-        clip-path: polygon(0% 3%, 100% 0%, 100% 100%, 0% 97%); /* Create trapezoid */
+        clip-path: polygon(0% 3%, 100% 0%, 100% 100%, 0% 97%);
         transform-origin: center center;
     }
     .events_images .events_image:last-child{
@@ -339,9 +345,9 @@
         margin-right: 65px;
 
         transform: rotateY(-15deg);
-        clip-path: polygon(0% 0%, 100% 3%, 100% 97%, 0% 100%); /* Create trapezoid */
+        clip-path: polygon(0% 0%, 100% 3%, 100% 97%, 0% 100%);
         transform-origin: center center;
-    }
+    } */
 }
 @media only screen and (max-width: 768px){
     .events_title > svg{
@@ -363,9 +369,9 @@
     .events_title > div > h3{
         text-align: center;
     }
-    .events_images_parent{
+    /* .events_images_parent{
         overflow-x: hidden;
-    }
+    } */
     .events_button {
         margin-top: -16px;
     }
@@ -383,7 +389,7 @@
         width: calc(155px / 1.2);
         height: calc(55px / 1.2);
     }
-    .events_images_parent{
+    /* .events_images_parent{
         gap: 0;
     }
     .events_image:not(.events_image_active){
@@ -395,7 +401,7 @@
     .events_images_parent > .bat_scroll_button > svg{
         width: calc(65px / 1.75);
         height: calc(85px / 1.75);
-    }
+    } */
     .events_button {
         margin-top: -32px;
         margin-bottom: 32px;
@@ -405,9 +411,9 @@
         padding-left: 16px;
         padding-right: 16px;
     }
-    .events_image > div{
+    /* .events_image > div{
         gap: 0;
-    }
+    } */
     .events_title > div > h2{
         font-size: 48px;
     }

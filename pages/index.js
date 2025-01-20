@@ -21,12 +21,26 @@ import styles from '../styles/homepage.module.css'
 // import 'react-awesome-slider/dist/styles.css'
 // import { motion } from 'framer-motion'
 import HeroSection from '../components/Hero/Hero'
+// import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/router'
 
 const cn = (...classes) => {
     return classes.filter(Boolean).join(' ');
 }
-
+function repeatArray(arr, times) {
+    let result = [];
+    for (let i = 0; i < times; i++) {
+        result = result.concat(arr);
+    }
+    return result;
+}
+const adjustList = (arr, length) => {
+    if (arr.length < length) {
+        let difference = length - arr.length;
+        arr = repeatArray(arr, difference + 1);
+    }
+    return arr;
+}
 const FireSkullHeadLeft = () => {
     return <svg xmlns="http://www.w3.org/2000/svg" width="185" height="55" viewBox="0 0 185 55" fill="none">
         <path d="M119.227 6.19093C119.17 5.60493 117.714 4.71992 117.273 4.76192C116.832 4.80392 115.137 4.84594 114.829 3.64094C114.521 2.43594 115.137 2.04393 115.305 1.93193C115.473 1.81993 117.07 2.88492 117.995 2.63292C118.919 2.38092 126.736 0.951934 127.801 0.895934C128.866 0.839934 137.887 8.54393 138.503 10.4499C139.119 12.3549 138.265 21.6559 137.592 22.8329C136.92 24.0099 135.154 25.6489 134.272 27.5399C133.389 29.4309 132.255 33.6759 131.708 33.8859C131.162 34.0959 124.102 35.6089 123.429 35.6929C122.757 35.7769 112.167 32.7929 109.015 33.4659C105.863 34.1379 96.8425 36.3099 93.4805 41.8009C90.1185 47.2919 88.5495 51.5789 87.1205 51.9149C85.6915 52.2509 78.6315 53.9319 77.4545 54.0999C76.2775 54.2679 67.2845 49.5609 64.7635 47.2079C62.2415 44.8549 38.6245 24.1789 34.9265 23.5059C31.2285 22.8339 20.6385 25.8589 17.2765 26.6999C13.9145 27.5399 8.19946 25.4389 6.43446 24.3469C4.66946 23.2539 3.60448 15.9699 3.66048 15.1299C3.71648 14.2899 4.89348 11.9359 4.38948 10.5909C3.88548 9.24592 0.635483 11.1509 0.635483 11.1509C0.635483 11.1509 3.71748 8.96592 5.62248 9.74992C7.52748 10.5339 4.66948 13.6159 4.61348 15.0169C4.55748 16.4179 7.52748 20.0599 8.14348 20.4519C8.75948 20.8439 21.5915 19.9479 23.0485 19.8359C24.5055 19.7239 37.9535 15.9139 40.6425 15.9139C43.3315 15.9139 52.5775 22.5819 53.8665 23.6459C55.1555 24.7109 60.8145 23.8139 61.4305 23.3099C62.0465 22.8059 61.6545 19.3319 61.9905 18.8269C62.3265 18.3229 65.7445 18.3229 67.7055 19.7789C69.6665 21.2359 70.5635 25.1019 70.6195 26.0549C70.6755 27.0079 68.6025 26.7269 68.6025 27.9599C68.6025 29.1929 79.9775 36.8689 81.5455 36.5329C83.1145 36.1969 91.6315 34.5159 95.9455 32.7789C100.259 31.0419 106.031 20.0039 106.031 17.8739C106.031 15.7439 107.376 13.2789 109.169 12.6069C110.962 11.9349 116.341 9.46892 117.518 8.96492C118.695 8.45992 119.311 7.05893 119.227 6.19093Z" fill="#A10000" />
@@ -84,17 +98,24 @@ const GreenCircle = ({ width = 626, height = 626 }) => {
     );
 };
 
-const ImageWithText = ({ url, title, body, active, onClick, style }) => {
+function all(iterable) {
+    for (var index = 0; index < iterable.length; index++) {
+        if (!iterable[index]) return false;
+    }
+    return true;
+}
+
+const ImageWithText = ({url, title, body, width, height, divRef, active, onClick, style}) => {
     // active
-    return <div style={{
-        width: active ? 370 : 319.61,
-        height: active ? 414 : 358.481,
-        backgroundImage: `url(${url})`,
-        cursor: active ? undefined : "pointer",
-        ...(style || {})
-    }}
-        className={cn(styles.events_image, active ? styles.events_image_active : "")}
-        onClick={onClick}>
+    return <div ref={divRef} style={{
+                        width: `min(100%, ${width || active?370:319.61}px)`, 
+                        height: height || active?414:358.481, 
+                        backgroundImage: `url(${url})`, 
+                        // cursor: active?undefined:"pointer",
+                        ...(style || {})
+                    }} 
+                className={styles.events_image}
+                onClick={onClick}>
         <div>
             <h2>{title}</h2>
             <h3>{body}</h3>
@@ -102,57 +123,69 @@ const ImageWithText = ({ url, title, body, active, onClick, style }) => {
     </div>
 }
 
-
-
-
-
-
-
-
 const EventSlider = ({ images, currIndex }) => {
     // onClick={previouseEventImage}
     // onClick={nextEventImage}
     const offset = 370 + 20;
 
+    const imageRefs = images.map(() => useRef(null));
+    const [oldIndex, setOldIndex] = useState(currIndex);
+
+    const prev = currIndex === 0 ? images.length - 1: currIndex - 1;
+    const next = (currIndex + 1 === images.length) ? 0:currIndex + 1;
+
+    useEffect(() => {
+        if(images.length === 0) return;
+        if(!all(imageRefs)) return;
+        if(currIndex === oldIndex) return;
+        
+        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
+            // Toward left
+            imageRefs[prev].current.style.zIndex = '2'
+            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs[currIndex].current.style.zIndex = '3'
+            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '1'
+            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+        }
+        else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            // Toward Right
+            imageRefs[prev].current.style.zIndex = '1'
+            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs[currIndex].current.style.zIndex = '3'
+            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs[next].current.style.zIndex = '2'
+            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+        }
+        setOldIndex(currIndex);
+    }, [currIndex]);
+
+
     return <div className={styles.events_images} style={{
         minHeight: 414,
         position: "relative"
     }}>
-        <ImageWithText url={images[(currIndex === 0) ? (images.length - 1) : (currIndex - 1)].url}
-            title={images[(currIndex === 0) ? (images.length - 1) : (currIndex - 1)].title}
-            body={images[(currIndex === 0) ? (images.length - 1) : (currIndex - 1)].body}
+        {images.map((image, index) => <ImageWithText 
+            key={index}
+            url={image.url} 
+            title={image.title} 
+            body={image.body}
+            divRef={imageRefs[index]}
+            active={index === currIndex}
             style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: `translateY(calc(-50%)) translateX(calc(-50% - ${offset}px))`,
-                transition: "transform 0.35s ease-in-out", // Smooth transition
+              zIndex: index === currIndex?'2':(index === prev?'1':(index === next?'1':'-1')),
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              backgroundBlendMode: index == currIndex?'normal':'luminosity',
+              transform: index == currIndex?
+                  `translateY(-50%) translateX(-50%)`
+                  :
+                  `translateY(-50%) translateX(calc(-50% ${currIndex > index?'-': '+'} min(50vw - 200px, ${(currIndex > index?currIndex - index:index - currIndex) * offset}px)))`,
+              transition: "transform .15s linear, width .15s linear, height .15s linear, height 0.15s linear", // Smooth transition
             }}
-        />
-
-        <ImageWithText url={images[currIndex].url}
-            title={images[currIndex].title}
-            body={images[currIndex].body}
-            style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: `translateY(calc(-50%)) translateX(calc(-50%))`,
-                transition: "transform 0.35s ease-in-out", // Smooth transition
-            }}
-            active={true} />
-
-        <ImageWithText url={images[(currIndex === images.length - 1) ? 0 : (currIndex + 1)].url}
-            title={images[(currIndex === images.length - 1) ? 0 : (currIndex + 1)].title}
-            body={images[(currIndex === images.length - 1) ? 0 : (currIndex + 1)].body}
-            style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: `translateY(calc(-50%)) translateX(calc(-50% + ${offset}px))`,
-                transition: "transform 0.35s ease-in-out", // Smooth transition
-            }}
-        />
+        />)
+        }
     </div>
 }
 
@@ -197,12 +230,6 @@ const ImagesSlider = ({ images, currIndex, nextMomentImage, previouseMomentImage
     const [oldIndex, setOldIndex] = useState(currIndex);
     const [dragStartX, setDragStartX] = useState(null);
 
-    function all(iterable) {
-        for (var index = 0; index < iterable.length; index++) {
-            if (!iterable[index]) return false;
-        }
-        return true;
-    }
     // Set up transition for images when currIndex changes
     useEffect(() => {
         if (!all(imageRefs)) return;
@@ -293,35 +320,20 @@ const ImagesSlider = ({ images, currIndex, nextMomentImage, previouseMomentImage
 }
 
 const index = () => {
-    // const [isClient, setIsClient] = useState(false);
 
-    // useEffect(() => {
-    //     // Set `isClient` to true when running on the client side
-    //     setIsClient(true);
-    // }, []);
+    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1);
+    const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+          if(eventActiveImageIndexPrevDir)
+            setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1));
+          else
+            setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
+      }, 3000);
+      return () => clearTimeout(timer);
+    }, [eventActiveImageIndex])
+    
 
-    // if (!isClient) {
-    //     // Return null or a loader while rendering on the server
-    //     return null;
-    // }
-    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1); // if we want to add animation then we have to handle it manually...
-    const pseudoEventImage = [ // do not change it min max 3
-        {
-            url: "/pics/events/verve.png",
-            title: "Verve",
-            body: "Fashion Walk Competition"
-        },
-        {
-            url: "/pics/events/dance.png",
-            title: "Dance",
-            body: "Solo - Hip-Hop Dance Competition"
-        },
-        {
-            url: "/pics/events/music.png",
-            title: "Music",
-            body: "Solo - Classical Music Competition"
-        }
-    ];
     // events thingyy
     const [events, setEvents] = useState([]);
     useEffect(() => {
@@ -353,10 +365,17 @@ const index = () => {
     // url - events[<index>].poster
     // title - events[<index>].name.split('#')[0]
     // body - events[<index>].name.split('#')[1]
+    const pseudoEventImage = adjustList(events.map((event) => (
+        {
+            url: event.poster,
+            title: event.name.split('#')[0],
+            body: event.name.split('#')[1]
+        })), 3);
+    // const pseudoEventImage = adjustList(_pseudoEventImage, 3);
+    // console.log(pseudoEventImage);
 
 
     const router = useRouter();
-
 
     const sponsorImages = [
         'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
@@ -387,14 +406,12 @@ const index = () => {
 
     const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(2);
     const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] = useState(true);
-    const pseudoMomentImage = [ // don't change it... min 5
+    const _pseudoMomentImage = [ // don't change it... min 5
         "/pics/moments/dj.png",
         "/pics/moments/band.png",
-        "/pics/moments/song.jpg",
-        "/pics/moments/dj.png",
-        "/pics/moments/band.png",
-        "/pics/moments/song.jpg",
+        "/pics/moments/song.jpg"
     ]
+    const pseudoMomentImage = adjustList(_pseudoMomentImage, 5);
     useEffect(() => setMomentsActiveImageIndex(3), [])
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -407,10 +424,12 @@ const index = () => {
     }, [momentsActiveImageIndex])
 
     const nextEventImage = () => {
-        setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
+        setEventActiveImageIndexPrevDir(false);
+        setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
     }
     const previouseEventImage = () => {
-        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1))
+        setEventActiveImageIndexPrevDir(true);
+        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1))
     }
     const nextMomentImage = () => {
         setMomentsActiveImageIndexPrevDir(false);
@@ -431,7 +450,12 @@ const index = () => {
             {/* HERO */}
             <HeroSection className={styles.hero}>
                 <div className={styles.hero_text}>
-                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589} />
+                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
+                    {/* <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
+                        <div style={{height: 589, width: 589}}>
+                            <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
+                        </div>
+                    </div> */}
                     <h2>Welcome To Your Nightmare</h2>
                 </div>
                 <div className={styles.hero_button}>
