@@ -293,7 +293,17 @@ const ImagesSlider = ({ images, currIndex, nextMomentImage, previouseMomentImage
 }
 
 const index = () => {
-    const router = useRouter();
+    // const [isClient, setIsClient] = useState(false);
+
+    // useEffect(() => {
+    //     // Set `isClient` to true when running on the client side
+    //     setIsClient(true);
+    // }, []);
+
+    // if (!isClient) {
+    //     // Return null or a loader while rendering on the server
+    //     return null;
+    // }
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1); // if we want to add animation then we have to handle it manually...
     const pseudoEventImage = [ // do not change it min max 3
         {
@@ -345,6 +355,7 @@ const index = () => {
     // body - events[<index>].name.split('#')[1]
 
 
+    const router = useRouter();
 
 
     const sponsorImages = [
