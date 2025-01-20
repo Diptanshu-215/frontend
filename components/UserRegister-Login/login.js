@@ -240,7 +240,8 @@ const UserLoginForm = () => {
                             </button>
                         </motion.div> */}
                         <div className={styles.hero_button}>
-                            <button
+                            <button 
+                                onClick={handleSubmit}
                                 className={cn(
                                     styles.sexy_button,
                                     styles.sexy_button_small
