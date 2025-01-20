@@ -616,10 +616,8 @@ const index = () => {
         events.map((event) => ({
             url: event.poster,
             title: event.name.split('#')[0],
-            body: body.name.split('#')[1],
-        })),
-        3
-    )
+            body: event.name.split('#')[1]
+        })), 3);
     // const pseudoEventImage = adjustList(_pseudoEventImage, 3);
     // console.log(pseudoEventImage);
 
