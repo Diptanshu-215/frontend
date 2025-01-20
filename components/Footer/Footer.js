@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './Footer.module.css'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // TO USE More Classes => {cn(className1, className2, className3)}
 const cn = (...classes) => {
@@ -9,6 +10,7 @@ const cn = (...classes) => {
 // assets path => '/pics/footer/{name}'
 
 const Footer = () => {
+    const router = useRouter();
     return (
         <section>
             <div className={styles.footer}>
@@ -23,51 +25,51 @@ const Footer = () => {
                     </div>
                     <div className={styles.social_logo}>
                         <div className={styles.social_logo_container}>
-                        <a
-                              
-                              href="mailto:anweshaiitp@gmail.com"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                          >
-                            <Image
-                                src="/pics/footer/email.svg"
-                                alt="Image description"
-                                width={62.173}
-                                height={49.173}
-                            />
+                            <a
+
+                                href="mailto:anwesha@iitp.ac.in"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/pics/footer/email.svg"
+                                    alt="Image description"
+                                    width={62.173}
+                                    height={49.173}
+                                />
                             </a>
-                             <a
-                              
-                              href="https://instagram.com/anwesha.iitp?igshid=YmMyMTA2M2Y="
-                              target="_blank"
-                              rel="noopener noreferrer"
-                          >
-                            <Image
-                                src="/pics/footer/insta.svg"
-                                alt="Image description"
-                                width={62.173}
-                                height={49.173}
-                            />
-                            </a>
-                        </div>
-                        <div className={styles.social_logo_container}>
-                        <a
-                              
-                              href="https://www.facebook.com/anwesha.iitpatna/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                          >
-                            <Image
-                                src="/pics/footer/facebook.svg"
-                                alt="Image description"
-                                width={63.173}
-                                height={49.173}
-                            />
+                            <a
+
+                                href="https://instagram.com/anwesha.iitp?igshid=YmMyMTA2M2Y="
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/pics/footer/insta.svg"
+                                    alt="Image description"
+                                    width={62.173}
+                                    height={49.173}
+                                />
                             </a>
                         </div>
                         <div className={styles.social_logo_container}>
                             <a
-                              
+
+                                href="https://www.facebook.com/anwesha.iitpatna/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/pics/footer/facebook.svg"
+                                    alt="Image description"
+                                    width={63.173}
+                                    height={49.173}
+                                />
+                            </a>
+                        </div>
+                        <div className={styles.social_logo_container}>
+                            <a
+
                                 href="https://twitter.com/anweshaiitpat/"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -80,18 +82,18 @@ const Footer = () => {
                                 />
                             </a>
                             <a
-                              
-                              href="https://www.youtube.com/@AnweshaIITP"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                          >
-                            <Image
-                                src="/pics/footer/youtube.svg"
-                                alt="Image description"
-                                width={63.173}
-                                height={49.173}
-                            />
-                        </a>
+
+                                href="https://www.youtube.com/@AnweshaIITP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/pics/footer/youtube.svg"
+                                    alt="Image description"
+                                    width={63.173}
+                                    height={49.173}
+                                />
+                            </a>
                         </div>
                     </div>
                     <div className={styles.footer_address}>
@@ -99,7 +101,7 @@ const Footer = () => {
                             Anwesha Office, <br />
                             Indian Institute of Technology Patna, <br />
                             Bihta, Patna - 801103 <br />
-                            +91 8130169059   <br/>
+                            +91 8130169059   <br />
                             +91 8207259900
                         </h4>
                     </div>
@@ -152,8 +154,8 @@ const Footer = () => {
                     />
                 </div>
                 <div className={styles.footer_lower}>
-                    <h4>Privacy Policy</h4>
-                    <h4>Terms and Condition</h4>
+                    <h4 onClick={() => { router.push('/privacy') }}>Privacy Policy</h4>
+                    <h4 onClick={() => { router.push('/terms') }}>Terms and Condition</h4>
                 </div>
                 <div className={styles.left_helobean}>
                     <Image

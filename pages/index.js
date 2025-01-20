@@ -105,89 +105,101 @@ function all(iterable) {
     return true;
 }
 
-const ImageWithText = ({url, title, body, width, height, divRef, active, onClick, style}) => {
-    // active
-    return <div ref={divRef} style={{
-                        width: `min(100%, ${width || active?370:319.61}px)`, 
-                        height: height || active?414:358.481, 
-                        backgroundImage: `url(${url})`, 
-                        // cursor: active?undefined:"pointer",
-                        ...(style || {})
-                    }} 
-                className={styles.events_image}
-                onClick={onClick}>
-        <div>
-            <h2>{title}</h2>
-            <h3>{body}</h3>
+const ImageWithText = ({ url, title, body, width, height, divRef, active, onClick, style }) => {
+    return (
+        <div
+            ref={divRef}
+            style={{
+                width: width || (active ? "370px" : "319.61px"),
+                height: height || (active ? "414px" : "358.481px"),
+                background: `url('${url}') center center / cover no-repeat`, // Shorthand for background styling
+                ...(style || {}), // Merge additional styles
+            }}
+            className={styles.events_image}
+            onClick={onClick}
+        >
+            <div>
+                <h2>{title}</h2>
+                <h3>{body}</h3>
+            </div>
         </div>
-    </div>
-}
+    );
+};
 
 const EventSlider = ({ images, currIndex }) => {
-    // onClick={previouseEventImage}
-    // onClick={nextEventImage}
     const offset = 370 + 20;
 
-    const imageRefs = images.map(() => useRef(null));
+    const imageRefs = useRef([]);
+    useEffect(() => {
+        imageRefs.current = images.map((_, i) => imageRefs.current[i] || React.createRef());
+    }, [images]);
+
     const [oldIndex, setOldIndex] = useState(currIndex);
 
-    const prev = currIndex === 0 ? images.length - 1: currIndex - 1;
-    const next = (currIndex + 1 === images.length) ? 0:currIndex + 1;
+    const prev = currIndex === 0 ? images.length - 1 : currIndex - 1;
+    const next = (currIndex + 1 === images.length) ? 0 : currIndex + 1;
 
     useEffect(() => {
-        if(images.length === 0) return;
-        if(!all(imageRefs)) return;
-        if(currIndex === oldIndex) return;
-        
+        if (images.length === 0) return;
+        if (!imageRefs.current.every(ref => ref.current)) return;
+        if (currIndex === oldIndex) return;
+
         if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
             // Toward left
-            imageRefs[prev].current.style.zIndex = '2'
-            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
-            imageRefs[currIndex].current.style.zIndex = '3'
-            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
-            imageRefs[next].current.style.zIndex = '1'
-            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
-        }
-        else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            imageRefs.current[prev].current.style.zIndex = '2';
+            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[currIndex].current.style.zIndex = '3';
+            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs.current[next].current.style.zIndex = '1';
+            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
             // Toward Right
-            imageRefs[prev].current.style.zIndex = '1'
-            imageRefs[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
-            imageRefs[currIndex].current.style.zIndex = '3'
-            imageRefs[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
-            imageRefs[next].current.style.zIndex = '2'
-            imageRefs[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[prev].current.style.zIndex = '1';
+            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[currIndex].current.style.zIndex = '3';
+            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs.current[next].current.style.zIndex = '2';
+            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
         }
         setOldIndex(currIndex);
-    }, [currIndex]);
+    }, [currIndex, images]);
 
-
-    return <div className={styles.events_images} style={{
-        minHeight: 414,
-        position: "relative"
-    }}>
-        {images.map((image, index) => <ImageWithText 
-            key={index}
-            url={image.url} 
-            title={image.title} 
-            body={image.body}
-            divRef={imageRefs[index]}
-            active={index === currIndex}
+    return (
+        <div
+            className={styles.events_images}
             style={{
-              zIndex: index === currIndex?'2':(index === prev?'1':(index === next?'1':'-1')),
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-              backgroundBlendMode: index == currIndex?'normal':'luminosity',
-              transform: index == currIndex?
-                  `translateY(-50%) translateX(-50%)`
-                  :
-                  `translateY(-50%) translateX(calc(-50% ${currIndex > index?'-': '+'} min(50vw - 200px, ${(currIndex > index?currIndex - index:index - currIndex) * offset}px)))`,
-              transition: "transform .15s linear, width .15s linear, height .15s linear, height 0.15s linear", // Smooth transition
+                minHeight: 414,
+                position: "relative",
             }}
-        />)
-        }
-    </div>
-}
+        >
+            {images.map((image, index) => (
+                <ImageWithText
+                    key={index}
+                    url={image.url}
+                    title={image.title}
+                    body={image.body}
+                    divRef={imageRefs.current[index]}
+                    active={index === currIndex}
+                    style={{
+                        zIndex: index === currIndex ? '2' : index === prev ? '1' : index === next ? '1' : '-1',
+                        position: "absolute",
+                        left: "50%",
+                        top: "50%",
+                        backgroundBlendMode: index == currIndex ? 'normal' : 'luminosity',
+                        transform:
+                            index == currIndex
+                                ? `translateY(-50%) translateX(-50%)`
+                                : `translateY(-50%) translateX(calc(-50% ${currIndex > index ? '-' : '+'} min(50vw - 200px, ${(currIndex > index ? currIndex - index : index - currIndex) * offset
+                                }px)))`,
+                        transition:
+                            "transform .15s linear, width .15s linear, height .15s linear, height 0.15s linear", // Smooth transition
+                    }}
+                />
+            ))}
+        </div>
+    );
+};
+
 
 const SponsorsSlider = ({ images, animation_duration = -1 }) => {
     const width = 127.381; // IF YOU CHANGE THIS THEN CHANGE IT INSIDE autoScrollSponseAnimation ALSO
@@ -324,17 +336,18 @@ const index = () => {
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1);
     const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
     useEffect(() => {
-      const timer = setTimeout(() => {
-          if(eventActiveImageIndexPrevDir)
-            setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1));
-          else
-            setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
-      }, 3000);
-      return () => clearTimeout(timer);
+        const timer = setTimeout(() => {
+            if (eventActiveImageIndexPrevDir)
+                setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1));
+            else
+                setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
+        }, 3000);
+        return () => clearTimeout(timer);
     }, [eventActiveImageIndex])
-    
+
 
     // events thingyy
+    console.log("ldkfjdl;fkj'");
     const [events, setEvents] = useState([]);
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
@@ -348,14 +361,7 @@ const index = () => {
                     },
                 })
                 const data = await res.json()
-                let result = data.filter((event) => {
-                    if (exceludedEvents.includes(event.id)) {
-                        return false
-                    }
-                    return true
-                })
-                setEvents(result)
-                setFilteredEvents(result)
+                setEvents(data)
             } catch (e) {
                 console.log('Failed to fetch')
             }
@@ -425,11 +431,11 @@ const index = () => {
 
     const nextEventImage = () => {
         setEventActiveImageIndexPrevDir(false);
-        setEventActiveImageIndex((eventActiveImageIndex === 0)?(pseudoEventImage.length - 1):(eventActiveImageIndex-1))
+        setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
     }
     const previouseEventImage = () => {
         setEventActiveImageIndexPrevDir(true);
-        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1)?0:(eventActiveImageIndex+1))
+        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1))
     }
     const nextMomentImage = () => {
         setMomentsActiveImageIndexPrevDir(false);
@@ -450,7 +456,7 @@ const index = () => {
             {/* HERO */}
             <HeroSection className={styles.hero}>
                 <div className={styles.hero_text}>
-                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589}/>
+                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589} />
                     {/* <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
                         <div style={{height: 589, width: 589}}>
                             <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
