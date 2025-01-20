@@ -871,7 +871,10 @@ const index = () => {
                         <SponsorsSlider images={sponsorImages} />
                     </div>
                 </section>
-                <section className={styles.iframe}> <iframe
+
+                {/* NewsLetter */}
+                <section className={styles.newsletter}> 
+                    <iframe
                         src="https://embeds.beehiiv.com/255bda27-7d9d-4f91-9f9c-edca5ce5d90a?slim=true"
                         data-test-id="beehiiv-embed"
                         height="52"
@@ -879,7 +882,9 @@ const index = () => {
                         scrolling="no"
                         // style="margin: 0; border-radius: 0px !important; background-color: transparent;"
                         
-                    ></iframe></section>
+                    />
+                </section>
+                
             </div>
         </>
     )
