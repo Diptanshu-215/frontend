@@ -280,7 +280,7 @@ const UserRegisterForm = () => {
                                 name="Email_Id"
                                 placeholder={
                                     usertype === 'iitp_student'
-                                        ? 'Eg: rishiraj_2001ME85'
+                                        ? 'Eg: 2001me85_rishiraj'
                                         : 'Eg: vineet@gmail.com'
                                 }
                                 onChange={(e) => {

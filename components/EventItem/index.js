@@ -36,7 +36,7 @@ const index = ({ event, onClick }) => {
                 <div className={`${styles.imageWrap}`} style={{
                     background: `url('${event.poster
                         ? event.poster
-                        : '/events/poster1.png'}') `
+                        : '/events/poster1.png'}') center center / cover no-repeat `
                 }}>
                     <div className={styles.innerShadow}> {/* Add shadow layer */}
                         <div className={styles.eventDescription}>
