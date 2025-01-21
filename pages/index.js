@@ -510,28 +510,14 @@ const index = () => {
 
         async function callAPI() {
             try {
-                // const res = await fetch(`${host}/event/allevents`, {
-                //     method: 'GET',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                // })
-                // const data = await res.json()
-                // setEvents(data)
-                setEvents([
-                    {
-                        poster: '/pics/moments/dj.png',
-                        name: 'Comedy Crunch#Stand Up Comedy'
+                const res = await fetch(`${host}/event/allevents`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
                     },
-                    {
-                        poster: '/pics/moments/band.png',
-                        name: 'Comedy Crunch#Stand Up Comedy'
-                    },
-                    {
-                        poster: '/pics/moments/song.jpg',
-                        name: 'Comedy Crunch#Stand Up Comedy'
-                    }
-                ])
+                })
+                const data = await res.json()
+                setEvents(data)
             } catch (e) {
                 console.log('Failed to fetch')
             }
