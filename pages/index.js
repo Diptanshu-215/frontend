@@ -236,7 +236,7 @@ const ImageWithText = ({ url, title, body, width, height, divRef, active, onClic
     );
 };
 
-const EventSlider = ({ images, currIndex }) => {
+const EventSlider = ({ images, currIndex, nextEventImage, previouseEventImage }) => {
     const offset = 370 + 20;
 
     const imageRefs = useRef([]);
@@ -245,6 +245,7 @@ const EventSlider = ({ images, currIndex }) => {
     }, [images]);
 
     const [oldIndex, setOldIndex] = useState(currIndex);
+    const [dragStartX, setDragStartX] = useState(null)
 
     const prev = currIndex === 0 ? images.length - 1 : currIndex - 1;
     const next = (currIndex + 1 === images.length) ? 0 : currIndex + 1;
@@ -288,6 +289,22 @@ const EventSlider = ({ images, currIndex }) => {
         }
         setOldIndex(currIndex);
     }, [currIndex, images]);
+    
+    const dragStart = (e) => {
+        const startX = e.touches ? e.touches[0].screenX : e.screenX
+        setDragStartX(startX)
+    }
+    const dragEnd = (e) => {
+        if (!dragStartX) return
+        const endX = e.changedTouches ? e.changedTouches[0].screenX : e.screenX
+        const distance = endX - dragStartX
+        if (distance > 10) {
+            nextEventImage()
+        } else if (distance < 10) {
+            previouseEventImage()
+        }
+        setDragStartX(null)
+    }
 
     return (
         <div
@@ -297,6 +314,18 @@ const EventSlider = ({ images, currIndex }) => {
                 position: "relative",
             }}
         >
+            <div style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    backgroundColor: 'transparent',
+                    zIndex: '9'
+                }}
+                onDragStart={dragStart}
+                onDragEnd={dragEnd}
+                onTouchStart={dragStart}
+                onTouchEnd={dragEnd}
+            />
             {images.map((image, index) => (
                 <ImageWithText
                     key={index}
@@ -671,6 +700,8 @@ const index = () => {
                         <EventSlider
                             images={pseudoEventImage}
                             currIndex={eventActiveImageIndex}
+                            nextEventImage={nextEventImage} 
+                            previouseEventImage={previouseEventImage}
                         />
                         <button
                             className={styles.bat_scroll_button}
