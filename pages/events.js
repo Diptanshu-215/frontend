@@ -190,7 +190,7 @@ const Events = () => {
                 </div>
 
                 <div className={styles.cardContainer}>
-                    {filteredEvents.map((item, idx) => (
+                    {filteredEvents.map((item, idx) => (  
                         <Card
                             onClick={() => openModal(item)}
                             key={idx}

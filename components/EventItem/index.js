@@ -20,7 +20,7 @@ const index = ({ event, onClick }) => {
 
             >
 
-                {event.is_active ? null : (
+                {/* {event.is_active ? null : (
                     <img
                         src="/assets/coming-soon.png"
                         style={{
@@ -32,7 +32,7 @@ const index = ({ event, onClick }) => {
                         }}
                         alt="Coming Soon"
                     />
-                )}
+                )} */}
                 <div className={`${styles.imageWrap}`} style={{
                     background: `url('${event.poster
                         ? event.poster
