@@ -222,7 +222,7 @@ const ImageWithText = ({ url, title, body, width, height, divRef, active, onClic
             style={{
                 width: width || (active ? "370px" : "319.61px"),
                 height: height || (active ? "414px" : "358.481px"),
-                background: `url('${url}') center center / cover no-repeat`, // Shorthand for background styling
+                backgroundImage: `url(${url})`, 
                 ...(style || {}), // Merge additional styles
             }}
             className={styles.events_image}
@@ -248,6 +248,10 @@ const EventSlider = ({ images, currIndex }) => {
 
     const prev = currIndex === 0 ? images.length - 1 : currIndex - 1;
     const next = (currIndex + 1 === images.length) ? 0 : currIndex + 1;
+    const prevprev = prev === 0 ? images.length - 1 : prev - 1
+    const nextnext = next + 1 === images.length ? 0 : next + 1
+    const prevprevprev = prevprev === 0 ? images.length - 1 : prevprev - 1
+    const nextnextnext = nextnext + 1 === images.length ? 0 : nextnext + 1
 
     useEffect(() => {
         if (images.length === 0) return;
@@ -256,20 +260,31 @@ const EventSlider = ({ images, currIndex }) => {
 
         if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
             // Toward left
+            imageRefs.current[prevprevprev].current.style.zIndex = '-1';
+            imageRefs.current[prevprev].current.style.zIndex = '1';
+            imageRefs.current[prevprev].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${2 * offset}px))`;
             imageRefs.current[prev].current.style.zIndex = '2';
-            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
-            imageRefs.current[currIndex].current.style.zIndex = '3';
-            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
-            imageRefs.current[next].current.style.zIndex = '1';
-            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
-        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
-            // Toward Right
-            imageRefs.current[prev].current.style.zIndex = '1';
             imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
             imageRefs.current[currIndex].current.style.zIndex = '3';
             imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
             imageRefs.current[next].current.style.zIndex = '2';
             imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[nextnext].current.style.zIndex = '-1';
+            imageRefs.current[nextnext].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${2 * offset}px))`;
+
+        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            // Toward Right
+            imageRefs.current[prevprev].current.style.zIndex = '-1';
+            imageRefs.current[prevprev].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${2 * offset}px))`;
+            imageRefs.current[prev].current.style.zIndex = '2';
+            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[currIndex].current.style.zIndex = '3';
+            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
+            imageRefs.current[next].current.style.zIndex = '2';
+            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
+            imageRefs.current[nextnext].current.style.zIndex = '1';
+            imageRefs.current[nextnext].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${2 * offset}px))`;
+            imageRefs.current[nextnextnext].current.style.zIndex = '-1';
         }
         setOldIndex(currIndex);
     }, [currIndex, images]);
@@ -291,7 +306,7 @@ const EventSlider = ({ images, currIndex }) => {
                     divRef={imageRefs.current[index]}
                     active={index === currIndex}
                     style={{
-                        zIndex: index === currIndex ? '2' : index === prev ? '1' : index === next ? '1' : '-1',
+                        zIndex: index === currIndex ? '2' : ((index === prev || index === next)?'1':'-1'),
                         position: "absolute",
                         left: "50%",
                         top: "50%",
@@ -302,7 +317,7 @@ const EventSlider = ({ images, currIndex }) => {
                                 : `translateY(-50%) translateX(calc(-50% ${currIndex > index ? '-' : '+'} min(50vw - 200px, ${(currIndex > index ? currIndex - index : index - currIndex) * offset
                                 }px)))`,
                         transition:
-                            "transform .15s linear, width .15s linear, height .15s linear, height 0.15s linear", // Smooth transition
+                            "transform .15s linear, width .15s linear, height .15s linear", // Smooth transition
                     }}
                 />
             ))}
@@ -377,76 +392,34 @@ const ImagesSlider = ({
         const nextnext = next + 1 === images.length ? 0 : next + 1
         const prevprevprev = prevprev === 0 ? images.length - 1 : prevprev - 1
         const nextnextnext = nextnext + 1 === images.length ? 0 : nextnext + 1
-        if (
-            currIndex === oldIndex + 1 ||
-            (currIndex === 0 && oldIndex === images.length - 1)
-        ) {
+        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
             // Toward left
             imageRefs[prevprevprev].current.style.zIndex = '-1'
-            imageRefs[
-                prevprevprev
-            ].current.style.transform = `translateX(calc(-50% + ${
-                3 * offset
-            }px))`
+            imageRefs[prevprevprev].current.style.transform = `translateX(calc(-50% + ${3 * offset}px))`
             imageRefs[prevprev].current.style.zIndex = '4'
-            imageRefs[
-                prevprev
-            ].current.style.transform = `translateX(calc(-50% - ${
-                2 * offset
-            }px))`
+            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2 * offset}px))`
             imageRefs[prev].current.style.zIndex = '3'
-            imageRefs[
-                prev
-            ].current.style.transform = `translateX(calc(-50% - ${offset}px))`
+            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`
             imageRefs[currIndex].current.style.zIndex = '5'
-            imageRefs[
-                currIndex
-            ].current.style.transform = `translateX(calc(-50%))`
+            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`
             imageRefs[next].current.style.zIndex = '2'
-            imageRefs[
-                next
-            ].current.style.transform = `translateX(calc(-50% + ${offset}px))`
+            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`
             imageRefs[nextnext].current.style.zIndex = '1'
-            imageRefs[
-                nextnext
-            ].current.style.transform = `translateX(calc(-50% + ${
-                2 * offset
-            }px))`
-        } else if (
-            currIndex === oldIndex - 1 ||
-            (currIndex === images.length - 1 && oldIndex === 0)
-        ) {
+            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2 * offset}px))`
+        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
             // Toward Right
             imageRefs[prevprev].current.style.zIndex = '1'
-            imageRefs[
-                prevprev
-            ].current.style.transform = `translateX(calc(-50% - ${
-                2 * offset
-            }px))`
+            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2 * offset}px))`
             imageRefs[prev].current.style.zIndex = '2'
-            imageRefs[
-                prev
-            ].current.style.transform = `translateX(calc(-50% - ${offset}px))`
+            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`
             imageRefs[currIndex].current.style.zIndex = '5'
-            imageRefs[
-                currIndex
-            ].current.style.transform = `translateX(calc(-50%))`
+            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`
             imageRefs[next].current.style.zIndex = '3'
-            imageRefs[
-                next
-            ].current.style.transform = `translateX(calc(-50% + ${offset}px))`
+            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`
             imageRefs[nextnext].current.style.zIndex = '4'
-            imageRefs[
-                nextnext
-            ].current.style.transform = `translateX(calc(-50% + ${
-                2 * offset
-            }px))`
+            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2 * offset}px))`
             imageRefs[nextnextnext].current.style.zIndex = '-1'
-            imageRefs[
-                nextnextnext
-            ].current.style.transform = `translateX(calc(-50% - ${
-                3 * offset
-            }px))`
+            imageRefs[nextnextnext].current.style.transform = `translateX(calc(-50% - ${3 * offset}px))`
         }
         setOldIndex(currIndex)
     }, [currIndex])
@@ -507,7 +480,7 @@ const ImagesSlider = ({
 
 const index = () => {
 
-    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(1);
+    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(2); // don't set on boundary
     const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -521,7 +494,6 @@ const index = () => {
 
 
     // events thingyy
-    console.log("ldkfjdl;fkj'");
     const [events, setEvents] = useState([]);
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
@@ -550,8 +522,8 @@ const index = () => {
             url: event.poster,
             title: event.name.split('#')[0],
             body: event.name.split('#')[1]
-        })), 3);
-    // const pseudoEventImage = adjustList(_pseudoEventImage, 3);
+        })), 6);
+    // const pseudoEventImage = adjustList(_pseudoEventImage, 6);
     // console.log(pseudoEventImage);
 
 
@@ -584,16 +556,14 @@ const index = () => {
         'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI', // 'Wat A Burger'
     ]
 
-    const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(2)
-    const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] =
-        useState(true)
+    const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(2) // don't set on boundary
+    const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] = useState(true)
     const _pseudoMomentImage = [
-        // don't change it... min 5
         '/pics/moments/dj.png',
         '/pics/moments/band.png',
         '/pics/moments/song.jpg',
     ]
-    const pseudoMomentImage = adjustList(_pseudoMomentImage, 5)
+    const pseudoMomentImage = adjustList(_pseudoMomentImage, 6)
     useEffect(() => setMomentsActiveImageIndex(3), [])
     useEffect(() => {
         const timer = setTimeout(() => {
