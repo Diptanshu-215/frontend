@@ -451,8 +451,18 @@ const ImagesSlider = ({
                 maxWidth: `${864 * 3}px`,
                 marginRight: 'auto',
                 marginLeft: 'auto',
+                position: 'relative'
             }}
         >
+            <div
+                style={{
+                    backgroundColor: '#000300',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    zIndex: '2'
+                }}
+            />
             {images.map((image, index) => (
                 <img
                     src={image}
@@ -500,14 +510,28 @@ const index = () => {
 
         async function callAPI() {
             try {
-                const res = await fetch(`${host}/event/allevents`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
+                // const res = await fetch(`${host}/event/allevents`, {
+                //     method: 'GET',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                // })
+                // const data = await res.json()
+                // setEvents(data)
+                setEvents([
+                    {
+                        poster: '/pics/moments/dj.png',
+                        name: 'Comedy Crunch#Stand Up Comedy'
                     },
-                })
-                const data = await res.json()
-                setEvents(data)
+                    {
+                        poster: '/pics/moments/band.png',
+                        name: 'Comedy Crunch#Stand Up Comedy'
+                    },
+                    {
+                        poster: '/pics/moments/song.jpg',
+                        name: 'Comedy Crunch#Stand Up Comedy'
+                    }
+                ])
             } catch (e) {
                 console.log('Failed to fetch')
             }
