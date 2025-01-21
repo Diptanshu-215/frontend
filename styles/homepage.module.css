@@ -371,6 +371,18 @@
     /* .events_images_parent{
         overflow-x: hidden;
     } */
+    .events_images_parent > .bat_scroll_button > svg{
+        width: 8vw;
+        height: calc(55px * (8vw / 155px));
+        min-width: calc(65px / 1.75);
+        min-height: calc(85px / 1.75);
+    }
+    .events_image > div > h2 {
+        font-size: calc(10px + max(2.8vw, 8.4px)); /* 0.028 * 300 */
+    }
+    .events_image > div > h3 {
+        font-size: calc(10px + max(1.8vw, 5.4px)); /* 0.018 * 300 */
+    }
     .events_button {
         margin-top: -16px;
     }
@@ -1145,7 +1157,7 @@
     min-width: min(100%, 300px);
     width: 80vw;
     max-width: 768px;
-    margin: 40px auto;
+    padding: 40px 0;
     background: #000300;
 }
 .newsletter > iframe{
