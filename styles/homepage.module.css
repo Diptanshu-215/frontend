@@ -1085,8 +1085,10 @@
     animation-iteration-count: infinite;
     animation-name: autoScrollSponse;
 }
+
 @keyframes autoScrollSponse {
     from {
+
         left: -127.381px;
     }
     to {
@@ -1135,4 +1137,18 @@
         padding-left: 12px;
         padding-right: 12px;
     }
+
+}
+
+/* =================================== NewsLetter =================================== */
+.newsletter{
+    min-width: min(100%, 300px);
+    width: 80vw;
+    max-width: 768px;
+    margin: 40px auto;
+    background: #000300;
+}
+.newsletter > iframe{
+    width: 100%;
+    padding: 0 4px;
 }
