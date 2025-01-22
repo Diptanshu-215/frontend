@@ -122,7 +122,21 @@ const UserLoginForm = () => {
                     progress: undefined,
                     theme: 'light',
                 })
-            } else {
+            }
+            else if (response.status === 403) {
+                const data = await response.json()
+                toast.error(`${data.message} (check in Spam folder)`, {
+                    position: 'top-right',
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                })
+            }
+            else {
                 const data = await response.json()
                 toast.error(data.message, {
                     position: 'top-right',
@@ -240,7 +254,7 @@ const UserLoginForm = () => {
                             </button>
                         </motion.div> */}
                         <div className={styles.hero_button}>
-                            <button 
+                            <button
                                 onClick={handleSubmit}
                                 className={cn(
                                     styles.sexy_button,
