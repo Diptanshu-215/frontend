@@ -371,7 +371,7 @@
     /* .events_images_parent{
         overflow-x: hidden;
     } */
-    .events_images_parent > .bat_scroll_button > svg{
+    .events_images_parent > .bat_scroll_button > svg {
         width: 8vw;
         height: calc(55px * (8vw / 155px));
         min-width: calc(65px / 1.75);
@@ -1100,7 +1100,6 @@
 
 @keyframes autoScrollSponse {
     from {
-
         left: -127.381px;
     }
     to {
@@ -1149,18 +1148,19 @@
         padding-left: 12px;
         padding-right: 12px;
     }
-
 }
 
 /* =================================== NewsLetter =================================== */
-.newsletter{
+.newsletter {
     min-width: min(100%, 300px);
     width: 80vw;
     max-width: 768px;
     padding: 40px 0;
     background: #000300;
+    align-self: center;
+    display: flex;
 }
-.newsletter > iframe{
+.newsletter > iframe {
     width: 100%;
     padding: 0 4px;
 }

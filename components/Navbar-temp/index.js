@@ -67,7 +67,7 @@ function Navigation() {
         setIsHome(['/'].includes(router.pathname))
         document.getElementById('drawer').style.opacity = 0
         setTimeout(function () {
-            ;(document.getElementById('drawer').style.display = 'none'),
+            ; (document.getElementById('drawer').style.display = 'none'),
                 (document.getElementById('nav_div').style.backgroundColor = '')
         }, 300)
         setDrawerOpen(false)
@@ -182,8 +182,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/events'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/events"
@@ -228,8 +228,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/gallery'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/gallery"
@@ -243,8 +243,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/ourteam'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/ourteam"
@@ -258,8 +258,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/oursponsors'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/oursponsors"
@@ -273,8 +273,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/aboutus'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/aboutus"
@@ -288,8 +288,8 @@ function Navigation() {
                                 style={
                                     router.pathname === '/contact'
                                         ? {
-                                              color: 'rgb(80, 255, 0)',
-                                          }
+                                            color: 'rgb(80, 255, 0)',
+                                        }
                                         : null
                                 }
                                 href="/contact"
@@ -367,7 +367,7 @@ function Navigation() {
                                     styles.sexy_button,
                                     styles.sexy_button_small
                                 )}
-                            onClick={() => {handleLogout}}
+                                onClick={handleLogout}
                             >
                                 LOGOUT
                             </button>
