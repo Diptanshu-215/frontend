@@ -104,8 +104,14 @@ export default function ourteam() {
                 name: 'Shubhankar Ray', image: '/team/shubhankar.jpeg',
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
-                email: 'user@example.com'
+                email: '2201cb59_shubhankar@iitp.ac.in'
             },
+            {
+                name: 'Chirag Gupta', image: '/team/Profile.png',
+                instagram: 'https://instagram.com/username',
+                linkedin: 'https://linkedin.com/in/username',
+                email: '2201mc12_chirag@iitp.ac.in'
+            }
         ],
         webnapp: [
             {
@@ -196,7 +202,7 @@ export default function ourteam() {
                 email: '2201mm27_sai@iitp.ac.in'
             },
             {
-                name: 'Ayush Kumar', image: '/team/ayush.jpg',
+                name: 'Ayush Kumar', image: '/team/Ayush.jpg',
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
                 email: 'user@example.com'
@@ -434,7 +440,7 @@ export default function ourteam() {
                 email: 'aviral_2101ee88@iitp.ac.in'
             },
             {
-                name: 'Ritvik Kadiri', image: '/team/ritvik.jpg',
+                name: 'Ritvik Kadiri', image: '/team/ritvik.JPG',
                 instagram: 'https://www.instagram.com/username',
                 linkedin: 'https://www.linkedin.com/in/venkata-sai-ritvik-kadiri-178a5022a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
                 email: 'kadiri_2101mc24@iitp.ac.in'
@@ -448,7 +454,7 @@ export default function ourteam() {
                 email: 'dhrutisundar_2101ee26@iitp.ac.in'
             },
             {
-                name: 'Diptadip Malik', image: '/team/diptadip_tv.jpg',
+                name: 'Diptadip Malik', image: '/team/diptadip.jpg',
                 instagram: 'https://www.instagram.com/_._d1pt0_._?igsh=MW9kNXYxZnAycmIwNQ==',
                 linkedin: 'https://www.linkedin.com/in/dipto21',
                 email: 'user@example.com'
