@@ -19,8 +19,9 @@
     align-items: center;
     color: #ffffff;
     margin-bottom: 0;
-    background-image: url('/teamBg.png');
-    background-size: 100%;
+    background-image: url('/TeamBg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     transition: background-size 0.3s ease-out;
 }   
@@ -310,8 +311,8 @@
         flex: 0 0 100%;
         max-width: 360px;
     }
+
 }
-/* Smooth transitions for scroll animations */
 .titleOverlay {
     transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
