@@ -186,6 +186,12 @@ export default function ourteam() {
                 instagram: 'https://www.instagram.com/divyam_walia?igsh=MWN0cXF5ZGE5aWRwcg==',
                 linkedin: 'https://www.linkedin.com/in/divyamwalia/',
                 email: '2201ce16_divyam@iitp.ac.in'
+            },
+            {
+                name: 'Mihir Bairathi', image: '/team/mihir.jpg',
+                instagram: 'https://instagram.com/username',
+                linkedin: 'https://linkedin.com/in/username',
+                email: '2201ee38_mihir@iitp.ac.in'
             }
         ],
         rsp: [
@@ -206,12 +212,6 @@ export default function ourteam() {
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
                 email: 'user@example.com'
-            },
-            {
-                name: 'Khushi Pathak', image: '/team/khushi.jpg',
-                instagram: 'https://www.instagram.com/___.darksun._?igsh=bnM4ODBzYTkwaWZt',
-                linkedin: 'https://www.linkedin.com/in/khushi-pathak-201041236?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                email: 'khushi_2101me34@iitp.ac.in'
             }
         ],
         hospi: [
@@ -314,6 +314,12 @@ export default function ourteam() {
                 instagram: 'https://instagram.com/username',
                 linkedin: 'https://linkedin.com/in/username',
                 email: 'user@example.com'
+            },
+            {
+                name: 'Swastik Vishwakarma', image: '/team/swastik.jpg',
+                instagram: 'https://instagram.com/username',
+                linkedin: 'https://linkedin.com/in/username',
+                email: '2201me72_swastik@iitp.ac.in'
             }
         ],
         convenor: [
@@ -358,7 +364,7 @@ export default function ourteam() {
                 email: 'divyanshee_2101cb26@iitp.ac.in'
             },
             {
-                name: 'Nikita Srivastava', image: '/team/nikita.jpg',
+                name: 'Nikita Srivastava', image: '/team/nikita1.jpg',
                 instagram: 'https://instagram.com/nikitaasrivastava ',
                 linkedin: 'https://www.linkedin.com/in/nikita-srivastava-404bba22a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
                 email: 'nikita_2101ce38@iitp.ac.in'
@@ -383,6 +389,13 @@ export default function ourteam() {
                 linkedin: 'https://linkedin.com/in/username',
                 email: 'Gaurav_2101ce21@iitp.ac.in'
             },
+            ,
+            {
+                name: 'Khushi Pathak', image: '/team/khushi.jpg',
+                instagram: 'https://www.instagram.com/___.darksun._?igsh=bnM4ODBzYTkwaWZt',
+                linkedin: 'https://www.linkedin.com/in/khushi-pathak-201041236?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+                email: 'khushi_2101me34@iitp.ac.in'
+            }
         ],
         hospiAdvisory: [
             {
