@@ -1152,15 +1152,33 @@
 
 /* =================================== NewsLetter =================================== */
 .newsletter {
-    min-width: min(100%, 300px);
-    width: 80vw;
-    max-width: 768px;
-    padding: 40px 0;
+    width: 100%;
+    padding: 40px 40px;
     background: #000300;
     align-self: center;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 .newsletter > iframe {
-    width: 100%;
     padding: 0 4px;
+    /* min-width: min(100%, 300px); */
+    width: 80vw;
+    max-width: 768px;
+}
+@media only screen and (max-width: 768px) {
+    .newsletter {
+        padding: 40px 0;
+    }
+    .newsletter > iframe{
+        width: 90vw;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .newsletter > iframe{
+        width: 98%;
+        padding: 0 10px;
+    }
 }
