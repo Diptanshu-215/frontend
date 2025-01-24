@@ -249,7 +249,7 @@ function Navigation() {
                                 }
                                 href="/ourteam"
                             >
-                                Teams
+                                Team
                             </Link>
                         </li>
                         <li>
