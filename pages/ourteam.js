@@ -107,8 +107,8 @@ export default function ourteam() {
                 email: '2201cb59_shubhankar@iitp.ac.in'
             },
             {
-                name: 'Chirag Gupta', image: '/team/Profile.png',
-                instagram: 'https://instagram.com/username',
+                name: 'Chirag Gupta', image: '/team/chirag.png',
+                instagram: 'https://www.instagram.com/chiraaag.004/',
                 linkedin: 'https://linkedin.com/in/username',
                 email: '2201mc12_chirag@iitp.ac.in'
             }
