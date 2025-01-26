@@ -200,7 +200,7 @@ export default function ourteam() {
                 instagram: 'https://www.instagram.com/isakshi_shrivastava?utm_source=qr&igsh=MWY1OXp1ZHljbnRwMA==',
                 linkedin: 'https://www.linkedin.com/in/sakshi-shrivastava-05649925a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
                 email: '2201ee81_sakshi@iitp.ac.in'
-            }
+            },
             {
                 name: 'Harsh Mittal', image: '/team/harshm.jpg',
                 instagram: 'https://www.instagram.com/harshmittal2309?igsh=MWcxazQ5dWhjODVxOQ==',
