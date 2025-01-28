@@ -54,7 +54,7 @@ const Contact = () => {
                             <div className={styles.email}>
                                 <img src="/email_icon.svg" alt="" />
                                 <div className={styles.emailtext}>
-                                    Email of Anwesha here
+                                    anweshatroubleshoot@gmail.com
                                 </div>
                             </div>
                         </div>
@@ -124,20 +124,21 @@ const Contact = () => {
                                     />
                                 </div>
                             </div> */}
-                                <div className={styles.buttonbox}>
-                                    <input
-                                        className={styles.button}
-                                        type="button"
-                                        onClick={() => window.open("https://forms.gle/MVtBKRRqqWEtkFag7", "_blank")}
-                                        value="Google Form"
-                                    />
-                                </div>
+                            <div className={styles.buttonbox}>
+                                <input
+                                    className={styles.button}
+                                    type="button"
+                                    onClick={() => window.open("https://forms.gle/MVtBKRRqqWEtkFag7", "_blank")}
+                                    value="Google Form"
+                                />
+                            </div>
                         </div>
                         <ToastContainer />
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }
 export default Contact
