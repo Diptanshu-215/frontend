@@ -122,7 +122,7 @@ const UserRegisterForm = () => {
             email_id: email.toLowerCase(),
             password: password,
             user_type: isproff ? isproff : usertype,
-            college_name: isproff ? 'IIT Patna' : college,
+            college_name: isproff ? 'IIT Patna' : college_name,
         }
         try {
             setLoading(true)
