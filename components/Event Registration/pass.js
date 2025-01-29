@@ -3,18 +3,19 @@ import { useContext, useEffect } from 'react'
 import { proniteRegistration, proniteRegistrationiitp } from '../components/Event Registration/proniteRegistration'
 import { AuthContext } from '../components/authContext'
 
-const Pronite = () => {
+const getPass = () => {
     const userData = useContext(AuthContext)
     const host = process.env.NEXT_PUBLIC_HOST
     const router = useRouter()
-    useEffect(() => {
-        const handleRegistration = () => {
-            router.push('/registration')
-        }
-        handleRegistration()
-    }, [])
+    // useEffect(() => {
+    //     const handleRegistration = () => {
+    //         router.push('/registration')
+    //     }
+    //     handleRegistration()
+    // }, [])
     const call = () => {
         proniteRegistration('FESTPASS',
+            11,
             userData.state.user.email_id,
             userData.state.user.phone_number,
             userData.state.user.anwesha_id,
@@ -54,5 +55,5 @@ const Pronite = () => {
     )
 }
 
-export default Pronite
+export default getPass
 

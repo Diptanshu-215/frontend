@@ -169,7 +169,7 @@ function profile() {
                                         />
                                     ) : (
                                         // View mode: Show name
-                                        <h1 className={styles.anwesha_username}>
+                                        <h1 className={styles.anwesha_username} style={{ fontWeight: 'normal' }}>
                                             {formData.full_name}
                                         </h1>
                                     )}
@@ -207,7 +207,7 @@ function profile() {
                                         flexDirection: 'row',
                                     }}
                                 >
-                                    <h1 className={styles.anwesha_id}>
+                                    <h1 className={styles.anwesha_id} style={{ fontWeight: 'normal' }}>
                                         {profDetails.anwesha_id}
                                     </h1>
                                     <button
@@ -247,7 +247,7 @@ function profile() {
                             </div>
                         </div>
                         <div className={styles.qrcode}>
-                            <img src={qrcode} width={150} height={150} alt="" />
+                            <img src={qrcode} width={200} height={200} alt="" />
                             <Link
                                 href="/anweshapass"
                                 style={{ color: 'black', fontWeight: 'bold' }}
