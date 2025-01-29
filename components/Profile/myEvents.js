@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from './profile.module.css'
+import { AuthContext } from '../authContext'
 
 const host = process.env.NEXT_PUBLIC_HOST
 
 function MyEvents() {
     const [events, setEvents] = useState({ solo: [], team: [] })
     const [passes, setPasses] = useState([])
+    const userData = useContext(AuthContext)
     var requestOptions = {
         method: 'GET',
         redirect: 'follow',
@@ -17,17 +19,50 @@ function MyEvents() {
             .then((result) => {
                 let arr = []
                 setEvents(result)
-                result.solo.map((e) => {
-                    if (e.event_tags === '6') {
-                        arr.push(e)
-                    }
-                })
-                setPasses([...arr])
                 console.log(result)
-                console.log(arr)
             })
             .catch((error) => console.log('error', error))
     }, [])
+
+    useEffect(() => {
+        const fetchFestPasses = async () => {
+            try {
+                var myHeaders = new Headers();
+                myHeaders.append('Content-Type', 'application/json');
+
+                var raw = JSON.stringify({
+                    anwesha_id: userData.state.user.anwesha_id,
+                });
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow',
+                    credentials: 'include',
+                };
+
+                const response = await fetch(`${host}/festpasses/get`, requestOptions);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                if (data.message == 'You are already registered') {
+                    setPasses([
+                        {
+                            event_name: "Pronite Pass",
+                            event_start_time: "2025-02-09T15:30:00Z"
+                        }
+                    ]);
+                }
+            } catch (error) {
+                console.error('Error fetching fest passes:', error);
+            }
+        };
+
+        fetchFestPasses();
+    }, []);
 
     return (
         // <div>
@@ -339,8 +374,8 @@ function MyEvents() {
 
         <div className={styles.eventsInfo}>
             {events.solo.length === 0 &&
-            events.team.length === 0 &&
-            passes.length === 0 ? (
+                events.team.length === 0 &&
+                passes.length === 0 ? (
                 <div>No events registered</div>
             ) : null}
             {passes.length !== 0 ? (
@@ -358,8 +393,22 @@ function MyEvents() {
                                     >
                                         {e.event_name}
                                     </div>
-                                    {/* <div>18 March 2024</div>
-                                    <div>09:00</div> */}
+                                    <div>{new Date(
+                                        e.event_start_time
+                                    ).toLocaleString('default', {
+                                        day: 'numeric',
+                                    })}{' '}
+                                        {new Date(
+                                            e.event_start_time
+                                        ).toLocaleString('default', {
+                                            month: 'short',
+                                        })}{' , '}
+                                        {new Date(
+                                            e.event_start_time
+                                        ).toLocaleString('default', {
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                        })}</div>
                                 </div>
                             </div>
                         )
@@ -402,6 +451,47 @@ function MyEvents() {
                                             hour: 'numeric',
                                             minute: 'numeric',
                                         })}
+                                        {' '}
+                                        {`(${e.event_venue})`}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    {events.team.map((e, key) => {
+                        return (
+                            <div key={key} className={styles.pass}>
+                                <img src={'/pics/pass.png'}></img>
+                                <div className={styles.passDetail}>
+                                    <div
+                                        style={{
+                                            fontFamily: 'Laila-Bold',
+                                        }}
+                                    >
+                                        {e.event_name}
+                                    </div>
+                                    <div>
+                                        Team :  {e.team_name}
+                                    </div>
+                                    <div>
+                                        {new Date(
+                                            e.event_start_time
+                                        ).toLocaleString('default', {
+                                            day: 'numeric',
+                                        })}{' '}
+                                        {new Date(
+                                            e.event_start_time
+                                        ).toLocaleString('default', {
+                                            month: 'short',
+                                        })}{' , '}
+                                        {new Date(
+                                            e.event_start_time
+                                        ).toLocaleString('default', {
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                        })}
+                                        {' '}
+                                        {`(${e.event_venue})`}
                                     </div>
                                 </div>
                             </div>
