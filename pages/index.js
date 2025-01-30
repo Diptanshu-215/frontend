@@ -206,6 +206,31 @@ const GreenCircle = ({ width = 626, height = 626 }) => {
         </svg>
     )
 }
+const MuteIcon = ({width = 48, height = 48}) => {
+    return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
+        <g>
+	        <path d="M51.707,8.293c-0.391-0.391-1.023-0.391-1.414,0l-42,42c-0.391,0.391-0.391,1.023,0,1.414C8.488,51.902,8.744,52,9,52
+		        s0.512-0.098,0.707-0.293l42-42C52.098,9.316,52.098,8.684,51.707,8.293z"/>
+	        <path d="M52.841,10.561L42,21.402v27.491C42,50.606,40.606,52,38.893,52c-0.547,0-1.09-0.149-1.571-0.432
+		        c-0.063-0.037-0.121-0.081-0.174-0.131L24.106,39.296L10.561,52.841C15.982,57.469,22.795,60,30,60
+		        c8.013,0,15.547-3.121,21.213-8.787S60,38.013,60,30C60,22.795,57.469,15.982,52.841,10.561z"/>
+	        <path d="M15.104,39C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109
+		        L37.148,7.563c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106v4.479l7.433-7.432
+		        C44.013,2.529,37.203,0,30,0C21.987,0,14.453,3.121,8.787,8.787C3.121,14.453,0,21.987,0,30c0,7.202,2.528,14.013,7.153,19.432
+		        L17.586,39H15.104z"/>
+        </g>
+    </svg>
+}
+const UnmuteIcon = ({width = 48, height = 48}) => {
+    return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
+        <g>
+            <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M42,48.894C42,50.606,40.606,52,38.893,52
+	            c-0.547,0-1.09-0.149-1.571-0.432c-0.063-0.037-0.121-0.081-0.174-0.131L23.906,39.109C23.756,39.037,23.593,39,23.427,39h-8.324
+	            C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109L37.148,7.563
+	            c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106V48.894z"/>
+        </g>
+    </svg>
+}
 
 function all(iterable) {
     for (var index = 0; index < iterable.length; index++) {
@@ -529,6 +554,16 @@ const index = () => {
     }, [eventActiveImageIndex])
 
 
+    const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(true); // Start with the video muted
+    const toggleMute = () => {
+        if (videoRef.current) {
+          videoRef.current.muted = !videoRef.current.muted;
+          setIsMuted(!isMuted);
+        }
+    };
+
+
     // events thingyy
     const [events, setEvents] = useState([]);
     useEffect(() => {
@@ -816,11 +851,24 @@ const index = () => {
                     <h3>Last Year's Magic in 3 Minutes</h3>
                 </div>
                 <div className={styles.aftermovie_video}>
-                    <Image
+                    {/* <Image
                         src="/pics/aftermovie.jpg"
                         width={1226}
                         height={607}
-                    />
+                    /> */}
+                    <video ref={videoRef} autoPlay muted={isMuted} loop width={1226} height={607}>
+                        <source
+                            src='https://d26ka7z5km4bpn.cloudfront.net/t32ovw%2Ffile%2F76be207a2714da08143a90b379eb7636_65edc1da6c9a45b9d8e8cb5437083b68.mp4?response-content-disposition=inline%3Bfilename%3D%2276be207a2714da08143a90b379eb7636_65edc1da6c9a45b9d8e8cb5437083b68.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1738278664&Signature=eXoPB1ZqxGe2m3mG5T87nM8AcOVsjehH0tdnwLh6izbI4TihbnVNQIDuQsjjzT9Cd5krE4PC6sLbFahL8T-XHfY18CzlR6l2uh6O3tq-wDPraaLlu5t38q6xcrclIh37fQZTMq7Nd9wi3m5oC-RQwD7f2W0S12uqI50Oh8IGkFwDEh2L1yUyI9VlayFRa781L5g7VOo5vVIHb2GJJ66Y~d0mlEmWSv7lOaSaXH1QkCLh95T-iw-CRxf5KfmBqd~-AQmHXdDCNn1m29DDkvSs3sbCfeiSksuQovWecHkab~3ouo0CbGJ~t5CgBzrvUyPMZLyx4ma1s-ty~TkTVdWYwQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ' 
+                            type='video/mp4' 
+                        />
+                    </video>
+                    {/* <iframe src="https://drive.google.com/file/d/17qtrN_8Qg9vUAEps515INNUQRGd3oMla/preview" width="1226" height="607" allow="autoplay"></iframe> */}
+                    {/* <iframe src="https://streamable.com/e/4qofi9" width={1226} height={607} frameborder="0" allowfullscreen></iframe> */}
+                    <div>
+                        <button onClick={toggleMute} style={{width: 32, height: 32}}>
+                            {isMuted ? <MuteIcon width={32} height={32}/> : <UnmuteIcon  width={32} height={32}/>}
+                        </button>
+                    </div>
                 </div>
             </section >
 
