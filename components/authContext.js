@@ -21,7 +21,7 @@ const PrivateRoute = ({ children }) => {
                 '/event-registration',
                 '/event-registrations',
                 '/profile',
-            ].includes(router.pathname) // temporarily removed '/profile'
+            ].includes(router.pathname)
         ) {
             router.push('/userLogin')
         }
@@ -55,9 +55,9 @@ const AuthProvider = ({ children }) => {
             // Check for specific unauthenticated messages
             if (
                 result.message ===
-                    'You are unauthenticated. Please log in first.' ||
+                'You are unauthenticated. Please log in first.' ||
                 result.message ===
-                    'Your token is expired. Please generate a new one.' ||
+                'Your token is expired. Please generate a new one.' ||
                 result.message === 'Your token is expired. Please log in again.'
             ) {
                 setUser(null) // Mark the user as unauthenticated

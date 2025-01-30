@@ -66,6 +66,13 @@ const Pronite = () => {
     const [generalPassCount, setGeneralPassCount] = useState(0)
     const [specialPassCount, setSpecialPassCount] = useState(0)
     const userData = useContext(AuthContext)
+
+    useEffect(() => {
+        const handleRegistration = () => {
+            router.push('/userLogin')
+        }
+        handleRegistration()
+    }, [])
     useEffect(() => {
         setProfile(userData)
         let host = process.env.NEXT_PUBLIC_HOST

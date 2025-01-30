@@ -22,9 +22,45 @@ function profile() {
     const [profDetails, setProfDetails] = useState(
         userData.state.user || { anwesha_id: '' }
     )
+    const [formData, setFormData] = useState(profDetails)
     const [qrcode, setQrcode] = useState(
         userData ? userData.state.user?.qr_code : ''
     )
+
+    const [edit, setEdit] = useState(false)
+
+    const [isEditing, setIsEditing] = useState(false) // Toggle edit mode
+    const [name, setName] = useState('John Doe') // Default name
+
+    const handleSave = () => {
+        setIsEditing(false) // Exit edit mode
+        // Add logic to update the name in the backend here, if needed
+        console.log('Saved Name:', name)
+    }
+
+    function editProfile() {
+        setIsEditing(false)
+        var myHeaders = new Headers()
+        myHeaders.append('Content-Type', 'application/json')
+
+        var raw = JSON.stringify({
+            full_name: formData.full_name,
+            college_name: formData.college_name,
+        })
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow',
+            credentials: 'include',
+        }
+
+        fetch(`${host}/user/editprofile`, requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log('error', error))
+    }
 
     useEffect(() => {
         fetch(`${host}/user/editprofile`, {
@@ -83,13 +119,13 @@ function profile() {
                             }}
                         >
                             <div className={styles.userImage}>
-                                <Image
-                                    src={'/pics/circle_green.png'}
+                                <img
+                                    src={'/pics/circle_greenNobg.png'}
                                     width={180}
                                     height={180}
                                     alt="userImage"
                                 />
-                                <Image
+                                <img
                                     src={'/pics/mascot 2.png'}
                                     width={130}
                                     height={130}
@@ -101,22 +137,67 @@ function profile() {
                                     style={{
                                         display: 'flex',
                                         flexDirection: 'row',
+                                        alignItems: 'center', // Ensures alignment
+                                        flexWrap: 'wrap',
                                     }}
                                 >
-                                    <h1 className={styles.anwesha_username}>
-                                        {profDetails.full_name}
-                                    </h1>
-                                    <button className={styles.copy}>
+                                    {isEditing ? (
+                                        // Edit mode: Show input field
+                                        <input
+                                            type="text"
+                                            value={formData.full_name}
+                                            onChange={(e) =>
+                                                setFormData({
+                                                    ...formData,
+                                                    full_name: e.target.value,
+                                                })
+                                            }
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter')
+                                                    editProfile() // Save on Enter key
+                                            }}
+                                            autoFocus
+                                            style={{
+                                                outline: 'none',
+                                                border: '2px solid lightgray',
+                                                padding: '10px 10px',
+                                                borderRadius: '2px',
+                                                margin: '10px 0',
+                                                fontSize: '24px',
+                                                fontFamily: 'inherit',
+                                            }}
+                                        />
+                                    ) : (
+                                        // View mode: Show name
+                                        <h1 className={styles.anwesha_username} style={{ fontWeight: 'normal' }}>
+                                            {formData.full_name}
+                                        </h1>
+                                    )}
+
+                                    <button
+                                        onClick={() => setIsEditing(!isEditing)}
+                                        className={styles.copy}
+                                    >
                                         <motion.div
                                             style={{ cursor: 'pointer' }}
                                             whileTap={{ scale: 0.8 }}
                                         >
-                                            <Image
-                                                src="/edit.svg"
-                                                width={20}
-                                                height={20}
-                                                alt="edit"
-                                            />
+                                            {!isEditing ? (
+                                                <img
+                                                    src="/edit.svg"
+                                                    width={20}
+                                                    height={20}
+                                                    alt="edit"
+                                                />
+                                            ) : (
+                                                <img
+                                                    onClick={editProfile}
+                                                    src="/assets/tick.svg"
+                                                    width={20}
+                                                    height={20}
+                                                    alt="edit"
+                                                />
+                                            )}
                                         </motion.div>
                                     </button>
                                 </div>
@@ -126,7 +207,7 @@ function profile() {
                                         flexDirection: 'row',
                                     }}
                                 >
-                                    <h1 className={styles.anwesha_id}>
+                                    <h1 className={styles.anwesha_id} style={{ fontWeight: 'normal' }}>
                                         {profDetails.anwesha_id}
                                     </h1>
                                     <button
@@ -166,7 +247,7 @@ function profile() {
                             </div>
                         </div>
                         <div className={styles.qrcode}>
-                            <img src={qrcode} alt="" />
+                            <img src={qrcode} width={200} height={200} alt="" />
                             <Link
                                 href="/anweshapass"
                                 style={{ color: 'black', fontWeight: 'bold' }}
@@ -206,6 +287,7 @@ function profile() {
                                     Male
                                 </h1>
                             </div> */}
+
                             <div>
                                 <h1 className={styles.userDetailsHeading}>
                                     Institute/Organization
@@ -216,6 +298,7 @@ function profile() {
                             </div>
                         </div>
                     </div>
+                    <MyEvents />
 
                     {/* <Tabs className={styles.tabs}>
                         <TabList

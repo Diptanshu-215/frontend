@@ -346,6 +346,21 @@ function Navigation() {
                             alt="register"
                         />
                     </button> */}
+
+                    <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                            onClick={() => {
+                                router.push('/anweshapass')
+                            }}
+                        >
+                            GET PASSES
+                        </button>
+                    </div>
+
                     <div className={styles.hero_button}>
                         <button
                             onClick={() => {
@@ -374,16 +389,7 @@ function Navigation() {
                         </div>
                     )}
 
-                    {/* <div className={styles.hero_button}>
-                        <button
-                            className={cn(
-                                styles.sexy_button,
-                                styles.sexy_button_small
-                            )}
-                        >
-                            GET PASSES
-                        </button>
-                    </div> */}
+
                 </div>
             </div>
 
@@ -392,6 +398,19 @@ function Navigation() {
                     <li>
                         <Link href="/">Home</Link>
                     </li>
+                    {userData.isAuth ? (
+                        <li>
+                            <Link
+                                href="/profile"
+                                onClick={() => toggleDrawer()}
+                            >
+                                Profile
+                            </Link>
+                        </li>
+                    ) : (
+                        ''
+                    )}
+
                     {/* <li>
                         <Link
                             href="/registration"
@@ -458,6 +477,11 @@ function Navigation() {
                     <li>
                         <Link href="/contact" onClick={() => toggleDrawer()}>
                             Contact Us
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/anweshapass" onClick={() => toggleDrawer()}>
+                            getPasses
                         </Link>
                     </li>
                     <li>

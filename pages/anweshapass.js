@@ -1,6 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styles from '../styles/anweshapass.module.css'
 import Image from 'next/image'
+import { AuthContext } from '../components/authContext'
+import { useRouter } from 'next/router.js'
+import { proniteRegistration } from '../components/Event Registration/proniteRegistration'
+
+
 const FireSkullHeadLeft = () => {
     return (
         <svg
@@ -276,30 +281,48 @@ const EventSlider = ({ images, currIndex, nextEventImage, previouseEventImage })
 };
 
 function anweshapass() {
+    const userData = useContext(AuthContext)
+    const host = process.env.NEXT_PUBLIC_HOST
+    const router = useRouter()
     const [events, setEvents] = useState([]);
+    const [isloading, setisloading] = useState(false);
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(2); // don't set on boundary
-        const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
-        useEffect(() => {
-            const timer = setTimeout(() => {
-                if (eventActiveImageIndexPrevDir)
-                    setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1));
-                else
-                    setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
-            }, 3000);
-            return () => clearTimeout(timer);
-        }, [eventActiveImageIndex])
+    const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (eventActiveImageIndexPrevDir)
+                setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1));
+            else
+                setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, [eventActiveImageIndex])
+
     const pseudoEventImage = adjustList(
         events.map((event) => ({
             url: event.poster,
             title: event.name.split('#')[0],
             body: event.name.split('#')[1]
         })), 6);
-    let props={"title":"Event title","body":{"poster":"/events/poster1.png","start_time":"04:00 PM","end_time":"6:00PM"}}
+    let props = { "title": "Event title", "body": { "poster": "/events/poster1.png", "start_time": "04:00 PM", "end_time": "6:00PM" } }
     const previouseEventImage = () => {
         setEventActiveImageIndexPrevDir(true);
         setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1))
     }
-    function handleRagister(){}
+    function handlefestpass() {
+        if (userData.isAuth) {
+            setisloading(true);
+            proniteRegistration('FESTPASS',
+                userData.state.user.email_id,
+                userData.state.user.phone_number,
+                userData.state.user.anwesha_id,
+                userData.state.user.user_type,
+                setisloading,
+                router)
+        } else {
+            router.push('/userLogin')
+        }
+    }
     return (
         // <div className={styles.parentContainer}>
         //     {/* <h1 className={styles.heading}>AnweshaPass</h1>
@@ -347,20 +370,18 @@ function anweshapass() {
         <div className={styles.container}>
 
             {/* ------------------------Pass container--------------------------------------------------- */}
-           <section className={styles.passcontainer} id="passcontainer">
+            <section className={styles.passcontainer} id="passcontainer">
                 <div className={styles.passcontainer_body}>
                     <div>
-                        <h2>Anwesha 2025 Official Merchandise</h2>
+                        <h2>Anwesha 2025 Official Passes</h2>
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
-                        The designs are a fusion of elegance and innovation,
-                        capturing the true spirit of Anwesha. T-shirts are
-                        made of supreme quality with GSM 200 and 100%
-                        cotton, ensuring maximum comfort and durability.
-                        Hoodies are made from Premium Quality Woven Cotton
-                        with 350+ GSM cloth.
+                        As the night deepens, the echoes grow louder. Shadows dance, whispers slither through the air, and the abyss calls your name. This pass grants you entry into a realm where the eerie meets the extraordinary. Brace yourself for a night of spine-chilling performances, haunting melodies, and events that will test your courage.
                     </p>
+                    <p style={{ marginTop: '-30px' }}>🔮 Beware: Once you enter, there’s no turning back.
+
+                        Hold on to your pass… it may be the only thing keeping you from vanishing into the abyss.</p>
                 </div>
                 <div className={styles.passcontainer_hero}>
                     <div className={styles.passcontainer_background} />
@@ -373,8 +394,8 @@ function anweshapass() {
                             <div className={styles.tshirt_blue} />
                         </div>
                         <div className={styles.passcontainer_button}>
-                            <button className={styles.sexy_button}>
-                                GRAB NOW
+                            <button className={styles.sexy_button} onClick={handlefestpass}>
+                                {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
                         </div>
                     </div>
@@ -382,8 +403,8 @@ function anweshapass() {
             </section>
 
 
-             --------------------------------------- Events----------------------------------------------
-             <section className={styles.events}>
+            {/* --------------------------------------- Events---------------------------------------------- */}
+            <section className={styles.events}>
                 <div className={styles.events_title}>
                     <FireSkullHeadLeft />
                     <div >
@@ -419,10 +440,15 @@ function anweshapass() {
                             styles.sexy_button_small
                         )}
                         onClick={() => {
-                            router.push('/events')
+                            proniteRegistration('FESTPASS',
+                                userData.state.user.email_id,
+                                userData.state.user.phone_number,
+                                userData.state.user.anwesha_id,
+                                userData.state.user.user_type,
+                                router)
                         }}
                     >
-                        VIEW MORE
+                        Grab Now
                     </button>
                 </div>
             </section>
@@ -430,18 +456,18 @@ function anweshapass() {
             {/* -------------------------------------Culteral Night---------------------------------------- */}
 
             <section className={styles.cultural_Night}>
-            <div className={styles.cultural_Night_body}>
+                <div className={styles.cultural_Night_body}>
                     <div>
                         <h2>Cultural Night</h2>
-                     
+
                     </div>
                     <p>
-                    Anwesha's Cultural Night, Virasat'24, by SPIC MACAY, is a vibrant showcase of Indian culture. With mesmerizing Qawwali melodies and energetic Purulia Chhau dance, it celebrates India's rich cultural tapestry. Accomplished artists and rising talents promise an unforgettable evening of rhythmic beats and graceful movements.
+                        Anwesha's Cultural Night, Virasat'24, by SPIC MACAY, is a vibrant showcase of Indian culture. With mesmerizing Qawwali melodies and energetic Purulia Chhau dance, it celebrates India's rich cultural tapestry. Accomplished artists and rising talents promise an unforgettable evening of rhythmic beats and graceful movements.
                     </p>
                 </div>
                 <div className={styles.cultural_Night_hero}>
                     <div className={styles.cultural_Night_background} />
-                        <div className={styles.cultural_Night_imgbg}><img  src='/passes/melody_night_poster2.jpg'></img></div>
+                    <div className={styles.cultural_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
                 </div>
             </section>
 
@@ -449,38 +475,38 @@ function anweshapass() {
             {/* -------------------------------------Melody Night---------------------------------------- */}
 
             <section className={styles.Melody_Night}>
-            
+
                 <div className={styles.Melody_Night_hero}>
                     <div className={styles.Melody_Night_background} />
-                        <div className={styles.Melody_Night_imgbg}><img  src='/passes/melody_night_poster2.jpg'></img></div>
-                        
+                    <div className={styles.Melody_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
+
                 </div>
                 <div className={styles.Melody_Night_body}>
                     <div>
                         <h2>Melody Night</h2>
-                     
+
                     </div>
                     <p>
-                    Dive into sonic bliss at our Melody night. Let DJs weave exhilarating beats on the dance floor, creating an unforgettable experience of pulsating rhythms. Join us for an immersive night of electronic enchantment with vibrant lights, energetic beats, and contagious energy.
+                        Dive into sonic bliss at our Melody night. Let DJs weave exhilarating beats on the dance floor, creating an unforgettable experience of pulsating rhythms. Join us for an immersive night of electronic enchantment with vibrant lights, energetic beats, and contagious energy.
                     </p>
                 </div>
             </section>
 
             {/* -------------------------------------Bollywood Night---------------------------------------- */}
-
+            
             <section className={styles.Bollywood_Night}>
-            <div className={styles.Bollywood_Night_body}>
+                <div className={styles.Bollywood_Night_body}>
                     <div>
                         <h2>Bollywood Night</h2>
-                     
+
                     </div>
                     <p>
-                   IIT Patna's Anwesha brings back the dazzling Bollywood night, Pronite! Featuring the musical maestro behind hits like "Badtameez Dil" and "Pashmina," this event follows the legacy of Sanam Band and KK. Join us for a night of vibrant melodies, pulsating beats, and Bollywood magic as Pronite 2024 lights up the town under the disco ball!
+                        IIT Patna's Anwesha brings back the dazzling Bollywood night, Pronite! Featuring the musical maestro behind hits like "Badtameez Dil" and "Pashmina," this event follows the legacy of Sanam Band and KK. Join us for a night of vibrant melodies, pulsating beats, and Bollywood magic as Pronite 2024 lights up the town under the disco ball!
                     </p>
                 </div>
                 <div className={styles.Bollywood_Night_hero}>
                     <div className={styles.Bollywood_Night_background} />
-                        <div className={styles.Bollywood_Night_imgbg}><img  src='/passes/melody_night_poster2.jpg'></img></div>
+                    <div className={styles.Bollywood_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
                 </div>
             </section>
         </div>

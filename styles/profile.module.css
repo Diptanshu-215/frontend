@@ -18,12 +18,22 @@
     font-family: 'Laila-Bold';
     src: url('/font/Laila-Medium.ttf') format('truetype');
 }
+
+.mainContainer {
+    margin-top: 65px;
+    font-family: 'SF Ironside', sans-serif;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .subContainer {
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 100vh;
+    flex: 1;
+    padding-bottom: 20px;
 }
 
 .subContainer::before {
@@ -44,12 +54,6 @@
 .subContainer > * {
     position: relative;
     z-index: 1; /* Ensure content is above the background */
-}
-
-.mainContainer {
-    margin-top: 65px;
-    font-family: 'SF Ironside', sans-serif;
-    background-size: cover;
 }
 
 .welcome {
@@ -101,13 +105,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     gap: 40px;
-    margin: 10px 0px;
+    margin: -10px 10px 10px 10px;
     font-family: 'Laila', sans-serif;
-    padding: 25px 15px;
+    padding: 25px 12px 25px 12px;
     border-top: solid 1px white;
     border-bottom: solid 1px white;
+    flex-wrap: wrap;
 }
 
 .userDetails > div {
@@ -180,9 +184,10 @@
 }
 
 .anwesha_id {
-    font-size: 24px;
+    font-size: 26px;
     /* margin-left: 5%; */
     /* margin-top: 100px; */
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: white;
 }
@@ -193,6 +198,7 @@
     /* margin-top: 100px; */
     text-transform: uppercase;
     color: white;
+    letter-spacing: 1px;
 }
 
 .idandqr {
@@ -200,13 +206,45 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 15px 0px 10px;
+    padding: 0px 10px 0px 0px;
 }
 
 .qrcode {
-    border-radius: 20px;
+    padding: 20px;
 }
 
+.qrcode img {
+    border-radius: 15px;
+}
+
+.eventsInfo {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.eventsHeading {
+    font-family: 'Anavio Small Capitals W01 Bold';
+    border-bottom: 1px solid white;
+    font-size: 20px;
+}
+.pass {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Laila', sans-serif;
+    align-items: center;
+    gap: 10px;
+}
+.passType {
+    font-family: 'Laila-Bold', sans-serif;
+}
+.pass img {
+    height: 60px;
+}
+.passDetaile {
+    display: flex;
+    flex-direction: column;
+}
 .qrBtn {
     background: #6833ff;
     border-radius: 10px;
