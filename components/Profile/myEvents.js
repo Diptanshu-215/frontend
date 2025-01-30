@@ -380,7 +380,7 @@ function MyEvents() {
             ) : null}
             {passes.length !== 0 ? (
                 <div>
-                    <div className={styles.eventsHeading}>Event Passes</div>
+                    <div className={styles.eventsHeading}>Passes</div>
                     {passes.map((e, key) => {
                         return (
                             <div key={key} className={styles.pass}>
@@ -442,17 +442,35 @@ function MyEvents() {
                                             e.event_start_time
                                         ).toLocaleString('default', {
                                             month: 'short',
-                                        })}
-                                    </div>
-                                    <div>
+                                        })}{' , '}
                                         {new Date(
                                             e.event_start_time
                                         ).toLocaleString('default', {
                                             hour: 'numeric',
                                             minute: 'numeric',
                                         })}
+                                        {' - '}
+                                        {new Date(
+                                            e.event_end_time
+                                        ).toLocaleString('default', {
+                                            day: 'numeric',
+                                        })}{' '}
+                                        {new Date(
+                                            e.event_end_time
+                                        ).toLocaleString('default', {
+                                            month: 'short',
+                                        })}{' , '}
+                                        {new Date(
+                                            e.event_end_time
+                                        ).toLocaleString('default', {
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                        })}
                                         {' '}
                                         {`(${e.event_venue})`}
+                                    </div>
+                                    <div>
+                                        {e.payment_url != "" ? <a href={e.payment_url} target="_blank" rel="noopener noreferrer">Submission link</a> : null}
                                     </div>
                                 </div>
                             </div>
@@ -472,6 +490,8 @@ function MyEvents() {
                                     </div>
                                     <div>
                                         Team :  {e.team_name}
+                                        &nbsp;&nbsp;{e.payment_url != "" ? <a href={e.payment_url} target="_blank" rel="noopener noreferrer">Submission link</a> : null}
+
                                     </div>
                                     <div>
                                         {new Date(
@@ -486,6 +506,23 @@ function MyEvents() {
                                         })}{' , '}
                                         {new Date(
                                             e.event_start_time
+                                        ).toLocaleString('default', {
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                        })}
+                                        {' - '}
+                                        {new Date(
+                                            e.event_end_time
+                                        ).toLocaleString('default', {
+                                            day: 'numeric',
+                                        })}{' '}
+                                        {new Date(
+                                            e.event_end_time
+                                        ).toLocaleString('default', {
+                                            month: 'short',
+                                        })}{' , '}
+                                        {new Date(
+                                            e.event_end_time
                                         ).toLocaleString('default', {
                                             hour: 'numeric',
                                             minute: 'numeric',
