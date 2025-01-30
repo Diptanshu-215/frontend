@@ -21,6 +21,32 @@ const UserLoginForm = () => {
     const [loaded, setloaded] = React.useState(false)
 
     useEffect(() => {
+        const checkIOS = () => {
+            const iOSDevice =
+                /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+            if (iOSDevice) {
+                toast(
+                    'Disable prevent cross site tracking in safari->settings',
+                    {
+                        position: 'top-right',
+                        autoClose: 7000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: 'light',
+                    }
+                )
+            }
+        };
+
+        checkIOS();
+    }, []);
+
+
+    useEffect(() => {
         const frame = document.createElement('iframe')
         frame.id = '3pc'
         frame.src = 'https://chamithrepo.github.io/create-third-party-cookie/' //Add your hosted domain url here
