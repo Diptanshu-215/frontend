@@ -35,14 +35,6 @@ const UserRegisterForm = () => {
     const [messageshowed, setmessageshowed] = React.useState(false);
 
 
-    useEffect(() => {
-        if (!messageshowed) {
-            toast.warn('Carefully enter details, especially email');
-            setmessageshowed(true);
-        }
-    }, [messageshowed]); // Correct dependency
-
-
     const handleChange = (e) => {
         setUserType(e.target.value)
     }
