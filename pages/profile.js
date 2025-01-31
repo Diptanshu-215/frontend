@@ -299,6 +299,9 @@ function profile() {
                         </div>
                     </div>
                     <MyEvents />
+                    <h2 style={{ color: 'white', fontWeight: 'normal', textAlign: 'center', letterSpacing: '1px' }}>To seek accomodation Fill this &nbsp;
+                        <a href='https://forms.gle/WjTuyC2gR8mHYGzA6' target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'normal', color: 'skyblue' }}>FORM</a>
+                    </h2>
 
                     {/* <Tabs className={styles.tabs}>
                         <TabList
@@ -332,7 +335,7 @@ function profile() {
                         </TabPanel>
                     </Tabs> */}
                 </div>
-            </div>
+            </div >
         </>
     )
 }
