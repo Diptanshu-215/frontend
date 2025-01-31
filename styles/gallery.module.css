@@ -7,7 +7,6 @@
     width: 100%;
     background-color: #000;
     overflow: visible;
-    height : 520vh;
 }
 
 .fullscreenText {
@@ -45,11 +44,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-top: 4rem;
+    margin-top: 2rem;
     z-index: 1;
     transition: all 0.1s ease-out;
-    background-size: cover;
-    ackground-position: center;
 }
 
 .stackedImage {
@@ -101,20 +98,15 @@
   
   /* Middle Column for overlapping content */
   .middleColumn {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    top:10%;
-    left:50%;
-    transform: translateX(-50%);
-    width:100vw;
-    text-align: center;
   }
   
   .textBlock {
     font-family: 'SF Ironsides',sans-serif;
-    font-size: 4rem;
+    font-size: 5rem;
     color: #50FF00;
     text-align: center;
     padding: 0;
@@ -139,26 +131,20 @@
     color: white;
     text-align: left;
     margin-right: calc(calc(26px + (130 - 26) * ((100vw - 300px) / (1600 - 300))) * 2.6923076923076925);
-    margin-top: 22vh;
+    margin-top: 30vh;
     margin-bottom: 0;
     font-family: 'Anavio Small Capitals W01 Rg';
 }
 
 @media (max-width: 1024px) {
     .glimpse {
-        margin-top: 6vh;
-    }
-    .container {
-        height: 420vw;
+        margin-top: 15vh;
     }
 }
 
 @media (max-width: 640px) {
     .glimpse {
-        margin-top: 4vh;
-    }
-    .container {
-        height: 180vh;
+        margin-top: 14vh;
     }
 }
 
@@ -167,7 +153,6 @@
     margin-top: 0;
     font-family: 'Anavio Small Capitals W01 Rg';
     display: flex;
-    transform: translateY(-10%);
 }
 
 .anweshaA {
@@ -192,26 +177,4 @@
       grid-template-columns: 1fr;
     }
   }
-  .animationContainer {
-    position: relative;
-    width: 100%;
-    height: 200vh;
-    overflow: hidden;
-  }
-  
-  .stackedImage {
-    position: absolute;
-    width: 500px;
-    height: auto;
-    object-fit: cover;
-    transform-origin: center center;
-    will-change: transform;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .stackedImage:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
-
-
 /* vi: set et sw=4: */

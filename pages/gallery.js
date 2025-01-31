@@ -1,13 +1,23 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import styles from '../styles/gallery.module.css'
-import GalleryStack from './GallaryStack'
-import gsap from 'gsap';
-import {useGSAP} from '@gsap/react';
-
-gsap.registerPlugin(useGSAP);
 
 // Component to render a row of images
+function GalleryRow({ images }) {
+    return (
+        <div className={styles.galleryRow}>
+            {images.map((src, idx) => (
+                <div key={idx} className={styles.galleryCard}>
+                    <img
+                        src={src}
+                        alt="Gallery Image" // No index numbers in alt
+                        className={styles.image}
+                    />
+                </div>
+            ))}
+        </div>
+    )
+}
 
 // Main GalleryPage component
 export default function GalleryPage({ folderLinks }) {
@@ -52,12 +62,9 @@ export default function GalleryPage({ folderLinks }) {
                         </span>
                     </div>
                 </div>
-               
+
                 {/* Stacked Image Section */}
-                   
-                <GalleryStack></GalleryStack>
-             
-                {/* <div className={styles.imageStack}>
+                <div className={styles.imageStack}>
                     <img
                         src="/gallery/_DC_4278.JPG"
                         alt="Stacked Image 1"
@@ -88,10 +95,58 @@ export default function GalleryPage({ folderLinks }) {
                         className={styles.stackedImage}
                         style={{ '--i': 1 }}
                     />
-                </div> */}
-
-               
                 </div>
+
+                <div className={styles.galleryContainer}>
+                    {/* Left Column */}
+                    <div className={styles.leftColumn}>
+                        <img src="/gallery/_DC_4278.JPG" alt="Left Image 1" />
+                        <img src="/gallery/Frame 239513.png" alt="Left Image 2" />
+                        <img src="/gallery/_DC_4278.JPG" alt="Left Image 3" />
+                        <img src="/gallery/Frame 239513.png" alt="Left Image 4" />
+                    </div>
+
+                    {/* Middle Overlapping Column */}
+                    <div className={styles.middleColumn}>
+                        <div className={styles.textBlock}>
+                            <div className={styles.mainTitle}>ANWESHA 2024</div>
+                            <div className={styles.subTitle}>GLIMPSE</div>
+                        </div>
+                        <img
+                            src="/gallery/Frame 239513.png"
+                            alt="Middle Image 1"
+                        />
+                        <img
+                            src="/gallery/Frame 239517.png"
+                            alt="Middle Image 2"
+                        />
+                        <img
+                            src="/gallery/Frame 239513.png"
+                            alt="Middle Image 3"
+                        />
+                    </div>
+
+                    {/* Right Column */}
+                    <div className={styles.rightColumn}>
+                        <img
+                            src="/gallery/Frame 239514.png"
+                            alt="Right Image 2"
+                        />
+                        <img
+                            src="/gallery/Frame 239516.png"
+                            alt="Right Image 2"
+                        />
+                        <img
+                            src="/gallery/Frame 239514.png"
+                            alt="Right Image 2"
+                        />
+                        <img
+                            src="/gallery/Frame 239516.png"
+                            alt="Right Image 2"
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
