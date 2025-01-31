@@ -1,7 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { use, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import styles from '../styles/gallery.module.css';
+import {useGSAP} from '@gsap/react';
+
+gsap.registerPlugin(useGSAP);
 
 // Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {

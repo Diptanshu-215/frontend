@@ -2,23 +2,12 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import styles from '../styles/gallery.module.css'
 import GalleryStack from './GallaryStack'
+import gsap from 'gsap';
+import {useGSAP} from '@gsap/react';
+
+gsap.registerPlugin(useGSAP);
 
 // Component to render a row of images
-function GalleryRow({ images }) {
-    return (
-        <div className={styles.galleryRow}>
-            {images.map((src, idx) => (
-                <div key={idx} className={styles.galleryCard}>
-                    <img
-                        src={src}
-                        alt="Gallery Image" // No index numbers in alt
-                        className={styles.image}
-                    />
-                </div>
-            ))}
-        </div>
-    )
-}
 
 // Main GalleryPage component
 export default function GalleryPage({ folderLinks }) {
