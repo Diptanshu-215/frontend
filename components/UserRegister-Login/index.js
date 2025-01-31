@@ -1,6 +1,6 @@
 // User registration form
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -32,6 +32,9 @@ const UserRegisterForm = () => {
     const [newsletter, setNewsletter] = React.useState(true)
     const [terms, setTerms] = React.useState(false)
     const [loading, setLoading] = React.useState(false)
+    const [messageshowed, setmessageshowed] = React.useState(false);
+
+
     const handleChange = (e) => {
         setUserType(e.target.value)
     }
