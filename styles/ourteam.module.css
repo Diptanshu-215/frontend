@@ -47,7 +47,6 @@
     font-family: 'Anavio Small Capitals W01 Rg';
     font-size: 7.5vw;
     color: #ffffff;
-    font-weight: 150;
     margin: 0;
     padding: 0;
     position: relative;
@@ -62,7 +61,6 @@
     font-family: 'Anavio Small Capitals W01 Rg';
     font-size: 9vw;
     color: #ffffff;
-    font-weight: 600;
     transform: translateY(-20%);
 }
 
