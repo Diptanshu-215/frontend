@@ -858,7 +858,7 @@ const index = () => {
                     /> */}
                     <video ref={videoRef} autoPlay muted={isMuted} loop width={1226} height={607}>
                         <source
-                            src='https://d26ka7z5km4bpn.cloudfront.net/t32ovw%2Ffile%2F76be207a2714da08143a90b379eb7636_65edc1da6c9a45b9d8e8cb5437083b68.mp4?response-content-disposition=inline%3Bfilename%3D%2276be207a2714da08143a90b379eb7636_65edc1da6c9a45b9d8e8cb5437083b68.mp4%22%3B&response-content-type=video%2Fmp4&Expires=1738278664&Signature=eXoPB1ZqxGe2m3mG5T87nM8AcOVsjehH0tdnwLh6izbI4TihbnVNQIDuQsjjzT9Cd5krE4PC6sLbFahL8T-XHfY18CzlR6l2uh6O3tq-wDPraaLlu5t38q6xcrclIh37fQZTMq7Nd9wi3m5oC-RQwD7f2W0S12uqI50Oh8IGkFwDEh2L1yUyI9VlayFRa781L5g7VOo5vVIHb2GJJ66Y~d0mlEmWSv7lOaSaXH1QkCLh95T-iw-CRxf5KfmBqd~-AQmHXdDCNn1m29DDkvSs3sbCfeiSksuQovWecHkab~3ouo0CbGJ~t5CgBzrvUyPMZLyx4ma1s-ty~TkTVdWYwQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ' 
+                            src='https://astounding-madeleine-371471.netlify.app/assets/Anwesha25Aftermovie.mp4' 
                             type='video/mp4' 
                         />
                     </video>
