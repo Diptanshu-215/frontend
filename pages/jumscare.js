@@ -3,30 +3,33 @@ import styles from './jumscare.module.css'
 import Image from 'next/image'
 
 const VideoPlayer = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 700)
+    const [isMobile, setIsMobile] = useState(false)
 
     useEffect(() => {
-        const handleResize = () => {
+        if (typeof window !== "undefined") {
             setIsMobile(window.innerWidth < 700)
-        }
 
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+            const handleResize = () => {
+                setIsMobile(window.innerWidth < 700)
+            }
+
+            window.addEventListener('resize', handleResize)
+            return () => window.removeEventListener('resize', handleResize)
+        }
     }, [])
 
     return (
         <div className={styles.jumscare_div}>
             {!isMobile && (
-                // <img className={styles.img} src="/pics/jump.gif" alt="Scary GIF" />
                 <Image
                     className={styles.img}
                     src="/pics/jump.gif"
                     alt="Scary GIF"
                     width={200}
                     height={100}
+                    priority // Optimizes image loading
                 />
             )}
-            {/* Audio element removed to prevent playback */}
         </div>
     )
 }
