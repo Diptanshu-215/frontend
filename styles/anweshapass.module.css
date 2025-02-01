@@ -271,12 +271,6 @@
     .passcontainer_body > div > h3 {
         text-align: center;
     }
-    .passcontainer_tshirts{
-        margin-left: -30px;
-    }
-    .passcontainer_button{
-        padding-right: 30px;
-    }
 }
 @media only screen and (max-width: 768px) {
     .passcontainer {
@@ -327,16 +321,13 @@
     .passcontainer_button {
         position: relative;
         bottom: 120px;
-        padding-right: 30px;
     }
-
 }
 @media only screen and (max-width: 550px) {
     /* TODO */
     .passcontainer {
         padding-left: 0px;
         padding-right: 0px;
-
     }
     .passcontainer_background {
         background-image: radial-gradient(
@@ -350,7 +341,6 @@
         min-width: unset;
         padding-left: 8px;
         padding-right: 8px;
-        width: 80%;
     }
     .passcontainer_body > div > h2 {
         font-size: 36px;
@@ -363,7 +353,6 @@
         padding-left: 4px;
         padding-right: 4px;
     }
-
     .passcontainer_hero_fix {
         width: 90vw;
         max-width: 400px;
@@ -373,8 +362,6 @@
     .passcontainer_button {
         position: relative;
         padding-left: 0;
-        padding-right: 0;
-      
     }
     .passcontainer_button > button {
         width: 191.315px;
@@ -391,14 +378,6 @@
     }
     .tshirt_blue {
         display: none;
-    }
-
-    .passcontainer_tshirts{
-        margin-left: -15px;
-    }
-    .passcontainer_button{
-        padding-right: 10px;
-        
     }
 }
 
@@ -837,7 +816,6 @@
         min-width: unset;
         padding-left: 8px;
         padding-right: 8px;
-
     }
     .cultural_Night_body > div > h2 {
         font-size: 36px;
@@ -850,15 +828,6 @@
         padding-left: 4px;
         padding-right: 4px;
     }
-    .cultural_Night_hero{
-        height: 500px;
-        width: 90vw;
-    }
-    .cultural_Night_imgbg{
-        width: 80vw;
-        height: 80vw;
-    }
-    
 }
 @media only screen and (max-width: 400px) {
     .cultural_Night_body > div > h3 {
@@ -991,7 +960,6 @@
 @media only screen and (max-width: 768px) {
     .Melody_Night_body {
         gap: 22px;
-        
     }
     .Melody_Night_body > div {
         gap: 2px !important;
@@ -1023,14 +991,6 @@
     .Melody_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
-    }
-    .Melody_Night_hero{
-        height: 500px;
-        width: 90vw;
-    }
-    .Melody_Night_imgbg{
-        width: 80vw;
-        height: 80vw;
     }
 }
 @media only screen and (max-width: 400px) {
@@ -1164,7 +1124,6 @@
 @media only screen and (max-width: 768px) {
     .Bollywood_Night_body {
         gap: 22px;
-        margin-top: 50px;
     }
     .Bollywood_Night_body > div {
         gap: 2px !important;
@@ -1200,14 +1159,6 @@
     .Bollywood_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
-    }
-    .Bollywood_Night_hero{
-        height: 500px;
-        width: 90vw;
-    }
-    .Bollywood_Night_imgbg{
-        width: 80vw;
-        height: 80vw;
     }
 }
 @media only screen and (max-width: 400px) {
