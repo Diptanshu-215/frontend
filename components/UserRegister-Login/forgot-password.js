@@ -198,6 +198,7 @@ const ForgotPassword = () => {
                                     styles.sexy_button,
                                     styles.sexy_button_small
                                 )}
+                                onClick={handleSubmit}
                             >
                                 SUBMIT
                             </button>

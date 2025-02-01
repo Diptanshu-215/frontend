@@ -102,7 +102,14 @@ const Footer = () => {
                             Indian Institute of Technology Patna, <br />
                             Bihta, Patna - 801103 <br />
                             +91 8130169059   <br />
-                            +91 8207259900
+                            +91 8207259900<br />
+                            <span
+                                onClick={() => router.push('/contact')}
+                                style={{ textDecoration: 'underline', cursor: 'pointer' }}
+                            >
+                                Contact us
+                            </span>
+                            → for technical issues
                         </h4>
                     </div>
                 </div>
@@ -154,8 +161,8 @@ const Footer = () => {
                     />
                 </div>
                 <div className={styles.footer_lower}>
-                    <h4><a href="/privacy" target="_blank" rel="noopener noreferrer"> Privacy Policy </a></h4>
-                    <h4> <a href="/terms" target="_blank" rel="noopener noreferrer"> Terms and Condition</a></h4>
+                    <h4 onClick={() => { router.push('/privacy') }}> Privacy Policy </h4>
+                    <h4 onClick={() => { router.push('/terms') }}>   Terms and Condition</h4>
                 </div>
                 <div className={styles.left_helobean}>
                     <Image
@@ -174,7 +181,7 @@ const Footer = () => {
                     />
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

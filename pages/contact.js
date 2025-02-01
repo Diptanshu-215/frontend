@@ -39,43 +39,43 @@ const Contact = () => {
 
     return (
         <div className={styles.maincontainer}>
-        <div className={styles.effectContainer}>
-            <div className={styles.container}>
-                <div className={styles.leftcontainer}>
-                    <div className={styles.leftinnercontainer}>
-                        <div className={styles.titleBox}>
-                            <div className={styles.title}>Contact Us</div>
-                            <div className={styles.description}>
-                                Not sure about something? The team at Anwesha,
-                                IIT Patna is here to listen and help you out.
+            <div className={styles.effectContainer}>
+                <div className={styles.container}>
+                    <div className={styles.leftcontainer}>
+                        <div className={styles.leftinnercontainer}>
+                            <div className={styles.titleBox}>
+                                <div className={styles.title}>Contact Us</div>
+                                <div className={styles.description}>
+                                    Not sure about something? The team at Anwesha,
+                                    IIT Patna is here to listen and help you out.
+                                </div>
                             </div>
-                        </div>
 
-                        <div className={styles.email}>
-                           <img src="/email_icon.svg" alt="" />
-                            <div className={styles.emailtext}>
-                                Email of Anwesha here
+                            <div className={styles.email}>
+                                <img src="/email_icon.svg" alt="" />
+                                <div className={styles.emailtext}>
+                                    anweshatroubleshoot@gmail.com
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className={styles.rightContainer}>
-                    <div className={styles.rightinnercontainer}>
-                        <div className={styles.formtitlebox}>
-                            <div className={styles.formtitle}>
-                                We'd Love to Hear from You!
+                    <div className={styles.rightContainer}>
+                        <div className={styles.rightinnercontainer}>
+                            <div className={styles.formtitlebox}>
+                                <div className={styles.formtitle}>
+                                    We'd Love to Hear from You!
+                                </div>
+                                <div className={styles.formdescription}>
+                                    Fill out the form below
+                                </div>
                             </div>
-                            <div className={styles.formdescription}>
-                                Fill out the form below
-                            </div>
-                        </div>
 
-                        <form
-                            ref={form}
-                            onSubmit={sendEmail}
-                            className={styles.forms}
-                        >
-                            <div className={styles.namebox}>
+                            {/*<div
+                                ref={form}
+                                onSubmit={sendEmail}
+                                className={styles.forms}
+                            >
+                                {<div className={styles.namebox}>
                                 <label className={styles.texts}>Name</label>
                                 <div className={styles.nameinput}>
                                     <input
@@ -123,22 +123,22 @@ const Contact = () => {
                                         placeholder='Type your message here'
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className={styles.buttonbox}>
                                 <input
                                     className={styles.button}
-                                    type="submit"
-                                    onClick={(e) => Notify}
-                                    value="SUBMIT"
+                                    type="button"
+                                    onClick={() => window.open("https://forms.gle/MVtBKRRqqWEtkFag7", "_blank")}
+                                    value="Google Form"
                                 />
                             </div>
-                        </form>
+                        </div>
+                        <ToastContainer />
                     </div>
-                    <ToastContainer />
                 </div>
             </div>
-            </div>
         </div>
+
     )
 }
 export default Contact
