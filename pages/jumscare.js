@@ -1,27 +1,37 @@
-import React, { useState, useEffect } from "react";
-import styles from "./jumscare.module.css";
-
+import React, { useState, useEffect } from 'react'
+import styles from './jumscare.module.css'
+import Image from 'next/image'
 
 const VideoPlayer = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
+    const [isMobile, setIsMobile] = useState(false)
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 700);
-    };
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setIsMobile(window.innerWidth < 700)
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+            const handleResize = () => {
+                setIsMobile(window.innerWidth < 700)
+            }
 
-  return (
-    <div className={styles.jumscare_div}>
-      {!isMobile && (
-        <img className={styles.img} src="/pics/jump.gif" alt="Scary GIF" />
-      )}
-      {/* Audio element removed to prevent playback */}
-    </div>
-  );
-};
+            window.addEventListener('resize', handleResize)
+            return () => window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
-export default VideoPlayer;
+    return (
+        <div className={styles.jumscare_div}>
+            {!isMobile && (
+                <Image
+                    className={styles.img}
+                    src="/pics/jump.gif"
+                    alt="Scary GIF"
+                    width={200}
+                    height={100}
+                    priority // Optimizes image loading
+                />
+            )}
+        </div>
+    )
+}
+
+export default VideoPlayer
