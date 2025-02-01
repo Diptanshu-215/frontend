@@ -382,7 +382,7 @@ function anweshapass() {
             <section className={styles.passcontainer} id="passcontainer">
                 <div className={styles.passcontainer_body}>
                     <div>
-                        <h2>Anwesha 2025 Official Passes</h2>
+                        <h2>Anwesha 2025 Pronite Passes</h2>
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
@@ -406,13 +406,14 @@ function anweshapass() {
                             <button className={styles.sexy_button} onClick={handlefestpass}>
                                 {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
+                            <div className={styles.earlybird}><p>💀 Early Bird Offer ! 💀</p></div>
                         </div>
                     </div>
                 </div>
             </section>
 
 
-            --------------------------------------- Events----------------------------------------------
+            {/* --------------------------------------- Events---------------------------------------------- */}
             {/* <section className={styles.events}>
                 <div className={styles.events_title}>
                     <FireSkullHeadLeft />
@@ -502,8 +503,8 @@ function anweshapass() {
             </section> */}
 
             {/* -------------------------------------Bollywood Night---------------------------------------- */}
-            {/* 
-            <section className={styles.Bollywood_Night}>
+            
+            {/* <section className={styles.Bollywood_Night}>
                 <div className={styles.Bollywood_Night_body}>
                     <div>
                         <h2>Bollywood Night</h2>
