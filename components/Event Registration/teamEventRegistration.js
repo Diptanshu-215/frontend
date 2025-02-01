@@ -86,6 +86,16 @@ async function teamEventRegistration(
     else {
         openPay(data);
     }
+    toast.success("If Registered, it will show in profile", {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+    })
     // const data = await fetch(`${host}/event/registration/team`, requestOptions)
 
     // const response = await data.json()
@@ -142,6 +152,7 @@ async function teamEventRegistrationiitp(
 ) {
     var myHeaders = new Headers()
     myHeaders.append('Content-Type', 'application/json')
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     var raw = JSON.stringify({
         event_id: eventID,
@@ -163,7 +174,7 @@ async function teamEventRegistrationiitp(
         if (data.payment_url) {
             router.push(response.payment_url)
         } else {
-            toast.success(response.messagge || response.message, {
+            toast.success("Regestered successfully, check out profile", {
                 position: 'top-right',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -173,6 +184,7 @@ async function teamEventRegistrationiitp(
                 progress: undefined,
                 theme: 'light',
             })
+            await delay(3000);
             router.replace('/events')
         }
     } else {

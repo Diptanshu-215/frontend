@@ -288,6 +288,15 @@ function anweshapass() {
     const [isloading, setisloading] = useState(false);
     const [eventActiveImageIndex, setEventActiveImageIndex] = useState(2); // don't set on boundary
     const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
+
+    useEffect(() => {
+        const refreshPage = () => {
+            router.replace(router.asPath);
+        };
+
+        refreshPage();
+    }, []);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (eventActiveImageIndexPrevDir)
