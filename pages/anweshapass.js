@@ -382,7 +382,7 @@ function anweshapass() {
             <section className={styles.passcontainer} id="passcontainer">
                 <div className={styles.passcontainer_body}>
                     <div>
-                        <h2>Anwesha 2025 Official Passes</h2>
+                        <h2>Anwesha 2025 Pronite Passes</h2>
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
@@ -406,6 +406,7 @@ function anweshapass() {
                             <button className={styles.sexy_button} onClick={handlefestpass}>
                                 {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
+                            <div className={styles.earlybird}><p>💀 Early Bird Offer ! 💀</p></div>
                         </div>
                     </div>
                 </div>
@@ -413,7 +414,7 @@ function anweshapass() {
 
 
             {/* --------------------------------------- Events---------------------------------------------- */}
-            <section className={styles.events}>
+            {/* <section className={styles.events}>
                 <div className={styles.events_title}>
                     <FireSkullHeadLeft />
                     <div >
@@ -460,11 +461,11 @@ function anweshapass() {
                         Grab Now
                     </button>
                 </div>
-            </section>
+            </section> */}
 
             {/* -------------------------------------Culteral Night---------------------------------------- */}
 
-            <section className={styles.cultural_Night}>
+            {/* <section className={styles.cultural_Night}>
                 <div className={styles.cultural_Night_body}>
                     <div>
                         <h2>Cultural Night</h2>
@@ -478,12 +479,12 @@ function anweshapass() {
                     <div className={styles.cultural_Night_background} />
                     <div className={styles.cultural_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
                 </div>
-            </section>
+            </section> */}
 
 
             {/* -------------------------------------Melody Night---------------------------------------- */}
 
-            <section className={styles.Melody_Night}>
+            {/* <section className={styles.Melody_Night}>
 
                 <div className={styles.Melody_Night_hero}>
                     <div className={styles.Melody_Night_background} />
@@ -499,11 +500,11 @@ function anweshapass() {
                         Dive into sonic bliss at our Melody night. Let DJs weave exhilarating beats on the dance floor, creating an unforgettable experience of pulsating rhythms. Join us for an immersive night of electronic enchantment with vibrant lights, energetic beats, and contagious energy.
                     </p>
                 </div>
-            </section>
+            </section> */}
 
             {/* -------------------------------------Bollywood Night---------------------------------------- */}
             
-            <section className={styles.Bollywood_Night}>
+            {/* <section className={styles.Bollywood_Night}>
                 <div className={styles.Bollywood_Night_body}>
                     <div>
                         <h2>Bollywood Night</h2>
@@ -517,7 +518,7 @@ function anweshapass() {
                     <div className={styles.Bollywood_Night_background} />
                     <div className={styles.Bollywood_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
                 </div>
-            </section>
+            </section> */}
         </div>
     )
 }
