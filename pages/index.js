@@ -996,10 +996,10 @@ const index = () => {
                 />
             </section >
             {loadimg && (
-            <img className={styles.img} src="/pics/jump.gif" alt="Scary GIF" />
+            <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
             )}
             {loadimg && (
-                <img className={styles.img} src="/pics/final_h.gif" alt="Scary GIF" /> 
+                <img width={50} src="/pics/final_h.gif" alt="Scary GIF" /> 
             )}
         </div >
     </>

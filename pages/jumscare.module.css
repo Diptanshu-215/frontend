@@ -50,7 +50,7 @@
 @media screen and (max-width:700px) {
     .jumscare_div{
         /* height: 815px; */
-        background-image: url("/pics/final_h.gif");
+        background-image: url("/pics/jump_last.gif");
         background-position: center;
         background-size: 150%;
     }
