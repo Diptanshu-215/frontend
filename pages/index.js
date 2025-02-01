@@ -7,6 +7,8 @@ import Image from 'next/image'
 // import { Josefin_Sans } from '@next/font/google'
 // import HomeBackgroundAnimation from '../components/Rive/homeBackgrounAnim'
 import styles from '../styles/homepage.module.css'
+import SoundPlayer from './jumscare_sound'
+import VideoPlayer from './jumscare'
 // import DisplayRiveAnwesha from '../components/Rive/DisplayRiveAnwesha'
 // import DisplayRiveAdmin from '../components/Rive/DisplayRiveAdmin'
 // import DisplayRiveSAC from '../components/Rive/DisplayRiveSAC'
@@ -20,6 +22,7 @@ import styles from '../styles/homepage.module.css'
 // import AwesomeSlider from 'react-awesome-slider'
 // import 'react-awesome-slider/dist/styles.css'
 // import { motion } from 'framer-motion'
+import CountdownTimer from './jumscaretimeout'
 import HeroSection from '../components/Hero/Hero'
 // import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/router'
@@ -679,12 +682,52 @@ const index = () => {
         )
     }
 
+
+      const [showsound, setShowsound] = useState(false); // Track video visibility
+      const [showVideo, setShowVideo] = useState(false); // Track video visibility
+      let timeee = 2500;
+
+      if (typeof window !== "undefined" && window.innerWidth < 700) {
+        timeee = 1800;
+      }
+      
+
+      const timer = setTimeout(() => {
+        if ( showsound ) {
+            setShowsound(false)     
+        }
+        if ( showVideo ) {
+            setShowVideo(false)   
+        }
+      }, timeee);
+      
+      const [countdownTimer, setcountdowntimer]= useState(false)
+      const timerui = setTimeout(() => {
+        if ( countdownTimer ) {
+          setcountdowntimer(false)
+        }
+      }, 3000);
+      const [loadimg, setloadimg] = useState(true);
+
+      useEffect(() => {
+        setTimeout(() => {
+          setloadimg(false);
+        }, 10);
+      }, []);
+      
+   
+
     return (<>
+        {showsound && <SoundPlayer />}
+        {showsound && <VideoPlayer />}
+        {countdownTimer && <CountdownTimer/>}
+      
         <Head>
             <title>Anwesha 2024</title>
             <meta name="description" content="Anwesha 2024" />
             <link rel="icon" href="./logo_no_bg.svg" />
         </Head>
+        
         <div className={styles.bg}>
             {/* HERO */}
             <HeroSection className={styles.hero}>
@@ -704,11 +747,19 @@ const index = () => {
                             styles.sexy_button_small
                         )}
                         onClick={() => {
-                            router.push('/userRegister')
+                            setcountdowntimer(true)
+                            setTimeout(() => {
+                                setShowsound(true)
+                                setShowVideo(true)
+                            }, 3000);   
+                            setTimeout(() => {
+                                router.push('/userRegister')
+                            }, (timeee+3000-100));
                         }}
                     >
                         REGISTER
                     </button>
+             
                 </div>
             </HeroSection>
 
@@ -944,7 +995,12 @@ const index = () => {
 
                 />
             </section >
-
+            {loadimg && (
+            <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
+            )}
+            {loadimg && (
+                <img width={50} src="/pics/final_h.gif" alt="Scary GIF" /> 
+            )}
         </div >
     </>
     )
