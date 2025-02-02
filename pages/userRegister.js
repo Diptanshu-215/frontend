@@ -12,6 +12,12 @@ export default function userRegister() {
             </Head>
 
             <div className={styles.container} loading="lazy">
+                <div style={{ padding: '3px 6px', backgroundColor: 'black', position: 'absolute', top: '82px', left: '50%', transform: 'translateX(-50%)', borderRadius: '4px' }}>
+                    <p style={{ color: 'white' }}>
+                        Non IITP Students register by their personal email
+                    </p>
+                </div>
+
                 <UserRegisterForm />
                 {/* <img
                     className={styles.island}
