@@ -164,6 +164,10 @@ const Events = () => {
             </Head>
 
             <div className={styles.container}>
+                <div className={styles.textLinkContainer}>
+                    <a href="https://drive.google.com/file/d/13W7BuZjPRJdQPMkST3cp49r-L3qA3nZ-/view?usp=drivesdk" className={styles.textLink} target="_blank">
+                    How to register for Events/Pass</a>
+                </div>
                 <div className={styles.titleBox}>
                     <div className={styles.centergroup}>
                         <img src="/events/center_material.svg" alt="" />
@@ -190,7 +194,7 @@ const Events = () => {
                 </div>
 
                 <div className={styles.cardContainer}>
-                    {filteredEvents.map((item, idx) => (  
+                    {filteredEvents.map((item, idx) => (
                         <Card
                             onClick={() => openModal(item)}
                             key={idx}

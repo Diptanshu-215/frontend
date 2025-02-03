@@ -231,7 +231,14 @@ const UserRegisterForm = () => {
                             }}
                         >
                             Create Your Account
+
+                            <p style={{ fontSize: '0.9rem', color: 'white', marginTop:'5px', textShadow: '0px 0px 5px rgba(255, 255, 255, 0.7)'
+ }}> 
+                                Non IITP Students register by their personal email
+                            </p>
+
                         </div>
+
                         <div className={styles.field}>
                             <label htmlFor="full_name"> Name</label>
                             <br />
@@ -244,6 +251,7 @@ const UserRegisterForm = () => {
                             />
                             <br />
                         </div>
+
                         <div className={styles.field}>
                             <label>Select user type:</label>
                             <br />
