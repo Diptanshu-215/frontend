@@ -5,7 +5,6 @@ import { AuthContext } from '../components/authContext'
 import { useRouter } from 'next/router.js'
 import { proniteRegistration } from '../components/Event Registration/proniteRegistration'
 
-
 const FireSkullHeadLeft = () => {
     return (
         <svg
@@ -377,15 +376,20 @@ function anweshapass() {
         //     </div>
         // </div>
         <div className={styles.container}>
-            <div className={styles.textLinkContainer}>
-                    <a href="https://drive.google.com/file/d/13W7BuZjPRJdQPMkST3cp49r-L3qA3nZ-/view?usp=drivesdk" className={styles.textLink} target="_blank">
-                    How to register for Events/Pass</a>
-                </div>
+            <div className={styles.linkContainer}>
+                <a 
+                    href="https://drive.google.com/file/d/13W7BuZjPRJdQPMkST3cp49r-L3qA3nZ-/view?usp=drivesdk" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                >
+                    How to register for Events/Pass
+                </a>
+            </div>
 
             {/* ------------------------Pass container--------------------------------------------------- */}
             <section className={styles.passcontainer} id="passcontainer">
                 <div className={styles.passcontainer_body}>
-                
+
                     <div>
                         <h2>Anwesha 2025 Pronite Passes</h2>
                         <h3>Own the Unforgettable Experience</h3>
@@ -393,12 +397,13 @@ function anweshapass() {
                     <p>
                         As the night deepens, the echoes grow louder. Shadows dance, whispers slither through the air, and the abyss calls your name. This pass grants you entry into a realm where the eerie meets the extraordinary. Brace yourself for a night of spine-chilling performances, haunting melodies, and events that will test your courage.
                     </p>
-                    <p style={{ marginTop: '-30px' }}>🔮 Beware: Once you enter, there’s no turning back.
+                    <p style={{ marginTop: '-15px' }}>🔮 Beware: Once you enter, there’s no turning back.
 
                         Hold on to your pass… it may be the only thing keeping you from vanishing into the abyss.</p>
                 </div>
 
                 <div className={styles.passcontainer_hero}>
+
                     <div className={styles.passcontainer_background} />
                     <div className={styles.passcontainer_hero_fix}>
                         <div className={styles.passcontainer_tshirts}>
@@ -509,7 +514,7 @@ function anweshapass() {
             </section> */}
 
             {/* -------------------------------------Bollywood Night---------------------------------------- */}
-            
+
             {/* <section className={styles.Bollywood_Night}>
                 <div className={styles.Bollywood_Night_body}>
                     <div>
