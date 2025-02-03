@@ -110,6 +110,44 @@ flex-shrink: 0;
     flex-shrink: 0;
 }
 
+.textLinkContainer {
+    margin-right: 50px; 
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+}
+
+.textLink {
+    color: #FFF;
+    font-family: "Laila", serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+    display: inline; 
+    right: 30px;
+
+}
+
+.textLink::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.textLink {
+    animation: blink 1s infinite;
+}
+
 .titleBox {
     display: flex;
     flex-direction: column;
