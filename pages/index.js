@@ -209,22 +209,22 @@ const GreenCircle = ({ width = 626, height = 626 }) => {
         </svg>
     )
 }
-const MuteIcon = ({width = 48, height = 48}) => {
+const MuteIcon = ({ width = 48, height = 48 }) => {
     return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
         <g>
-	        <path d="M51.707,8.293c-0.391-0.391-1.023-0.391-1.414,0l-42,42c-0.391,0.391-0.391,1.023,0,1.414C8.488,51.902,8.744,52,9,52
+            <path d="M51.707,8.293c-0.391-0.391-1.023-0.391-1.414,0l-42,42c-0.391,0.391-0.391,1.023,0,1.414C8.488,51.902,8.744,52,9,52
 		        s0.512-0.098,0.707-0.293l42-42C52.098,9.316,52.098,8.684,51.707,8.293z"/>
-	        <path d="M52.841,10.561L42,21.402v27.491C42,50.606,40.606,52,38.893,52c-0.547,0-1.09-0.149-1.571-0.432
+            <path d="M52.841,10.561L42,21.402v27.491C42,50.606,40.606,52,38.893,52c-0.547,0-1.09-0.149-1.571-0.432
 		        c-0.063-0.037-0.121-0.081-0.174-0.131L24.106,39.296L10.561,52.841C15.982,57.469,22.795,60,30,60
 		        c8.013,0,15.547-3.121,21.213-8.787S60,38.013,60,30C60,22.795,57.469,15.982,52.841,10.561z"/>
-	        <path d="M15.104,39C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109
+            <path d="M15.104,39C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109
 		        L37.148,7.563c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106v4.479l7.433-7.432
 		        C44.013,2.529,37.203,0,30,0C21.987,0,14.453,3.121,8.787,8.787C3.121,14.453,0,21.987,0,30c0,7.202,2.528,14.013,7.153,19.432
 		        L17.586,39H15.104z"/>
         </g>
     </svg>
 }
-const UnmuteIcon = ({width = 48, height = 48}) => {
+const UnmuteIcon = ({ width = 48, height = 48 }) => {
     return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
         <g>
             <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M42,48.894C42,50.606,40.606,52,38.893,52
@@ -561,8 +561,8 @@ const index = () => {
     const [isMuted, setIsMuted] = useState(true); // Start with the video muted
     const toggleMute = () => {
         if (videoRef.current) {
-          videoRef.current.muted = !videoRef.current.muted;
-          setIsMuted(!isMuted);
+            videoRef.current.muted = !videoRef.current.muted;
+            setIsMuted(!isMuted);
         }
     };
 
@@ -683,51 +683,51 @@ const index = () => {
     }
 
 
-      const [showsound, setShowsound] = useState(false); // Track video visibility
-      const [showVideo, setShowVideo] = useState(false); // Track video visibility
-      let timeee = 2500;
+    const [showsound, setShowsound] = useState(false); // Track video visibility
+    const [showVideo, setShowVideo] = useState(false); // Track video visibility
+    let timeee = 2500;
 
-      if (typeof window !== "undefined" && window.innerWidth < 700) {
+    if (typeof window !== "undefined" && window.innerWidth < 700) {
         timeee = 1800;
-      }
-      
+    }
 
-      const timer = setTimeout(() => {
-        if ( showsound ) {
-            setShowsound(false)     
-        }
-        if ( showVideo ) {
-            setShowVideo(false)   
-        }
-      }, timeee);
-      
-      const [countdownTimer, setcountdowntimer]= useState(false)
-      const timerui = setTimeout(() => {
-        if ( countdownTimer ) {
-          setcountdowntimer(false)
-        }
-      }, 3000);
-      const [loadimg, setloadimg] = useState(true);
 
-      useEffect(() => {
+    const timer = setTimeout(() => {
+        if (showsound) {
+            setShowsound(false)
+        }
+        if (showVideo) {
+            setShowVideo(false)
+        }
+    }, timeee);
+
+    const [countdownTimer, setcountdowntimer] = useState(false)
+    const timerui = setTimeout(() => {
+        if (countdownTimer) {
+            setcountdowntimer(false)
+        }
+    }, 3000);
+    const [loadimg, setloadimg] = useState(true);
+
+    useEffect(() => {
         setTimeout(() => {
-          setloadimg(false);
+            setloadimg(false);
         }, 10);
-      }, []);
-      
-   
+    }, []);
+
+
 
     return (<>
         {showsound && <SoundPlayer />}
         {showsound && <VideoPlayer />}
-        {countdownTimer && <CountdownTimer/>}
-      
+        {countdownTimer && <CountdownTimer />}
+
         <Head>
             <title>Anwesha 2024</title>
             <meta name="description" content="Anwesha 2024" />
             <link rel="icon" href="./logo_no_bg.svg" />
         </Head>
-        
+
         <div className={styles.bg}>
             {/* HERO */}
             <HeroSection className={styles.hero}>
@@ -751,15 +751,15 @@ const index = () => {
                             setTimeout(() => {
                                 setShowsound(true)
                                 setShowVideo(true)
-                            }, 3000);   
+                            }, 3000);
                             setTimeout(() => {
                                 router.push('/userRegister')
-                            }, (timeee+3000-100));
+                            }, (timeee + 3000 - 100));
                         }}
                     >
                         REGISTER
                     </button>
-             
+
                 </div>
             </HeroSection>
 
@@ -827,15 +827,18 @@ const index = () => {
                 <div className={styles.merch_hero}>
                     <div className={styles.merch_background} />
                     <div className={styles.merch_hero_fix}>
-                        <div className={styles.merch_tshirts}>  
+                        <div className={styles.merch_tshirts}>
                             {/* <div className={styles.tshirt_white} /> */}
                             {/* <div className={styles.tshirt_black_parent}> */}
-                                {/* <div className={styles.tshirt_black} /> */}
+                            {/* <div className={styles.tshirt_black} /> */}
                             {/* </div> */}
                             {/* <div className={styles.tshirt_blue} /> */}
                         </div>
                         <div className={styles.merch_button}>
-                            <button className={styles.sexy_button}>
+                            <button
+                                className={styles.sexy_button}
+                                onClick={() => window.open("https://docs.google.com/forms/d/1B6yMQs6Y8UV5GDrnxYipGIrDWCY4mcZZvPVboi5Q1nU/edit")}
+                            >
                                 GRAB NOW
                             </button>
                         </div>
@@ -909,15 +912,15 @@ const index = () => {
                     /> */}
                     <video ref={videoRef} autoPlay muted={isMuted} loop width={1226} height={607}>
                         <source
-                            src='https://astounding-madeleine-371471.netlify.app/assets/Anwesha25Aftermovie.mp4' 
-                            type='video/mp4' 
+                            src='https://astounding-madeleine-371471.netlify.app/assets/Anwesha25Aftermovie.mp4'
+                            type='video/mp4'
                         />
                     </video>
                     {/* <iframe src="https://drive.google.com/file/d/17qtrN_8Qg9vUAEps515INNUQRGd3oMla/preview" width="1226" height="607" allow="autoplay"></iframe> */}
                     {/* <iframe src="https://streamable.com/e/4qofi9" width={1226} height={607} frameborder="0" allowfullscreen></iframe> */}
                     <div>
-                        <button onClick={toggleMute} style={{width: 32, height: 32}}>
-                            {isMuted ? <MuteIcon width={32} height={32}/> : <UnmuteIcon  width={32} height={32}/>}
+                        <button onClick={toggleMute} style={{ width: 32, height: 32 }}>
+                            {isMuted ? <MuteIcon width={32} height={32} /> : <UnmuteIcon width={32} height={32} />}
                         </button>
                     </div>
                 </div>
@@ -996,10 +999,10 @@ const index = () => {
                 />
             </section >
             {loadimg && (
-            <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
+                <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
             )}
             {loadimg && (
-                <img width={50} src="/pics/final_h.gif" alt="Scary GIF" /> 
+                <img width={50} src="/pics/final_h.gif" alt="Scary GIF" />
             )}
         </div >
     </>
