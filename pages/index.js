@@ -827,12 +827,12 @@ const index = () => {
                 <div className={styles.merch_hero}>
                     <div className={styles.merch_background} />
                     <div className={styles.merch_hero_fix}>
-                        <div className={styles.merch_tshirts}>
-                            <div className={styles.tshirt_white} />
-                            <div className={styles.tshirt_black_parent}>
-                                <div className={styles.tshirt_black} />
-                            </div>
-                            <div className={styles.tshirt_blue} />
+                        <div className={styles.merch_tshirts}>  
+                            {/* <div className={styles.tshirt_white} /> */}
+                            {/* <div className={styles.tshirt_black_parent}> */}
+                                {/* <div className={styles.tshirt_black} /> */}
+                            {/* </div> */}
+                            {/* <div className={styles.tshirt_blue} /> */}
                         </div>
                         <div className={styles.merch_button}>
                             <button className={styles.sexy_button}>

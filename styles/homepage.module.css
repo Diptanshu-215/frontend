@@ -530,8 +530,15 @@
 }
 .merch_tshirts {
     position: relative;
+    
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0;
+    background: url('/pics/merch_comb.png') transparent 50% / cover no-repeat;
+    z-index: 9;
+    aspect-ratio: 2898 / 2454;
 }
-.tshirt_blue {
+/* .tshirt_blue {
     position: absolute;
     top: 0;
     left: 0;
@@ -587,7 +594,7 @@
     50% {
         background-position: calc(100% + 14px) 0;
     }
-}
+} */
 .merch_button {
     bottom: 180px;
     width: 100%;
@@ -655,6 +662,7 @@
     }
     .merch_hero {
         margin-top: -30px;
+        height: calc(400px + 43vw);
     }
     .merch_hero_fix {
         margin-top: 0;
@@ -663,7 +671,7 @@
         width: 75vw;
         max-width: 515px;
     }
-    .merch_tshirts {
+    /* .merch_tshirts {
         height: 100%;
     }
     .tshirt_blue {
@@ -677,7 +685,7 @@
     .tshirt_white {
         width: calc(271.126px / 1.25);
         height: calc(358.956px / 1.25);
-    }
+    } */
     .merch_button {
         bottom: 120px;
     }
@@ -717,7 +725,10 @@
         max-width: 400px;
         min-width: 280px;
     }
-    .tshirt_blue {
+    .merch_hero {
+        height: calc(450px + 45vw);
+    }
+    /* .tshirt_blue {
         width: calc(271.126px / 1.5);
         height: calc(358.956px / 1.5);
     }
@@ -731,7 +742,7 @@
     .tshirt_white {
         width: calc(271.126px / 1.5);
         height: calc(358.956px / 1.5);
-    }
+    } */
     .merch_button {
         bottom: 180px;
     }
@@ -744,6 +755,11 @@
 @media only screen and (max-width: 400px) {
     .merch_body > div > h3 {
         font-size: 14px;
+    }
+}
+@media only screen and (max-width: 300px) {
+    .merch_hero {
+        height: 550px;
     }
 }
 /* =================================== Anwesha Through the Lens =================================== */
