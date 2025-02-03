@@ -111,10 +111,12 @@ flex-shrink: 0;
 }
 
 .textLinkContainer {
-    margin-right: 50px; 
+    margin-top: -20px;
+    margin-right: -70px; 
+    margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 

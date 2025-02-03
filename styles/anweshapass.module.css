@@ -189,7 +189,7 @@
 
 .textLinkContainer {
     position: absolute;
-    top: 90px; /* Adjust to fit your layout */
+    top: 60px; /* Adjust to fit your layout */
     right: 15px; /* Push to the right */
     background: transparent; /* Remove background if any */
     padding: 5px 10px;
