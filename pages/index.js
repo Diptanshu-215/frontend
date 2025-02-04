@@ -723,8 +723,8 @@ const index = () => {
         {countdownTimer && <CountdownTimer />}
 
         <Head>
-            <title>Anwesha 2024</title>
-            <meta name="description" content="Anwesha 2024" />
+            <title>Anwesha 2025</title>
+            <meta name="description" content="Anwesha 2025" />
             <link rel="icon" href="./logo_no_bg.svg" />
         </Head>
 
