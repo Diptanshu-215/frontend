@@ -518,11 +518,11 @@ function anweshapass() {
             <section className={styles.cultural_Night}>
                 <div className={styles.cultural_Night_body}>
                     <div>
-                        <h2>Cultural Night</h2>
+                        <h2>DJ Night</h2>
 
                     </div>
                     <p>
-                        Anwesha's Cultural Night, Virasat'24, by SPIC MACAY, is a vibrant showcase of Indian culture. With mesmerizing Qawwali melodies and energetic Purulia Chhau dance, it celebrates India's rich cultural tapestry. Accomplished artists and rising talents promise an unforgettable evening of rhythmic beats and graceful movements.
+                    Anwesha's DJ Night brings an electrifying fusion of beats and energy, headlined by the sensational DJ Anshika. Get ready to lose yourself in pulsating rhythms, high-energy drops, and an unforgettable night of non-stop music. With heart-thumping bass and a euphoric atmosphere, this night promises an experience where the crowd moves as one, the lights sync with the beats, and every moment turns into a memory. Let the music take control—DJ Night at Anwesha is where the night truly comes alive!
                     </p>
                 </div>
                 <div className={styles.cultural_Night_hero}>
