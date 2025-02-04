@@ -101,8 +101,7 @@ const Footer = () => {
                             Anwesha Office, <br />
                             Indian Institute of Technology Patna, <br />
                             Bihta, Patna - 801103 <br />
-                            +91 8130169059   <br />
-                            +91 8207259900<br />
+                            anwesha@iitp.ac.in ( office work only )  <br />
                             <span
                                 onClick={() => router.push('/contact')}
                                 style={{ textDecoration: 'underline', cursor: 'pointer' }}
