@@ -395,11 +395,12 @@ function anweshapass() {
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
-                        As the night deepens, the echoes grow louder. Shadows dance, whispers slither through the air, and the abyss calls your name. This pass grants you entry into a realm where the eerie meets the extraordinary. Brace yourself for a night of spine-chilling performances, haunting melodies, and events that will test your courage.
+                    As the night deepens, the stage lights up with magic, and the air hums with anticipation. Anwesha’s Bollywood Night brings you the voice that has touched millions—Armaan Malik! Get ready to lose yourself in soul-stirring melodies, electrifying energy, and a performance that will stay with you long after the final note. This is more than just a concert; it’s a night where music meets emotion, where every lyric tells a story, and where you become part of something unforgettable. Let the rhythm take over—Anwesha awaits you! 
                     </p>
                     <p style={{ marginTop: '-15px' }}>🔮 Beware: Once you enter, there’s no turning back.
 
                         Hold on to your pass… it may be the only thing keeping you from vanishing into the abyss.</p>
+                        <br />
                 </div>
 
                 <div className={styles.passcontainer_hero}>
@@ -474,28 +475,27 @@ function anweshapass() {
                 </div>
             </section> */}
 
-            {/* -------------------------------------Culteral Night---------------------------------------- */}
+             {/* -------------------------------------Bollywood Night---------------------------------------- */}
 
-            {/* <section className={styles.cultural_Night}>
-                <div className={styles.cultural_Night_body}>
+             <section className={styles.Bollywood_Night}>
+                <div className={styles.Bollywood_Night_body}>
                     <div>
-                        <h2>Cultural Night</h2>
+                        <h2>Bollywood Night</h2>
 
                     </div>
                     <p>
-                        Anwesha's Cultural Night, Virasat'24, by SPIC MACAY, is a vibrant showcase of Indian culture. With mesmerizing Qawwali melodies and energetic Purulia Chhau dance, it celebrates India's rich cultural tapestry. Accomplished artists and rising talents promise an unforgettable evening of rhythmic beats and graceful movements.
+                        IIT Patna's Anwesha brings back the dazzling Bollywood night, Pronite! Featuring the musical maestro behind hits like "Badtameez Dil" and "Pashmina," this event follows the legacy of Sanam Band and KK. Join us for a night of vibrant melodies, pulsating beats, and Bollywood magic as Pronite 2024 lights up the town under the disco ball!
                     </p>
                 </div>
-                <div className={styles.cultural_Night_hero}>
-                    <div className={styles.cultural_Night_background} />
-                    <div className={styles.cultural_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
+                <div className={styles.Bollywood_Night_hero}>
+                    <div className={styles.Bollywood_Night_background} />
+                    <div className={styles.Bollywood_Night_imgbg}><img src='/passes/bollywood_Night.png' width="370"></img></div>
                 </div>
-            </section> */}
+            </section>
 
+             {/* -------------------------------------Melody Night---------------------------------------- */}
 
-            {/* -------------------------------------Melody Night---------------------------------------- */}
-
-            {/* <section className={styles.Melody_Night}>
+            <section className={styles.Melody_Night}>
 
                 <div className={styles.Melody_Night_hero}>
                     <div className={styles.Melody_Night_background} />
@@ -511,25 +511,30 @@ function anweshapass() {
                         Dive into sonic bliss at our Melody night. Let DJs weave exhilarating beats on the dance floor, creating an unforgettable experience of pulsating rhythms. Join us for an immersive night of electronic enchantment with vibrant lights, energetic beats, and contagious energy.
                     </p>
                 </div>
-            </section> */}
+            </section>
 
-            {/* -------------------------------------Bollywood Night---------------------------------------- */}
+            {/* -------------------------------------DJ Night---------------------------------------- */}
 
-            {/* <section className={styles.Bollywood_Night}>
-                <div className={styles.Bollywood_Night_body}>
+            <section className={styles.cultural_Night}>
+                <div className={styles.cultural_Night_body}>
                     <div>
-                        <h2>Bollywood Night</h2>
+                        <h2>Cultural Night</h2>
 
                     </div>
                     <p>
-                        IIT Patna's Anwesha brings back the dazzling Bollywood night, Pronite! Featuring the musical maestro behind hits like "Badtameez Dil" and "Pashmina," this event follows the legacy of Sanam Band and KK. Join us for a night of vibrant melodies, pulsating beats, and Bollywood magic as Pronite 2024 lights up the town under the disco ball!
+                        Anwesha's Cultural Night, Virasat'24, by SPIC MACAY, is a vibrant showcase of Indian culture. With mesmerizing Qawwali melodies and energetic Purulia Chhau dance, it celebrates India's rich cultural tapestry. Accomplished artists and rising talents promise an unforgettable evening of rhythmic beats and graceful movements.
                     </p>
                 </div>
-                <div className={styles.Bollywood_Night_hero}>
-                    <div className={styles.Bollywood_Night_background} />
-                    <div className={styles.Bollywood_Night_imgbg}><img src='/passes/melody_night_poster2.png' width="370"></img></div>
+                <div className={styles.cultural_Night_hero}>
+                    <div className={styles.cultural_Night_background} />
+                    <div className={styles.cultural_Night_imgbg}><img src='/passes/dj_Night.png' width="370"></img></div>
                 </div>
-            </section> */}
+            </section>
+
+
+           
+
+           
         </div>
     )
 }
