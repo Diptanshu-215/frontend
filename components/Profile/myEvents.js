@@ -477,8 +477,8 @@ function MyEvents() {
                         )
                     })}
                     {events.team.map((e, key) => {
-                        return (
-                            <div key={key} className={styles.pass}>
+                        return (e.payment_done &&
+                            < div key={key} className={styles.pass} >
                                 <img src={'/pics/pass.png'}></img>
                                 <div className={styles.passDetail}>
                                     <div
@@ -535,7 +535,8 @@ function MyEvents() {
                         )
                     })}
                 </div>
-            ) : null}
+            ) : null
+            }
 
             {/* <div>
                 <div className={styles.eventsHeading}>Event Passes</div>
@@ -586,7 +587,7 @@ function MyEvents() {
                     </div>
                 </div>
             </div> */}
-        </div>
+        </div >
     )
 }
 
