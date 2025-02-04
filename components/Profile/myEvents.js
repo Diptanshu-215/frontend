@@ -393,22 +393,7 @@ function MyEvents() {
                                     >
                                         {e.event_name}
                                     </div>
-                                    <div>{new Date(
-                                        e.event_start_time
-                                    ).toLocaleString('default', {
-                                        day: 'numeric',
-                                    })}{' '}
-                                        {new Date(
-                                            e.event_start_time
-                                        ).toLocaleString('default', {
-                                            month: 'short',
-                                        })}{' , '}
-                                        {new Date(
-                                            e.event_start_time
-                                        ).toLocaleString('default', {
-                                            hour: 'numeric',
-                                            minute: 'numeric',
-                                        })}</div>
+                                    <div>8 & 9 Feb, 8 PM Onwards</div>
                                 </div>
                             </div>
                         )
