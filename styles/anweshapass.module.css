@@ -385,6 +385,9 @@
         max-width: 400px;
         min-width: 280px;
     }
+    .passcontainer_tshirts{
+        margin-left: -30px;
+    }
 
     .passcontainer_button {
         position: relative;
@@ -399,6 +402,9 @@
 @media only screen and (max-width: 400px) {
     .passcontainer_body > div > h3 {
         font-size: 14px;
+    }
+    .passcontainer_tshirts{
+        margin-left: 0px;
     }
     .tshirt_white {
         display: none;
@@ -855,10 +861,20 @@
         padding-left: 4px;
         padding-right: 4px;
     }
+    .cultural_Night_hero{
+        height: 500px;
+    }
+    .cultural_Night_imgbg img{
+        width: 100%;
+        height: 100%;
+    }
 }
 @media only screen and (max-width: 400px) {
     .cultural_Night_body > div > h3 {
         font-size: 14px;
+    }
+    .cultural_Night_hero{
+        height: 350px;
     }
 }
 
@@ -987,6 +1003,7 @@
 @media only screen and (max-width: 768px) {
     .Melody_Night_body {
         gap: 22px;
+        margin-bottom: 90px;
     }
     .Melody_Night_body > div {
         gap: 2px !important;
@@ -1015,14 +1032,25 @@
     .Melody_Night_body > div > h3 {
         font-size: 17px;
     }
+    .Melody_Night_hero{
+        height: 500px;
+    }
     .Melody_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
     }
+    .Melody_Night_imgbg img{
+        width: 100%;
+        height: 100%;
+    }
 }
 @media only screen and (max-width: 400px) {
+    
     .Melody_Night_body > div > h3 {
         font-size: 14px;
+    }
+    .Melody_Night_hero{
+        height: 350px;
     }
 }
 
@@ -1183,13 +1211,23 @@
     .Bollywood_Night_body > div > h3 {
         font-size: 17px;
     }
+    .Bollywood_Night_hero{
+        height: 500px;
+    }
     .Bollywood_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
+    }
+    .Bollywood_Night_imgbg img{
+        width: 100%;
+        height: 100%;
     }
 }
 @media only screen and (max-width: 400px) {
     .Bollywood_Night_body > div > h3 {
         font-size: 14px;
+    }
+    .Bollywood_Night_hero{
+        height: 350px;
     }
 }
