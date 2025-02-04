@@ -166,7 +166,7 @@ const Events = () => {
             <div className={styles.container}>
                 <div className={styles.textLinkContainer}>
                     <a href="https://drive.google.com/file/d/13W7BuZjPRJdQPMkST3cp49r-L3qA3nZ-/view?usp=drivesdk" className={styles.textLink} target="_blank">
-                    How to register for Events/Pass</a>
+                    How to register for Events</a>
                 </div>
                 <div className={styles.titleBox}>
                     <div className={styles.centergroup}>

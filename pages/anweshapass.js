@@ -378,11 +378,11 @@ function anweshapass() {
         <div className={styles.container}>
             <div className={styles.linkContainer}>
                 <a 
-                    href="https://drive.google.com/file/d/13W7BuZjPRJdQPMkST3cp49r-L3qA3nZ-/view?usp=drivesdk" 
+                    href="https://drive.google.com/file/d/173X6YlCzY5McPT-5tA_-l2O4I0Pm-n0K/view?usp=drivesdk" 
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
-                    How to register for Events/Pass
+                    How to buy the pronite passes
                 </a>
             </div>
 
