@@ -4,6 +4,7 @@ import { AuthContext } from '../authContext'
 const host = process.env.NEXT_PUBLIC_HOST
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 function loadScript(src) {
     return new Promise((resolve) => {
@@ -64,7 +65,11 @@ async function teamEventRegistration(
         .catch((error) => {
             console.error(error)
         })
-
+    if (data.message == 'This user does not exist') {
+        toast.error('One or more incorrect anwesha id entered');
+        await delay(4000);
+        return;
+    }
     console.log(data);
     const res = await loadScript(
         'https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js?v=' +
