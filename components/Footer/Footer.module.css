@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'SF Ironsides'; /* Name for the font */
+    src: url('/font/SF_Ironsides.ttf') format('truetype'); /* Path to the font */
+    font-weight: normal; /* Define the weight */
+    font-style: normal; /* Define the style */
+}
+
 .footer {
     background: #0d0a18;
     /* height: 501px; */
@@ -59,22 +69,18 @@
     flex-direction: column;
     gap: 20px;
 }
-.social_logo_container> a > img{
+.social_logo_container > a > img {
     cursor: pointer;
 }
-.social_logo_container > a > img:hover{
+.social_logo_container > a > img:hover {
     filter: drop-shadow(2px 2px 2px #a49acb);
 }
 
-
-
 .footer_address {
     color: #fff;
-
-    font-family: 'EB Garamond';
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 23.092px;
-    font-style: normal;
-    font-weight: 500;
+    font-weight: 800;
     line-height: 150%; /* 34.638px */
     z-index: 1;
     /* width: 395px;
@@ -106,7 +112,7 @@
     cursor: pointer;
     /* font-style: ; */
 }
-.footer_nav > .four_fingure > a:hover{
+.footer_nav > .four_fingure > a:hover {
     text-decoration: underline;
     text-decoration-color: #fff;
 }
@@ -137,11 +143,11 @@
     padding-bottom: 20px;
 }
 
-.footer_lower >h4> a{
+.footer_lower > h4 > a {
     all: unset;
 }
 
-.footer_lower >  h4 {
+.footer_lower > h4 {
     color: #fff;
 
     font-family: 'SF Ironsides';
@@ -152,7 +158,7 @@
     cursor: pointer;
     text-underline-offset: 4px;
 }
-.footer_lower > h4:hover{
+.footer_lower > h4:hover {
     text-decoration: underline;
 }
 @media screen and (max-width: 1200px) {
@@ -171,7 +177,7 @@
     }
 }
 @media screen and (max-width: 800px) {
-    .footer_upper > div:first-child > img{
+    .footer_upper > div:first-child > img {
         width: 100%;
     }
     .social_logo {
@@ -210,7 +216,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .footer_upper > div:first-child{
+    .footer_upper > div:first-child {
         z-index: 1;
     }
     .right_helobean {

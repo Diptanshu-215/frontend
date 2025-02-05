@@ -257,7 +257,7 @@
 }
 
 .passcontainer_button {
-    bottom: 180px;
+    bottom: 130px;
     width: 100%;
     position: absolute;
     display: flex;
@@ -271,6 +271,14 @@
 }
 
 .earlybird {
+    color: white;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-family: AnavioSmallCapitalsW01-Bold;
+}
+
+.earlybird1{
     color: white;
     align-items: center;
     text-align: center;
@@ -336,7 +344,7 @@
     .passcontainer_hero_fix {
         margin-top: 0;
         height: 100%;
-        padding-top: 130px;
+        padding-top: 30px;
         width: 75vw;
         max-width: 515px;
     }
@@ -346,7 +354,7 @@
 
     .passcontainer_button {
         position: relative;
-        bottom: 120px;
+        bottom: 180px;
     }
 }
 @media only screen and (max-width: 550px) {
