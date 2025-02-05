@@ -40,7 +40,7 @@ const Footer = () => {
                             </a>
                             <a
 
-                                href="https://instagram.com/anwesha.iitp?igshid=YmMyMTA2M2Y="
+                                href="https://www.instagram.com/anwesha_iitpatna/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
