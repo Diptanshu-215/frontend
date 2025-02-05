@@ -377,9 +377,9 @@ function anweshapass() {
         // </div>
         <div className={styles.container}>
             <div className={styles.linkContainer}>
-                <a 
-                    href="https://drive.google.com/file/d/173X6YlCzY5McPT-5tA_-l2O4I0Pm-n0K/view?usp=drivesdk" 
-                    target="_blank" 
+                <a
+                    href="https://drive.google.com/file/d/173X6YlCzY5McPT-5tA_-l2O4I0Pm-n0K/view?usp=drivesdk"
+                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     How to buy the pronite passes
@@ -395,12 +395,12 @@ function anweshapass() {
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
-                    As the night deepens, the stage lights up with magic, and the air hums with anticipation. Anwesha’s Bollywood Night brings you the voice that has touched millions—Armaan Malik! Get ready to lose yourself in soul-stirring melodies, electrifying energy, and a performance that will stay with you long after the final note. This is more than just a concert; it’s a night where music meets emotion, where every lyric tells a story, and where you become part of something unforgettable. Let the rhythm take over—Anwesha awaits you! 
+                        As the night deepens, the stage lights up with magic, and the air hums with anticipation. Anwesha’s Bollywood Night brings you the voice that has touched millions—Armaan Malik! Get ready to lose yourself in soul-stirring melodies, electrifying energy, and a performance that will stay with you long after the final note. This is more than just a concert; it’s a night where music meets emotion, where every lyric tells a story, and where you become part of something unforgettable. Let the rhythm take over—Anwesha awaits you!
                     </p>
                     <p style={{ marginTop: '-15px' }}>🔮 Beware: Once you enter, there’s no turning back.
 
                         Hold on to your pass… it may be the only thing keeping you from vanishing into the abyss.</p>
-                        <br />
+                    <br />
                 </div>
 
                 <div className={styles.passcontainer_hero}>
@@ -414,11 +414,12 @@ function anweshapass() {
                             </div>
                             <div className={styles.tshirt_blue} />
                         </div>
-                        <div className={styles.passcontainer_button}>
+                        <div className={styles.passcontainer_button} >
                             <button className={styles.sexy_button} onClick={handlefestpass}>
                                 {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
-                            <div className={styles.earlybird}><p>💀 Early Bird Offer ! 💀</p></div>
+                            <div className={styles.earlybird}><p>💀 Early Bird Offer ! Till 5 Feb 11:59 PM 💀</p></div>
+                            <div className={styles.earlybird} style={{ fontSize: '18px' }}><p>Prices will be ₹949 after</p></div>
                         </div>
                     </div>
                 </div>
@@ -475,9 +476,9 @@ function anweshapass() {
                 </div>
             </section> */}
 
-             {/* -------------------------------------Bollywood Night---------------------------------------- */}
+            {/* -------------------------------------Bollywood Night---------------------------------------- */}
 
-             <section className={styles.Bollywood_Night}>
+            <section className={styles.Bollywood_Night}>
                 <div className={styles.Bollywood_Night_body}>
                     <div>
                         <h2>Bollywood Night</h2>
@@ -493,7 +494,7 @@ function anweshapass() {
                 </div>
             </section>
 
-             {/* -------------------------------------Melody Night---------------------------------------- */}
+            {/* -------------------------------------Melody Night---------------------------------------- */}
 
             <section className={styles.Melody_Night}>
 
@@ -522,7 +523,7 @@ function anweshapass() {
 
                     </div>
                     <p>
-                    Anwesha's DJ Night brings an electrifying fusion of beats and energy, headlined by the sensational DJ Anshika. Get ready to lose yourself in pulsating rhythms, high-energy drops, and an unforgettable night of non-stop music. With heart-thumping bass and a euphoric atmosphere, this night promises an experience where the crowd moves as one, the lights sync with the beats, and every moment turns into a memory. Let the music take control—DJ Night at Anwesha is where the night truly comes alive!
+                        Anwesha's DJ Night brings an electrifying fusion of beats and energy, headlined by the sensational DJ Anshika. Get ready to lose yourself in pulsating rhythms, high-energy drops, and an unforgettable night of non-stop music. With heart-thumping bass and a euphoric atmosphere, this night promises an experience where the crowd moves as one, the lights sync with the beats, and every moment turns into a memory. Let the music take control—DJ Night at Anwesha is where the night truly comes alive!
                     </p>
                 </div>
                 <div className={styles.cultural_Night_hero}>
@@ -532,9 +533,9 @@ function anweshapass() {
             </section>
 
 
-           
 
-           
+
+
         </div>
     )
 }

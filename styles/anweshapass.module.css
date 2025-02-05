@@ -196,7 +196,7 @@
     margin-right: auto;
 }
 
-.linkContainer{
+.linkContainer {
     position: absolute;
     top: 80px;
     right: 30px;
@@ -204,13 +204,13 @@
     margin-bottom: 0px;
 }
 
-.linkContainer a{
-    font-family: "Laila", serif;
+.linkContainer a {
+    font-family: 'Laila', serif;
     color: #fff;
     font-size: 20px;
     text-decoration: none;
     display: inline-block;
-    white-space: nowrap; 
+    white-space: nowrap;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
 }
 
@@ -225,7 +225,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
 
 .tshirt_white {
@@ -271,11 +270,11 @@
     margin-right: auto;
 }
 
-.earlybird{
+.earlybird {
     color: white;
     align-items: center;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-family: AnavioSmallCapitalsW01-Bold;
 }
 
@@ -385,7 +384,7 @@
         max-width: 400px;
         min-width: 280px;
     }
-    .passcontainer_tshirts{
+    .passcontainer_tshirts {
         margin-left: -30px;
     }
 
@@ -403,7 +402,7 @@
     .passcontainer_body > div > h3 {
         font-size: 14px;
     }
-    .passcontainer_tshirts{
+    .passcontainer_tshirts {
         margin-left: 0px;
     }
     .tshirt_white {
@@ -845,6 +844,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+    .cultural_Night {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .cultural_Night_body {
         min-width: unset;
         padding-left: 8px;
@@ -861,10 +864,10 @@
         padding-left: 4px;
         padding-right: 4px;
     }
-    .cultural_Night_hero{
+    .cultural_Night_hero {
         height: 500px;
     }
-    .cultural_Night_imgbg img{
+    .cultural_Night_imgbg img {
         width: 100%;
         height: 100%;
     }
@@ -873,7 +876,7 @@
     .cultural_Night_body > div > h3 {
         font-size: 14px;
     }
-    .cultural_Night_hero{
+    .cultural_Night_hero {
         height: 350px;
     }
 }
@@ -969,20 +972,26 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
+    order: 1;
     mix-blend-mode: screen;
 }
 
 .Melody_Night_imgbg {
     background: #000;
     position: relative;
-
+    order: 2;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 @media only screen and (max-width: 1250px) {
+    .Melody_Night_background {
+        order: 2;
+    }
+    .Melody_Night_imgbg {
+        order: 1;
+    }
     .Melody_Night {
         flex-direction: column;
         padding-top: 44px;
@@ -1020,6 +1029,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+    .Melody_Night {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .Melody_Night_body {
         min-width: unset;
         padding-left: 8px;
@@ -1032,24 +1045,23 @@
     .Melody_Night_body > div > h3 {
         font-size: 17px;
     }
-    .Melody_Night_hero{
+    .Melody_Night_hero {
         height: 500px;
     }
     .Melody_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
     }
-    .Melody_Night_imgbg img{
+    .Melody_Night_imgbg img {
         width: 100%;
         height: 100%;
     }
 }
 @media only screen and (max-width: 400px) {
-    
     .Melody_Night_body > div > h3 {
         font-size: 14px;
     }
-    .Melody_Night_hero{
+    .Melody_Night_hero {
         height: 350px;
     }
 }
@@ -1162,7 +1174,6 @@
     .Bollywood_Night {
         flex-direction: column;
         padding-top: 44px;
-        gap: 0px;
     }
     .Bollywood_Night_body {
         width: 100%;
@@ -1195,6 +1206,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+    .Bollywood_Night {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .passcontainer_hero_fix {
         margin-left: auto;
         margin-right: auto;
@@ -1211,14 +1226,14 @@
     .Bollywood_Night_body > div > h3 {
         font-size: 17px;
     }
-    .Bollywood_Night_hero{
+    .Bollywood_Night_hero {
         height: 500px;
     }
     .Bollywood_Night_body > p {
         padding-left: 4px;
         padding-right: 4px;
     }
-    .Bollywood_Night_imgbg img{
+    .Bollywood_Night_imgbg img {
         width: 100%;
         height: 100%;
     }
@@ -1227,7 +1242,7 @@
     .Bollywood_Night_body > div > h3 {
         font-size: 14px;
     }
-    .Bollywood_Night_hero{
+    .Bollywood_Night_hero {
         height: 350px;
     }
 }
