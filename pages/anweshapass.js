@@ -419,7 +419,7 @@ function anweshapass() {
                                 {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
                             <div className={styles.earlybird}><p>💀 Early Bird Offer ! Till 5 Feb 11:59 PM 💀</p></div>
-                            <div className={styles.earlybird} style={{ fontSize: '18px' }}><p>Prices will be ₹949 after</p></div>
+                            <div className={styles.earlybird1} style={{ fontSize: '18px' }}><p>Prices will be ₹949 after</p></div>
                         </div>
                     </div>
                 </div>
