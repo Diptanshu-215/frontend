@@ -382,7 +382,7 @@ function anweshapass() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    How to buy the pronite passes
+                    How to buy the festival passes
                 </a>
             </div>
 
@@ -391,11 +391,11 @@ function anweshapass() {
                 <div className={styles.passcontainer_body}>
 
                     <div>
-                        <h2>Anwesha 2025 Pronite Passes</h2>
+                        <h2>Anwesha 2025 FESTIVAL Passes</h2>
                         <h3>Own the Unforgettable Experience</h3>
                     </div>
                     <p>
-                        As the night deepens, the stage lights up with magic, and the air hums with anticipation. Anwesha’s Bollywood Night brings you the voice that has touched millions—Armaan Malik! Get ready to lose yourself in soul-stirring melodies, electrifying energy, and a performance that will stay with you long after the final note. This is more than just a concert; it’s a night where music meets emotion, where every lyric tells a story, and where you become part of something unforgettable. Let the rhythm take over—Anwesha awaits you!
+                        As the night deepens, the echoes grow louder. Shadows dance, whispers slither through the air, and the abyss calls your name. This pass grants you entry into a realm where the eerie meets the extraordinary. Brace yourself for a night of spine-chilling performances, haunting melodies, and events that will test your courage.
                     </p>
                     <p style={{ marginTop: '-15px' }}>🔮 Beware: Once you enter, there’s no turning back.
 
@@ -418,8 +418,8 @@ function anweshapass() {
                             <button className={styles.sexy_button} onClick={handlefestpass}>
                                 {isloading ? 'GRABBING...' : 'GRAB NOW'}
                             </button>
-                            <div className={styles.earlybird}><p>💀 Early Bird Offer ! Till 5 Feb 11:59 PM 💀</p></div>
-                            <div className={styles.earlybird1} style={{ fontSize: '18px' }}><p>Prices will be ₹949 after</p></div>
+                            {/* <div className={styles.earlybird}><p>💀 Early Bird Offer ! Till 6 Feb 11:59 PM 💀</p></div>
+                            <div className={styles.earlybird1} style={{ fontSize: '18px' }}><p>Prices will be ₹949 after</p></div>*/}
                         </div>
                     </div>
                 </div>
@@ -478,7 +478,7 @@ function anweshapass() {
 
             {/* -------------------------------------Bollywood Night---------------------------------------- */}
 
-            <section className={styles.Bollywood_Night}>
+            {/* <section className={styles.Bollywood_Night}>
                 <div className={styles.Bollywood_Night_body}>
                     <div>
                         <h2>Bollywood Night</h2>
@@ -492,7 +492,7 @@ function anweshapass() {
                     <div className={styles.Bollywood_Night_background} />
                     <div className={styles.Bollywood_Night_imgbg}><img src='/passes/bollywood_Night.png' width="370"></img></div>
                 </div>
-            </section>
+            </section> */}
 
             {/* -------------------------------------Melody Night---------------------------------------- */}
 

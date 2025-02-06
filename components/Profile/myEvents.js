@@ -51,7 +51,7 @@ function MyEvents() {
                 if (data.message == 'You are already registered') {
                     setPasses([
                         {
-                            event_name: "Pronite Pass",
+                            event_name: "Festival Pass",
                             event_start_time: "2025-02-09T15:30:00Z"
                         }
                     ]);
