@@ -53,7 +53,7 @@ async function proniteRegistration(
     }
     var raw = JSON.stringify({
         event_id: eventID,
-        amount: 799,
+        amount: 949,
         email: email,
         phone: phone,
         anwesha_id: anwesha_id,
