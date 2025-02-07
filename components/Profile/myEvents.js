@@ -27,12 +27,12 @@ function MyEvents() {
     useEffect(() => {
         const fetchFestPasses = async () => {
             try {
-                var myHeaders = new Headers();
-                myHeaders.append('Content-Type', 'application/json');
+                var myHeaders = new Headers()
+                myHeaders.append('Content-Type', 'application/json')
 
                 var raw = JSON.stringify({
                     anwesha_id: userData.state.user.anwesha_id,
-                });
+                })
 
                 var requestOptions = {
                     method: 'POST',
@@ -40,29 +40,32 @@ function MyEvents() {
                     body: raw,
                     redirect: 'follow',
                     credentials: 'include',
-                };
+                }
 
-                const response = await fetch(`${host}/festpasses/get`, requestOptions);
+                const response = await fetch(
+                    `${host}/festpasses/get`,
+                    requestOptions
+                )
 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status}`)
                 }
-                const data = await response.json();
+                const data = await response.json()
                 if (data.message == 'You are already registered') {
                     setPasses([
                         {
-                            event_name: "Festival Pass",
-                            event_start_time: "2025-02-09T15:30:00Z"
-                        }
-                    ]);
+                            event_name: 'Festival Pass',
+                            event_start_time: '2025-02-09T15:30:00Z',
+                        },
+                    ])
                 }
             } catch (error) {
-                console.error('Error fetching fest passes:', error);
+                console.error('Error fetching fest passes:', error)
             }
-        };
+        }
 
-        fetchFestPasses();
-    }, []);
+        fetchFestPasses()
+    }, [])
 
     return (
         // <div>
@@ -373,9 +376,10 @@ function MyEvents() {
         // </div>
 
         <div className={styles.eventsInfo}>
-            {events.solo.length === 0 &&
+            {!events.solo ||
+            (events.solo.length === 0 &&
                 events.team.length === 0 &&
-                passes.length === 0 ? (
+                passes.length === 0) ? (
                 <div>No events registered</div>
             ) : null}
             {passes.length !== 0 ? (
@@ -400,7 +404,8 @@ function MyEvents() {
                     })}
                 </div>
             ) : null}
-            {events.solo.length !== 0 || events.team.length !== 0 ? (
+            {(events.solo || events.team) &&
+            (events.solo.length !== 0 || events.team.length !== 0) ? (
                 <div>
                     <div className={styles.eventsHeading}>
                         Registered Events
@@ -427,7 +432,8 @@ function MyEvents() {
                                             e.event_start_time
                                         ).toLocaleString('default', {
                                             month: 'short',
-                                        })}{' , '}
+                                        })}
+                                        {' , '}
                                         {new Date(
                                             e.event_start_time
                                         ).toLocaleString('default', {
@@ -444,84 +450,102 @@ function MyEvents() {
                                             e.event_end_time
                                         ).toLocaleString('default', {
                                             month: 'short',
-                                        })}{' , '}
+                                        })}
+                                        {' , '}
                                         {new Date(
                                             e.event_end_time
                                         ).toLocaleString('default', {
                                             hour: 'numeric',
                                             minute: 'numeric',
-                                        })}
-                                        {' '}
+                                        })}{' '}
                                         {`(${e.event_venue})`}
                                     </div>
                                     <div>
-                                        {e.payment_url != "" ? <a href={e.payment_url} target="_blank" rel="noopener noreferrer">Submission link</a> : null}
+                                        {e.payment_url != '' ? (
+                                            <a
+                                                href={e.payment_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Submission link
+                                            </a>
+                                        ) : null}
                                     </div>
                                 </div>
                             </div>
                         )
                     })}
                     {events.team.map((e, key) => {
-                        return (e.payment_done &&
-                            < div key={key} className={styles.pass} >
-                                <img src={'/pics/pass.png'}></img>
-                                <div className={styles.passDetail}>
-                                    <div
-                                        style={{
-                                            fontFamily: 'Laila-Bold',
-                                        }}
-                                    >
-                                        {e.event_name}
-                                    </div>
-                                    <div>
-                                        Team :  {e.team_name}
-                                        &nbsp;&nbsp;{e.payment_url != "" ? <a href={e.payment_url} target="_blank" rel="noopener noreferrer">Submission link</a> : null}
-
-                                    </div>
-                                    <div>
-                                        {new Date(
-                                            e.event_start_time
-                                        ).toLocaleString('default', {
-                                            day: 'numeric',
-                                        })}{' '}
-                                        {new Date(
-                                            e.event_start_time
-                                        ).toLocaleString('default', {
-                                            month: 'short',
-                                        })}{' , '}
-                                        {new Date(
-                                            e.event_start_time
-                                        ).toLocaleString('default', {
-                                            hour: 'numeric',
-                                            minute: 'numeric',
-                                        })}
-                                        {' - '}
-                                        {new Date(
-                                            e.event_end_time
-                                        ).toLocaleString('default', {
-                                            day: 'numeric',
-                                        })}{' '}
-                                        {new Date(
-                                            e.event_end_time
-                                        ).toLocaleString('default', {
-                                            month: 'short',
-                                        })}{' , '}
-                                        {new Date(
-                                            e.event_end_time
-                                        ).toLocaleString('default', {
-                                            hour: 'numeric',
-                                            minute: 'numeric',
-                                        })}
-                                        {' '}
-                                        {`(${e.event_venue})`}
+                        return (
+                            e.payment_done && (
+                                <div key={key} className={styles.pass}>
+                                    <img src={'/pics/pass.png'}></img>
+                                    <div className={styles.passDetail}>
+                                        <div
+                                            style={{
+                                                fontFamily: 'Laila-Bold',
+                                            }}
+                                        >
+                                            {e.event_name}
+                                        </div>
+                                        <div>
+                                            Team : {e.team_name}
+                                            &nbsp;&nbsp;
+                                            {e.payment_url != '' ? (
+                                                <a
+                                                    href={e.payment_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    Submission link
+                                                </a>
+                                            ) : null}
+                                        </div>
+                                        <div>
+                                            {new Date(
+                                                e.event_start_time
+                                            ).toLocaleString('default', {
+                                                day: 'numeric',
+                                            })}{' '}
+                                            {new Date(
+                                                e.event_start_time
+                                            ).toLocaleString('default', {
+                                                month: 'short',
+                                            })}
+                                            {' , '}
+                                            {new Date(
+                                                e.event_start_time
+                                            ).toLocaleString('default', {
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                            })}
+                                            {' - '}
+                                            {new Date(
+                                                e.event_end_time
+                                            ).toLocaleString('default', {
+                                                day: 'numeric',
+                                            })}{' '}
+                                            {new Date(
+                                                e.event_end_time
+                                            ).toLocaleString('default', {
+                                                month: 'short',
+                                            })}
+                                            {' , '}
+                                            {new Date(
+                                                e.event_end_time
+                                            ).toLocaleString('default', {
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                            })}{' '}
+                                            {`(${e.event_venue})`}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            )
                         )
                     })}
                 </div>
-            ) : null
-            }
+            ) : null}
 
             {/* <div>
                 <div className={styles.eventsHeading}>Event Passes</div>
@@ -572,7 +596,7 @@ function MyEvents() {
                     </div>
                 </div>
             </div> */}
-        </div >
+        </div>
     )
 }
 
