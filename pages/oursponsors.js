@@ -182,323 +182,468 @@ const oursponsors = () => {
         ],
         spons24: [
             {
-                //https://drive.google.com/uc?export=view&id=1RCXj3Es2w-E4ZeMGsB82Jr8z75DL-1tA
-                name: 'Allen Cooper',
-                image: 'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo',
-                link: 'https://www.allencooperindia.com/',
                 partner: 'Clothing & Apparel Partner',
+                sponsors: [
+                    {
+                        // name: 'Allen Cooper',
+                        image: 'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo',
+                        link: 'https://www.allencooperindia.com/',
+                    },
+                ],
             },
-
             {
-                name: 'Bihar Tourism',
-                image: 'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk',
-                link: 'https://tourism.bihar.gov.in',
                 partner: 'Strategic Partner',
+                sponsors: [
+                    {
+                        // name: 'Bihar Tourism',
+                        image: 'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk',
+                        link: 'https://tourism.bihar.gov.in',
+                    },
+                    {
+                        // name: 'Bihar Rajya Pul Nirman Nigam',
+                        image: 'https://drive.google.com/uc?export=view&id=1sD17yO4Zwm449d9ilTh9cPRoTeUd4tpy',
+                        link: 'https://brpnnl.bihar.gov.in',
+                    },
+                    {
+                        // name: 'Bihar Council on Science and Technology',
+                        image: 'https://drive.google.com/uc?export=view&id=1UBiVYAM7HGv-tjMiyTofA7_ZCWS959MG',
+                        link: 'https://bcstnsdnmd.co.in/home/',
+                    },
+                    {
+                        // name: 'NHAI',
+                        image: 'https://drive.google.com/uc?export=view&id=1lvnREbJ84WauvAhwBCrtO7P11HO-HUz9',
+                        link: 'https://nhai.gov.in/',
+                    },
+                    {
+                        // name: 'NTPC',
+                        image: 'https://drive.google.com/uc?export=view&id=13oaVnvbhSXcAZTTajdcwXVJ-4YjGtRBu',
+                        link: 'https://www.ntpc.co.in/',
+                    },
+                    {
+                        // name: 'Startup Bihar',
+                        image: 'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
+                        link: 'https://startup.bihar.gov.in/',
+                    },
+                ],
             },
-
             {
-                name: 'Biryani',
-                image: 'https://drive.google.com/uc?export=view&id=1NzTZh6D-THmqConUzrZ2tvC3PaJU3Ets',
-                link: 'https://biryanibykilo.com',
                 partner: 'Food Partner',
+                sponsors: [
+                    {
+                        // name: 'Biryani',
+                        image: 'https://drive.google.com/uc?export=view&id=1NzTZh6D-THmqConUzrZ2tvC3PaJU3Ets',
+                        link: 'https://biryanibykilo.com',
+                    },
+                    {
+                        // name: 'Dominos',
+                        image: 'https://drive.google.com/uc?export=view&id=1EKapSE6Q9xbDmycY0XecwCEHKjxUqZzO',
+                        link: 'https://www.dominos.co.in/',
+                    },
+                    {
+                        // name: 'Waffcha',
+                        image: 'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
+                        link: 'https://www.waffcha.com/',
+                    },
+                    {
+                        // name: 'Wat A Burger',
+                        image: 'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI',
+                        link: 'https://www.wataburger.in/',
+                    },
+                ],
             },
             {
-                name: 'Boult',
-                image: 'https://drive.google.com/uc?export=view&id=10JmGTjBV_wliW6EoE4ozwnErEHNWZlGe',
-                link: 'https://www.boultaudio.com/',
                 partner: 'Audio Partner',
+                sponsors: [
+                    {
+                        // name: 'Boult',
+                        image: 'https://drive.google.com/uc?export=view&id=10JmGTjBV_wliW6EoE4ozwnErEHNWZlGe',
+                        link: 'https://www.boultaudio.com/',
+                    },
+                ],
             },
             {
-                name: 'Bihar Rajya Pul Nirman Nigam',
-                image: 'https://drive.google.com/uc?export=view&id=1sD17yO4Zwm449d9ilTh9cPRoTeUd4tpy',
-                link: 'https://brpnnl.bihar.gov.in',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Bihar State Aids Control Society',
-                image: 'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-',
-                link: ' http://122.252.249.61/BSACS/(S(wcqp3b22llkmyral43koyee0))/home.aspx',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Bihar State Electronics Development Corporation',
-                image: 'https://drive.google.com/uc?export=view&id=1QZLHYPSJsMLQUKssih7HPqU5DwMGkcnc',
-                link: 'https://bsedc.bihar.gov.in/',
-                partner: 'Key Partner',
-            },
-            {
-                name: 'Bihar Council on Science and Technology',
-                image: 'https://drive.google.com/uc?export=view&id=1UBiVYAM7HGv-tjMiyTofA7_ZCWS959MG',
-                link: 'https://bcstnsdnmd.co.in/home/',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Department of Information Technology',
-                image: 'https://drive.google.com/uc?export=view&id=1gg9J_on8QTdBs64u7TVwpwkc45ydw4Eq',
-                link: 'https://state.bihar.gov.in/dit/CitizenHome.html',
-                partner: 'Associate Partner',
-            },
-            {
-                name: 'Department of Industries',
-                image: 'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN',
-                link: '',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Dominos',
-                image: 'https://drive.google.com/uc?export=view&id=1EKapSE6Q9xbDmycY0XecwCEHKjxUqZzO',
-                link: ' https://www.dominos.co.in/',
-                partner: 'Food Partner',
-            },
-            {
-                name: 'Fueling',
-                image: 'https://drive.google.com/uc?export=view&id=1_LI78ee0KbgufhKeFSNQJSK7DzqG6T6q',
-                link: 'https://www.hindustanpetroleum.com/',
-                partner: 'Fuel Partner',
-            },
-            {
-                name: 'Hydration',
-                image: 'https://drive.google.com/uc?export=view&id=1NXlcqgtvPwuaGzr0KxNWWaIGvNgUWDax',
-                link: ' ',
-                partner: 'Hydration Partner',
-            },
-            {
-                name: 'Kala Akchar',
-                image: 'https://drive.google.com/uc?export=view&id=1Ge6eJMxha0lNxzF8AXW-aT8fP11FXJHA',
-                link: ' ',
-                partner: '',
-            },
-            {
-                name: 'NHAI',
-                image: 'https://drive.google.com/uc?export=view&id=1lvnREbJ84WauvAhwBCrtO7P11HO-HUz9',
-                link: ' https://nhai.gov.in/',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'NTPC',
-                image: 'https://drive.google.com/uc?export=view&id=13oaVnvbhSXcAZTTajdcwXVJ-4YjGtRBu',
-                link: ' https://www.ntpc.co.in/',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Red FM',
-                image: 'https://drive.google.com/uc?export=view&id=12n_N2f4FyomvBlLOELPnGhLjgPdzCfkb',
-                link: 'https://redfmindia.in ',
-                partner: 'Radio Partner',
-            },
-            {
-                name: 'Road Chef',
-                image: 'https://drive.google.com/uc?export=view&id=13M6yySVuABxMP7pus6Hy2HVbianRpSnA',
-                link: ' ',
-                partner: 'Food Partner',
-            },
-            {
-                name: 'State Bank of India',
-                image: 'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
-                link: ' https://www.sbi.co.in/',
                 partner: 'Banking Partner',
+                sponsors: [
+                    {
+                        // name: 'State Bank of India',
+                        image: 'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
+                        link: 'https://www.sbi.co.in/',
+                    },
+                ],
             },
             {
-                name: 'Startup Bihar',
-                image: 'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
-                link: 'https://startup.bihar.gov.in/',
-                partner: 'Strategic Partner',
+                partner: 'Radio Partner',
+                sponsors: [
+                    {
+                        // name: 'Red FM',
+                        image: 'https://drive.google.com/uc?export=view&id=12n_N2f4FyomvBlLOELPnGhLjgPdzCfkb',
+                        link: 'https://redfmindia.in',
+                    },
+                ],
             },
             {
-                name: 'The Community Events',
-                image: 'https://drive.google.com/uc?export=view&id=1AA3qGrGqqTbmfo2DAWmkAWXs8KWTDC07',
-                link: 'https://www.facebook.com/thecommunityevents/',
-                partner: 'Event Partner',
-            },
-            {
-                name: 'Times of India',
-                image: 'https://drive.google.com/uc?export=view&id=1Ub5Ntbu30Kp-1dpYSeB0M_QtbjGsiVpI',
-                link: 'https://timesofindia.indiatimes.com/',
                 partner: 'Print Partner',
+                sponsors: [
+                    {
+                        // name: 'Times of India',
+                        image: 'https://drive.google.com/uc?export=view&id=1Ub5Ntbu30Kp-1dpYSeB0M_QtbjGsiVpI',
+                        link: 'https://timesofindia.indiatimes.com/',
+                    },
+                ],
             },
             {
-                name: 'Waffcha',
-                image: 'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
-                link: 'https://www.waffcha.com/',
-                partner: 'Food Partner',
+                partner: 'Event Partner',
+                sponsors: [
+                    {
+                        // name: 'The Community Events',
+                        image: 'https://drive.google.com/uc?export=view&id=1AA3qGrGqqTbmfo2DAWmkAWXs8KWTDC07',
+                        link: 'https://www.facebook.com/thecommunityevents/',
+                    },
+                ],
             },
             {
-                name: 'Wat A Burger',
-                image: 'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI',
-                link: 'https://www.wataburger.in/',
-                partner: 'Food Partner',
+                partner: 'Hydration Partner',
+                sponsors: [
+                    {
+                        // name: 'Hydration',
+                        image: 'https://drive.google.com/uc?export=view&id=1NXlcqgtvPwuaGzr0KxNWWaIGvNgUWDax',
+                        link: '',
+                    },
+                ],
+            },
+            {
+                partner: 'Key Partner',
+                sponsors: [
+                    {
+                        // name: 'Bihar State Electronics Development Corporation',
+                        image: 'https://drive.google.com/uc?export=view&id=1QZLHYPSJsMLQUKssih7HPqU5DwMGkcnc',
+                        link: 'https://bsedc.bihar.gov.in/',
+                    },
+                ],
             },
         ],
+
         spons25: [
             {
-                name: 'ARISTA Networks',
-                image: 'https://drive.google.com/uc?export=view&id=1dXMeVRz2jbkW4oFGbCYeNr2ooNPbx9Ox',
-                link: 'https://www.arista.com',
                 partner: 'Associate & Event Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1dXMeVRz2jbkW4oFGbCYeNr2ooNPbx9Ox',
+                        link: 'https://www.arista.com',
+                    },
+                ],
             },
             {
-                name: 'State Bank of India',
-                image: 'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
-                link: 'https://www.sbi.co.in',
                 partner: 'Banking Partner',
+                sponsors: [
+                    {
+                        // name: 'State Bank of India',
+                        image: 'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
+                        link: 'https://www.sbi.co.in',
+                    },
+                ],
             },
             {
-                name: 'Indian Oil & XP95',
-                image: 'https://drive.google.com/uc?export=view&id=1S8D9eehYFohjFcOB4acJxmBgc2q8ZQNk',
-                link: 'https://www.iocl.com',
                 partner: 'Pronite & Fueling Partner',
+                sponsors: [
+                    {
+                        // name: 'Indian Oil & XP95',
+                        image: 'https://drive.google.com/uc?export=view&id=1S8D9eehYFohjFcOB4acJxmBgc2q8ZQNk',
+                        link: 'https://www.iocl.com',
+                    },
+                ],
             },
             {
-                name: 'Spic Macay',
-                image: 'https://drive.google.com/uc?export=view&id=1a18oT-fdAI_A5oOjKEqAkJYqxsqHhFLf',
-                link: 'https://www.instagram.com/spicmacayofficial/?hl=en',
                 partner: 'Cultural Partner',
+                sponsors: [
+                    {
+                        // name: 'Spic Macay',
+                        image: 'https://drive.google.com/uc?export=view&id=1a18oT-fdAI_A5oOjKEqAkJYqxsqHhFLf',
+                        link: 'https://www.instagram.com/spicmacayofficial/?hl=en',
+                    },
+                ],
             },
             {
-                name: 'Software Technology Parks of India',
-                image: 'https://drive.google.com/uc?export=view&id=1tCIRaCaE8h8jSht2kXvrOI8Df_5CSD42',
-                link: 'https://stpi.in',
-                partner: 'Strategic Partner',
+                partner: 'Strategic Partners',
+                sponsors: [
+                    {
+                        // name: 'Software Technology Parks of India',
+                        image: 'https://drive.google.com/uc?export=view&id=1tCIRaCaE8h8jSht2kXvrOI8Df_5CSD42',
+                        link: 'https://stpi.in',
+                    },
+                    {
+                        // name: 'Department of Industries',
+                        image: 'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN',
+                        link: '',
+                    },
+                    {
+                        // name: 'Startup Bihar',
+                        image: 'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
+                        link: 'https://startup.bihar.gov.in/',
+                    },
+                    {
+                        // name: 'Bihar Tourism',
+                        image: 'https://drive.google.com/uc?export=view&id=1pRqsKrhyTbhOpnxnNOKNTVwQxW4krm-L',
+                        link: 'https://tourism.bihar.gov.in',
+                    },
+                    {
+                        // name: 'Public Health Engineering Department, Bihar',
+                        image: 'https://drive.google.com/uc?export=view&id=1oX-0boxmmSYbzBAVuPGMzUujaru3wm5D',
+                        link: 'http://phed.bih.nic.in',
+                    },
+                    {
+                        // name: 'Bihar State AIDS Control Society',
+                        image: 'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-',
+                        link: 'http://bsacs.in',
+                    },
+                    {
+                        // name: 'Bihar State Building Construction Corporation Limited',
+                        image: 'https://drive.google.com/uc?export=view&id=12rzaQ86RQfHFE_T0XGc-c8uRi_sQILRZ',
+                        link: 'https://bsbccl.bihar.gov.in',
+                    },
+                    {
+                        // name: 'Ceigall India Limited',
+                        image: 'https://drive.google.com/uc?export=view&id=1CxQTY0H12QpCqC0YziCUZrpCFTnZkTsB',
+                        link: 'https://ceigall.com',
+                    },
+                ],
             },
             {
-                name: 'Department of Industries',
-                image: 'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN',
-                link: '',
-                partner: 'Strategic Partner',
+                partner: 'Food Partners',
+                sponsors: [
+                    {
+                        // name: 'KFC',
+                        image: 'https://drive.google.com/uc?export=view&id=1wujyrcqa-j8QVYTJ8aA6NAP8mGQS2w5Z',
+                        link: 'https://online.kfc.co.in/',
+                    },
+                    {
+                        // name: 'Waffcha',
+                        image: 'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
+                        link: 'https://www.waffcha.com/',
+                    },
+                ],
             },
             {
-                name: 'Startup Bihar',
-                image: 'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
-                link: 'https://startup.bihar.gov.in/',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Bihar Tourism',
-                image: 'https://drive.google.com/uc?export=view&id=1pRqsKrhyTbhOpnxnNOKNTVwQxW4krm-L',
-                link: 'https://tourism.bihar.gov.in',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Public Health Engineering Department, Bihar',
-                image: 'https://drive.google.com/uc?export=view&id=1oX-0boxmmSYbzBAVuPGMzUujaru3wm5D',
-                link: 'http://phed.bih.nic.in',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Bihar State AIDS Control Society',
-                image: 'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-',
-                link: 'http://bsacs.in',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Bihar State Building Construction Corporation Limited',
-                image: 'https://drive.google.com/uc?export=view&id=12rzaQ86RQfHFE_T0XGc-c8uRi_sQILRZ',
-                link: 'https://bsbccl.bihar.gov.in',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'Ceigall India Limited',
-                image: 'https://drive.google.com/uc?export=view&id=1CxQTY0H12QpCqC0YziCUZrpCFTnZkTsB',
-                link: 'https://ceigall.com',
-                partner: 'Strategic Partner',
-            },
-            {
-                name: 'KFC',
-                image: 'https://drive.google.com/uc?export=view&id=1wujyrcqa-j8QVYTJ8aA6NAP8mGQS2w5Z',
-                link: 'https://online.kfc.co.in/',
-                partner: 'Food Partner',
-            },
-            {
-                name: 'Waffcha',
-                image: 'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
-                link: 'https://www.waffcha.com/',
-                partner: 'Food Partner',
-            },
-            {
-                name: 'KTM',
-                image: 'https://drive.google.com/uc?export=view&id=1kJCVCocwlbbqFqnMQZYKroZJrC1E-7kU',
-                link: 'https://www.ktm.com',
                 partner: 'Biking Partner',
+                sponsors: [
+                    {
+                        // name: 'KTM',
+                        image: 'https://drive.google.com/uc?export=view&id=1kJCVCocwlbbqFqnMQZYKroZJrC1E-7kU',
+                        link: 'https://www.ktm.com',
+                    },
+                ],
             },
             {
-                name: 'Konnifel',
-                image: 'https://drive.google.com/uc?export=view&id=1PSx1RqfdGkvXoKL4e11PuG8X_ORouj4Z',
-                link: 'https://konnifel.com',
-                partner: 'Knowledge Partner',
+                partner: 'Media Partners',
+                sponsors: [
+                    {
+                        name: 'Garda Patna',
+                        image: 'https://drive.google.com/uc?export=view&id=1VIItQYV-XlG0gld1B_Z1aRPyOmgqQVhV',
+                        link: 'https://www.instagram.com/gardapatna/',
+                    },
+                    {
+                        // name: 'Asian Times',
+                        image: 'https://drive.google.com/uc?export=view&id=1vYUNAIOyvqXlwoeamDbfaq0aKHN7e5hc',
+                        link: 'https://asiantimes.in/',
+                    },
+                    {
+                        // name: 'Explore Bihar',
+                        image: 'https://drive.google.com/uc?export=view&id=1qqUiTYE_DT4W2KjzodLJak9EE1R7TfLe',
+                        link: 'https://www.instagram.com/explore_bihar/?hl=en',
+                    },
+                    {
+                        name: 'Patna Beats',
+                        image: 'https://drive.google.com/uc?export=view&id=10oF_KynDEuXJTsiBOo-U1XBvMrAMMkeP',
+                        link: 'https://www.patnabeats.com/lander',
+                    },
+                ],
             },
             {
-                name: 'Civil Fodo',
-                image: 'https://drive.google.com/uc?export=view&id=1mjlgk_6CMinLARP22Q72fTO3bzPXMP8X',
-                link: 'https://www.instagram.com/civilsphodo/',
-                partner: 'Education Partner',
-            },
-            {
-                name: 'JioSaavn',
-                image: 'https://drive.google.com/uc?export=view&id=1n5TbWRD6kiILLDC9lb-cWRlURaNBZ2RN',
-                link: 'https://www.jiosaavn.com',
-                partner: 'Official Music Streaming Partner',
-            },
-            {
-                name: 'Finvasia',
-                image: 'https://drive.google.com/uc?export=view&id=1rAyeAtwSJeSXSXaf3SHaSM2e0KFLUJxH',
-                link: 'https://finvasia.com',
-                partner: 'Event Sponsor',
-            },
-            {
-                name: 'Garda Patna',
-                image: 'https://drive.google.com/uc?export=view&id=1VIItQYV-XlG0gld1B_Z1aRPyOmgqQVhV',
-                link: 'https://www.instagram.com/gardapatna/',
-                partner: 'Media Partner',
-            },
-            {
-                name: 'Asian Times',
-                image: 'https://drive.google.com/uc?export=view&id=1vYUNAIOyvqXlwoeamDbfaq0aKHN7e5hc',
-                link: 'https://asiantimes.in/',
-                partner: 'Media Partner',
-            },
-            {
-                name: 'Explore Bihar',
-                image: 'https://drive.google.com/uc?export=view&id=1qqUiTYE_DT4W2KjzodLJak9EE1R7TfLe',
-                link: 'https://www.instagram.com/explore_bihar/?hl=en',
-                partner: 'Media Partner',
-            },
-            {
-                name: 'Patna Beats',
-                image: 'https://drive.google.com/uc?export=view&id=1AWiAE20it80F2XaBcx2X6QPHlB932hgz',
-                link: 'https://www.patnabeats.com/lander',
-                partner: 'Media Partner',
-            },
-            {
-                name: 'Techgyaan',
-                image: 'https://drive.google.com/uc?export=view&id=1MwgAsHfhTbylFntL0pBjTU992YKzAShA',
-                link: 'https://tech-gyan.in/',
-                partner: 'Workshop Partner',
-            },
-            {
-                name: 'Instax Fujifilm',
-                image: 'https://drive.google.com/uc?export=view&id=1G3NIuTFl_Rl-tSy-etc05p6yt5kusNPO',
-                link: 'https://www.fujifilm.com/in/en/consumer/instax',
-                partner: 'Photography Partner',
-            },
-            {
-                name: 'Smart and Handsome',
-                image: 'https://drive.google.com/uc?export=view&id=1Hw-atUyrcs5ZQXb3rp84nx3t55LYGmNe',
-                link: 'https://smartandhandsome.in/',
-                partner: 'Self Care Partner',
-            },
-            {
-                name: 'Sudha',
-                image: 'https://drive.google.com/uc?export=view&id=1g26UGW2z-m4qkJKeF4Ug06dWHcwR8Vlr',
-                link: 'http://www.sudha.coop',
-                partner: 'Key Sponsor',
-            },
-            {
-                name: 'Red Bull',
-                image: 'https://drive.google.com/uc?export=view&id=1AWiAE20it80F2XaBcx2X6QPHlB932hgz',
-                link: 'https://www.redbull.com',
-                partner: 'Key Sponsor',
+                partner: 'Key Sponsors',
+                sponsors: [
+                    {
+                        // name: 'Sudha',
+                        image: 'https://drive.google.com/uc?export=view&id=1g26UGW2z-m4qkJKeF4Ug06dWHcwR8Vlr',
+                        link: 'http://www.sudha.coop',
+                    },
+                    {
+                        // name: 'Red Bull',
+                        image: 'https://drive.google.com/uc?export=view&id=1AWiAE20it80F2XaBcx2X6QPHlB932hgz',
+                        link: 'https://www.redbull.com',
+                    },
+                ],
             },
         ],
+        // spons25: [
+        //     {
+        //         // name: 'ARISTA Networks',
+        //         image: 'https://drive.google.com/uc?export=view&id=1dXMeVRz2jbkW4oFGbCYeNr2ooNPbx9Ox',
+        //         link: 'https://www.arista.com',
+        //         partner: 'Associate & Event Partner',
+        //     },
+        //     {
+        //         // name: 'State Bank of India',
+        //         image: 'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
+        //         link: 'https://www.sbi.co.in',
+        //         partner: 'Banking Partner',
+        //     },
+        //     {
+        //         // name: 'Indian Oil & XP95',
+        //         image: 'https://drive.google.com/uc?export=view&id=1S8D9eehYFohjFcOB4acJxmBgc2q8ZQNk',
+        //         link: 'https://www.iocl.com',
+        //         partner: 'Pronite & Fueling Partner',
+        //     },
+        //     {
+        //         // name: 'Spic Macay',
+        //         image: 'https://drive.google.com/uc?export=view&id=1a18oT-fdAI_A5oOjKEqAkJYqxsqHhFLf',
+        //         link: 'https://www.instagram.com/spicmacayofficial/?hl=en',
+        //         partner: 'Cultural Partner',
+        //     },
+        //     {
+        //         name: 'Software Technology Parks of India',
+        //         image: 'https://drive.google.com/uc?export=view&id=1tCIRaCaE8h8jSht2kXvrOI8Df_5CSD42',
+        //         link: 'https://stpi.in',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         // name: 'Department of Industries',
+        //         image: 'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN',
+        //         link: '',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         // name: 'Startup Bihar',
+        //         image: 'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
+        //         link: 'https://startup.bihar.gov.in/',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         // name: 'Bihar Tourism',
+        //         image: 'https://drive.google.com/uc?export=view&id=1pRqsKrhyTbhOpnxnNOKNTVwQxW4krm-L',
+        //         link: 'https://tourism.bihar.gov.in',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         name: 'Public Health Engineering Department, Bihar',
+        //         image: 'https://drive.google.com/uc?export=view&id=1oX-0boxmmSYbzBAVuPGMzUujaru3wm5D',
+        //         link: 'http://phed.bih.nic.in',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         name: 'Bihar State AIDS Control Society',
+        //         image: 'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-',
+        //         link: 'http://bsacs.in',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         name: 'Bihar State Building Construction Corporation Limited',
+        //         image: 'https://drive.google.com/uc?export=view&id=12rzaQ86RQfHFE_T0XGc-c8uRi_sQILRZ',
+        //         link: 'https://bsbccl.bihar.gov.in',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         // name: 'Ceigall India Limited',
+        //         image: 'https://drive.google.com/uc?export=view&id=1CxQTY0H12QpCqC0YziCUZrpCFTnZkTsB',
+        //         link: 'https://ceigall.com',
+        //         partner: 'Strategic Partner',
+        //     },
+        //     {
+        //         // name: 'KFC',
+        //         image: 'https://drive.google.com/uc?export=view&id=1wujyrcqa-j8QVYTJ8aA6NAP8mGQS2w5Z',
+        //         link: 'https://online.kfc.co.in/',
+        //         partner: 'Food Partner',
+        //     },
+        //     {
+        //         // name: 'Waffcha',
+        //         image: 'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
+        //         link: 'https://www.waffcha.com/',
+        //         partner: 'Food Partner',
+        //     },
+        //     {
+        //         // name: 'KTM',
+        //         image: 'https://drive.google.com/uc?export=view&id=1kJCVCocwlbbqFqnMQZYKroZJrC1E-7kU',
+        //         link: 'https://www.ktm.com',
+        //         partner: 'Biking Partner',
+        //     },
+        //     {
+        //         // name: 'Konnifel',
+        //         image: 'https://drive.google.com/uc?export=view&id=1PSx1RqfdGkvXoKL4e11PuG8X_ORouj4Z',
+        //         link: 'https://konnifel.com',
+        //         partner: 'Knowledge Partner',
+        //     },
+        //     {
+        //         // name: 'Civil Fodo',
+        //         image: 'https://drive.google.com/uc?export=view&id=1mjlgk_6CMinLARP22Q72fTO3bzPXMP8X',
+        //         link: 'https://www.instagram.com/civilsphodo/',
+        //         partner: 'Education Partner',
+        //     },
+        //     {
+        //         // name: 'JioSaavn',
+        //         image: 'https://drive.google.com/uc?export=view&id=1Bmf3E_gAowCSYOYTWcejKUkHd4xOHJaf',
+        //         link: 'https://www.jiosaavn.com',
+        //         partner: 'Official Music Streaming Partner',
+        //     },
+        //     {
+        //         // name: 'Finvasia',
+        //         image: 'https://drive.google.com/uc?export=view&id=1rAyeAtwSJeSXSXaf3SHaSM2e0KFLUJxH',
+        //         link: 'https://finvasia.com',
+        //         partner: 'Event Sponsor',
+        //     },
+        //     {
+        //         name: 'Garda Patna',
+        //         image: 'https://drive.google.com/uc?export=view&id=1VIItQYV-XlG0gld1B_Z1aRPyOmgqQVhV',
+        //         link: 'https://www.instagram.com/gardapatna/',
+        //         partner: 'Media Partner',
+        //     },
+        //     {
+        //         // name: 'Asian Times',
+        //         image: 'https://drive.google.com/uc?export=view&id=1vYUNAIOyvqXlwoeamDbfaq0aKHN7e5hc',
+        //         link: 'https://asiantimes.in/',
+        //         partner: 'Media Partner',
+        //     },
+        //     {
+        //         // name: 'Explore Bihar',
+        //         image: 'https://drive.google.com/uc?export=view&id=1qqUiTYE_DT4W2KjzodLJak9EE1R7TfLe',
+        //         link: 'https://www.instagram.com/explore_bihar/?hl=en',
+        //         partner: 'Media Partner',
+        //     },
+        //     {
+        //         name: 'Patna Beats',
+        //         image: 'https://drive.google.com/uc?export=view&id=10oF_KynDEuXJTsiBOo-U1XBvMrAMMkeP',
+        //         link: 'https://www.patnabeats.com/lander',
+        //         partner: 'Media Partner',
+        //     },
+        //     {
+        //         // name: 'Techgyaan',
+        //         image: 'https://drive.google.com/uc?export=view&id=1MwgAsHfhTbylFntL0pBjTU992YKzAShA',
+        //         link: 'https://tech-gyan.in/',
+        //         partner: 'Workshop Partner',
+        //     },
+        //     {
+        //         // name: 'Instax Fujifilm',
+        //         image: 'https://drive.google.com/uc?export=view&id=1G3NIuTFl_Rl-tSy-etc05p6yt5kusNPO',
+        //         link: 'https://www.fujifilm.com/in/en/consumer/instax',
+        //         partner: 'Photography Partner',
+        //     },
+        //     {
+        //         // name: 'Smart and Handsome',
+        //         image: 'https://drive.google.com/uc?export=view&id=1Hw-atUyrcs5ZQXb3rp84nx3t55LYGmNe',
+        //         link: 'https://smartandhandsome.in/',
+        //         partner: 'Self Care Partner',
+        //     },
+        //     {
+        //         // name: 'Sudha',
+        //         image: 'https://drive.google.com/uc?export=view&id=1g26UGW2z-m4qkJKeF4Ug06dWHcwR8Vlr',
+        //         link: 'http://www.sudha.coop',
+        //         partner: 'Key Sponsor',
+        //     },
+        //     {
+        //         // name: 'Red Bull',
+        //         image: 'https://drive.google.com/uc?export=view&id=1AWiAE20it80F2XaBcx2X6QPHlB932hgz',
+        //         link: 'https://www.redbull.com',
+        //         partner: 'Key Sponsor',
+        //     },
+        // ],
     }
     return (
         <div className={styles.parentContainer}>
@@ -556,7 +701,7 @@ const oursponsors = () => {
                             </div>
                         )}
                     </div>
-                    <div className={styles.coordinators}>
+                    {/* <div className={styles.coordinators}>
                         <div className={styles.picContainer}>
                             {data[year]?.map((item, index) => (
                                 <a
@@ -593,6 +738,127 @@ const oursponsors = () => {
                                     </div>
                                 </a>
                             ))}
+                        </div>
+                    </div> */}
+                    <div className={styles.coordinators}>
+                        <div className={styles.picContainer}>
+                            {year === 'spons25' || year === 'spons24'
+                                ? data[year]?.map((category, index) => (
+                                      <div
+                                          key={index}
+                                          className={styles.partnerGroup}
+                                      >
+                                          <h3 className={styles.partnerHeading}>
+                                              {category.partner}
+                                          </h3>
+                                          <div className={styles.sponsorGrid}>
+                                              {category.sponsors.map(
+                                                  (sponsor, i) => (
+                                                      <a
+                                                          key={i}
+                                                          href={sponsor.link}
+                                                          target="_blank"
+                                                          rel="noreferrer"
+                                                          style={{
+                                                              color: 'black',
+                                                              textDecoration:
+                                                                  'none',
+                                                          }}
+                                                      >
+                                                          <div
+                                                              className={
+                                                                  styles.teamCard
+                                                              }
+                                                          >
+                                                              <div
+                                                                  className={
+                                                                      styles.teamImage
+                                                                  }
+                                                              >
+                                                                  <Image
+                                                                      src={
+                                                                          sponsor.image
+                                                                      }
+                                                                      className={
+                                                                          styles.memberImage
+                                                                      }
+                                                                      height={
+                                                                          220
+                                                                      }
+                                                                      width={
+                                                                          220
+                                                                      }
+                                                                      alt={
+                                                                          sponsor.name
+                                                                      }
+                                                                  />
+                                                              </div>
+                                                              <div
+                                                                  className={
+                                                                      styles.teamMemberDetails
+                                                                  }
+                                                              >
+                                                                  <div
+                                                                      className={
+                                                                          styles.memberName
+                                                                      }
+                                                                  >
+                                                                      {
+                                                                          sponsor.name
+                                                                      }
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                  )
+                                              )}
+                                          </div>
+                                      </div>
+                                  ))
+                                : data[year]?.map((sponsor, index) => (
+                                      <a
+                                          key={index}
+                                          href={sponsor.link}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                          style={{
+                                              color: 'black',
+                                              textDecoration: 'none',
+                                          }}
+                                      >
+                                          <div className={styles.teamCard}>
+                                              <div className={styles.teamImage}>
+                                                  <Image
+                                                      src={sponsor.image}
+                                                      className={
+                                                          styles.memberImage
+                                                      }
+                                                      height={220}
+                                                      width={220}
+                                                      alt={sponsor.name}
+                                                  />
+                                              </div>
+                                              <div
+                                                  className={
+                                                      styles.teamMemberDetails
+                                                  }
+                                              >
+                                                  <div
+                                                      className={
+                                                          styles.memberName
+                                                      }
+                                                  >
+                                                      {sponsor.name}
+                                                  </div>
+                                                  <div
+                                                      className={styles.partner}
+                                                  >
+                                                      {sponsor.partner}
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </a>
+                                  ))}
                         </div>
                     </div>
                 </div>

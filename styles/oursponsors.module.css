@@ -15,6 +15,28 @@
     background-repeat: repeat;
     background-size: 100%;
     background-color: black;
+    color: white;
+    font-family: 'laila', sans-serif;
+}
+.partnerGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.partnerHeading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    @media screen and (max-width: 750px) {
+        font-size: 5vw;
+    }
+}
+.sponsorGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px; /* optional spacing */
+    justify-content: center;
 }
 .wave {
     background-image: url(/sponsors/waves.png);
@@ -77,6 +99,7 @@
 }
 .coordinators {
     display: flex;
+    margin-top: 15px;
     flex-direction: column;
 }
 
@@ -90,7 +113,7 @@
 
 .teamCard {
     display: flex;
-    padding: 15px 40px;
+    padding: 10px 40px;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
@@ -154,6 +177,7 @@
     right: 40px;
     z-index: 1;
     background-color: rgb(20, 20, 20);
+    margin-bottom: 15px;
 }
 
 /* Dropdown button */
