@@ -746,16 +746,17 @@ const index = () => {
                             styles.sexy_button,
                             styles.sexy_button_small
                         )}
-                        onClick={() => {
-                            setcountdowntimer(true)
-                            setTimeout(() => {
-                                setShowsound(true)
-                                setShowVideo(true)
-                            }, 3000);
-                            setTimeout(() => {
-                                router.push('/userRegister')
-                            }, (timeee + 3000 - 100));
-                        }}
+                        // onClick={() => {
+                        //     setcountdowntimer(true)
+                        //     setTimeout(() => {
+                        //         setShowsound(true)
+                        //         setShowVideo(true)
+                        //     }, 3000);
+                        //     setTimeout(() => {
+                        //         router.push('/userRegister')
+                        //     }, (timeee + 3000 - 100));
+                        // }}
+                        onClick={() => { router.push('/userRegister'); }}
                     >
                         REGISTER
                     </button>
