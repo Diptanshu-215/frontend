@@ -424,15 +424,15 @@ const oursponsors = () => {
                 ],
             },
             {
-                partner: 'Biking Partner',
+                partner: 'Knowledge Partner',
                 sponsors: [
                     {
-                        // name: 'KTM',
-                        image: 'https://drive.google.com/uc?export=view&id=1kJCVCocwlbbqFqnMQZYKroZJrC1E-7kU',
-                        link: 'https://www.ktm.com',
+                        image: 'https://drive.google.com/uc?export=view&id=1PSx1RqfdGkvXoKL4e11PuG8X_ORouj4Z',
+                        link: 'https://konnifel.com',
                     },
                 ],
             },
+
             {
                 partner: 'Media Partners',
                 sponsors: [
@@ -458,6 +458,78 @@ const oursponsors = () => {
                     },
                 ],
             },
+            {
+                partner: 'Official Music Streaming Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1Bmf3E_gAowCSYOYTWcejKUkHd4xOHJaf',
+                        link: 'https://www.jiosaavn.com',
+                    },
+                ],
+            },
+            {
+                partner: 'Biking Partner',
+                sponsors: [
+                    {
+                        // name: 'KTM',
+                        image: 'https://drive.google.com/uc?export=view&id=1kJCVCocwlbbqFqnMQZYKroZJrC1E-7kU',
+                        link: 'https://www.ktm.com',
+                    },
+                ],
+            },
+            {
+                partner: 'Workshop Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1MwgAsHfhTbylFntL0pBjTU992YKzAShA',
+                        link: 'https://tech-gyan.in/',
+                    },
+                ],
+            },
+            {
+                partner: 'Photography Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1G3NIuTFl_Rl-tSy-etc05p6yt5kusNPO',
+                        link: 'https://www.fujifilm.com/in/en/consumer/instax',
+                    },
+                ],
+            },
+            {
+                partner: 'Education Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1mjlgk_6CMinLARP22Q72fTO3bzPXMP8X',
+                        link: 'https://www.instagram.com/civilsphodo/',
+                    },
+                ],
+            },
+
+            {
+                partner: 'Self Care Partner',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1Hw-atUyrcs5ZQXb3rp84nx3t55LYGmNe',
+                        link: 'https://smartandhandsome.in/',
+                    },
+                ],
+            },
+
+            {
+                partner: 'Event Sponsor',
+                sponsors: [
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1rAyeAtwSJeSXSXaf3SHaSM2e0KFLUJxH',
+                        link: 'https://finvasia.com',
+                    },
+                    {
+                        // khadi bihar
+                        image: 'https://drive.google.com/uc?export=view&id=1SVi0330iEG31s0sOTjcemIyfJwFG-mwu',
+                        link: 'https://finvasia.com',
+                    },
+                ],
+            },
+
             {
                 partner: 'Key Sponsors',
                 sponsors: [

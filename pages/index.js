@@ -210,29 +210,41 @@ const GreenCircle = ({ width = 626, height = 626 }) => {
     )
 }
 const MuteIcon = ({ width = 48, height = 48 }) => {
-    return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
-        <g>
-            <path d="M51.707,8.293c-0.391-0.391-1.023-0.391-1.414,0l-42,42c-0.391,0.391-0.391,1.023,0,1.414C8.488,51.902,8.744,52,9,52
-		        s0.512-0.098,0.707-0.293l42-42C52.098,9.316,52.098,8.684,51.707,8.293z"/>
-            <path d="M52.841,10.561L42,21.402v27.491C42,50.606,40.606,52,38.893,52c-0.547,0-1.09-0.149-1.571-0.432
+    return (
+        <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
+            <g>
+                <path
+                    d="M51.707,8.293c-0.391-0.391-1.023-0.391-1.414,0l-42,42c-0.391,0.391-0.391,1.023,0,1.414C8.488,51.902,8.744,52,9,52
+		        s0.512-0.098,0.707-0.293l42-42C52.098,9.316,52.098,8.684,51.707,8.293z"
+                />
+                <path
+                    d="M52.841,10.561L42,21.402v27.491C42,50.606,40.606,52,38.893,52c-0.547,0-1.09-0.149-1.571-0.432
 		        c-0.063-0.037-0.121-0.081-0.174-0.131L24.106,39.296L10.561,52.841C15.982,57.469,22.795,60,30,60
-		        c8.013,0,15.547-3.121,21.213-8.787S60,38.013,60,30C60,22.795,57.469,15.982,52.841,10.561z"/>
-            <path d="M15.104,39C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109
+		        c8.013,0,15.547-3.121,21.213-8.787S60,38.013,60,30C60,22.795,57.469,15.982,52.841,10.561z"
+                />
+                <path
+                    d="M15.104,39C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109
 		        L37.148,7.563c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106v4.479l7.433-7.432
 		        C44.013,2.529,37.203,0,30,0C21.987,0,14.453,3.121,8.787,8.787C3.121,14.453,0,21.987,0,30c0,7.202,2.528,14.013,7.153,19.432
-		        L17.586,39H15.104z"/>
-        </g>
-    </svg>
+		        L17.586,39H15.104z"
+                />
+            </g>
+        </svg>
+    )
 }
 const UnmuteIcon = ({ width = 48, height = 48 }) => {
-    return <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
-        <g>
-            <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M42,48.894C42,50.606,40.606,52,38.893,52
+    return (
+        <svg fill="#000000" height={height} width={width} viewBox="0 0 60 60">
+            <g>
+                <path
+                    d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M42,48.894C42,50.606,40.606,52,38.893,52
 	            c-0.547,0-1.09-0.149-1.571-0.432c-0.063-0.037-0.121-0.081-0.174-0.131L23.906,39.109C23.756,39.037,23.593,39,23.427,39h-8.324
 	            C13.392,39,12,37.607,12,35.896V23.104C12,21.393,13.392,20,15.104,20h8.324c0.166,0,0.329-0.037,0.479-0.109L37.148,7.563
-	            c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106V48.894z"/>
-        </g>
-    </svg>
+	            c0.053-0.05,0.112-0.094,0.174-0.131C37.803,7.149,38.346,7,38.893,7C40.606,7,42,8.394,42,10.106V48.894z"
+                />
+            </g>
+        </svg>
+    )
 }
 
 function all(iterable) {
@@ -242,14 +254,23 @@ function all(iterable) {
     return true
 }
 
-
-const ImageWithText = ({ url, title, body, width, height, divRef, active, onClick, style }) => {
+const ImageWithText = ({
+    url,
+    title,
+    body,
+    width,
+    height,
+    divRef,
+    active,
+    onClick,
+    style,
+}) => {
     return (
         <div
             ref={divRef}
             style={{
-                width: width || (active ? "370px" : "319.61px"),
-                height: height || (active ? "414px" : "358.481px"),
+                width: width || (active ? '370px' : '319.61px'),
+                height: height || (active ? '414px' : '358.481px'),
                 backgroundImage: `url(${url})`,
                 ...(style || {}), // Merge additional styles
             }}
@@ -261,62 +282,102 @@ const ImageWithText = ({ url, title, body, width, height, divRef, active, onClic
                 <h3>{body}</h3>
             </div>
         </div>
-    );
-};
+    )
+}
 
-const EventSlider = ({ images, currIndex, nextEventImage, previouseEventImage }) => {
-    const offset = 370 + 20;
+const EventSlider = ({
+    images,
+    currIndex,
+    nextEventImage,
+    previouseEventImage,
+}) => {
+    const offset = 370 + 20
 
-    const imageRefs = useRef([]);
+    const imageRefs = useRef([])
     useEffect(() => {
-        imageRefs.current = images.map((_, i) => imageRefs.current[i] || React.createRef());
-    }, [images]);
+        imageRefs.current = images.map(
+            (_, i) => imageRefs.current[i] || React.createRef()
+        )
+    }, [images])
 
-    const [oldIndex, setOldIndex] = useState(currIndex);
+    const [oldIndex, setOldIndex] = useState(currIndex)
     const [dragStartX, setDragStartX] = useState(null)
 
-    const prev = currIndex === 0 ? images.length - 1 : currIndex - 1;
-    const next = (currIndex + 1 === images.length) ? 0 : currIndex + 1;
+    const prev = currIndex === 0 ? images.length - 1 : currIndex - 1
+    const next = currIndex + 1 === images.length ? 0 : currIndex + 1
     const prevprev = prev === 0 ? images.length - 1 : prev - 1
     const nextnext = next + 1 === images.length ? 0 : next + 1
     const prevprevprev = prevprev === 0 ? images.length - 1 : prevprev - 1
     const nextnextnext = nextnext + 1 === images.length ? 0 : nextnext + 1
 
     useEffect(() => {
-        if (images.length === 0) return;
-        if (!imageRefs.current.every(ref => ref.current)) return;
-        if (currIndex === oldIndex) return;
+        if (images.length === 0) return
+        if (!imageRefs.current.every((ref) => ref.current)) return
+        if (currIndex === oldIndex) return
 
-        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
+        if (
+            currIndex === oldIndex + 1 ||
+            (currIndex === 0 && oldIndex === images.length - 1)
+        ) {
             // Toward left
-            imageRefs.current[prevprevprev].current.style.zIndex = '-1';
-            imageRefs.current[prevprev].current.style.zIndex = '1';
-            imageRefs.current[prevprev].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${2 * offset}px))`;
-            imageRefs.current[prev].current.style.zIndex = '2';
-            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
-            imageRefs.current[currIndex].current.style.zIndex = '3';
-            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
-            imageRefs.current[next].current.style.zIndex = '2';
-            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
-            imageRefs.current[nextnext].current.style.zIndex = '-1';
-            imageRefs.current[nextnext].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${2 * offset}px))`;
-
-        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            imageRefs.current[prevprevprev].current.style.zIndex = '-1'
+            imageRefs.current[prevprev].current.style.zIndex = '1'
+            imageRefs.current[
+                prevprev
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${
+                2 * offset
+            }px))`
+            imageRefs.current[prev].current.style.zIndex = '2'
+            imageRefs.current[
+                prev
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`
+            imageRefs.current[currIndex].current.style.zIndex = '3'
+            imageRefs.current[
+                currIndex
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50%))`
+            imageRefs.current[next].current.style.zIndex = '2'
+            imageRefs.current[
+                next
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`
+            imageRefs.current[nextnext].current.style.zIndex = '-1'
+            imageRefs.current[
+                nextnext
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${
+                2 * offset
+            }px))`
+        } else if (
+            currIndex === oldIndex - 1 ||
+            (currIndex === images.length - 1 && oldIndex === 0)
+        ) {
             // Toward Right
-            imageRefs.current[prevprev].current.style.zIndex = '-1';
-            imageRefs.current[prevprev].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${2 * offset}px))`;
-            imageRefs.current[prev].current.style.zIndex = '2';
-            imageRefs.current[prev].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`;
-            imageRefs.current[currIndex].current.style.zIndex = '3';
-            imageRefs.current[currIndex].current.style.transform = `translateY(-50%) translateX(calc(-50%))`;
-            imageRefs.current[next].current.style.zIndex = '2';
-            imageRefs.current[next].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`;
-            imageRefs.current[nextnext].current.style.zIndex = '1';
-            imageRefs.current[nextnext].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${2 * offset}px))`;
-            imageRefs.current[nextnextnext].current.style.zIndex = '-1';
+            imageRefs.current[prevprev].current.style.zIndex = '-1'
+            imageRefs.current[
+                prevprev
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% - ${
+                2 * offset
+            }px))`
+            imageRefs.current[prev].current.style.zIndex = '2'
+            imageRefs.current[
+                prev
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% - min(50vw - 200px, ${offset}px)))`
+            imageRefs.current[currIndex].current.style.zIndex = '3'
+            imageRefs.current[
+                currIndex
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50%))`
+            imageRefs.current[next].current.style.zIndex = '2'
+            imageRefs.current[
+                next
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% + min(50vw - 200px, ${offset}px)))`
+            imageRefs.current[nextnext].current.style.zIndex = '1'
+            imageRefs.current[
+                nextnext
+            ].current.style.transform = `translateY(-50%) translateX(calc(-50% + ${
+                2 * offset
+            }px))`
+            imageRefs.current[nextnextnext].current.style.zIndex = '-1'
         }
-        setOldIndex(currIndex);
-    }, [currIndex, images]);
+        setOldIndex(currIndex)
+    }, [currIndex, images])
 
     const dragStart = (e) => {
         const startX = e.touches ? e.touches[0].screenX : e.screenX
@@ -339,16 +400,17 @@ const EventSlider = ({ images, currIndex, nextEventImage, previouseEventImage })
             className={styles.events_images}
             style={{
                 minHeight: 414,
-                position: "relative",
+                position: 'relative',
             }}
         >
-            <div style={{
-                width: '100%',
-                height: '100%',
-                position: 'absolute',
-                backgroundColor: 'transparent',
-                zIndex: '9'
-            }}
+            <div
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    backgroundColor: 'transparent',
+                    zIndex: '9',
+                }}
                 onDragStart={dragStart}
                 onDragEnd={dragEnd}
                 onTouchStart={dragStart}
@@ -363,24 +425,35 @@ const EventSlider = ({ images, currIndex, nextEventImage, previouseEventImage })
                     divRef={imageRefs.current[index]}
                     active={index === currIndex}
                     style={{
-                        zIndex: index === currIndex ? '2' : ((index === prev || index === next) ? '1' : '-1'),
-                        position: "absolute",
-                        left: "50%",
-                        top: "50%",
-                        backgroundBlendMode: index == currIndex ? 'normal' : 'luminosity',
+                        zIndex:
+                            index === currIndex
+                                ? '2'
+                                : index === prev || index === next
+                                ? '1'
+                                : '-1',
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        backgroundBlendMode:
+                            index == currIndex ? 'normal' : 'luminosity',
                         transform:
                             index == currIndex
                                 ? `translateY(-50%) translateX(-50%)`
-                                : `translateY(-50%) translateX(calc(-50% ${currIndex > index ? '-' : '+'} min(50vw - 200px, ${(currIndex > index ? currIndex - index : index - currIndex) * offset
-                                }px)))`,
+                                : `translateY(-50%) translateX(calc(-50% ${
+                                      currIndex > index ? '-' : '+'
+                                  } min(50vw - 200px, ${
+                                      (currIndex > index
+                                          ? currIndex - index
+                                          : index - currIndex) * offset
+                                  }px)))`,
                         transition:
-                            "transform .15s linear, width .15s linear, height .15s linear", // Smooth transition
+                            'transform .15s linear, width .15s linear, height .15s linear', // Smooth transition
                     }}
                 />
             ))}
         </div>
-    );
-};
+    )
+}
 
 const SponsorsSlider = ({ images, animation_duration = -1 }) => {
     const width = 127.381 // IF YOU CHANGE THIS THEN CHANGE IT INSIDE autoScrollSponseAnimation ALSO
@@ -410,8 +483,9 @@ const SponsorsSlider = ({ images, animation_duration = -1 }) => {
                         position: 'absolute',
                         left: '100%',
                         // zIndex: 8,
-                        animationDelay: `${(duration / images.length) * index
-                            }s`,
+                        animationDelay: `${
+                            (duration / images.length) * index
+                        }s`,
                         animationDuration: `${duration}s`,
                         '--width': width,
                     }}
@@ -448,34 +522,76 @@ const ImagesSlider = ({
         const nextnext = next + 1 === images.length ? 0 : next + 1
         const prevprevprev = prevprev === 0 ? images.length - 1 : prevprev - 1
         const nextnextnext = nextnext + 1 === images.length ? 0 : nextnext + 1
-        if (currIndex === oldIndex + 1 || (currIndex === 0 && oldIndex === images.length - 1)) {
+        if (
+            currIndex === oldIndex + 1 ||
+            (currIndex === 0 && oldIndex === images.length - 1)
+        ) {
             // Toward left
             imageRefs[prevprevprev].current.style.zIndex = '-1'
-            imageRefs[prevprevprev].current.style.transform = `translateX(calc(-50% + ${3 * offset}px))`
+            imageRefs[
+                prevprevprev
+            ].current.style.transform = `translateX(calc(-50% + ${
+                3 * offset
+            }px))`
             imageRefs[prevprev].current.style.zIndex = '4'
-            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2 * offset}px))`
+            imageRefs[
+                prevprev
+            ].current.style.transform = `translateX(calc(-50% - ${
+                2 * offset
+            }px))`
             imageRefs[prev].current.style.zIndex = '3'
-            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`
+            imageRefs[
+                prev
+            ].current.style.transform = `translateX(calc(-50% - ${offset}px))`
             imageRefs[currIndex].current.style.zIndex = '5'
-            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`
+            imageRefs[
+                currIndex
+            ].current.style.transform = `translateX(calc(-50%))`
             imageRefs[next].current.style.zIndex = '2'
-            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`
+            imageRefs[
+                next
+            ].current.style.transform = `translateX(calc(-50% + ${offset}px))`
             imageRefs[nextnext].current.style.zIndex = '1'
-            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2 * offset}px))`
-        } else if (currIndex === oldIndex - 1 || (currIndex === images.length - 1 && oldIndex === 0)) {
+            imageRefs[
+                nextnext
+            ].current.style.transform = `translateX(calc(-50% + ${
+                2 * offset
+            }px))`
+        } else if (
+            currIndex === oldIndex - 1 ||
+            (currIndex === images.length - 1 && oldIndex === 0)
+        ) {
             // Toward Right
             imageRefs[prevprev].current.style.zIndex = '1'
-            imageRefs[prevprev].current.style.transform = `translateX(calc(-50% - ${2 * offset}px))`
+            imageRefs[
+                prevprev
+            ].current.style.transform = `translateX(calc(-50% - ${
+                2 * offset
+            }px))`
             imageRefs[prev].current.style.zIndex = '2'
-            imageRefs[prev].current.style.transform = `translateX(calc(-50% - ${offset}px))`
+            imageRefs[
+                prev
+            ].current.style.transform = `translateX(calc(-50% - ${offset}px))`
             imageRefs[currIndex].current.style.zIndex = '5'
-            imageRefs[currIndex].current.style.transform = `translateX(calc(-50%))`
+            imageRefs[
+                currIndex
+            ].current.style.transform = `translateX(calc(-50%))`
             imageRefs[next].current.style.zIndex = '3'
-            imageRefs[next].current.style.transform = `translateX(calc(-50% + ${offset}px))`
+            imageRefs[
+                next
+            ].current.style.transform = `translateX(calc(-50% + ${offset}px))`
             imageRefs[nextnext].current.style.zIndex = '4'
-            imageRefs[nextnext].current.style.transform = `translateX(calc(-50% + ${2 * offset}px))`
+            imageRefs[
+                nextnext
+            ].current.style.transform = `translateX(calc(-50% + ${
+                2 * offset
+            }px))`
             imageRefs[nextnextnext].current.style.zIndex = '-1'
-            imageRefs[nextnextnext].current.style.transform = `translateX(calc(-50% - ${3 * offset}px))`
+            imageRefs[
+                nextnextnext
+            ].current.style.transform = `translateX(calc(-50% - ${
+                3 * offset
+            }px))`
         }
         setOldIndex(currIndex)
     }, [currIndex])
@@ -507,7 +623,7 @@ const ImagesSlider = ({
                 maxWidth: `${864 * 3}px`,
                 marginRight: 'auto',
                 marginLeft: 'auto',
-                position: 'relative'
+                position: 'relative',
             }}
         >
             <div
@@ -516,7 +632,7 @@ const ImagesSlider = ({
                     width: '100%',
                     height: '100%',
                     position: 'absolute',
-                    zIndex: '2'
+                    zIndex: '2',
                 }}
             />
             {images.map((image, index) => (
@@ -529,11 +645,13 @@ const ImagesSlider = ({
                     style={{
                         position: 'absolute',
                         left: '50%',
-                        transform: `translateX(calc(-50% ${currIndex > index ? '-' : '+'
-                            } ${(currIndex > index
+                        transform: `translateX(calc(-50% ${
+                            currIndex > index ? '-' : '+'
+                        } ${
+                            (currIndex > index
                                 ? currIndex - index
                                 : index - currIndex) * offset
-                            }px))`,
+                        }px))`,
                         transition: 'transform 0.35s ease-in-out', // Smooth transition
                     }}
                 />
@@ -543,32 +661,38 @@ const ImagesSlider = ({
 }
 
 const index = () => {
-
-    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(2); // don't set on boundary
-    const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] = useState(false);
+    const [eventActiveImageIndex, setEventActiveImageIndex] = useState(2) // don't set on boundary
+    const [eventActiveImageIndexPrevDir, setEventActiveImageIndexPrevDir] =
+        useState(false)
     useEffect(() => {
         const timer = setTimeout(() => {
             if (eventActiveImageIndexPrevDir)
-                setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1));
+                setEventActiveImageIndex(
+                    eventActiveImageIndex === pseudoEventImage.length - 1
+                        ? 0
+                        : eventActiveImageIndex + 1
+                )
             else
-                setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
-        }, 3000);
-        return () => clearTimeout(timer);
+                setEventActiveImageIndex(
+                    eventActiveImageIndex === 0
+                        ? pseudoEventImage.length - 1
+                        : eventActiveImageIndex - 1
+                )
+        }, 3000)
+        return () => clearTimeout(timer)
     }, [eventActiveImageIndex])
 
-
-    const videoRef = useRef(null);
-    const [isMuted, setIsMuted] = useState(true); // Start with the video muted
+    const videoRef = useRef(null)
+    const [isMuted, setIsMuted] = useState(true) // Start with the video muted
     const toggleMute = () => {
         if (videoRef.current) {
-            videoRef.current.muted = !videoRef.current.muted;
-            setIsMuted(!isMuted);
+            videoRef.current.muted = !videoRef.current.muted
+            setIsMuted(!isMuted)
         }
-    };
-
+    }
 
     // events thingyy
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState([])
     useEffect(() => {
         let host = process.env.NEXT_PUBLIC_HOST
 
@@ -595,43 +719,107 @@ const index = () => {
         events.map((event) => ({
             url: event.poster,
             title: event.name.split('#')[0],
-            body: event.name.split('#')[1]
-        })), 6);
+            body: event.name.split('#')[1],
+        })),
+        6
+    )
     // const pseudoEventImage = adjustList(_pseudoEventImage, 6);
     // console.log(pseudoEventImage);
 
+    const router = useRouter()
 
-    const router = useRouter();
+    // const sponsorImages = [
+    //     'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
+    //     'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk', // 'Bihar Tourism'
+    //     'https://drive.google.com/uc?export=view&id=1NzTZh6D-THmqConUzrZ2tvC3PaJU3Ets', // 'Biryani'
+    //     'https://drive.google.com/uc?export=view&id=10JmGTjBV_wliW6EoE4ozwnErEHNWZlGe', // 'Boult'
+    //     'https://drive.google.com/uc?export=view&id=1sD17yO4Zwm449d9ilTh9cPRoTeUd4tpy', // 'Bihar Rajya Pul Nirman Nigam'
+    //     'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-', // 'Bihar State Aids Control Society'
+    //     'https://drive.google.com/uc?export=view&id=1QZLHYPSJsMLQUKssih7HPqU5DwMGkcnc', // 'Bihar State Electronics Development Corporation'
+    //     'https://drive.google.com/uc?export=view&id=1UBiVYAM7HGv-tjMiyTofA7_ZCWS959MG', // 'Bihar Council on Science and Technology'
+    //     'https://drive.google.com/uc?export=view&id=1gg9J_on8QTdBs64u7TVwpwkc45ydw4Eq', // 'Department of Information Technology'
+    //     'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN', // 'Department of Industries'
+    //     'https://drive.google.com/uc?export=view&id=1EKapSE6Q9xbDmycY0XecwCEHKjxUqZzO', // 'Dominos'
+    //     'https://drive.google.com/uc?export=view&id=1_LI78ee0KbgufhKeFSNQJSK7DzqG6T6q', // 'Fueling'
+    //     'https://drive.google.com/uc?export=view&id=1NXlcqgtvPwuaGzr0KxNWWaIGvNgUWDax', // 'Hydration'
+    //     'https://drive.google.com/uc?export=view&id=1Ge6eJMxha0lNxzF8AXW-aT8fP11FXJHA', // 'Kala Akchar'
+    //     'https://drive.google.com/uc?export=view&id=1lvnREbJ84WauvAhwBCrtO7P11HO-HUz9', // 'NHAI'
+    //     'https://drive.google.com/uc?export=view&id=13oaVnvbhSXcAZTTajdcwXVJ-4YjGtRBu', // 'NTPC'
+    //     'https://drive.google.com/uc?export=view&id=12n_N2f4FyomvBlLOELPnGhLjgPdzCfkb', // 'Red FM'
+    //     'https://drive.google.com/uc?export=view&id=13M6yySVuABxMP7pus6Hy2HVbianRpSnA', // 'Road Chef'
+    //     'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-', // 'State Bank of India'
+    //     'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up', // 'Startup Bihar'
+    //     'https://drive.google.com/uc?export=view&id=1AA3qGrGqqTbmfo2DAWmkAWXs8KWTDC07', // 'The Community Events'
+    //     'https://drive.google.com/uc?export=view&id=1Ub5Ntbu30Kp-1dpYSeB0M_QtbjGsiVpI', // 'Times of India'
+    //     'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM', // 'Waffcha'
+    //     'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI', // 'Wat A Burger'
+    // ]
 
     const sponsorImages = [
-        'https://drive.google.com/uc?export=view&id=1sk_dXvHZCLN5QGH8x5ae4vjunza7kdwo', // 'Allen Cooper'
-        'https://drive.google.com/uc?export=view&id=1sO3UC-XMYPAggeQ_P3loZCSxjbXKiTzk', // 'Bihar Tourism'
-        'https://drive.google.com/uc?export=view&id=1NzTZh6D-THmqConUzrZ2tvC3PaJU3Ets', // 'Biryani'
-        'https://drive.google.com/uc?export=view&id=10JmGTjBV_wliW6EoE4ozwnErEHNWZlGe', // 'Boult'
-        'https://drive.google.com/uc?export=view&id=1sD17yO4Zwm449d9ilTh9cPRoTeUd4tpy', // 'Bihar Rajya Pul Nirman Nigam'
-        'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-', // 'Bihar State Aids Control Society'
-        'https://drive.google.com/uc?export=view&id=1QZLHYPSJsMLQUKssih7HPqU5DwMGkcnc', // 'Bihar State Electronics Development Corporation'
-        'https://drive.google.com/uc?export=view&id=1UBiVYAM7HGv-tjMiyTofA7_ZCWS959MG', // 'Bihar Council on Science and Technology'
-        'https://drive.google.com/uc?export=view&id=1gg9J_on8QTdBs64u7TVwpwkc45ydw4Eq', // 'Department of Information Technology'
-        'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN', // 'Department of Industries'
-        'https://drive.google.com/uc?export=view&id=1EKapSE6Q9xbDmycY0XecwCEHKjxUqZzO', // 'Dominos'
-        'https://drive.google.com/uc?export=view&id=1_LI78ee0KbgufhKeFSNQJSK7DzqG6T6q', // 'Fueling'
-        'https://drive.google.com/uc?export=view&id=1NXlcqgtvPwuaGzr0KxNWWaIGvNgUWDax', // 'Hydration'
-        'https://drive.google.com/uc?export=view&id=1Ge6eJMxha0lNxzF8AXW-aT8fP11FXJHA', // 'Kala Akchar'
-        'https://drive.google.com/uc?export=view&id=1lvnREbJ84WauvAhwBCrtO7P11HO-HUz9', // 'NHAI'
-        'https://drive.google.com/uc?export=view&id=13oaVnvbhSXcAZTTajdcwXVJ-4YjGtRBu', // 'NTPC'
-        'https://drive.google.com/uc?export=view&id=12n_N2f4FyomvBlLOELPnGhLjgPdzCfkb', // 'Red FM'
-        'https://drive.google.com/uc?export=view&id=13M6yySVuABxMP7pus6Hy2HVbianRpSnA', // 'Road Chef'
-        'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-', // 'State Bank of India'
-        'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up', // 'Startup Bihar'
-        'https://drive.google.com/uc?export=view&id=1AA3qGrGqqTbmfo2DAWmkAWXs8KWTDC07', // 'The Community Events'
-        'https://drive.google.com/uc?export=view&id=1Ub5Ntbu30Kp-1dpYSeB0M_QtbjGsiVpI', // 'Times of India'
-        'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM', // 'Waffcha'
-        'https://drive.google.com/uc?export=view&id=183hiDaFhULaFvHURLFMCWBPmT7RjMRWI', // 'Wat A Burger'
+        // Arista
+        'https://drive.google.com/uc?export=view&id=1dXMeVRz2jbkW4oFGbCYeNr2ooNPbx9Ox',
+
+        // State Bank of India
+        'https://drive.google.com/uc?export=view&id=1MLfxr5ipb_m3VUkNCiAB3sc00hxz5fi-',
+
+        // Indian Oil & XP95
+        'https://drive.google.com/uc?export=view&id=1S8D9eehYFohjFcOB4acJxmBgc2q8ZQNk',
+
+        // Spic Macay
+        'https://drive.google.com/uc?export=view&id=1a18oT-fdAI_A5oOjKEqAkJYqxsqHhFLf',
+
+        // Software Technology Parks of India
+        'https://drive.google.com/uc?export=view&id=1tCIRaCaE8h8jSht2kXvrOI8Df_5CSD42',
+
+        // Department of Industries
+        'https://drive.google.com/uc?export=view&id=1FOtkwzHkA74tK7uMzHYaxSbz8W-N40EN',
+
+        // Startup Bihar
+        'https://drive.google.com/uc?export=view&id=1Vbu1tCEMNPzoeOqpydOcOSxHlPzVz3up',
+
+        // Bihar Tourism
+        'https://drive.google.com/uc?export=view&id=1pRqsKrhyTbhOpnxnNOKNTVwQxW4krm-L',
+
+        // Public Health Engineering Department, Bihar
+        'https://drive.google.com/uc?export=view&id=1oX-0boxmmSYbzBAVuPGMzUujaru3wm5D',
+
+        // Bihar State AIDS Control Society
+        'https://drive.google.com/uc?export=view&id=1yCcmexPef2xI3lQXo7wJAzliDEyUIxh-',
+
+        // Bihar State Building Construction Corporation Limited
+        'https://drive.google.com/uc?export=view&id=12rzaQ86RQfHFE_T0XGc-c8uRi_sQILRZ',
+
+        // Ceigall India Limited
+        'https://drive.google.com/uc?export=view&id=1CxQTY0H12QpCqC0YziCUZrpCFTnZkTsB',
+
+        // KFC
+        'https://drive.google.com/uc?export=view&id=1wujyrcqa-j8QVYTJ8aA6NAP8mGQS2w5Z',
+
+        // Waffcha
+        'https://drive.google.com/uc?export=view&id=1mX_WeCIywRV838QPn8AywiEWTSXSzMbM',
+
+        // Konnifel
+        'https://drive.google.com/uc?export=view&id=1PSx1RqfdGkvXoKL4e11PuG8X_ORouj4Z',
+
+        // Garda Patna
+        'https://drive.google.com/uc?export=view&id=1VIItQYV-XlG0gld1B_Z1aRPyOmgqQVhV',
+
+        // Asian Times
+        'https://drive.google.com/uc?export=view&id=1vYUNAIOyvqXlwoeamDbfaq0aKHN7e5hc',
+
+        // Explore Bihar
+        'https://drive.google.com/uc?export=view&id=1qqUiTYE_DT4W2KjzodLJak9EE1R7TfLe',
+
+        // Patna Beats
+        'https://drive.google.com/uc?export=view&id=10oF_KynDEuXJTsiBOo-U1XBvMrAMMkeP',
+
+        // JioSaavn
+        'https://drive.google.com/uc?export=view&id=1X0KmGY2Y2jO8mEq3x3DoxqmCfd83ptWP',
     ]
 
     const [momentsActiveImageIndex, setMomentsActiveImageIndex] = useState(2) // don't set on boundary
-    const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] = useState(true)
+    const [momentsActiveImageIndexPrevDir, setMomentsActiveImageIndexPrevDir] =
+        useState(true)
     const _pseudoMomentImage = [
         '/pics/moments/dj.png',
         '/pics/moments/band.png',
@@ -658,12 +846,20 @@ const index = () => {
     }, [momentsActiveImageIndex])
 
     const nextEventImage = () => {
-        setEventActiveImageIndexPrevDir(false);
-        setEventActiveImageIndex((eventActiveImageIndex === 0) ? (pseudoEventImage.length - 1) : (eventActiveImageIndex - 1))
+        setEventActiveImageIndexPrevDir(false)
+        setEventActiveImageIndex(
+            eventActiveImageIndex === 0
+                ? pseudoEventImage.length - 1
+                : eventActiveImageIndex - 1
+        )
     }
     const previouseEventImage = () => {
-        setEventActiveImageIndexPrevDir(true);
-        setEventActiveImageIndex((eventActiveImageIndex === pseudoEventImage.length - 1) ? 0 : (eventActiveImageIndex + 1))
+        setEventActiveImageIndexPrevDir(true)
+        setEventActiveImageIndex(
+            eventActiveImageIndex === pseudoEventImage.length - 1
+                ? 0
+                : eventActiveImageIndex + 1
+        )
     }
     const nextMomentImage = () => {
         setMomentsActiveImageIndexPrevDir(false)
@@ -682,15 +878,13 @@ const index = () => {
         )
     }
 
+    const [showsound, setShowsound] = useState(false) // Track video visibility
+    const [showVideo, setShowVideo] = useState(false) // Track video visibility
+    let timeee = 2500
 
-    const [showsound, setShowsound] = useState(false); // Track video visibility
-    const [showVideo, setShowVideo] = useState(false); // Track video visibility
-    let timeee = 2500;
-
-    if (typeof window !== "undefined" && window.innerWidth < 700) {
-        timeee = 1800;
+    if (typeof window !== 'undefined' && window.innerWidth < 700) {
+        timeee = 1800
     }
-
 
     const timer = setTimeout(() => {
         if (showsound) {
@@ -699,313 +893,338 @@ const index = () => {
         if (showVideo) {
             setShowVideo(false)
         }
-    }, timeee);
+    }, timeee)
 
     const [countdownTimer, setcountdowntimer] = useState(false)
     const timerui = setTimeout(() => {
         if (countdownTimer) {
             setcountdowntimer(false)
         }
-    }, 3000);
-    const [loadimg, setloadimg] = useState(true);
+    }, 3000)
+    const [loadimg, setloadimg] = useState(true)
 
     useEffect(() => {
         setTimeout(() => {
-            setloadimg(false);
-        }, 10);
-    }, []);
+            setloadimg(false)
+        }, 10)
+    }, [])
 
+    return (
+        <>
+            {showsound && <SoundPlayer />}
+            {showsound && <VideoPlayer />}
+            {countdownTimer && <CountdownTimer />}
 
+            <Head>
+                <title>Anwesha 2025</title>
+                <meta name="description" content="Anwesha 2025" />
+                <link rel="icon" href="./logo_no_bg.svg" />
+            </Head>
 
-    return (<>
-        {showsound && <SoundPlayer />}
-        {showsound && <VideoPlayer />}
-        {countdownTimer && <CountdownTimer />}
-
-        <Head>
-            <title>Anwesha 2025</title>
-            <meta name="description" content="Anwesha 2025" />
-            <link rel="icon" href="./logo_no_bg.svg" />
-        </Head>
-
-        <div className={styles.bg}>
-            {/* HERO */}
-            <HeroSection className={styles.hero}>
-                <div className={styles.hero_text}>
-                    <Image src={'/pics/hero_image-export.svg'} width={1047} height={589} />
-                    {/* <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
+            <div className={styles.bg}>
+                {/* HERO */}
+                <HeroSection className={styles.hero}>
+                    <div className={styles.hero_text}>
+                        <Image
+                            src={'/pics/hero_image-export.svg'}
+                            width={1047}
+                            height={589}
+                        />
+                        {/* <div style={{height: 570, width: 570, zIndex: 9, overflow: 'hidden', borderRadius: "9999px"}}>
                         <div style={{height: 589, width: 589}}>
                             <Spline scene="https://prod.spline.design/0cIZkQpUYfHX-VX8/scene.splinecode" width="589" height="589"/>
                         </div>
                     </div> */}
-                    <h2>Welcome To Your Nightmare</h2>
-                </div>
-                <div className={styles.hero_button}>
-                    <button
-                        className={cn(
-                            styles.sexy_button,
-                            styles.sexy_button_small
-                        )}
-                        onClick={() => {
-                            setcountdowntimer(true)
-                            setTimeout(() => {
-                                setShowsound(true)
-                                setShowVideo(true)
-                            }, 3000);
-                            setTimeout(() => {
-                                router.push('/userRegister')
-                            }, (timeee + 3000 - 100));
-                        }}
-                    >
-                        REGISTER
-                    </button>
-
-                </div>
-            </HeroSection>
-
-            {/* Events */}
-            <section className={styles.events}>
-                <div className={styles.events_title}>
-                    <FireSkullHeadLeft />
-                    <div>
-                        <h2>Explore the Events</h2>
-                        <h3>Dare to face the Unseen</h3>
+                        <h2>Welcome To Your Nightmare</h2>
                     </div>
-                    <FireSkullHeadRight />
-                </div>
-                <div className={styles.events_images_parent}>
-                    <button
-                        className={styles.bat_scroll_button}
-                        onClick={previouseEventImage}
-                    >
-                        <BatLeft />
-                    </button>
-                    <EventSlider
-                        images={pseudoEventImage}
-                        currIndex={eventActiveImageIndex}
-                        nextEventImage={nextEventImage}
-                        previouseEventImage={previouseEventImage}
-                    />
-                    <button
-                        className={styles.bat_scroll_button}
-                        onClick={nextEventImage}
-                    >
-                        <BatRight />
-                    </button>
-                </div>
-                <div className={styles.events_button}>
-                    <button
-                        className={cn(
-                            styles.sexy_button,
-                            styles.sexy_button_small
-                        )}
-                        onClick={() => {
-                            router.push('/events')
-                        }}
-                    >
-                        VIEW MORE
-                    </button>
-                </div>
-            </section>
-
-            {/* MERCH */}
-            <section className={styles.merch} id="merch">
-                <div className={styles.merch_body}>
-                    <div>
-                        <h2>Anwesha 2025 Official Merchandise</h2>
-                        <h3>Own the Unforgettable Experience</h3>
+                    <div className={styles.hero_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                            onClick={() => {
+                                setcountdowntimer(true)
+                                setTimeout(() => {
+                                    setShowsound(true)
+                                    setShowVideo(true)
+                                }, 3000)
+                                setTimeout(() => {
+                                    router.push('/userRegister')
+                                }, timeee + 3000 - 100)
+                            }}
+                        >
+                            REGISTER
+                        </button>
                     </div>
-                    <p>
-                        The designs are a fusion of elegance and innovation,
-                        capturing the true spirit of Anwesha. T-shirts are
-                        made of supreme quality with GSM 200 and 100%
-                        cotton, ensuring maximum comfort and durability.
-                        Hoodies are made from Premium Quality Woven Cotton
-                        with 350+ GSM cloth.
-                    </p>
-                </div>
-                <div className={styles.merch_hero}>
-                    <div className={styles.merch_background} />
-                    <div className={styles.merch_hero_fix}>
-                        <div className={styles.merch_tshirts}>
-                            {/* <div className={styles.tshirt_white} /> */}
-                            {/* <div className={styles.tshirt_black_parent}> */}
-                            {/* <div className={styles.tshirt_black} /> */}
-                            {/* </div> */}
-                            {/* <div className={styles.tshirt_blue} /> */}
+                </HeroSection>
+
+                {/* Events */}
+                <section className={styles.events}>
+                    <div className={styles.events_title}>
+                        <FireSkullHeadLeft />
+                        <div>
+                            <h2>Explore the Events</h2>
+                            <h3>Dare to face the Unseen</h3>
                         </div>
-                        <div className={styles.merch_button}>
-                            <button
-                                className={styles.sexy_button}
-                                onClick={() => window.open("https://docs.google.com/forms/d/1B6yMQs6Y8UV5GDrnxYipGIrDWCY4mcZZvPVboi5Q1nU/edit")}
-                            >
-                                GRAB NOW
-                            </button>
+                        <FireSkullHeadRight />
+                    </div>
+                    <div className={styles.events_images_parent}>
+                        <button
+                            className={styles.bat_scroll_button}
+                            onClick={previouseEventImage}
+                        >
+                            <BatLeft />
+                        </button>
+                        <EventSlider
+                            images={pseudoEventImage}
+                            currIndex={eventActiveImageIndex}
+                            nextEventImage={nextEventImage}
+                            previouseEventImage={previouseEventImage}
+                        />
+                        <button
+                            className={styles.bat_scroll_button}
+                            onClick={nextEventImage}
+                        >
+                            <BatRight />
+                        </button>
+                    </div>
+                    <div className={styles.events_button}>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                            onClick={() => {
+                                router.push('/events')
+                            }}
+                        >
+                            VIEW MORE
+                        </button>
+                    </div>
+                </section>
+
+                {/* MERCH */}
+                <section className={styles.merch} id="merch">
+                    <div className={styles.merch_body}>
+                        <div>
+                            <h2>Anwesha 2025 Official Merchandise</h2>
+                            <h3>Own the Unforgettable Experience</h3>
+                        </div>
+                        <p>
+                            The designs are a fusion of elegance and innovation,
+                            capturing the true spirit of Anwesha. T-shirts are
+                            made of supreme quality with GSM 200 and 100%
+                            cotton, ensuring maximum comfort and durability.
+                            Hoodies are made from Premium Quality Woven Cotton
+                            with 350+ GSM cloth.
+                        </p>
+                    </div>
+                    <div className={styles.merch_hero}>
+                        <div className={styles.merch_background} />
+                        <div className={styles.merch_hero_fix}>
+                            <div className={styles.merch_tshirts}>
+                                {/* <div className={styles.tshirt_white} /> */}
+                                {/* <div className={styles.tshirt_black_parent}> */}
+                                {/* <div className={styles.tshirt_black} /> */}
+                                {/* </div> */}
+                                {/* <div className={styles.tshirt_blue} /> */}
+                            </div>
+                            <div className={styles.merch_button}>
+                                <button
+                                    className={styles.sexy_button}
+                                    onClick={() =>
+                                        window.open(
+                                            'https://docs.google.com/forms/d/1B6yMQs6Y8UV5GDrnxYipGIrDWCY4mcZZvPVboi5Q1nU/edit'
+                                        )
+                                    }
+                                >
+                                    GRAB NOW
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Anwesha Through the Lens */}
-            <section className={styles.moments}>
-                <div className={styles.sexy_title}>
-                    <h2>Anwesha Through the Lens</h2>
-                    <h3>Relive the Moments That Defined Us</h3>
-                </div>
-                <div className={styles.moments_images_parent}>
-                    <div
-                        className={cn(
-                            styles.moments_images_top_curve,
-                            styles.moments_images_curve
-                        )}
-                    />
-                    <ImagesSlider
-                        images={pseudoMomentImage}
-                        currIndex={momentsActiveImageIndex}
-                        nextMomentImage={nextMomentImage}
-                        previouseMomentImage={previouseMomentImage}
-                    />
-                    <div
-                        className={cn(
-                            styles.moments_images_bottom_curve,
-                            styles.moments_images_curve
-                        )}
-                    />
-                </div>
-                <br />
-                <div className={styles.moments_button}>
-                    <button
-                        className={styles.bat_scroll_button}
-                        onClick={nextMomentImage}
-                    >
-                        <BatLeft width={40} height={60} />
-                    </button>
-                    <button
-                        className={cn(
-                            styles.sexy_button,
-                            styles.sexy_button_small
-                        )}
-                        onClick={() => { router.push('/gallery') }}
-                    >
-                        VIEW MORE
-                    </button>
-                    <button
-                        className={styles.bat_scroll_button}
-                        onClick={previouseMomentImage}
-                    >
-                        <BatRight width={40} height={60} />
-                    </button>
-                </div>
-            </section >
+                {/* Anwesha Through the Lens */}
+                <section className={styles.moments}>
+                    <div className={styles.sexy_title}>
+                        <h2>Anwesha Through the Lens</h2>
+                        <h3>Relive the Moments That Defined Us</h3>
+                    </div>
+                    <div className={styles.moments_images_parent}>
+                        <div
+                            className={cn(
+                                styles.moments_images_top_curve,
+                                styles.moments_images_curve
+                            )}
+                        />
+                        <ImagesSlider
+                            images={pseudoMomentImage}
+                            currIndex={momentsActiveImageIndex}
+                            nextMomentImage={nextMomentImage}
+                            previouseMomentImage={previouseMomentImage}
+                        />
+                        <div
+                            className={cn(
+                                styles.moments_images_bottom_curve,
+                                styles.moments_images_curve
+                            )}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.moments_button}>
+                        <button
+                            className={styles.bat_scroll_button}
+                            onClick={nextMomentImage}
+                        >
+                            <BatLeft width={40} height={60} />
+                        </button>
+                        <button
+                            className={cn(
+                                styles.sexy_button,
+                                styles.sexy_button_small
+                            )}
+                            onClick={() => {
+                                router.push('/gallery')
+                            }}
+                        >
+                            VIEW MORE
+                        </button>
+                        <button
+                            className={styles.bat_scroll_button}
+                            onClick={previouseMomentImage}
+                        >
+                            <BatRight width={40} height={60} />
+                        </button>
+                    </div>
+                </section>
 
-            {/* The Aftermovie */}
-            <section section className={styles.aftermovie} >
-                <div className={styles.sexy_title}>
-                    <h2>Anwesha 2024: The Aftermovie</h2>
-                    <h3>Last Year's Magic in 3 Minutes</h3>
-                </div>
-                <div className={styles.aftermovie_video}>
-                    {/* <Image
+                {/* The Aftermovie */}
+                <section section className={styles.aftermovie}>
+                    <div className={styles.sexy_title}>
+                        <h2>Anwesha 2024: The Aftermovie</h2>
+                        <h3>Last Year's Magic in 3 Minutes</h3>
+                    </div>
+                    <div className={styles.aftermovie_video}>
+                        {/* <Image
                         src="/pics/aftermovie.jpg"
                         width={1226}
                         height={607}
                     /> */}
-                    <video ref={videoRef} autoPlay muted={isMuted} loop width={1226} height={607}>
-                        <source
-                            src='https://astounding-madeleine-371471.netlify.app/assets/Anwesha25Aftermovie.mp4'
-                            type='video/mp4'
-                        />
-                    </video>
-                    {/* <iframe src="https://drive.google.com/file/d/17qtrN_8Qg9vUAEps515INNUQRGd3oMla/preview" width="1226" height="607" allow="autoplay"></iframe> */}
-                    {/* <iframe src="https://streamable.com/e/4qofi9" width={1226} height={607} frameborder="0" allowfullscreen></iframe> */}
-                    <div>
-                        <button onClick={toggleMute} style={{ width: 32, height: 32 }}>
-                            {isMuted ? <MuteIcon width={32} height={32} /> : <UnmuteIcon width={32} height={32} />}
-                        </button>
-                    </div>
-                </div>
-            </section >
-
-            {/* CTA or This Year's Theme */}
-            <section section className={styles.cta} >
-                <div className={styles.sexy_title}>
-                    <h2>This Year's Theme</h2>
-                    <h3>Echoes Of the Abyss</h3>
-                </div>
-                <div className={styles.cta_body}>
-                    <div className={styles.cta_body_left}>
-                        <GreenCircle />
-                        <div className={styles.cta_image}>
-                            <Image
-                                src={'/pics/Mascot.png'}
-                                width={474.386}
-                                height={474.386}
+                        <video
+                            ref={videoRef}
+                            autoPlay
+                            muted={isMuted}
+                            loop
+                            width={1226}
+                            height={607}
+                        >
+                            <source
+                                src="https://astounding-madeleine-371471.netlify.app/assets/Anwesha25Aftermovie.mp4"
+                                type="video/mp4"
                             />
-                        </div>
-                    </div>
-                    <div className={styles.cta_body_right}>
-                        <p>
-                            Meet <span>Grimmy</span>, a lone skeleton
-                            wandering the Abyss, where whispers of forgotten
-                            souls linger. In this realm of shadows and
-                            echoes, he unravels haunting secrets, braving
-                            eerie landscapes and unseen terrors. Join Grimmy
-                            as he dares to uncover the mysteries buried in
-                            the depths of the Abyss!
-                            <br />
-                            <br />
-                            Join Grimmy on this fun adventure and let your
-                            imagination soar beyond the ordinary!
-                        </p>
-
-                        <div className={styles.cta_button}>
+                        </video>
+                        {/* <iframe src="https://drive.google.com/file/d/17qtrN_8Qg9vUAEps515INNUQRGd3oMla/preview" width="1226" height="607" allow="autoplay"></iframe> */}
+                        {/* <iframe src="https://streamable.com/e/4qofi9" width={1226} height={607} frameborder="0" allowfullscreen></iframe> */}
+                        <div>
                             <button
-                                className={cn(
-                                    styles.sexy_button,
-                                    styles.sexy_button_small
-                                )}
-                                onClick={() => { router.push('/userRegister') }}
+                                onClick={toggleMute}
+                                style={{ width: 32, height: 32 }}
                             >
-                                REGISTER
+                                {isMuted ? (
+                                    <MuteIcon width={32} height={32} />
+                                ) : (
+                                    <UnmuteIcon width={32} height={32} />
+                                )}
                             </button>
                         </div>
                     </div>
-                </div>
-            </section >
+                </section>
 
-            {/* Sponsors */}
+                {/* CTA or This Year's Theme */}
+                <section section className={styles.cta}>
+                    <div className={styles.sexy_title}>
+                        <h2>This Year's Theme</h2>
+                        <h3>Echoes Of the Abyss</h3>
+                    </div>
+                    <div className={styles.cta_body}>
+                        <div className={styles.cta_body_left}>
+                            <GreenCircle />
+                            <div className={styles.cta_image}>
+                                <Image
+                                    src={'/pics/Mascot.png'}
+                                    width={474.386}
+                                    height={474.386}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.cta_body_right}>
+                            <p>
+                                Meet <span>Grimmy</span>, a lone skeleton
+                                wandering the Abyss, where whispers of forgotten
+                                souls linger. In this realm of shadows and
+                                echoes, he unravels haunting secrets, braving
+                                eerie landscapes and unseen terrors. Join Grimmy
+                                as he dares to uncover the mysteries buried in
+                                the depths of the Abyss!
+                                <br />
+                                <br />
+                                Join Grimmy on this fun adventure and let your
+                                imagination soar beyond the ordinary!
+                            </p>
 
-            <section section className={styles.sponsors} >
-                <div className={styles.sponsors_title}>
-                    <h2>Our Proud Sponsors</h2>
-                    <h3>Strengthening the Vision Together</h3>
-                </div>
-                <div className={styles.sponsors_images_slider}>
-                    <SponsorsSlider images={sponsorImages} />
-                </div>
-            </section >
+                            <div className={styles.cta_button}>
+                                <button
+                                    className={cn(
+                                        styles.sexy_button,
+                                        styles.sexy_button_small
+                                    )}
+                                    onClick={() => {
+                                        router.push('/userRegister')
+                                    }}
+                                >
+                                    REGISTER
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            {/* NewsLetter */}
-            <section section className={styles.newsletter} >
-                <p style={{ color: 'white' }}>Subscribe to our newsletter</p>
-                <iframe
-                    src="https://embeds.beehiiv.com/255bda27-7d9d-4f91-9f9c-edca5ce5d90a?slim=true"
-                    data-test-id="beehiiv-embed"
-                    height="52"
-                    frameborder="0"
-                    scrolling="no"
-                // style="margin: 0; border-radius: 0px !important; background-color: transparent;"
+                {/* Sponsors */}
 
-                />
-            </section >
-            {loadimg && (
-                <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
-            )}
-            {loadimg && (
-                <img width={50} src="/pics/final_h.gif" alt="Scary GIF" />
-            )}
-        </div >
-    </>
+                <section section className={styles.sponsors}>
+                    <div className={styles.sponsors_title}>
+                        <h2>Our Proud Sponsors</h2>
+                        <h3>Strengthening the Vision Together</h3>
+                    </div>
+                    <div className={styles.sponsors_images_slider}>
+                        <SponsorsSlider images={sponsorImages} />
+                    </div>
+                </section>
+
+                {/* NewsLetter */}
+                <section section className={styles.newsletter}>
+                    <p style={{ color: 'white' }}>
+                        Subscribe to our newsletter
+                    </p>
+                    <iframe
+                        src="https://embeds.beehiiv.com/255bda27-7d9d-4f91-9f9c-edca5ce5d90a?slim=true"
+                        data-test-id="beehiiv-embed"
+                        height="52"
+                        frameborder="0"
+                        scrolling="no"
+                        // style="margin: 0; border-radius: 0px !important; background-color: transparent;"
+                    />
+                </section>
+                {loadimg && (
+                    <img width={200} src="/pics/jump.gif" alt="Scary GIF" />
+                )}
+                {loadimg && (
+                    <img width={50} src="/pics/final_h.gif" alt="Scary GIF" />
+                )}
+            </div>
+        </>
     )
 }
 
