@@ -149,7 +149,7 @@ const UserRegisterForm = () => {
             if (response.status === 201 || response.status === 200) {
                 const data = await response.json()
                 setLoading(false)
-                toast.success('Registered Successfully', {
+                toast.success('Registered Successfully, You can Login now', {
                     position: 'top-right',
                     autoClose: 3000,
                     hideProgressBar: false,
