@@ -427,6 +427,7 @@ const oursponsors = () => {
                 partner: 'Knowledge Partner',
                 sponsors: [
                     {
+                        // name: 'Konnifel',
                         image: 'https://drive.google.com/uc?export=view&id=1PSx1RqfdGkvXoKL4e11PuG8X_ORouj4Z',
                         link: 'https://konnifel.com',
                     },
@@ -525,7 +526,19 @@ const oursponsors = () => {
                     {
                         // khadi bihar
                         image: 'https://drive.google.com/uc?export=view&id=1SVi0330iEG31s0sOTjcemIyfJwFG-mwu',
-                        link: 'https://finvasia.com',
+                        link: 'https://www.biharkhadi.com/',
+                    },
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=179PmT23fZr1DF4yHGkw7JQxQVbqAn9hU',
+                        link: 'https://www.plushforher.com/',
+                    },
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1nclvMpEH7K9obHTvJKPoGVFFrJ8isq2b',
+                        link: 'https://www.instagram.com/dop.aminestore/',
+                    },
+                    {
+                        image: 'https://drive.google.com/uc?export=view&id=1KPRkyISX-Zyv6ILRi8gSYBgLoNC0F2VN',
+                        link: 'https://www.instagram.com/priyankas_fashionvilla_/',
                     },
                 ],
             },
